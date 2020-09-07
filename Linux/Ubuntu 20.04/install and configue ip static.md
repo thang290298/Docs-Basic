@@ -59,7 +59,9 @@ ens33 là Network Interface
 - 192.168.10.11 là địa chỉ IP tĩnh ta đặt cho máy
 - 192.168.10.2 là Default Gateway
 - 8.8.8.8, 8.8.4.4 là địa chỉ DNS Server
+
 Ta lưu lại thay đổi và thoát.
+
 Sau đó thực hiện khởi động lại dịch vụ mạng với một trong các lệnh:
  -  sudo netplan apply
  -  sudo systemctl restart NetworkManager.service
