@@ -63,7 +63,7 @@ Cài đặt thêm một số gói. Nếu không cần thì chọn done để ti�
 
  Chọn reboot hệ thống để hoàn thành!
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-111.png">
- 
+
  Đăng nhập user và password.
 <a name="IPstatic"></a>
 
@@ -76,7 +76,7 @@ Nội dung file như sau:
 <img src="https://news.cloud365.vn/wp-content/uploads/2020/03/d36TfYG.png">
 Nội dung trên có nghĩa là card mạng ens33 đang được cấu hình dhcp.
 Ta sửa file lại như sau:
-<img src="https://news.cloud365.vn/wp-content/uploads/2020/03/0zdib4K.png">
+<img src="https://imgur.com/fm6zLE1">
 Trong đó:
 
 ens33 là Network Interface
@@ -92,7 +92,7 @@ Sau đó thực hiện khởi động lại dịch vụ mạng với một trong
  -  sudo service network-manager restart
 
 - Kết quả:
-<img src="https://news.cloud365.vn/wp-content/uploads/2020/03/IepY3jW.png">
+<img src="https://imgur.com/TVRwlwz">
 Máy đã nhận địa chỉ IP tĩnh mà ta cấu hình bên trên.
 
 Để cấu hình IP động, ta chỉ cần sửa file /etc/netplan/50-loud-init.yaml lại như ban đầu là xong.
