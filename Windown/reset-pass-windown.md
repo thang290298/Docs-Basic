@@ -4,3 +4,7 @@
 - File ISO là bản cài Windows Server tương ứng với Windows Server hiện tại (2012, 2016,...)
 - Phần mềm Rufus để cài USB boot, tham khảo [tại đây](https://quantrimang.com/huong-dan-tao-usb-boot-nhanh-94484)
 ## 2. Các bước thực hiện
+- Bước 1: Boot máy chủ bằng USB boot vừa tạo
+<img src="https://i.imgur.com/lzDF97V.png">
+- Bước 2: Chọn "Next" và Chọn ”Repair your computer“
+<img src="https://i.imgur.com/953FWgT.png">
