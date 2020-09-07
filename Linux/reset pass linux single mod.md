@@ -30,7 +30,7 @@ rd.break
  – Ấn Ctrl+X để lưu và tự động boot vào môi trường initramfs.
  <img src="https://i.imgur.com/8Ij7blg.jpg">
  
-<a name="remount"></a
+<a name="remount"></a>
 
  ## 3. remount filesystem và chuyển chế độ chroot
  – Hệ thống filesystem hiện tại đang ở chế độ “read only” được mount ở thư mục /sysroot/, để thực hiện khôi phục mật khẩu root thì ta cần thêm quyền ghi (write) trên filesystem. Ta sẽ tiến hành remount lại filesystem /sysroot/ với quyền đọc-ghi (read-write).
