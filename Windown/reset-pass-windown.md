@@ -8,3 +8,19 @@
 <img src="https://i.imgur.com/lzDF97V.png">
 - Bước 2: Chọn "Next" và Chọn ”Repair your computer“
 <img src="https://i.imgur.com/953FWgT.png">
+
+- Bước 3: Chọn "Trouble Shoot"
+<img src="https://i.imgur.com/953FWgT.png">
+- Bước 4: Chọn "Command Prompt" để mở cửa sổ lệnh của Windows
+<img src="https://i.imgur.com/sLOw73c.png">
+- Bước 5: Xác định ổ chứa OS Windows Server
+
+Ta phải xác định ổ chứa OS của Windows Server mà ta đã cài đặt, ví dụ trong bài này sẽ là ổ :/D
+
+Các lệnh thực hiện:
+```
+d: cd windows\system32
+ren Utilman.exe Utilman.exe.old
+copy cmd.exe Utilman.exe
+```
+<img src="https://i.imgur.com/TwbCnHM.png">
