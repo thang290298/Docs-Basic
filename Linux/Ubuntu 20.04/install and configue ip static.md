@@ -76,7 +76,7 @@ Nội dung file như sau:
 <img src="https://news.cloud365.vn/wp-content/uploads/2020/03/d36TfYG.png">
 Nội dung trên có nghĩa là card mạng ens33 đang được cấu hình dhcp.
 Ta sửa file lại như sau:
-<img src="https://imgur.com/a/aciJm5z">
+<img src="https://imgur.com/QEMAB6n">
 Trong đó:
 
 ens33 là Network Interface
