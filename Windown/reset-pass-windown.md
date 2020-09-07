@@ -24,3 +24,14 @@ ren Utilman.exe Utilman.exe.old
 copy cmd.exe Utilman.exe
 ```
 <img src="https://i.imgur.com/TwbCnHM.png">
+- Bước 7: Tắt cửa sổ Command Prompt và nhấn Continue.
+Sau khi Windows Server khởi động lại thành công, bạn nhấn tổ hợp phím Windows + U, tại màn hình đăng nhập để mở cửa sổ Command Prompt. Sau đó sử dụng lệnh sau:Sau khi Windows Server khởi động lại thành công, bạn nhấn tổ hợp phím Windows + U, tại màn hình đăng nhập để mở cửa sổ Command Prompt. Sau đó sử dụng lệnh sau:
+
+```
+net user administrator newpassword
+```
+Lưu ý: Bạn thay thế chuỗi newpassword của lệnh trên bằng chính mật khẩu mới của tài khoản Administrator.
+<img src="https://i.imgur.com/YukOMj4.png">
+Bây giờ, bạn có thể đăng nhập vào Windows Server bằng tài khoản quản trị với mật khẩu mới thay đổi.
+# Nguồn tham khảo
+https://blogchiasekienthuc.com/thu-thuat-may-tinh/cach-reset-mat-khau-windows-server.html
