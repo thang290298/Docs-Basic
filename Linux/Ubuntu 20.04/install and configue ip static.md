@@ -1,7 +1,7 @@
-# Hướng dẫn cài đặt Ubuntu 20.04 LTS Server
-## 1. Download Ubuntu-Server 20.04
+## Hướng dẫn cài đặt Ubuntu 20.04 LTS Server
+### 1. Download Ubuntu-Server 20.04
 [Ubuntu-20.04-live-server-amd64.iso](https://mirrors.bkns.vn/ubuntu-releases/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)
-## 2. Setup
+### 2. Setup
 Sau khi chọn boot thì màn hình hiện lên sẽ như sau. Và ta sẽ thực hiện theo từng bước như bài hướng dẫn này nhé.
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-97.png">    
 
@@ -21,7 +21,7 @@ Ta sẽ cài đặt IP cho máy mình muốn sử dụng.
 
  Cài đặt proxy. Bạn chọn done để nhận proxy theo mặc định với cú pháp ở dưới cùng
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-102.png">
- 
+
  Cài đặt địa chỉ mirror cho ubuntu. Nhấn done để nhận mặc định
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-103.png">
  Phân vùng ổ cứng. chọn done để không chia chỉ sử dụng 1 phân vùng.
@@ -43,3 +43,24 @@ Cài đặt thêm một số gói. Nếu không cần thì chọn done để ti�
  Chọn reboot hệ thống để hoàn thành!
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-111.png">
  Đăng nhập user và password.
+ ## Hướng dẫn cấu hình IP Tĩnh
+  Đầu tiên, xem tên card mạng bằng lệnh sau:
+   - # networkctl status
+<img src="https://news.cloud365.vn/wp-content/uploads/2020/03/O0nvpQI.png">
+Để cấu hình IP tĩnh cho máy ảo. Ta có thể dùng một trong các trình soạn thảo vi, vim, nano để chỉnh sửa file /etc/netplan/50-cloud-init.yaml.
+Nội dung file như sau:
+<img src="https://news.cloud365.vn/wp-content/uploads/2020/03/d36TfYG.png">
+Nội dung trên có nghĩa là card mạng ens33 đang được cấu hình dhcp.
+Ta sửa file lại như sau:
+<img src="https://news.cloud365.vn/wp-content/uploads/2020/03/0zdib4K.png">
+Trong đó:
+
+ens33 là Network Interface
+- 192.168.10.11 là địa chỉ IP tĩnh ta đặt cho máy
+- 192.168.10.2 là Default Gateway
+- 8.8.8.8, 8.8.4.4 là địa chỉ DNS Server
+Ta lưu lại thay đổi và thoát.
+Sau đó thực hiện khởi động lại dịch vụ mạng với một trong các lệnh:
+ - # sudo netplan apply
+ - # sudo systemctl restart NetworkManager.service
+ - # sudo service network-manager restart
