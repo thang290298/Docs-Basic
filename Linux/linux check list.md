@@ -24,6 +24,8 @@ Ta có thể sử dụng thêm lệnh `sort` để sắp xếp kết quả
 
 `ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | grep httpd`
 
+<img src="https://i.imgur.com/Hb4VuCP.png">  
+
 Trong đó:
 
 	- `-eo`: dùng để hiển thị các đầu ra cụ thể được in ra (PID,User, %RAM)
@@ -38,6 +40,8 @@ Trong đó:
 
 `ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | grep httpd`
 
+<img src="https://i.imgur.com/Zd81wYo.png">  
+
 ## Kiểm tra log tại thời điểm bị thông báo Out of Memory
 
 Tại thời điểm có thông báo "Out of Memory", lúc này sẽ có log được lưu tại `var/log/messages`. Ta có thể truy cập vào đó để kiểm tra.
@@ -45,6 +49,8 @@ Tại thời điểm có thông báo "Out of Memory", lúc này sẽ có log đ�
 `cat /var/log/messages | grep memory`
 
 Sử dụng lệnh `grep` để lọc ra các log có liên quan đến memory.
+
+<img src="https://i.imgur.com/6YZYAJ6.png"> 
 
 ## Kiểm tra các tiến trình sử dụng nhiều tài nguyên
 
@@ -60,13 +66,19 @@ Sử dụng lệnh `grep` để lọc ra các log có liên quan đến memory.
 
 - `ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head -n 10`: Lọc ra 10 tiến trình sử dụng nhiều tài nguyên được sắp xếp từ lớn đến bé với %Ram sử dụng nhiều nhất.
 
+<img src="https://i.imgur.com/B3dK8ki.png"> 
+
 - `ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 10`: Lọc ra 10 tiến trình sử dụng nhiều tài nguyên được sắp xếp từ lớn đến bé với %CPU sử dụng nhiều nhất.
+
+<img src="https://i.imgur.com/BKqu6RR.png"> 
 
 ## Kiểm tra các IP truy cập vào Apache nhiều nhất
 
 Để kiểm tra các IP truy cập vào Webserver nói riêng và Apache nói chung, ta sử dụng lệnh `awk` để in ra kết quả tại `access_log` của Apache. Ta có thể sử dụng thêm lệnh `sort` để lọc kết quả.
 
-`awk '{ print $1}' đường dẫn access.log | sort | uniq -c | sort -nr | head -n 10`
+`awk '{ print $1}' /var/log/httpd/access_log-20200901 | uniq -c | sort -nr | head -n 10`
+
+<img src="https://i.imgur.com/xKXhb3O.png"> 
 
 Trong đó:
 
