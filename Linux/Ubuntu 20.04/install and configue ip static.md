@@ -5,6 +5,7 @@
 - [2. Setup](#Setup)
 
 [II. Hướng dẫn cấu hình IP Tĩnh](#IPstatic)
+[III. Nguồn tham khảo](#nguonthamkhao)
 
 <a name="huongdancaidatubuntu"></a>
 
@@ -87,8 +88,9 @@ Sau đó thực hiện khởi động lại dịch vụ mạng với một trong
 Máy đã nhận địa chỉ IP tĩnh mà ta cấu hình bên trên.
 
 Để cấu hình IP động, ta chỉ cần sửa file /etc/netplan/50-loud-init.yaml lại như ban đầu là xong.
-<a name="nguonlieuthamkhao"></a>
+<a name="nguonthamkhao"></a>
 
- ## Nguồn liệu tham khảo
+ ## Nguồn tham khảo
  https://news.cloud365.vn/huong-dan-cai-dat-ubuntu-20-04/
+
  https://news.cloud365.vn/ubuntu-cau-hinh-ip-tinh-tren-ubuntu-server-20-04-ban-develop-voi-netplan/
