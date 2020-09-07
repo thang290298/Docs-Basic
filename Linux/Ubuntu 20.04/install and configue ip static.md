@@ -3,6 +3,7 @@
 [I. Hướng dẫn cài đặt Ubuntu 20.04 LTS Server](##huongdancaidatubuntu)
 - [1. Download Ubuntu-Server 20.04](#Download)
 - [2. Setup](#Setup)
+
 [II. Hướng dẫn cấu hình IP Tĩnh](#IPstatic)
 
 <a name="huongdancaidatubuntu"></a>
