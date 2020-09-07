@@ -2,15 +2,15 @@
 
 ## Mục lục 
 
-[1. Kiểm tra tài nguyên sử dụng của MySQL, HTTP](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/Checklist-CommandLinux.md#ki%E1%BB%83m-tra-t%C3%A0i-nguy%C3%AAn-s%E1%BB%AD-d%E1%BB%A5ng-c%E1%BB%A7a-mysql-http)
+[1. Kiểm tra tài nguyên sử dụng của MySQL, HTTP](https://github.com/thang290298/work-Decument/blob/master/Linux/linux%20check%20list.md#ki%E1%BB%83m-tra-t%C3%A0i-nguy%C3%AAn-s%E1%BB%AD-d%E1%BB%A5ng-c%E1%BB%A7a-mysql-http)
 
-[2. Kiểm tra log tại thời điểm bị thông báo Out of Memory](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/Checklist-CommandLinux.md#ki%E1%BB%83m-tra-log-t%E1%BA%A1i-th%E1%BB%9Di-%C4%91i%E1%BB%83m-b%E1%BB%8B-th%C3%B4ng-b%C3%A1o-out-of-memory)
+[2. Kiểm tra log tại thời điểm bị thông báo Out of Memory](https://github.com/thang290298/work-Decument/blob/master/Linux/linux%20check%20list.md#ki%E1%BB%83m-tra-log-t%E1%BA%A1i-th%E1%BB%9Di-%C4%91i%E1%BB%83m-b%E1%BB%8B-th%C3%B4ng-b%C3%A1o-out-of-memory)
 
-[3. Kiểm tra các tiến trình sử dụng nhiều tài nguyên](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/Checklist-CommandLinux.md#ki%E1%BB%83m-tra-c%C3%A1c-ti%E1%BA%BFn-tr%C3%ACnh-s%E1%BB%AD-d%E1%BB%A5ng-nhi%E1%BB%81u-t%C3%A0i-nguy%C3%AAn)
+[3. Kiểm tra các tiến trình sử dụng nhiều tài nguyên](https://github.com/thang290298/work-Decument/blob/master/Linux/linux%20check%20list.md#ki%E1%BB%83m-tra-c%C3%A1c-ti%E1%BA%BFn-tr%C3%ACnh-s%E1%BB%AD-d%E1%BB%A5ng-nhi%E1%BB%81u-t%C3%A0i-nguy%C3%AAn)
 
-[4. Kiểm tra các IP truy cập vào Apache nhiều nhất](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/Checklist-CommandLinux.md#ki%E1%BB%83m-tra-c%C3%A1c-ip-truy-c%E1%BA%ADp-v%C3%A0o-apache-nhi%E1%BB%81u-nh%E1%BA%A5t)
+[4. Kiểm tra các IP truy cập vào Apache nhiều nhất](https://github.com/thang290298/work-Decument/blob/master/Linux/linux%20check%20list.md#ki%E1%BB%83m-tra-c%C3%A1c-ip-truy-c%E1%BA%ADp-v%C3%A0o-apache-nhi%E1%BB%81u-nh%E1%BA%A5t)
 
-[Tài liệu tham khảo](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/Checklist-CommandLinux.md#t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o)
+[Tài liệu tham khảo](https://github.com/thang290298/work-Decument/blob/master/Linux/linux%20check%20list.md#t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o)
 
 ## Kiểm tra tài nguyên sử dụng của MySQL, HTTP
 
