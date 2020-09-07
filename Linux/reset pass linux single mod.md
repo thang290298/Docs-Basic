@@ -71,8 +71,7 @@ sh-4.2# exit
 switch_root:/# exec /sbin/reboot
 ```
 <img src="https://i.imgur.com/7Jl96IU.png">
-<a name="nguonthamkhao"></a
-
+<a name="nguonthamkhao"></a>
 
 ## 6. Nguồn tham khảo
 https://cuongquach.com/khoi-phuc-mat-khau-root-tren-centos7-rhel7.html
