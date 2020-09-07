@@ -55,4 +55,4 @@ sudo systemctl restart mysql
 `sudo tail -f /var/log/slow-query.log`
 
 ## Tài liệu tham khảo
-https://blog.cloud365.vn/logging/Enable-slow-query-log-mysql/
+https://docs.cpanel.net/knowledge-base/sql/how-to-enable-the-slow-query-log-in-mysql-or-mariadb/
