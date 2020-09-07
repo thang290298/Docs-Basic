@@ -61,6 +61,6 @@ ens33 là Network Interface
 - 8.8.8.8, 8.8.4.4 là địa chỉ DNS Server
 Ta lưu lại thay đổi và thoát.
 Sau đó thực hiện khởi động lại dịch vụ mạng với một trong các lệnh:
- - # sudo netplan apply
- - # sudo systemctl restart NetworkManager.service
- - # sudo service network-manager restart
+ -  sudo netplan apply
+ -  sudo systemctl restart NetworkManager.service
+ -  sudo service network-manager restart
