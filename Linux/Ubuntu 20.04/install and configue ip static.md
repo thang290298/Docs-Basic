@@ -4,10 +4,31 @@
 ## 2. Setup
 Sau khi chọn boot thì màn hình hiện lên sẽ như sau. Và ta sẽ thực hiện theo từng bước như bài hướng dẫn này nhé.
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-97.png">    
+
  Nhấn enter để tiếp tục chạy
   <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-98.png">
+
 Sau khi chạy xong thì đầu tiên ta sẽ chọn ngôn ngữ cho hệ điều hành của mình muốn sử dụng 
 <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-99.png">
 
 Tiếp theo ta sẽ lựa chọn loại bàn phím mà ta sẽ dùng là gì.
 <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-100.png">
+
+Ta sẽ cài đặt IP cho máy mình muốn sử dụng.
+ - Chọn done để nhận IP theo DHCP
+ - Chọn vào edit để có thể cài IP static
+ <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-101.png">
+
+ Cài đặt proxy. Bạn chọn done để nhận proxy theo mặc định với cú pháp ở dưới cùng
+ <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-102.png">
+ Cài đặt địa chỉ mirror cho ubuntu. Nhấn done để nhận mặc định
+ <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-103.png">
+ Phân vùng ổ cứng. chọn done để không chia chỉ sử dụng 1 phân vùng.
+ <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-104.png">
+ Chọn phân vùng để cài đặt hệ điều hành chọn done
+ <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-105.png">
+  Xác nhận để tiếp tục cài đặt hệ điều hành
+ <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-106.png">
+Cài đặt tên máy được sử dụng. Cài đặt user và password để đăng nhập vào máy. Rồi chọn done để hoàn thành việc cài đặt
+ <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-107.png">
+ lựa chọn có cài đặt dịch vụ SSH cho máy hay là không. Nếu có cài đặt thì có sử dụng mật khẩu cho dịch vụ ssh hay là không. Và chọn có cho ssh bằng password hay là không. Rồi chọn done
