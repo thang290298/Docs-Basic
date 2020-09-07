@@ -30,7 +30,7 @@ Sau khi Windows Server khởi động lại thành công, bạn nhấn tổ hợ
 ```
 net user administrator newpassword
 ```
-Lưu ý: Bạn thay thế chuỗi "newpassword"của lệnh trên bằng chính mật khẩu mới của tài khoản Administrator.
+Lưu ý: Bạn thay thế chuỗi "P@ssw0rd"của lệnh trên bằng chính mật khẩu mới của tài khoản Administrator.
 <img src="https://i.imgur.com/YukOMj4.png">
 
 Bây giờ, bạn có thể đăng nhập vào Windows Server bằng tài khoản quản trị với mật khẩu mới thay đổi.
