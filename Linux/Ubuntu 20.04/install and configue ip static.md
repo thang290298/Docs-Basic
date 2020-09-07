@@ -62,7 +62,13 @@ ens33 là Network Interface
 
 Ta lưu lại thay đổi và thoát.
 
-Sau đó thực hiện khởi động lại dịch vụ mạng với một trong các lệnh:
+- Sau đó thực hiện khởi động lại dịch vụ mạng với một trong các lệnh:
  -  sudo netplan apply
  -  sudo systemctl restart NetworkManager.service
  -  sudo service network-manager restart
+
+- Kết quả:
+<img src="https://news.cloud365.vn/wp-content/uploads/2020/03/IepY3jW.png">
+Máy đã nhận địa chỉ IP tĩnh mà ta cấu hình bên trên.
+
+Để cấu hình IP động, ta chỉ cần sửa file /etc/netplan/50-loud-init.yaml lại như ban đầu là xong.
