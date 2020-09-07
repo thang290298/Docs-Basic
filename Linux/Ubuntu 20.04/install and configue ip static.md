@@ -92,7 +92,7 @@ Sau đó thực hiện khởi động lại dịch vụ mạng với một trong
  -  sudo service network-manager restart
 
 - Kết quả:
-<img src="https://imgur.com/JJqbrLB">
+<img src="https://i.imgur.com/JJqbrLB.png">
 Máy đã nhận địa chỉ IP tĩnh mà ta cấu hình bên trên.
 
 Để cấu hình IP động, ta chỉ cần sửa file /etc/netplan/50-loud-init.yaml lại như ban đầu là xong.
