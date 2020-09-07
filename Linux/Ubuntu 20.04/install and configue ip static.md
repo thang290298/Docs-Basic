@@ -21,6 +21,7 @@ Ta sẽ cài đặt IP cho máy mình muốn sử dụng.
 
  Cài đặt proxy. Bạn chọn done để nhận proxy theo mặc định với cú pháp ở dưới cùng
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-102.png">
+ 
  Cài đặt địa chỉ mirror cho ubuntu. Nhấn done để nhận mặc định
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-103.png">
  Phân vùng ổ cứng. chọn done để không chia chỉ sử dụng 1 phân vùng.
