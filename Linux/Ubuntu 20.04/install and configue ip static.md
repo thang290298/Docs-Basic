@@ -57,6 +57,7 @@ Cài đặt thêm một số gói. Nếu không cần thì chọn done để ti�
  <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-111.png">
  Đăng nhập user và password.
 <a name="IPstatic"></a>
+
  ## Hướng dẫn cấu hình IP Tĩnh
   Đầu tiên, xem tên card mạng bằng lệnh sau:
    - networkctl status
@@ -86,3 +87,8 @@ Sau đó thực hiện khởi động lại dịch vụ mạng với một trong
 Máy đã nhận địa chỉ IP tĩnh mà ta cấu hình bên trên.
 
 Để cấu hình IP động, ta chỉ cần sửa file /etc/netplan/50-loud-init.yaml lại như ban đầu là xong.
+<a name="nguonlieuthamkhao"></a>
+
+ ## Nguồn liệu tham khảo
+ https://news.cloud365.vn/huong-dan-cai-dat-ubuntu-20-04/
+ https://news.cloud365.vn/ubuntu-cau-hinh-ip-tinh-tren-ubuntu-server-20-04-ban-develop-voi-netplan/
