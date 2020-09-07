@@ -10,9 +10,9 @@
 <img src="https://i.imgur.com/953FWgT.png">
 
 - Bước 3: Chọn "Trouble Shoot"
-<img src="https://i.imgur.com/953FWgT.png">
-- Bước 4: Chọn "Command Prompt" để mở cửa sổ lệnh của Windows
 <img src="https://i.imgur.com/sLOw73c.png">
+- Bước 4: Chọn "Command Prompt" để mở cửa sổ lệnh của Windows
+<img src="https://i.imgur.com/yUY3iHr.png">
 - Bước 5: Xác định ổ chứa OS Windows Server
 
 Ta phải xác định ổ chứa OS của Windows Server mà ta đã cài đặt, ví dụ trong bài này sẽ là ổ :/D
