@@ -8,5 +8,6 @@ Sau khi chọn boot thì màn hình hiện lên sẽ như sau. Và ta sẽ thự
   <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-98.png">
 Sau khi chạy xong thì đầu tiên ta sẽ chọn ngôn ngữ cho hệ điều hành của mình muốn sử dụng 
 <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-99.png">
+
 Tiếp theo ta sẽ lựa chọn loại bàn phím mà ta sẽ dùng là gì.
 <img src="https://news.cloud365.vn/wp-content/uploads/2020/04/image-100.png">
