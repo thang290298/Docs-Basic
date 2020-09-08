@@ -5,7 +5,7 @@
 
 ## 2. Thu thập chi tiết cơ sở dữ liệu MySql
 - Vì chúng ta đã định vị tên máy chủ MySQL từ xa ở bước trước, chúng ta sẽ chỉ cần  tên cơ sở dữ liệu và người dùng .
-<img src="https://prnt.sc/udcjgo">
+<img src="https://prnt.sc/udcjgo.png">
 
 - Sử dụng thông tin Database và User để truy cập từ xa
 <img src="https://prnt.sc/udcjr7">
