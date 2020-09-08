@@ -13,6 +13,7 @@
   - DHCP server: Là thiết bị dùng để cấp phát địa chỉ cho client
 
   <img src="https://blog.cloud365.vn/images/img-dhcp/screenshot.png"> 
+
 ## 2. Nguyên lý hoạt động DHCP
 Thành phần chính của DHCP bao gồm 4 bản tin:
    - DISCOVERY
@@ -20,7 +21,9 @@ Thành phần chính của DHCP bao gồm 4 bản tin:
    - REQUEST
    - ACK
 Quá trình cấp phát địa chỉ IP trong giao thức DHCP bao gồm các bước sau
+
 <img src="https://blog.cloud365.vn/images/img-dhcp/2019-04-09_10-01.png"> 
+
 Kịch bản client xin cấp DHCP từ modem
    - Bước 1: Khi muốn có địa chỉ IP để truy cập vào internet thì client sẽ tạo ra bản tin DISCOVERY để yêu cầu cấp phát địa chỉ IP
    - Bước 2: Client chưa biết địa chỉ chính xác của Server cấp phát địa chỉ cho mình do đó nó sẽ gửi bản tin này dưới dạng broadcast.
