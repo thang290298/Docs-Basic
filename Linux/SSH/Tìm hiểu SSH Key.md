@@ -13,3 +13,34 @@
 
 ### 3. Nguyên tắc hoạt động của SSH
 - Private key và Public key luôn có liên hệ chặt chẽ với nhau để nó có thể nhận diện lẫn nhau. Khi tạo một SSH Key thì người dùng sẽ có cả 2 loại key này. Sau đó người dùng mang public key upload lên máy chủ của mình, còn cái private key của người dùng sẽ lưu ở máy và khi đăng nhập vào server, người dùng sẽ gửi yêu cầu đăng nhập kèm theo cái Private Key này để gửi tín hiệu đến server, server sẽ kiểm tra xem cái Private key của người dùng có khớp với Public key có trên server hay không, nếu có thì bạn sẽ đăng nhập được.
+### 4. Cách tạo SSh Key
+- Đối với Windows
+  - Người dùng có thể sử dụng phần mềm PuTTY-Gen  để tạo SSH key.Sau khi download phần mềm PuTTY-Gen về và cài đặt ta làm theo hướng dẫn như hình bên dưới
+  <img src="https://https://i.imgur.com/O3Trowu.png"> 
+
+- Sau khi click vào genarate bạn di chuyển chuột quanh màn hình để tạo key.Sau khi tạo key xong ta click vào Save private key như hình bên dưới để lưu lại private key được tạo ra và coppy đoạn key vừa được tạo ra
+<img src="https://i.imgur.com/dkKUdZ7.png"> 
+- Đối với Linux
+  - Trên server Linux chạy lệnh ssh-keygen -t rsa
+  - Sau khi bạn chạy lệnh trên màn hình sẽ hiện ra thông báo hiển thị đường dẫn lưu key được tạo ra, mặc định key public và private sẽ được lưu trong đường dẫn /root/.ssh/ (Trong bước này bạn có thể đặt pass cho private key nếu cần)
+  - truy cập thu mục `.ssh`
+  ```
+  cd /root/.ssh/
+  ```
+  - tạo mới file và dán đoạn key được tạo trên client
+<img src="https://i.imgur.com/NV6zgyP.png"> 
+
+  lưu file và thoat
+### Kiểm tra
+- tiến hành kiểm tra bằng MobaXterm
+- Click chọn MobaXterm, chọn session --> chọn SSH
+  - Nhập các tùy chọn : địa chỉ máy chủ, port, click phần advanced ssh setting--> chọn use private key và trỏ đường dẫn đến private key chúng ta lưu ở phần tạo key. sau đó chọn ok
+<img src="https://i.imgur.com/SXeu1tw.png">
+
+kết quả:
+<img src="https://i.imgur.com/NHXx0Y2.png">
+
+## Nguồn Tham Khảo
+https://blog.cloud365.vn/other/su-dung-SSH-KEY/
+
+
