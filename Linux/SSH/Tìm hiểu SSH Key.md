@@ -22,12 +22,17 @@
 <img src="https://i.imgur.com/dkKUdZ7.png"> 
 - Đối với Linux
   - Trên server Linux chạy lệnh ssh-keygen -t rsa
+  
   - Sau khi bạn chạy lệnh trên màn hình sẽ hiện ra thông báo hiển thị đường dẫn lưu key được tạo ra, mặc định key public và private sẽ được lưu trong đường dẫn /root/.ssh/ (Trong bước này bạn có thể đặt pass cho private key nếu cần)
+
   - truy cập thu mục `.ssh`
   ```
   cd /root/.ssh/
   ```
   - tạo mới file và dán đoạn key được tạo trên client
+  ```
+  vi authorized_keys
+  ```
 <img src="https://i.imgur.com/NV6zgyP.png"> 
 
   lưu file và thoat
