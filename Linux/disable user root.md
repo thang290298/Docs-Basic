@@ -70,3 +70,4 @@ PermitRootLogin no
 
 # Nguồn Tham Khảo
 https://vinasupport.com/tao-user-voi-quyen-sudo-tren-centos-ubuntu/
+https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user
