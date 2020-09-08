@@ -1,19 +1,21 @@
 # Hướng dẫn kết nối hideSql tới MySql
 - HeidiSQL là một công cụ tất cả trong một để quản lý, phát triển và quản trị cơ sở dữ liệu
 ## 1. Cấp phép kết nối từ xa đến MySql thông qua IP 
-<img src="https://prnt.sc/udchq0"> 
+<img src="https://i.imgur.com/gvyvcAV.png"> 
 
 ## 2. Thu thập chi tiết cơ sở dữ liệu MySql
 - Vì chúng ta đã định vị tên máy chủ MySQL từ xa ở bước trước, chúng ta sẽ chỉ cần  tên cơ sở dữ liệu và người dùng .
-<img src="https://prnt.sc/udcjgo">
+<img src="https://i.imgur.com/qlMRrGi.png">
 
 - Sử dụng thông tin Database và User để truy cập từ xa
-<img src="https://prnt.sc/udcjr7">
+
+<img src="https://i.imgur.com/biTsGRg.png">
 
 ## 3. Cấu hình kết nối máy khách HeidiSQL
 - Mở máy khách cơ sở dữ liệu và nhấn `Mới` để tạo mục nhập.
 -Sau đó, bạn sẽ cần đặt tên cho mục nhập và điền vào cấu hình cơ sở dữ liệu MySQL.
-<img src="https://prnt.sc/udcky4">
+
+<img src="https://i.imgur.com/om6xUdK.png">
 
 Đảm bảo hoàn thành các trường sau:
 
@@ -26,7 +28,8 @@
 
 Sau khi hoàn tất, hãy nhấn nút Mở và bạn sẽ ở bên trong cơ sở dữ liệu của mình.
 
-<img src="https://prnt.sc/udcliz">
+<img src="https://i.imgur.com/1Jij9B2.png">
+
 Xin chúc mừng! Giờ đây, bạn có thể truy cập cơ sở dữ liệu của mình từ xa bằng ứng dụng HeidiSQL.
 
 # Nguồn Tham khảo
