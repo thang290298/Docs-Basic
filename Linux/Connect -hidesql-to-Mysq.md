@@ -7,7 +7,6 @@
 - Vì chúng ta đã định vị tên máy chủ MySQL từ xa ở bước trước, chúng ta sẽ chỉ cần  tên cơ sở dữ liệu và người dùng .
 <<<<<<< HEAD
 <img src="https://i.imgur.com/qlMRrGi.png">
-=======
 
 - Sử dụng thông tin Database và User để truy cập từ xa
 
