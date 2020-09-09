@@ -82,5 +82,21 @@
 ### Dùng TCPDUMP bắt gói tin DHCP
 
 - Trước tiên chuẩn bị 2 máy để cài đặt Tcpdump và cấp phát DHCP.
+- Cài đặt TCPDUMP bằng câu lệnh sau
+```
+yum install tcpdump
+```
+- Thực hiện bắt gói tin DHCP
+```
+tcpdump -nni ens33 -n port 67 and port 68
+```
+<img src="https://image.prntscr.com/image/PV6VJJ8JQ9KYZpDdCc0Pdg.png">
 
+- Từ hình trên ta có thể thấy Tcpdump bắt được 4 gói tin:
+  - Client gửi gói tin DHCP Discover ra toàn mạng, do chưa có địa chỉ IP nên client dùng địa chỉ nguồn 0.0.0.0 ra toàn mạng. Gói tin này có chưa địa chỉ MAC của client.
+  - DHCP server nhận được gói tin DHCP Discover, DHCP server sẽ gửi cho client 1 gói tin DHCP offer, gói tin này chưa địa chỉ IP cho thuê một khoảng thời gian nhất định.
+  - Client nhận được gói tin DHCP offer, client sẽ gửi trả một gói tin DHCP requet để thông báo cho DHCP server sẽ nhận địa chỉ IP này.
+  - DHCP server nhận được gói tin DHCP request, DHCP sẽ gửi gói tin DHCP ACK nhằm thông báo chấp nhận client sử dụng địa chỉ Ip vừa cấp.
 
+# Nguồn tham khảo
+https://github.com/phancong0897/Congphan/blob/master/DHCP/DHCP-with-wireshark-and-tcpdump.md
