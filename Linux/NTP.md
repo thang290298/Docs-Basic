@@ -194,7 +194,7 @@ systemctl restart chronyd
 ```
 Sử dụng chronyc kiểm tra đồng bộ.
 
-<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/sources%20-v.png?raw=true">
+<img src="https://image.prntscr.com/image/VxemScopRQKY8Ba3thNQjA.png">
 
 Kiểm tra đồng bộ sử dụng `timedatectl`.
 
