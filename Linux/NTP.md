@@ -57,7 +57,7 @@ Sau khi đổi tên Server cần đồng bộ cấu hình của hostname và /et
    timedatectl
  ```
 
-<img src="">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/timedate.png">
 
 Mặc định trên Ubuntu 20.04 thì trình đồng bộ thời gian timesync đã được thiết lập sẵn trong OS từ lúc cài đặt. Nó hoạt động vẫn rất ổn định nhưng đối với các ứng dụng cần độ nhạy về thời gian yêu cầu cao hơn thì nó sẽ yêu cầu sử dụng các kỹ thuật phức tạp hơn để có thể đồng bộ liên tục và giữ đồng bộ thời gian hệ thống
 
@@ -66,7 +66,7 @@ Mặc định trên Ubuntu 20.04 thì trình đồng bộ thời gian timesync �
  timedatectl set-ntp no
  ```
 
- <img src="">
+ <img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/offtimedate.png">
 
  Cấu hình firewall `ufw`
  ```
@@ -88,7 +88,7 @@ systemctl status chrony
 
 - Kết quả:
 
-<img src="">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/statuschronyubuntu.png">
 
 Mặc định trên Ubuntu file cấu hình của Chrony nằm ở /etc/chrony/chrony.conf, tiến hành kiểm tra file cấu hình.
 ```
@@ -104,7 +104,7 @@ Kiểm tra lại file cấu hình.
 ```
 cat /etc/chrony/chrony.conf | egrep -v '^$|^#'
 ```
-<img src="">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/checkconfigubuntu.png">
 Restart lại dịch vụ để cập nhật cấu hình.
 
 ```
@@ -114,8 +114,11 @@ Sử dụng chronyc để kiểm tra đồng bộ.
 ```
 chronyc sources -v
 ```
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/sources%20-v.png">
+
 Kiểm tra đồng bộ sử dụng `timedatectl`.
-<img src="">
+
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/timedatecen2.png">
 
 Set đồng bộ thời gian cho đồng hồ của BIOS (Đồng hồ phần cứng) `hwclock`.
 
@@ -134,7 +137,8 @@ hwclock --systohc
    timedatectl
  ```
 
-<img src="">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/timedate.png">
+
 Cấu hình allow Firewalld.
 
 ```
@@ -160,12 +164,14 @@ Kiểm tra  dịch vụ đang hoạt động.
 systemctl status chronyd
 ```
 Kết quả:
-<img src="">
+
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/chronycentosstatus.png">
+
 Mặc định trên CentOS/RHEL7 file cấu hình của Chrony nằm ở /etc/chrony.conf, tiến hành kiểm tra file cấu hình.
 ```
 cat /etc/chrony.conf | egrep -v '^$|^#'
 ```
-<img src="">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/checkconfigcentos7.png">
 
 - Thực chất sau khi cài đặt và khởi động Chrony thì Server này đã tự động đồng bộ thời gian về từ một trong những NTP Server thuộc pool ntp.ubuntu.com
 - Bây giờ thay vì đồng bộ thời gian từ Internet chúng ta sẽ đồng bộ từ NTP Server chúng ta cấu hình phía trên.
@@ -178,21 +184,25 @@ sed -i 's|pool 2.ubuntu.pool.ntp.org iburst maxsources 2|#|g' /etc/chrony.conf
 ```
 
 Kiểm tra cấu hình
-<img src="">
+
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/checkconfigcentos7-2.png">
 - Khởi động lại Chrony để cập nhật cấu hình.
 ```
 systemctl restart chronyd
 ```
 Sử dụng chronyc kiểm tra đồng bộ.
 
-<img src="">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/sources%20-v.png">
 
 Kiểm tra đồng bộ sử dụng `timedatectl`.
 
-<img src="">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/timedatecen2.png">
 
 Set đồng bộ thời gian cho đồng hồ của BIOS (Đồng hồ phần cứng) `hwclock`.
 
 ```
 hwclock --systohc
 ```
+# Nguồn tham khảo
+https://news.cloud365.vn/cai-dat-chrony-tren-ubuntu-18-04/
+https://news.cloud365.vn/cai-dat-chrony-tren-centos-rhel-7/
