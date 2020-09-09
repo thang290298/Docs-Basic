@@ -61,3 +61,5 @@ cat /var/log/secure
 ```
 ALL: 192.168.18. EXCEPT 192.168.18.137
 ```
+## Nguồn tham khảo
+https://news.cloud365.vn/tcp-wrappers-chung-la-gi-va-chung-duoc-su-dung-nhu-the-nao-trong-linux/
