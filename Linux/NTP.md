@@ -207,4 +207,5 @@ hwclock --systohc
 ```
 # Nguồn tham khảo
 https://news.cloud365.vn/cai-dat-chrony-tren-ubuntu-18-04/
+
 https://news.cloud365.vn/cai-dat-chrony-tren-centos-rhel-7/
