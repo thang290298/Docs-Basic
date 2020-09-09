@@ -63,21 +63,21 @@
   - Packet received by filter: số lượng gói tin được nhận bởi bộ lọc.
   - Packet dropped by kernel: số lượng packet đã bị dropped bởi cơ chế bắt gói tin của hệ điều hành.
 -  Các tùy chọn thường được sử dụng trong TCPDUMP
-  - -X : Hiển thị nội dung của gói theo định dạng ASCII và HEX
-  - -XX : Tương tự -X, hiển thị giao diện ethernet
-  - -D : Liệt kê các giao diện mạng có sẵn
-  - -l : Đầu ra có thể đọc được dòng (để xem khi bạn lưu hoặc gửi đến các lệnh khác)
-  - -t : Cung cấp đầu ra dấu thời gian có thể đọc được của con người
-  - -q : Ít dài dòng hơn với đầu ra
-  - -tttt : Cung cấp đầu ra dấu thời gian tối đa có thể đọc được của con người
-  - -i : Bắt lưu lượng của một giao diện cụ thể
-  - -vv : Đầu ra cụ thể và chi tiết hơn (nhiều v hơn cho đầu ra nhiều hơn)
-  - s : Xác định snaplength(kích thước) của gói tin theo byte. Sử dụng -s0 để có được mọi thứ. Nếu không set size packet dump thành unlimit, thì khi tcpdump ra nó bị phân mảnh
-  - -c : Chỉ nhận được x số gói và sau đó dừng lại
-  - -S : In số thứ tự tuyệt đối
-  - -e : Nhận tiêu đề ethernet
-  - -q : Hiển thị ít thông tin giao thức
-  - -E : Giải mã lưu lượng IPSEC bằng cách cung cấp khóa mã hóa
+    - -X : Hiển thị nội dung của gói theo định dạng ASCII và HEX
+    - -XX : Tương tự -X, hiển thị giao diện ethernet
+    - -D : Liệt kê các giao diện mạng có sẵn
+    - -l : Đầu ra có thể đọc được dòng (để xem khi bạn lưu hoặc gửi đến các lệnh khác)
+    - -t : Cung cấp đầu ra dấu thời gian có thể đọc được của con người
+    - -q : Ít dài dòng hơn với đầu ra
+    - -tttt : Cung cấp đầu ra dấu thời gian tối đa có thể đọc được của con người
+    - -i : Bắt lưu lượng của một giao diện cụ thể
+    - -vv : Đầu ra cụ thể và chi tiết hơn (nhiều v hơn cho đầu ra nhiều hơn)
+    - s : Xác định snaplength(kích thước) của gói tin theo byte. Sử dụng -s0 để có được mọi thứ. Nếu không set size packet dump thành unlimit, thì khi tcpdump ra nó bị phân mảnh
+    - -c : Chỉ nhận được x số gói và sau đó dừng lại
+    - -S : In số thứ tự tuyệt đối
+    - -e : Nhận tiêu đề ethernet
+    - -q : Hiển thị ít thông tin giao thức
+    - -E : Giải mã lưu lượng IPSEC bằng cách cung cấp khóa mã hóa
 
 ### Dùng TCPDUMP bắt gói tin DHCP
 
