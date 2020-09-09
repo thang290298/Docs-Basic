@@ -42,3 +42,15 @@
   - option (53): Kiểu tin nhắn.
   - option (50): địa chỉ IP yêu cầu (192.168.18.169)
   - option (55): Danh sách tham số yêu cầu
+
+## 2. Phân tích gói tin DHCP bằng TCPDUMP
+
+### Giới thiệu về TCPDUMP
+- TCPDUMP là gì ?
+
+  - TCPDUMP thực chất là công cụ được phát triển nhằm mục đích nhận diện và phân tích các gói dữ liệu mạng theo dòng lệnh. TCPDUMP cho phép khách hàng chặn và hiển thị các gói tin được truyền đi hoặc được nhận trên một mạng có sự tham gia của máy tính.
+
+  - Hiểu đơn giản, TCPDUMP là phần mềm bắt gói tin trong mạng làm việc trên hầu hết các phiên bản hệ điều hành unix/linux. Tcpdump cho phép bắt và lưu lại những gói tin bắt được, từ đó chúng ta có thể sử dụng để phân tích.
+  - TCPDUMP được xem là trụ cột trong việc gỡ rối và kiểm tra vấn đề kết nối mạng và bảo mật.
+
+<img src="https://image.prntscr.com/image/2PyasXGIRG29Sh5qsvcn5Q.png">
