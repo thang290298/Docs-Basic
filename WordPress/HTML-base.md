@@ -47,3 +47,5 @@
 |502|Bad Gateway|Máy chủ cố truy cập đang gửi lại lỗi.|
 |503|Service Unavailable|Service hoặc file đang được yêu cầu hiện không có sẵn.|
 |505|HTTP Version Not Supported|Giao thức HTTP yêu cầu không được hỗ trợ.|
+# Nguồn tham khảo
+https://quantrimang.com/danh-sach-ma-trang-thai-http-http-status-code-day-du-149916
