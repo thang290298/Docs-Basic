@@ -68,7 +68,7 @@ Mặc định trên Ubuntu 20.04 thì trình đồng bộ thời gian timesync �
 
  <img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/offtimedate.png?raw=true">
 
- Cấu hình firewall `ufw`
+ - Cấu hình firewall `ufw`
  ```
  sudo ufw allow ntp 
  ```
@@ -117,7 +117,7 @@ chronyc sources -v
 ```
 <img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/sources%20-v.png?raw=true">
 
-Kiểm tra đồng bộ sử dụng `timedatectl`.
+- Kiểm tra đồng bộ sử dụng `timedatectl`.
 
 <img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/timedatecen2.png?raw=true">
 
@@ -140,13 +140,13 @@ hwclock --systohc
 
 <img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/timedate.png?raw=true">
 
-Cấu hình allow Firewalld.
+- Cấu hình allow Firewalld.
 
 ```
 firewall-cmd --add-service=ntp --permanent 
 firewall-cmd --reload 
 ```
-Cấu hình disable SElinux.
+- Cấu hình disable SElinux.
 ```
 sudo setenforce 0
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
@@ -156,15 +156,15 @@ truy cập ssh vào client và tiến hành cài đặt Chrony
 ```
 yum install -y chrony
 ```
-Sau khi cài đặt chúng ta tiến hành start Chrony và cho phép khởi động cùng hệ thống.
+- Sau khi cài đặt chúng ta tiến hành start Chrony và cho phép khởi động cùng hệ thống.
 ```
 systemctl enable --now chronyd
 ```
-Kiểm tra  dịch vụ đang hoạt động.
+- Kiểm tra  dịch vụ đang hoạt động.
 ```
 systemctl status chronyd
 ```
-Kết quả:
+- Kết quả:
 
 <img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/chronycentosstatus.png?raw=true">
 
@@ -174,9 +174,11 @@ cat /etc/chrony.conf | egrep -v '^$|^#'
 ```
 <img src="https://github.com/thang290298/work-Document/blob/master/Images/ntp/checkconfigcentos7.png?raw=true">
 
-- Thực chất sau khi cài đặt và khởi động Chrony thì Server này đã tự động đồng bộ thời gian về từ một trong những NTP Server thuộc pool ntp.ubuntu.com
-- Bây giờ thay vì đồng bộ thời gian từ Internet chúng ta sẽ đồng bộ từ NTP Server chúng ta cấu hình phía trên.
-- Tại Server 192.168.18.177 chỉnh sửa cấu hình chrony.
+Thực chất sau khi cài đặt và khởi động Chrony thì Server này đã tự động đồng bộ thời gian về từ một trong những NTP Server thuộc pool ntp.ubuntu.com
+
+Bây giờ thay vì đồng bộ thời gian từ Internet chúng ta sẽ đồng bộ từ NTP Server chúng ta cấu hình phía trên.
+
+Tại Server 192.168.18.177 chỉnh sửa cấu hình chrony.
 ```
 sed -i 's|pool ntp.ubuntu.com        iburst maxsources 4|server 192.168.18.177 iburst|g' /etc/chrony.conf
 sed -i 's|spool 0.ubuntu.pool.ntp.org iburst maxsources 1|#|g' /etc/chrony.conf
@@ -192,7 +194,7 @@ Kiểm tra cấu hình
 ```
 systemctl restart chronyd
 ```
-Sử dụng chronyc kiểm tra đồng bộ.
+Sử dụng `chronyc` kiểm tra đồng bộ.
 
 <img src="https://image.prntscr.com/image/VxemScopRQKY8Ba3thNQjA.png">
 
