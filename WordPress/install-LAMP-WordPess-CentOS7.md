@@ -195,3 +195,8 @@ Nhập vào thông tin cho trang web và tài khoản của bạn. Sau khi xong,
 Chọn Log in rồi nhập vào tài khoản và mật khẩu vừa tạo:
 
  <img src="https://image.prntscr.com/image/Staj9cRsQXSH7Cox3AIbuQ.png">
+
+# Nguồn tham khảo
+https://news.cloud365.vn/huong-dan-cai-dat-lamp-tren-centos-7/
+
+https://vicloud.vn/community/cach-cai-wordpress-tren-centos-7-418.html
