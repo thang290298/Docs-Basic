@@ -20,6 +20,7 @@ click chuột vào ` clicking here ` để xác thực và kích hoạt tài kho
 <img src="https://image.prntscr.com/image/iVceKXNFSjePtrkIa4hBgg.png">
 
 ## 3. Add New Monitor
+
 <img src="https://image.prntscr.com/image/DWdgwQG_QDmtyqa0xbRhMg.png">
 
 Các tùy chọn có sẵn: 
