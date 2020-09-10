@@ -7,7 +7,7 @@
   - Đặt tên cho bot của bạn. Ở đây ví dụ đặt là nvt_ssh_bot.
 
 
-<img src="https://image.prntscr.com/image/Gf5V8hGQTcm4Aavt7G_R4A.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/bot-ssh-telegram/new-bot.png?raw=true">
 
 - Sau khi tạo bot thành công sẽ có thông báo về một token cho bot. Ở đây là: 1379195062:AAHGPUQIwyTUJuJWISxLpbV6vRAcs-Kk2EY.
 
@@ -39,7 +39,7 @@ Lúc này kết quả sẽ hiện ra, ta tìm đến đoạn "chat":{"id":xxxxxx
 
 - Kết quả nhận được khi tin nhắn được chuyển tới group Telegram.
 
-<img src="https://image.prntscr.com/image/Gf5V8hGQTcm4Aavt7G_R4A.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/bot-ssh-telegram/test%20api.png?raw=true">
 
 ## 2. Gửi cảnh báo sử dụng JQ
 - Với cách trên, ta chỉ sử dụng để kiểm tra gửi cảnh báo về Telegram. Để thực hiện việc thông báo về đăng nhập SSH tới Telegram. Ta phải sử dụng script gửi cảnh báo để tự động hóa. Ở đây ta sẽ sử dụng ứng dụng jq
@@ -117,7 +117,7 @@ fi
 
 - Kiểm tra đăng nhập bằng SSH:
 
-<img src="https://image.prntscr.com/image/Gf5V8hGQTcm4Aavt7G_R4A.png"
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/bot-ssh-telegram/check-bot.png?raw=true">
 
 # Nguồn Tham Khảo
 
