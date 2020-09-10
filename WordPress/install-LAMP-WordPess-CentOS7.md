@@ -2,7 +2,7 @@
 ## I. Hướng dẫn cài đặt LAMP
 ### 1. Tổng quan
 LAMP là một hệ thống các phần mềm để tạo dựng môi trường máy chủ web có khả năng chứa và phân phối các trang web động được viết bằng PHP.
-<img src="https://image.prntscr.com/image/zZ-kCGioRmu9tImliG176Q.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/wordpress/lamp01.png?raw=true">
 LAMP bao gồm:
  - Linux: là hệ điều hành, cũng là phần mềm dùng để điều phối và quản lí các tài nguyên của hệ thống.
  - Apache: là phần mềm máy chủ web, có thể thực hiện các request được gọi tới máy chủ thông qua giao thức HTTP
@@ -29,7 +29,7 @@ Bạn có thể check lại trang thái hoạt động của service bằng các
 Kiểm tra trạng thái trên trình duyệt bằng cách gõ trên thanh url địa chỉ sau:
 - http://your_server_IP/
 
-<img src="https://image.prntscr.com/image/zZ-kCGioRmu9tImliG176Q.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/wordpress/chechapache.png?raw=true">
 
 Thay đổi Firewall để cho phép kết nối các cổng này bằng các lệnh sau:
 ```
@@ -185,4 +185,9 @@ lưu và đóng file `:wq!`:
 
 - http://103.124.94.180
 
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/wordpress/wordpress_web_install.png?raw=true">
+
+Nhập vào thông tin cho trang web và tài khoản của bạn. Sau khi xong, chọn Install WordPress để tiếp tục.
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/wordpress/wordpress_success.png?raw=true">
+Chọn Log in rồi nhập vào tài khoản và mật khẩu vừa tạo:
  <img src="https://image.prntscr.com/image/Staj9cRsQXSH7Cox3AIbuQ.png">
