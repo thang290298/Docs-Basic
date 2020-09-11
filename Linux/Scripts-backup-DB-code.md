@@ -62,7 +62,7 @@ sh /opt/scripts/backupdb.sh
 Sau khi backup Scripts sẽ tạo thư mục có tên  dạng `date +%Y%m%d`
 và 1 file .txt chưa nội dung thông báo backup thành công:
 
-<img src="https://github.com/thang290298/work-Document/blob/master/Images/bot-ssh-telegram/check-bot.png?raw=true">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/wordpress/backupdata.png?raw=true">
 
 ## 2. Tạo Scrips Backup Source code Wordpress
 
@@ -113,5 +113,5 @@ gõ lệnh `crontab -e`
 
   # Nguồn tham khảo
   https://1hosting.com.vn/scripts-backup-toan-bo-database-mysql-tren-vps-linux/
-  
+
   https://vpssim.vn/1731-huong-dan-tu-dong-backup-code-va-database-sang-mot-servervps-khac.html
