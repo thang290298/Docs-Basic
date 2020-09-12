@@ -83,7 +83,7 @@ Khi lần đầu chạy rsync, toàn bộ dữ liệu nguồn sẽ được copy
 rsync -avz rpmpkgs/ root@192.168.1.180:/home/
 ```
 
-Lệnh trên copy thư mục `rpmpkgs` từ Local lên Remote Server có IP `192.168.0.101`, lưu ở thư mục `/home/`.
+Lệnh trên copy thư mục `rpmpkgs` từ Local lên Remote Server có IP `192.168.0.180`, lưu ở thư mục `/home/`.
 
 - Copy thư mục từ Remote Server về Local
 
@@ -110,7 +110,7 @@ Lệnh trên copy file `/root/install.log` trên Remote Server `192.168.1.177` v
 - Copy file từ Local lên Remote Server qua SSH:
 
 ```
-rsync -avzhe ssh backup.tar root@192.168.0.100:/backups/
+rsync -avzhe ssh backup.tar root@192.168.1.177:/backups/
 ```
 
 **Lưu ý**: Nếu sử dụng port SSH custom, không phải port tiêu chuẩn 22, bạn cần chỉ rõ port muốn dùng trong câu lệnh. Ví dụ port `2201`:
@@ -186,7 +186,7 @@ Thêm nội dung sau:
 0 1 * * * /backups/rsync.sh
 ```
 
-Tại đây có nghĩa là việc đồng bộ sẽ được diễn ra vào lúc 8 giờ sáng hàng ngày. Ta lưu lại là thành công.
+Tại đây có nghĩa là việc đồng bộ sẽ được diễn ra vào lúc 1 giờ sáng hàng ngày. Ta lưu lại là thành công.
 
 ## Tài liệu tham khảo
 
