@@ -20,38 +20,38 @@ Nếu bạn không thấy kết quả nào được trả về, điều đó có
 - Bước 1: Tạo Swap file
 
  chạy lệnh sau để tạo swapfile
-
+```
      dd if=/dev/zero of=/swapfile bs=1024 count=2048k
-
+```
 - Bước 2: Phân quyền cho swapfile
 
 
  Để đảm bảo rằng chỉ người dùng root mới có thể đọc và ghi vào swap các bạn chạy lần lượt hai lệnh dưới đây:
-
+```
      chown root:root /swapfile
 
      chmod 600 /swapfile    
-
+```
 - Bước 3: Kích hoạt Swapfile
 
  Tiếp theo, các bạn chạy lệnh sau để tạo phân vùng swap:
-
+```
      mkswap /swapfile
-
+```
  Chạy lệnh sau để kích hoạt swap:
-
+```
      swapon /swapfile
-
+```
 - Bước 4: Thiết lập tự kích hoạt swapfile mỗi khi khởi động lại hệ thống
 
  Để phân vùng swap không bị mất mỗi khi khởi động lại hệ thống các bạn cần chỉnh sửa file /etc/fstab bằng cách chạy lệnh sau:
-
+```
       echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-
+```
  Để kiểm tra xem swap đã được kích hoạt hay chưa hãy dùng lệnh sau:
-
+```
      free -h
-
+```
 <img src="https://image.prntscr.com/image/Cr0xgUUASdmuSRC7_utOwQ.png">
 
 ## 4.  Điều chỉnh giá trị Swappiness
@@ -59,27 +59,27 @@ Nếu bạn không thấy kết quả nào được trả về, điều đó có
 - Swappiness là một thuộc tính nhân Linux xác định tần suất hệ thống sẽ sử dụng swap. Swappiness có thể có giá trị từ 0 đến 100.
 
 - Giá trị Swappiness mặc định trên CentOS 7 là 30. Bạn có thể kiểm tra giá trị Swappiness hiện tại bằng cách nhập lệnh sau:
-
+```
      cat /proc/sys/vm/swappiness
-
+```
 - Điều này có nghĩa hệ thống sẽ bắt đầu sử dụng swap khi Ram thật chỉ còn trống 30%. Để đặt giá trị swappiness thành 10, hãy chạy lệnh sau:
-
+```
      sysctl vm.swappiness=10
 
-
+```
 
 - Để tham số này không bị thay đổi mỗi khi khởi động lại, hãy mở file /etc/sysctl.conf
 
     Thêm dòng sau vào cuối file và lưu lại
-
+```
      vm.swappiness=10
-
+```
 <img src="https://image.prntscr.com/image/0TeLjP6DRb_PURJ3k9htQg.png">
 
 - Tiếp theo các bạn mở file /usr/lib/tuned/virtual-guest/tuned.conf tìm và sửa vm.swappiness
-
+```
      vi/usr/lib/tuned/virtual-guest/tuned.conf
-
+```
 <img src="https://image.prntscr.com/image/IgjKA3rCR6yDRFXWO8LiWQ.png">
 
 ## 5. Xóa Swap
@@ -87,21 +87,21 @@ Nếu bạn không thấy kết quả nào được trả về, điều đó có
 Để hủy kích hoạt và xóa tệp hoán đổi, hãy làm theo các bước sau:
 
 - Đầu tiên để hủy kích hoạt swap các bạn chạy lệnh sau:
-
+```
      swapoff -v /swapfile
-
+```
 - Tiếp theo mở file /etc/fstab và xoá dòng dưới đây:
-
+```
      /swapfile none swap sw 0 0
-
+```
 - Cuối cùng, xóa swapfile
-
+```
      rm /swapfile
-
+```
 - Kiểm tra đã xóa thành công chưa bằng câu lệnh:
-
+```
      swapon-- show
-
+```
 Nếu nó không xuất hiện gì thì bạn đã xóa thành công.
 
 ## 6. Nguồn tham khảo
