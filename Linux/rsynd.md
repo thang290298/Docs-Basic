@@ -71,7 +71,7 @@ Các tham số cần biết khi dùng Rsync:
 
 - --exclude: loại trừ ra những dữ liệu không muốn truyền đi, nếu bạn cần loại ra nhiều file hoặc folder ở nhiều đường dẫn khác nhau thì mỗi cái bạn phải thêm --exclude tương ứng.
 
-Rsync không tự động chạy nên thường được dùng kết hợp với [crontab]
+Rsync không tự động chạy nên thường được dùng kết hợp với [crontab](https://github.com/thang290298/work-Document/blob/master/Linux/crontab.md)
 
 Khi lần đầu chạy rsync, toàn bộ dữ liệu nguồn sẽ được copy đến server đích, từ lần chạy sau trở đi chỉ những dữ liệu chưa được copy mới được transfer – đây là quá trình đồng bộ dữ liệu. Do đó, bạn có thể hiểu rsync thực hiện việc copy hoặc đồng bộ đều đúng.
 
