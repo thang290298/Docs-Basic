@@ -2,16 +2,19 @@
 
 ## Mục lục
 
-[1. Rsync là gì?](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/rsync.md#1-rsync-l%C3%A0-g%C3%AC-)
+[1. Rsync là gì?](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#1-rsync-l%C3%A0-g%C3%AC-)
 
-[2. Cài đặt Rsync](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/rsync.md#2-c%C3%A0i-%C4%91%E1%BA%B7t-rsync)
+[2. Cài đặt Rsync](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#2-c%C3%A0i-%C4%91%E1%BA%B7t-rsync)
 
-[3. Cách sử dụng Rsync](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/rsync.md#3-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-rsync)
+[3. Cách sử dụng Rsync](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#3-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-rsync)
 
-- [3.1. Copy file và thư mục giữa các Server](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/rsync.md#31-copy-file-v%C3%A0-th%C6%B0-m%E1%BB%A5c-gi%E1%BB%AFa-c%C3%A1c-server)
+- [3.1. Copy file và thư mục giữa các Server](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#3-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-rsync)
 
-- [3.2. Rsync qua SSH](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/rsync.md#32-rsync-qua-ssh)
+- [3.2. Rsync qua SSH](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#3-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-rsync)
 
+[4. Sử dụng Rsync kết hợp với SSH Key pair để Tự động hóa việc đồng bộ](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#4-s%E1%BB%AD-d%E1%BB%A5ng-rsync-k%E1%BA%BFt-h%E1%BB%A3p-v%E1%BB%9Bi-ssh-key-pair-%C4%91%E1%BB%83-t%E1%BB%B1-%C4%91%E1%BB%99ng-h%C3%B3a-vi%E1%BB%87c-%C4%91%E1%BB%93ng-b%E1%BB%99)
+- [4.1. Kiểm tra việc đồng bộ bằng tay](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#41-ki%E1%BB%83m-tra-vi%E1%BB%87c-%C4%91%E1%BB%93ng-b%E1%BB%99-b%E1%BA%B1ng-tay)
+- [4.2. Cấu hình tự đồng hóa rsync](https://github.com/thang290298/work-Document/blob/master/Linux/rsynd.md#42-c%E1%BA%A5u-h%C3%ACnh-t%E1%BB%B1-%C4%91%E1%BB%93ng-h%C3%B3a-rsync)
 [Tài liệu tham khảo](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/rsync.md#t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o)
 
 ## 1. Rsync là gì ?
@@ -68,7 +71,7 @@ Các tham số cần biết khi dùng Rsync:
 
 - --exclude: loại trừ ra những dữ liệu không muốn truyền đi, nếu bạn cần loại ra nhiều file hoặc folder ở nhiều đường dẫn khác nhau thì mỗi cái bạn phải thêm --exclude tương ứng.
 
-Rsync không tự động chạy nên thường được dùng kết hợp với [crontab](https://github.com/quanganh1996111/Linux-Tutorial/blob/master/Crontab.md)
+Rsync không tự động chạy nên thường được dùng kết hợp với [crontab]
 
 Khi lần đầu chạy rsync, toàn bộ dữ liệu nguồn sẽ được copy đến server đích, từ lần chạy sau trở đi chỉ những dữ liệu chưa được copy mới được transfer – đây là quá trình đồng bộ dữ liệu. Do đó, bạn có thể hiểu rsync thực hiện việc copy hoặc đồng bộ đều đúng.
 
