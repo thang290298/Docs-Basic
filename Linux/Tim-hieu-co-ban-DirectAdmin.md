@@ -95,8 +95,15 @@ Bạn có thể download file backup này về máy tính cá nhân của mình 
 - Bước 1: Đăng nhập vào bảng điều khiển DirectAdmin thông qua tài khoản admin
 - Bước 2: Chọn mục Admin Backup/Transfer
 
-<img src="http://www.vietiso.com/images/content/2016/anh_bai_viet/admin_VPS_png.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/DirectAdmin/admin_VPS_png.png?raw=true">
 
 - Bước 3: Tại mục Restore Backup chọn User cần restore và ấn submit
 
-<img src="http://www.vietiso.com/images/content/2016/anh_bai_viet/restore_backup_png.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/DirectAdmin/restore_backup_png.png?raw=true">
+
+# Nguồn tham Khảo
+https://kb.nhanhoa.com/pages/viewpage.action?pageId=37454051
+
+https://news.cloud365.vn/directadmin-huong-dan-backup-website-len-direct-admin-phan-4/
+
+https://www.vietiso.com/ho-tro/vps-cloud/huong-dan-va-thu-thuat/huong-dan-restore-du-lieu-vps-trong-directadmin.html
