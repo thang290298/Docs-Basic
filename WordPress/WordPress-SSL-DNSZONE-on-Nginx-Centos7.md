@@ -104,55 +104,8 @@ server {
 
 <img src="https://github.com/thang290298/work-Document/blob/master/Images/wordpress/wordpress_web_install.png?raw=true">
 
-## 2. Cài đặt SSL Let's Encrypt
-### 2.1 Tạo chứng chỉ SSL
-TLS / SSL hoạt động bằng cách sử dụng kết hợp chứng chỉ công khai và khóa riêng tư. Khóa SSL được giữ bí mật trên máy chủ. Nó được sử dụng để mã hóa nội dung được gửi đến máy khách. Chứng chỉ SSL được chia sẻ công khai với bất kỳ ai yêu cầu nội dung. Nó có thể được sử dụng để giải mã nội dung được ký bởi khóa SSL liên quan.
 
-Thư mục /etc/ssl/certs, có thể được sử dụng để giữ chứng chỉ công khai, nên đã tồn tại trên máy chủ. Hãy tạo một /etc/ssl/privatethư mục để giữ tệp khóa riêng tư. Vì tính bí mật của khóa này là cần thiết để bảo mật, chúng tôi sẽ khóa các quyền để ngăn truy cập trái phép:
-```
-sudo mkdir /etc/ssl/private
-sudo chmod 700 /etc/ssl/private
-```
-Bây giờ, chúng ta có thể tạo một cặp chứng chỉ và khóa tự ký với OpenSSL trong một lệnh duy nhất bằng cách gõ:
-```
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
-```
-Bạn sẽ được hỏi một loạt câu hỏi. Trước khi xem xét điều đó, hãy xem điều gì đang xảy ra trong lệnh mà chúng tôi đang phát hành:
-  - openssl : Đây là công cụ dòng lệnh cơ bản để tạo và quản lý chứng chỉ OpenSSL, khóa và các tệp khác.
-  - req : Lệnh con này chỉ định rằng chúng tôi muốn sử dụng quản lý yêu cầu ký chứng chỉ (CSR) X.509. “X.509” là tiêu chuẩn cơ sở hạ tầng khóa công khai mà SSL và TLS tuân thủ để quản lý khóa và chứng chỉ của nó. Chúng tôi muốn tạo một chứng chỉ X.509 mới, vì vậy chúng tôi đang sử dụng lệnh con này.
-  - -x509 : Điều này sửa đổi thêm lệnh con trước đó bằng cách nói với tiện ích rằng chúng tôi muốn tạo chứng chỉ tự ký thay vì tạo yêu cầu ký chứng chỉ như thường xảy ra.
-  - -nodes : Điều này yêu cầu OpenSSL bỏ qua tùy chọn bảo mật chứng chỉ của chúng tôi bằng cụm mật khẩu. Chúng tôi cần Nginx để có thể đọc tệp mà không cần sự can thiệp của người dùng, khi máy chủ khởi động. Cụm mật khẩu sẽ ngăn điều này xảy ra vì chúng tôi sẽ phải nhập cụm mật khẩu sau mỗi lần khởi động lại.
-  - -days 365 : Tùy chọn này đặt khoảng thời gian mà chứng chỉ sẽ được coi là hợp lệ. Chúng tôi đặt nó trong một năm ở đây.
-  - -newkey rsa: 2048 : Điều này chỉ định rằng chúng tôi muốn tạo chứng chỉ mới và khóa mới cùng một lúc. Chúng tôi đã không tạo khóa bắt buộc phải ký chứng chỉ ở bước trước, vì vậy chúng tôi cần tạo khóa cùng với chứng chỉ. Các rsa:2048phần nói với nó để thực hiện một khóa RSA đó là dài 2048 bit.
-  - -keyout : Dòng này cho OpenSSL biết nơi đặt tệp khóa cá nhân đã tạo mà chúng tôi đang tạo.
-  - -out : Điều này cho OpenSSL biết nơi đặt chứng chỉ mà chúng tôi đang tạo.
-Cả hai tệp đã tạo sẽ được đặt trong các thư mục con thích hợp của thư mục /etc/ssl.
-- Cập nhật các thông số Diffie-Hellman:
-Tạo tệp bằng cách sử dụng openssl:
-```
-sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
-```
-
-### 2.2 Định cấu hình Nginx để sử dụng SSL
-- Tiến hành định cấu hình File như trong hình:
-
-<img src="https://image.prntscr.com/image/Zr2odmgLTOm-nlcxW-Csmg.png">
-
-- khởi động lại Nginx:
-```
-sudo systemctl restart nginx
-```
-### 2.3 Kiểm tra mã hóa 
-Bây giờ, chúng tôi đã sẵn sàng để kiểm tra máy chủ SSL của mình.
-Mở trình duyệt web của bạn và nhập `https://tên` miền hoặc IP của máy chủ vào thanh địa chỉ:
-```
-https://learning365.online
-```
-
-kết quả:
-<img src="https://image.prntscr.com/image/MmfMDCiCQ_qeXQCu1P0ZRQ.png">
-
-## 3. Trỏ tền miềm cho Website Wordpress
+## 2. Trỏ tền miềm cho Website Wordpress
  Đăng nhập vào Website: `https://zonedns.vn/` với tên miền đã đăng ký.
 
  <img src="https://image.prntscr.com/image/36xRxd77SiCV7C3TTRbaXA.png">
