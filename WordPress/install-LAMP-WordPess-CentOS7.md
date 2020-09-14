@@ -125,7 +125,7 @@ CREATE USER nvt292@localhost IDENTIFIED BY 'Thang@292';
 ```
 Đến đây, bạn có một database và một user account được dùng riêng cho WordPress. Tuy nhiên, user vừa tạo không có quyền truy cập vào database. Chúng ta cần phải liên kết hai thành phần với nhau bằng cách cấp quyền truy cập đến database cho user.
 ```
-GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON wordpress.* TO nvt292@localhost IDENTIFIED BY 'Thang@292';
 ```
 Dùng lệnh sau để cập nhật những thay đổi về quyền truy cập.
 ```
