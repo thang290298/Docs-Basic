@@ -165,7 +165,7 @@ kết quả:
  + Nếu chọn Loại là : CNAME thì Địa chỉ phải nhập là tên miền , ví dụ: abc.com
  + Nếu chọn Loại là : MX thì Bản ghi phải là <domain> và Địa chỉ phải nhập là tên mail server, ví dụ: mail.abc.com
  + Priority chỉ áp dụng cho Loại là MX
- + Nếu Loại là : URL Redirect/URL Frame thì Địa chỉ phải nhập là địa chỉ web, ví dụ: http://www.digistar.vn
+ + Nếu Loại là : URL Redirect/URL Frame thì Địa chỉ phải nhập là địa chỉ web, ví dụ: https://nhanhoa.com/
 
 
 - Cấu hình tên miền trong file `*.conf` trong Nginx:
