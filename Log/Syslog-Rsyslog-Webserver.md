@@ -117,16 +117,16 @@ Mỗi một phần của dòng log này được mô tả dưới đây:
 
    | Method  | Description                                     |
    |---------|-------------------------------------------------|
-   | GET     | Transfer a current representation of the target resource.|
-   | HEAD    | Same as GET, but only transfer the status line and header section. |
-   | POST    | erform resource-specific processing on the request payload.        |
-   | PUT     | Replace all current representations of the  target resource with the request payload    |
-   | DELETE  | Remove all current representations of the target resource          |
-   | CONNECT | Establish a tunnel to the server identified by the target resource.|
-   | OPTIONS | Describe the communication options for the target resource.        |
-   | TRACE   | Perform a message loop-back test along the path to the target resource.      |
- 
-   
+   | GET     | Chuyển giao đại diện hiện tại của tài nguyên đích|
+   | HEAD    | Tương tự như GET, nhưng chỉ chuyển dòng trạng thái và phần tiêu đề. |
+   | POST    | chỉnh sửa xử lý tài nguyên cụ thể trên tải trọng yêu cầu.      |
+   | PUT     | Thay thế tất cả các đại diện hiện tại của tài nguyên đích bằng tải trọng yêu cầu     |
+   | DELETE  | Xóa tất cả các đại diện hiện tại của tài nguyên đích          |
+   | CONNECT | Thiết lập một đường hầm đến máy chủ được xác định bởi tài nguyên đích.|
+   | OPTIONS | Mô tả các tùy chọn giao tiếp cho tài nguyên mục tiêu.        |
+   | TRACE   | Thực hiện kiểm tra lặp lại thông báo dọc theo đường dẫn đến tài nguyên đích.      |
+
+
 
 
   - `%>s`: Mã trạng thái đã được trả lại cho máy khách. Mã 4xx (chẳng hạn như 404, không tìm thấy trang) cho biết lỗi máy khách và mã 5xx (chẳng hạn như 500, lỗi máy chủ nội bộ) cho biết lỗi máy chủ. Các số khác phải cho biết thành công (chẳng hạn như 200, OK) hoặc một cái gì đó khác như chuyển hướng (chẳng hạn như 301, đã di chuyển vĩnh viễn).
