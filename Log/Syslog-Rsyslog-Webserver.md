@@ -114,6 +114,27 @@ Mỗi một phần của dòng log này được mô tả dưới đây:
   zone = (`+' | `-') 4*digit 
   ``` 
   - `%r`: Dòng yêu cầu từ máy khách. Điều này sẽ hiển thị phương thức HTTP nào đã được sử dụng (chẳng hạn như GET hoặc POST), tệp nào được yêu cầu và giao thức HTTP nào đã được sử dụng.
+
+   +---------+-------------------------------------------------+-------+
+   | Method  | Description                                     | Sec.  |
+   +---------+-------------------------------------------------+-------+
+   | GET     | Transfer a current representation of the target | 4.3.1 |
+   |         | resource.                                       |       |
+   | HEAD    | Same as GET, but only transfer the status line  | 4.3.2 |
+   |         | and header section.                             |       |
+   | POST    | Perform resource-specific processing on the     | 4.3.3 |
+   |         | request payload.                                |       |
+   | PUT     | Replace all current representations of the      | 4.3.4 |
+   |         | target resource with the request payload.       |       |
+   | DELETE  | Remove all current representations of the       | 4.3.5 |
+   |         | target resource.                                |       |
+   | CONNECT | Establish a tunnel to the server identified by  | 4.3.6 |
+   |         | the target resource.                            |       |
+   | OPTIONS | Describe the communication options for the      | 4.3.7 |
+   |         | target resource.                                |       |
+   | TRACE   | Perform a message loop-back test along the path | 4.3.8 |
+   |         | to the target resource.                         |       |
+   +---------+-------------------------------------------------+-------+
   - `%>s`: Mã trạng thái đã được trả lại cho máy khách. Mã 4xx (chẳng hạn như 404, không tìm thấy trang) cho biết lỗi máy khách và mã 5xx (chẳng hạn như 500, lỗi máy chủ nội bộ) cho biết lỗi máy chủ. Các số khác phải cho biết thành công (chẳng hạn như 200, OK) hoặc một cái gì đó khác như chuyển hướng (chẳng hạn như 301, đã di chuyển vĩnh viễn).
   - `%b`:Các mục cuối cùng chỉ ra kích thước của đối tượng trả lại cho khách hàng, không bao gồm các tiêu đề ứng. Nếu không có nội dung được trả lại cho khách hàng, giá trị này sẽ được " - ". Để đăng nhập " 0 " cho không có nội dung, sử dụng %B để thay thế.
   - `\ "% {Referer} i \"`: Liên kết giới thiệu, nếu có. Điều này cho bạn biết cách người dùng điều hướng đến trang của bạn (từ liên kết nội bộ hoặc liên kết bên ngoài).
