@@ -172,3 +172,10 @@ cách sử dụng:
 tail -f error_log 
 
 ```
+# Nguồn Tham khảo
+https://github.com/niemdinhtrong/thuctapsinh/blob/master/CuongNQ/Basic%20Linux/11_Process.md
+
+https://www.thuysys.com/toi-uu/tim-hieu-cau-hinh-log-tren-webserver-nginx.html
+
+
+https://httpd.apache.org/docs/2.4/logs.html
