@@ -98,10 +98,11 @@ CustomLog logs/access_log common
 định. Các tên tập tin cho access log là tương đối so với ServerRoot trừ khi nó bắt đầu với một dấu gạch chéo. 
 Mỗi một phần của dòng log này được mô tả dưới đây: 
   - `%h`: IP máy khách ( Máy chủ tù xa)
-  - `- (%l)`:Những "gạch nối" ở đầu ra cho thấy rằng các mảnh yêu cầu các thông tin không có sẵn.  
-  - `%u`: Đây là userid của người yêu cầu các tài liệu được xác định bằng cách xác thực HTTP.  
-  - `%t`: time zone
-  - Thời gian mà máy chủ đã hoàn thành xử lý yêu cầu. Định dạng là: 
+  - `%l`:Đây là 'danh tính' trên máy khách, được sử dụng để xác định họ. Trường này thường trống và được trình bày dưới dạng dấu gạch ngang.  
+  - `%u`: ID người dùng của máy khách, nếu xác thực HTTP được sử dụng. Nếu không, mục nhập nhật ký sẽ không hiển thị bất kỳ thứ gì cho trường này.
+  
+  - `%t`: Dấu thời gian của mục nhập nhật ký.
+  Thời gian mà máy chủ đã hoàn thành xử lý yêu cầu. Định dạng là: 
   ```
   [day/month/year:hour:minute:second zone]  
   day = 2*digit  
@@ -112,9 +113,11 @@ Mỗi một phần của dòng log này được mô tả dưới đây:
   second = 2*digit  
   zone = (`+' | `-') 4*digit 
   ``` 
-  - `%r`: Dòng yêu cầu từ khách hàng được đưa ra trong dấu ngoặc kép
-  - `%>s`: Đây là mã trạng thái mà máy chủ gửi lại cho khách hàng
+  - `%r`: Dòng yêu cầu từ máy khách. Điều này sẽ hiển thị phương thức HTTP nào đã được sử dụng (chẳng hạn như GET hoặc POST), tệp nào được yêu cầu và giao thức HTTP nào đã được sử dụng.
+  - `%>s`: Mã trạng thái đã được trả lại cho máy khách. Mã 4xx (chẳng hạn như 404, không tìm thấy trang) cho biết lỗi máy khách và mã 5xx (chẳng hạn như 500, lỗi máy chủ nội bộ) cho biết lỗi máy chủ. Các số khác phải cho biết thành công (chẳng hạn như 200, OK) hoặc một cái gì đó khác như chuyển hướng (chẳng hạn như 301, đã di chuyển vĩnh viễn).
   - `%b`:Các mục cuối cùng chỉ ra kích thước của đối tượng trả lại cho khách hàng, không bao gồm các tiêu đề ứng. Nếu không có nội dung được trả lại cho khách hàng, giá trị này sẽ được " - ". Để đăng nhập " 0 " cho không có nội dung, sử dụng %B để thay thế.
+  - `\ "% {Referer} i \"`: Liên kết giới thiệu, nếu có. Điều này cho bạn biết cách người dùng điều hướng đến trang của bạn (từ liên kết nội bộ hoặc liên kết bên ngoài).
+  - `\ "% {User-Agent} i \"`: Phần này chứa thông tin về hệ điều hành và trình duyệt web của ứng dụng khách đang kết nối.
   #### 4.1.2 Combined Log Format  
   Một chuỗi định dạng thường được sử dụng được gọi là Combined Log Format. Nó có thể được sử dụng như sau. 
   ```
