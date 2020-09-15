@@ -207,6 +207,7 @@ tail -f error_log
    - Yêu cầu kết nối
    - Xác nhận mật khẩu
    - Mở session kết nối
+   
    hoặc:
    - yêu cầu kết nối 
    - mã xác thưc chưa chính xác
