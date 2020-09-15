@@ -202,22 +202,31 @@ tail -f error_log
 
   - `Sep 15 16:34:30`: thời gian máy chủ ghi ghi log và hận được yêu cầu truy cập
   - `thuviecthangnv-test`: Tên máy chủ dk client truy cập tới
-  - `sshd[22387]`: mã thông báo trang thái chứ nội dung log. 
+  - `sshd[22387]`: mã thông báo trang thái chứ nội dung log.
  - Với mỗi lần truy cập SSH từ xa vào hệ thống sẽ note ra `3` dòng log để thông báo:
-   - Yêu cầu kết nối
-   - Xác nhận mật khẩu
-   - Mở session kết nối
+   - Yêu cầu kết nối: chứ IP may khách
+   - Xác nhận mật khẩu: Thông báo xác nhận mật khẩu chứa tên user và ip máy khách
+   - Mở session kết nối :chưa thông tin `user` được mở kết nối
    
    hoặc:
-   - yêu cầu kết nối 
-   - mã xác thưc chưa chính xác
-   - thoát kết nối
+   - yêu cầu kết nối : chứ IP may khách
+   - mã xác thưc chưa chính xác: Thông báo mật khẩu lỗi cùng User và ip máy khách
+   - thoát kết nối : ngắt kết nối tói Ip máy khách
+
+Kết nối thành công:
   ```
    Address 117.4.255.125 maps to localhost, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
    Accepted password for root from 117.4.255.125 port 51821 ssh2
    pam_unix(sshd:session): session opened for user root by (uid=0)
   ```
-  
+Kết nối Thất bại
+   ```
+   Address 117.4.255.125 maps to localhost, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+   pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=117.4.255.125  user=nvt292
+   Connection closed by 117.4.255.125 port 52795 [preauth]
+   ```
+   
+
 
 # Nguồn Tham khảo
 https://github.com/niemdinhtrong/thuctapsinh/blob/master/CuongNQ/Basic%20Linux/11_Process.md
