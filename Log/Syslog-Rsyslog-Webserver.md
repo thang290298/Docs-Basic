@@ -161,6 +161,11 @@ Các trường bổ sung là:
 
    - Nginx:
 <img src="https://image.prntscr.com/image/YjbatdByS3mbCla5o1kQTg.png">   
+ - xem danh sách 5 IP cso lượt truy cập lớn nhất
+ ```
+ awk '{ print $1}' /var/log/httpd/ssl_access_log | sort | uniq -c | sort -nr | head -n 5
+ ```
+ <img src="https://image.prntscr.com/image/Be9j4TebRxSV3In16IL6nw.png"> 
 
 ### 4.2. error log
 - Các error log máy chủ, tên và vị trí được thiết lập bởi ErrorLog, là log file rất quan trọng. Đây là nơi mà Apache httpd sẽ gửi thông tin chẩn đoán và ghi lại bất kỳ lỗi nào mà nó gặp trong các yêu cầu xử lý. Đây là nơi đầu tiên để xem xét khi một vấn đề xảy ra với khởi chạy máy chủ hoặc với những hoạt động của máy chủ, vì nó sẽ thường chứa các thông tin chi tiết về những gì đã xảy ra và làm thế nào để sửa chữa nó. 
@@ -190,6 +195,29 @@ cách sử dụng:
 tail -f error_log 
 
 ```
+## 5. Secure log
+- Thông điệp an ninh liên quan sẽ được lưu trữ ở đây. Điều này bao gồm thông điệp từ SSH daemon, mật khẩu thất bại, người dùng không tồn tại, vv
+<img src="https://image.prntscr.com/image/NA0mAw9kR_2_XfjMSMd_Aw.png"> 
+- Các thành phần có trong file log.
+
+  - `Sep 15 16:34:30`: thời gian máy chủ ghi ghi log và hận được yêu cầu truy cập
+  - `thuviecthangnv-test`: Tên máy chủ dk client truy cập tới
+  - `sshd[22387]`: mã thông báo trang thái chứ nội dung log. 
+ - Với mỗi lần truy cập SSH từ xa vào hệ thống sẽ note ra `3` dòng log để thông báo:
+   - Yêu cầu kết nối
+   - Xác nhận mật khẩu
+   - Mở session kết nối
+   hoặc:
+   - yêu cầu kết nối 
+   - mã xác thưc chưa chính xác
+   - thoát kết nối
+  ```
+   Address 117.4.255.125 maps to localhost, but this does not map back to the address - POSSIBLE BREAK-IN ATTEMPT!
+   Accepted password for root from 117.4.255.125 port 51821 ssh2
+   pam_unix(sshd:session): session opened for user root by (uid=0)
+  ```
+  
+
 # Nguồn Tham khảo
 https://github.com/niemdinhtrong/thuctapsinh/blob/master/CuongNQ/Basic%20Linux/11_Process.md
 
