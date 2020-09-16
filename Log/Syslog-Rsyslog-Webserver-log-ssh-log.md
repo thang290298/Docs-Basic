@@ -225,7 +225,9 @@ Kết nối Thất bại
    pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=117.4.255.125  user=nvt292
    Connection closed by 117.4.255.125 port 52795 [preauth]
    ```
-   
+- Một số trường hợp lỗi kết nối SSH được file log ghi lại:
+   - Sai mật khẩu:
+   - 
 
 
 # Nguồn Tham khảo
