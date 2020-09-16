@@ -127,3 +127,9 @@ nameservers   8.8.4.4
 Sau khi thay đổi cấu hình mạng bạn khởi động lại máy ping tới IP 8.8.8.8 và tên miền dantri.com để kiểm tra kết nối mạng:
 
 <img src="https://image.prntscr.com/image/j_D0XDtFRveNr529xCBMzA.png">
+
+# Nguồn tham khảo
+
+https://www.smarthomebeginner.com/install-ubuntu-server-16-04/
+
+http://opensetup.net/2019/11/06/dat-dia-chi-ip-tren-ubuntu-server-16-04-lts/
