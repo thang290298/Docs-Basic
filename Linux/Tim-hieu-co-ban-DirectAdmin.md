@@ -31,9 +31,9 @@ Dĩ nhiên không có gì là hoàn hảo, dù có nhiều ưu điểm nhưng Di
 #### 4.1 Tính năng cho người quản trị (admin)
 Admin là cấp cao nhất, có thể tạo các tài khoản Users, Resellers, Admin, có đầy đủ các quyền quản lý cũng như phần cấu hình trong máy chủ.
 - Version 1.57.x
-<img src="https://support.cloud365.vn/images/img-da-cloud-app/Screenshot_709.png">
+<img src="https://image.prntscr.com/image/0kXJ36YOQ5Syb_am-Z3soA.png">
 
-<img src="https://support.cloud365.vn/images/img-da-cloud-app/screenshot_1.png">
+
 
 
    - Tạo và thay đổi các tài khoản quản lý và đại lý.
@@ -46,10 +46,9 @@ Admin là cấp cao nhất, có thể tạo các tài khoản Users, Resellers, 
 #### 4.2 Tính năng cho đại lý (reseller)
 Resellers là cấp đại lý, có thể tạo Users, phân phối tài nguyên và có các bảng điều khiển các user mình quản lý.
 - Version 1.57.x
-<img src="https://support.cloud365.vn/images/img-da-cloud-app/Screenshot_710.png">
+<img src="https://image.prntscr.com/image/EtySmESZTp60HGaYUzQ6uw.png">
 
-- Version 1.59.x
-<img src="https://support.cloud365.vn/images/img-da-cloud-app/screenshot_2.png">
+
 
    - Mục đích sử dụng IP: Cài đặt IP trên máy chủ và quy định sử dụng IP cho các tìa khoản người dùng cuối thông qua các tùy chọn có sẵn do quản trị hệ thống quy định ( IP chia sẻ hay Ip riêng).
    - Thống kê đối với tài khoản đại lý: Đại lý có thể xem thống kê đầu đủ tài nguyên sử dụng đối với tài khoản của mình và các khách hàng của mình, sắp xếp thông tin theo cá tình huống cần xử lý.
@@ -60,10 +59,9 @@ Resellers là cấp đại lý, có thể tạo Users, phân phối tài nguyên
 #### 4.3 Tính năng cho ngường dùng (user)
 User là cấp quản lý hosting cho người dùng. Đây là mức thấp nhất trong DirectAdmin.
 - Version 1.57.x
-<img src="https://support.cloud365.vn/images/img-da-cloud-app/Screenshot_711.png">
+<img src="https://image.prntscr.com/image/Dl9SeOzpQk_so2HCW7qZ4w.png">
 
-- Version 1.59.x
-<img src="https://support.cloud365.vn/images/img-da-cloud-app/screenshot_3.png">
+
 
    - Email: Tạo các tải khoản Emai, thiết lập các rule cho email trên tất cả cá tên miền do tài khoản quản lý như chuyển tiếp, tự động trả lời, tự động từ chối, lọc, bản ghi MX, webmail.
    - FTP: Tạo/sửa/xóa các tài khoản FTP
@@ -79,27 +77,29 @@ User là cấp quản lý hosting cho người dùng. Đây là mức thấp nh�
 ### 5. Backup/Restore Direct Admin
 #### 5.1 Backup
 - Bước 1: Đăng nhập Direct Admin với tài khoản user quản lý website
-<img src="https://news.cloud365.vn/wp-content/uploads/2020/06/image-53-1024x649.png">
+<img src="https://image.prntscr.com/image/AVg_NH7MRzeNYCAjXP-O_w.png">
 - Bước 2: Chọn `Backup/restore` Backups để tạo backup
-<img src="https://news.cloud365.vn/wp-content/uploads/2020/06/image-54-1024x600.png">
+<img src="https://image.prntscr.com/image/wH_L7KAqTj64lA7TxrmDWA.png">
 
 - Bước 3: Chọn các mục muốn backup. Ở đây DA cho phép bạn backup toàn bộ dữ liệu từ tài khoản của bạn. Ở đây tôi chỉ backup website và database nên tôi chọn mục 1 và 2. Sau đó chọn Create backup để thực hiện backup
-<img src="https://news.cloud365.vn/wp-content/uploads/2020/06/image-55-1024x570.png">
+<img src="https://image.prntscr.com/image/twInhExoScyGNkrJyUDHBQ.png">
 
 Đợi ít phút để hệ thống thực hiện backup.
 
 Bạn có thể download file backup này về máy tính cá nhân của mình để thực hiện lưu trữ.
-<img src="https://news.cloud365.vn/wp-content/uploads/2020/06/image-56-1024x641.png">
+
+<img src="https://image.prntscr.com/image/sGAj7GiBSJO-87cDOL_k7Q.png">
+
 
 #### 5.2 Restore
 - Bước 1: Đăng nhập vào bảng điều khiển DirectAdmin thông qua tài khoản admin
 - Bước 2: Chọn mục Admin Backup/Transfer
 
-<img src="https://github.com/thang290298/work-Document/blob/master/Images/DirectAdmin/admin_VPS_png.png?raw=true">
+<img src="https://image.prntscr.com/image/wH_L7KAqTj64lA7TxrmDWA.png">
 
 - Bước 3: Tại mục Restore Backup chọn User cần restore và ấn submit
 
-<img src="https://github.com/thang290298/work-Document/blob/master/Images/DirectAdmin/restore_backup_png.png?raw=true">
+<img src="https://image.prntscr.com/image/IBrNlC-hQCCBxrqI7q9qHg.png">
 
 # Nguồn tham Khảo
 https://kb.nhanhoa.com/pages/viewpage.action?pageId=37454051
