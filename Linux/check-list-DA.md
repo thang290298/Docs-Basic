@@ -1,34 +1,34 @@
 # Check list Directadmin
 # Mục lục
-[1. Cài đặt DirectAdmin (DA)]()
+[1. Cài đặt DirectAdmin (DA)](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#1-c%C3%A0i-%C4%91%E1%BA%B7t-directadmin-da)
 
-[2. Tạo gói Packages]
+[2. Tạo gói Packages](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#2-t%E1%BA%A1o-g%C3%B3i-packages)
 
-[3. Tạo client]
+[3. Tạo client](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#3-t%E1%BA%A1o-client)
 
-[4. Tạo domain, tài khoản FTP, database, up site ví dụ wordpress]
+[4. Tạo domain, tài khoản FTP, database, up site ví dụ wordpress](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#4-t%E1%BA%A1o-domain-t%C3%A0i-kho%E1%BA%A3n-ftp-database-up-site-v%C3%AD-d%E1%BB%A5-wordpress)
 
-[5. Tạo email cho các khg theo tên miền.]
+[5. Tạo email cho các khg theo tên miền.](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#5-t%E1%BA%A1o-email-cho-c%C3%A1c-khg-theo-t%C3%AAn-mi%E1%BB%81n)
 
-[6. Gửi email khi tạo gói cho KHG hoặc thay đổi các thông tin của client]
+[6. Gửi email khi tạo gói cho KHG hoặc thay đổi các thông tin của client](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#6-g%E1%BB%ADi-email-khi-t%E1%BA%A1o-g%C3%B3i-cho-khg-ho%E1%BA%B7c-thay-%C4%91%E1%BB%95i-c%C3%A1c-th%C3%B4ng-tin-c%E1%BB%A7a-client)
 
-[7. Backup / restore code, db trên chính máy DA]
+[7. Backup / restore code, db trên chính máy DA](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#7-backup--restore-code-db-tr%C3%AAn-ch%C3%ADnh-m%C3%A1y-da)
 
-[8. Cấu hình SSL Let's encrypt]
+[8. Cấu hình SSL Let's encrypt](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#8-c%E1%BA%A5u-h%C3%ACnh-ssl-lets-encrypt)
 
-[9. Sử dụng custombuid để thay đổi phiên bản các ứng dụng (hay dùng PHP, MySQL, build Multil version PHP)]
+[9. Sử dụng custombuid để thay đổi phiên bản các ứng dụng (hay dùng PHP, MySQL, build Multil version PHP)](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#9-s%E1%BB%AD-d%E1%BB%A5ng-custombuid-%C4%91%E1%BB%83-thay-%C4%91%E1%BB%95i-phi%C3%AAn-b%E1%BA%A3n-c%C3%A1c-%E1%BB%A9ng-d%E1%BB%A5ng-hay-d%C3%B9ng-php-mysql-build-multil-version-php)
 
-[10. Xác định file log của DA.]
+[10. Xác định file log của DA.](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#10-x%C3%A1c-%C4%91%E1%BB%8Bnh-file-log-c%E1%BB%A7a-da)
 
-[11. Đặt lịch backup code + DB định kỳ]
+[11. Đặt lịch backup code + DB định kỳ](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#11-%C4%91%E1%BA%B7t-l%E1%BB%8Bch-backup-code--db-%C4%91%E1%BB%8Bnh-k%E1%BB%B3)
 
-[12. Change IP của các máy DA khi đổi máy chủ]
+[12. Change IP của các máy DA khi đổi máy chủ](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#12-change-ip-c%E1%BB%A7a-c%C3%A1c-m%C3%A1y-da-khi-%C4%91%E1%BB%95i-m%C3%A1y-ch%E1%BB%A7)
 
-[13. Add thêm IP cho các domain chạy các IP khác nhau]
+[13. Add thêm IP cho các domain chạy các IP khác nhau](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#13-add-th%C3%AAm-ip-cho-c%C3%A1c-domain-ch%E1%BA%A1y-c%C3%A1c-ip-kh%C3%A1c-nhau)
 
-[14. Cấu hình chuyển các mode httpd]
+[14. Cấu hình chuyển các mode httpd](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#14-c%E1%BA%A5u-h%C3%ACnh-chuy%E1%BB%83n-c%C3%A1c-mode-httpd)
 
-[15. Cài đặt và sử dụng CSF]
+[15. Cài đặt và sử dụng CSF](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-DA.md#15-c%C3%A0i-%C4%91%E1%BA%B7t-v%C3%A0-s%E1%BB%AD-d%E1%BB%A5ng-csf)
 
 
 ## Thực hiện
