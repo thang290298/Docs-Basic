@@ -1,4 +1,24 @@
-1. Cài đặt DirectAdmin (DA)
+# Check list Directadmin
+# Mục lục
+[1. Cài đặt DirectAdmin (DA)]()
+[2. Tạo gói Packages]
+[3. Tạo client]
+[4. Tạo domain, tài khoản FTP, database, up site ví dụ wordpress]
+[5. Tạo email cho các khg theo tên miền.]
+[6. Gửi email khi tạo gói cho KHG hoặc thay đổi các thông tin của client]
+[7. Backup / restore code, db trên chính máy DA]
+[8. Cấu hình SSL Let's encrypt]
+[9. Sử dụng custombuid để thay đổi phiên bản các ứng dụng (hay dùng PHP, MySQL, build Multil version PHP)]
+[10. Xác định file log của DA.]
+[11. Đặt lịch backup code + DB định kỳ]
+[12. Change IP của các máy DA khi đổi máy chủ]
+[13. Add thêm IP cho các domain chạy các IP khác nhau]
+[14. Cấu hình chuyển các mode httpd]
+[15. Cài đặt và sử dụng CSF]
+
+## Thực hiện
+
+ ### 1. Cài đặt DirectAdmin (DA)
 - đăng nhập tài khoản Portal được cung cấp
 - Tiến hành Rebuild server 
 <img src="https://image.prntscr.com/image/EPH8aQo0RHiwf22tQYp2qg.png">
@@ -9,7 +29,7 @@
 - Hệ thống sẽ gửi mail thông báo thông tin tài khoản:
 <img src="https://image.prntscr.com/image/ajslfSwxRV6ffd5UmgZ8TA.png">
 
-2. Tạo gói Packages
+### 2. Tạo gói Packages
 - đăng nhập tài khoản reseller:
   - tick chọn `manage User package` rồi tiến hành ` add Package.
 
@@ -19,7 +39,8 @@
   tiến hành cấu hình các gói lưu lượng và bấm ` save ` để lưu.
   <img src="https://image.prntscr.com/image/aqO7yF2bTX_PbuzOe2Wpew.png">
   tạo gói thành công.
-3. Tạo client
+
+### 3. Tạo client
  <img src="https://image.prntscr.com/image/WHfiAj1xS2iDfPkv9C3CRQ.png">
  - Trong đó:
 
@@ -34,7 +55,7 @@
 
 Sau đó bạn ấn vào `Submit `để hoàn thành việc tạo 1 user mới.
 
-4. Tạo domain, tài khoản FTP, database, up site ví dụ wordpress
+### 4. Tạo domain, tài khoản FTP, database, up site ví dụ wordpress
 - Tạo tên miền :
 sau khi đăng nhập bằng tài khoản user hệ thống yêu cầu nhập thông tin tên miền hoặc tạo mới. Chọn `Add domain` và nhập tên miền.
 
@@ -69,7 +90,7 @@ sau khi đăng nhập bằng tài khoản user hệ thống yêu cầu nhập th
 
   <img src="https://image.prntscr.com/image/95xtV0Y7SQuLBoL4igo3vQ.png">
 
-5. Tạo email cho các khg theo tên miền.
+### 5. Tạo email cho các khg theo tên miền.
 - Chọn tên miền muốn sử dụng, ở đây tôi sử dụng tên miền learning365.online:
 <img src="https://image.prntscr.com/image/vjFWn8g8T3OpBR-759nrTg.png">
 
@@ -82,14 +103,14 @@ sau khi đăng nhập bằng tài khoản user hệ thống yêu cầu nhập th
 - đăng nhập Webmail:
 <img src="https://image.prntscr.com/image/ngAY4_b0Tw2mosC2CK8MBA.png">
 
-6. Gửi email khi tạo gói cho KHG hoặc thay đổi các thông tin của client
+### 6. Gửi email khi tạo gói cho KHG hoặc thay đổi các thông tin của client
 - khi tạo gói cho khách hàng để gửi mail thông báo ta tích chọn vào `Send Email Notification:`
 <img src="https://image.prntscr.com/image/6X6P4FbiSKSgWtwDpfNDvg.png">
 
 - sau khi thay đổi cấu hình tiến hành gửi mail thông báo tới khách hàng và những người có liên quan bằng cách gửi thông báo ở nút `send` trong phần ` Resend Welcome E-Mail`
 <img src="https://image.prntscr.com/image/oLTywJOETre3vE0qQspQgA.png">
 
-7. Backup / restore code, db trên chính máy DA
+### 7. Backup / restore code, db trên chính máy DA
 - Backup: 
    - user:
 chọn ` Create Restore/Backups` bỏ tick phần ` E-mail và FTP` sau đó chọn create backups:
@@ -117,7 +138,7 @@ chọn ` Create Restore/Backups` bỏ tick phần ` E-mail và FTP` sau đó ch�
         - có thể restore từ file backups trong máy hoặc up file từ thiết bị khác
 <img src="https://image.prntscr.com/image/dpetU8naR4qHsig0zGhsqw.png">
 
-8. Cấu hình SSL Let's encrypt
+### 8. Cấu hình SSL Let's encrypt
 - đăng nhập DA bằng tài khoản user kéo xuống phần `advanced features` chọn `SSL Certificates`
 
 <img src="https://image.prntscr.com/image/5oWWgwZOSP2gZi2qgTDOZQ.png">
@@ -134,7 +155,7 @@ sau khi cài đặt hệ thống sẽ sinh ra keyl, tiếp tục điều hườn
 Sau khi cài đạt kiểm tra chwusng chỉ SSL:
 <img src="https://image.prntscr.com/image/Noubw_teRBOO_-35M6mxig.png">
 
-9. Sử dụng custombuid để thay đổi phiên bản các ứng dụng (hay dùng PHP, MySQL, build Multil version PHP)
+### 9. Sử dụng custombuid để thay đổi phiên bản các ứng dụng (hay dùng PHP, MySQL, build Multil version PHP)
 - đăng nhập hệ thống với tài khoản `Admin` và phần `CustomBuild 2.0`
 <img src="https://image.prntscr.com/image/hLnJt7TdRfWqmSo0GEI9EQ.png">
 - tới phần ` Edit Opition` chọn các phiên bản muốn cài đặt và lưu lại
@@ -142,7 +163,7 @@ Sau khi cài đạt kiểm tra chwusng chỉ SSL:
 <img src="https://image.prntscr.com/image/A3Tjxy08TUO-qxP8IrlZ7g.png">
 
 
-10. Xác định file log của DA.
+### 10. Xác định file log của DA.
 - Sau khi bạn đăng nhập vô tài khoản DirectA dmin bằng quyền user, xong rồi các bạn vô trong mục “site summary / statistics / logs” như hình bên dưới 
 <img src="https://image.prntscr.com/image/sFHf_1djQuq-0VifqA3ofA.png">
 
@@ -162,13 +183,13 @@ sau đây mình hướng dẫn các bạn cách xem và phân tích một đoạ
 
 còn các yếu tố khác, tùy tho từng trường hợp mà các bạn có cách ứng phó và khắc phục khác nhau, chúc các bạn thành công.
 
-11. Đặt lịch backup code + DB định kỳ
+### 11. Đặt lịch backup code + DB định kỳ
 để đặt lịch Backup cho DA bạn đăng nhập hệ thống bàng tài khoản Admin.
   <img src="https://image.prntscr.com/image/N69FIawGQNygTCv_idm99Q.png">
 
   <img src="https://image.prntscr.com/image/NMJ90r-UTRqIJmg-EDKDuA.png">
 
-12. Change IP của các máy DA khi đổi máy chủ
+### 12. Change IP của các máy DA khi đổi máy chủ
 
 Sau khi đã đổi IP hoặc migrate dữ liệu thành công, login vào server thông qua giao thức SSH với tài khoản root
 ``` 
@@ -201,7 +222,7 @@ systemctl restart exim
 systemctl restart dovecot
 ```
 
-13. Add thêm IP cho các domain chạy các IP khác nhau
+### 13. Add thêm IP cho các domain chạy các IP khác nhau
 Phần này bao gồm việc hiểu các danh mục IP, thêm, chỉ định và xóa địa chỉ IP.
 Từ menu Administrator menu, nhấp vào liên kết "IP ManagerP". Bạn sẽ thấy một trang trông giống như sau:
 <img src="https://image.prntscr.com/image/I9kBHc-gRNy6kr1r0vMq2w.png">
@@ -217,11 +238,96 @@ Giá trị Netmask thường là 255.255.255.0 nhưng bạn có thể thay đổ
    - Removing IP Addresses from Resellers: Để xóa địa chỉ IP khỏi Người bán lại, hãy đặt dấu kiểm bên cạnh (các) địa chỉ IP bạn muốn xóa và nhấp vào nút "Xóa khỏi người bán lại". Xin lưu ý rằng bạn chỉ có thể xóa các địa chỉ IP "miễn phí". Nghĩa là, nếu địa chỉ IP thuộc sở hữu của Người bán lại hoặc một trong những Người dùng của họ, chức năng xóa sẽ không hoạt động.
    - clear NS: xóa nameserver
    - Delete : xóa ip
-14. Cấu hình chuyển các mode httpd
+
+### 14. Cấu hình chuyển các mode httpd
 sử dụng tính năng `custombuild 2.0` để chuyển đổi các chế đội httpd
 <img src="https://image.prntscr.com/image/jGCeLsv6SmeT-yuL9jSB9A.png">
 
 kéo xuống phần `WEB Server Settings` chọn ` Apache_mpm`
 <img src="https://image.prntscr.com/image/JwJQFz8wSdqUJN7k20dhmA.png">
 chọn chế độ httpd mong muốn.
-15. Cài đặt và sử dụng CSF
+
+### 15. Cài đặt và sử dụng CSF
+#### Bước 1: Cài đặt các module cần thiết cho CSF
+
+```
+yum install perl-libwww-perl -y
+```
+
+#### Bước 2: Tải CSF
+
+```
+cd /tmp
+wget https://download.configserver.com/csf.tgz
+```
+
+#### Bước 3: Cài đặt CSF
+
+```
+tar -xzf csf.tgz
+cd csf
+sh install.sh
+```
+
+#### Bước 4: Cấu hình CSF
+
+Cấu hình mặc định của CSF ở chế độ `Testing`, điều đó có nghĩa hệ thống chưa được bảo vệ toàn diện. Để tắt chế độ `Testing` bạn cần cấu hình các lựa chọn TCP_IN, TCP_OUT, UDP_IN và UDP_OUT cho phù hợp với nhu cầu:
+
+Mở file cấu hình CSF
+
+```
+vi /etc/csf/csf.conf
+```
+
+Tắt chệ độ Testing bằng cách chuyển dòng `TESTING="1"` thành `
+```
+TESTING="0"
+```
+
+Lưu cấu hình lại.
+
+#### Bước 5: Khởi động CSF và cho phép CSF khởi động cùng hệ thống
+
+```
+ systemctl start csf
+ systemctl enable csf
+```
+
+#### 3. Những file cấu hình của CSF
+
+Toàn bộ thông tin cấu hình và quản lý CSF được lưu ở các file trong folder /etc/csf. Nếu bạn chỉnh sửa các file này thì cần khởi động lại CSF để thay đổi có hiệu lực.
+
+- **csf.conf:** File cấu hình chính để quản lý CSF.
+
+- **csf.allow:** Danh sách địa chỉ IP cho phép qua firewall.
+
+- **csf.deny:** Danh sách địa chỉ IP từ chối qua firewall.
+
+- **csf.ignore:** Danh sách địa chỉ IP cho phép qua firewall và không bị block nếu có vấn đề.
+
+- **csf.*ignore:** Danh sách user, IP bị ignore.
+
+#### 4. Một số lệnh thường dùng trong CSF
+
+Một số câu lệnh sử dụng để add (-a) hoặc deny (-d) một địa chỉ IP.
+
+```
+csf -d IPADDRESS //Block địa chỉ IP
+csf -dr IPADDRESS //Xóa địa chỉ IP đã bị block
+csf -a IPADDRESS //Allow địa chỉ IP
+csf -ar IPADDRESS //Xóa địa chỉ IP đã được allow
+csf -g IPADDRESS //Kiểm tra địa chỉ IP có bị block không
+csf -r //Khởi động lại CSF
+csf -x //Tắt CSF
+csf -e //Mở CSF
+```
+
+#### 5. Xóa cài đặt CSF
+
+Nếu muốn xóa cài đặt CSF, chỉ cần sử dụng lệnh
+
+```
+/etc/csf/uninstall.sh
+```
+
+Việc này sẽ xóa toàn bộ CSF nên bạn cần cân nhắc khi dùng. Nếu muốn tạm thời tắt CSF thì có thể chuyển chế độ TESTING sang 1.
