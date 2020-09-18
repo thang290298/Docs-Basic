@@ -166,10 +166,62 @@ còn các yếu tố khác, tùy tho từng trường hợp mà các bạn có c
 để đặt lịch Backup cho DA bạn đăng nhập hệ thống bàng tài khoản Admin.
   <img src="https://image.prntscr.com/image/N69FIawGQNygTCv_idm99Q.png">
 
-  https://image.prntscr.com/image/NMJ90r-UTRqIJmg-EDKDuA.png<img src="https://image.prntscr.com/image/NMJ90r-UTRqIJmg-EDKDuA.png">
-12. KIểm tra log http, ram, cpu
-13. Change IP của các máy DA khi đổi máy chủ
+  <img src="https://image.prntscr.com/image/NMJ90r-UTRqIJmg-EDKDuA.png">
 
-14. Add thêm IP cho các domain chạy các IP khác nhau
-15. Cấu hình chuyển các mode httpd
-16. Cài đặt và sử dụng CSF
+12. Change IP của các máy DA khi đổi máy chủ
+
+Sau khi đã đổi IP hoặc migrate dữ liệu thành công, login vào server thông qua giao thức SSH với tài khoản root
+``` 
+ssh root@45.117.80.147
+```
+Di chuyển đến thư mục chứa các script hỗ trợ của DA
+```
+cd /usr/local/directadmin/scripts
+```
+Chạy script đổi IP trong đó:
+
+   103.124.94.180 là IP cũ
+   45.117.80.147 là IP mới
+
+```
+./ipswap.sh 103.124.94.180 45.117.80.147
+```
+Nếu thực hiện thành công, tại màn hình Terminal ta sẽ thấy kết quả như sau
+```
+*** Done swapping 103.124.94.180 to 45.117.80.147 ***
+```
+
+<img src="https://image.prntscr.com/image/ujtZ2NDIQV6pS4n3u7RxNQ.png">
+
+Restart các service
+```
+systemctl restart httpd
+systemctl restart proftpd
+systemctl restart exim
+systemctl restart dovecot
+```
+
+13. Add thêm IP cho các domain chạy các IP khác nhau
+Phần này bao gồm việc hiểu các danh mục IP, thêm, chỉ định và xóa địa chỉ IP.
+Từ menu Administrator menu, nhấp vào liên kết "IP ManagerP". Bạn sẽ thấy một trang trông giống như sau:
+<img src="https://image.prntscr.com/image/I9kBHc-gRNy6kr1r0vMq2w.png">
+Trình quản lý IP cho phép bạn thêm địa chỉ IP vào bảng điều khiển và phân bổ chúng cho Người bán lại của bạn.
+
+để add ip cho user bấm chọn `ADD IP`:
+<img src="https://image.prntscr.com/image/wUZvhUvASZ_jhN-hASdfzw.png">
+Bạn phải cho người quản lý IP biết địa chỉ IP nào được cấp cho máy chủ của bạn. Để thêm địa chỉ IP, hãy nhấp vào nút "Thêm IP" ở đầu màn hình, nhập địa chỉ IP mong muốn của bạn và nhấp lại vào nút "Thêm IP". Địa chỉ IP sau đó sẽ xuất hiện trong bảng với trạng thái miễn phí.
+
+Giá trị Netmask thường là 255.255.255.0 nhưng bạn có thể thay đổi giá trị này nếu cần.
+<img src="https://image.prntscr.com/image/2ft_lAz2TrewM6pvP8rykA.png">
+   - assgin: Để chỉ định địa chỉ IP cho Người bán lại, hãy đặt dấu kiểm bên cạnh (các) địa chỉ IP bạn muốn chỉ định, sau đó chọn tên Người bán lại từ menu thả xuống. Sau đó, nhấp vào nút "Chỉ định" ở đầu bảng.
+   - Removing IP Addresses from Resellers: Để xóa địa chỉ IP khỏi Người bán lại, hãy đặt dấu kiểm bên cạnh (các) địa chỉ IP bạn muốn xóa và nhấp vào nút "Xóa khỏi người bán lại". Xin lưu ý rằng bạn chỉ có thể xóa các địa chỉ IP "miễn phí". Nghĩa là, nếu địa chỉ IP thuộc sở hữu của Người bán lại hoặc một trong những Người dùng của họ, chức năng xóa sẽ không hoạt động.
+   - clear NS: xóa nameserver
+   - Delete : xóa ip
+14. Cấu hình chuyển các mode httpd
+sử dụng tính năng `custombuild 2.0` để chuyển đổi các chế đội httpd
+<img src="https://image.prntscr.com/image/jGCeLsv6SmeT-yuL9jSB9A.png">
+
+kéo xuống phần `WEB Server Settings` chọn ` Apache_mpm`
+<img src="https://image.prntscr.com/image/JwJQFz8wSdqUJN7k20dhmA.png">
+chọn chế độ httpd mong muốn.
+15. Cài đặt và sử dụng CSF
