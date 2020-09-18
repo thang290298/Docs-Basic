@@ -118,11 +118,58 @@ chọn ` Create Restore/Backups` bỏ tick phần ` E-mail và FTP` sau đó ch�
 <img src="https://image.prntscr.com/image/dpetU8naR4qHsig0zGhsqw.png">
 
 8. Cấu hình SSL Let's encrypt
+- đăng nhập DA bằng tài khoản user kéo xuống phần `advanced features` chọn `SSL Certificates`
+
+<img src="https://image.prntscr.com/image/5oWWgwZOSP2gZi2qgTDOZQ.png">
+
+Tích chọn ô 1 và 2 như ảnh dưới đây. Mục 3 điền email của quý khách vào . Key Size (bits), Certificate Type chọn như hình dưới đây. Sau đó kéo chuột xuống dưới và click “save”
+*Chú ý*: SSL is currently enabled for this domain.
+
+
+
+<img src="https://image.prntscr.com/image/pIC9ZewVTmW1Vn2rZY6URg.png">
+sau khi cài đặt hệ thống sẽ sinh ra keyl, tiếp tục điều hường ssl sang https và chứng thực chứng chỉ với tổ chức phát hành
+
+<img src="https://image.prntscr.com/image/azQWWJL5SIChqwZcKNL9vQ.png">
+Sau khi cài đạt kiểm tra chwusng chỉ SSL:
+<img src="https://image.prntscr.com/image/Noubw_teRBOO_-35M6mxig.png">
+
 9. Sử dụng custombuid để thay đổi phiên bản các ứng dụng (hay dùng PHP, MySQL, build Multil version PHP)
+- đăng nhập hệ thống với tài khoản `Admin` và phần `CustomBuild 2.0`
+<img src="https://image.prntscr.com/image/hLnJt7TdRfWqmSo0GEI9EQ.png">
+- tới phần ` Edit Opition` chọn các phiên bản muốn cài đặt và lưu lại
+
+<img src="https://image.prntscr.com/image/A3Tjxy08TUO-qxP8IrlZ7g.png">
+
+
 10. Xác định file log của DA.
+- Sau khi bạn đăng nhập vô tài khoản DirectA dmin bằng quyền user, xong rồi các bạn vô trong mục “site summary / statistics / logs” như hình bên dưới 
+<img src="https://image.prntscr.com/image/sFHf_1djQuq-0VifqA3ofA.png">
+
+Bạn có thể xem log ở nhiều dạng khác nhau: xem toàn bộ log, xem 100 dòng đầu tiên hoặc 10 dòng đầu tiên
+<img src="https://image.prntscr.com/image/VtuBC_erQWK0Gp5mAR9zsA.png">
+
+sau đây mình hướng dẫn các bạn cách xem và phân tích một đoạn log cơ bản
+
+<img src="https://image.prntscr.com/image/HG9Xu_bsRlW_E5g3N9UdoQ.png">
+
+  - Thường thì bạn nên lưu file log đó thành file text sau đó mình sẽ phân tích cho dễ, trên đó mình sẽ nhìn thấy trực quan hơn. Những thông tin quan trọng thường bạn hay quan tâm đó:
+
+    - ip: những ip nào thường xuyên truy cập, đối với ddos thì điều này rất quan trọng.
+    -thời gian: thời gian cho chúng ta biết đối tượng phá hoại hành động vào lúc nào, từ đó mình sẽ dễ theo dõi và xác định đối tượng dùng tool hay dùng tay.
+    - đường dẫn: đây là một thông tin khá quan trọng, nhất là đối với lỗ hổng website, giúp bạn biết được đối tượng đánh vào vị trí nào, file nào.
+    - thông tin trình duyệt cũng là một yếu tố cũng rất có lợi cho bạn, bạn có thể ngăn chặn ddos, thường thì đối tượng nếu dùng tool đời cũ sẽ có lỗ hổng về chỗ này, các trình duyệt nó thống nhất với nhau, bạn có thể dễ dàng chặn được.
+
+còn các yếu tố khác, tùy tho từng trường hợp mà các bạn có cách ứng phó và khắc phục khác nhau, chúc các bạn thành công.
+
 11. Đặt lịch backup code + DB định kỳ
+để đặt lịch Backup cho DA bạn đăng nhập hệ thống bàng tài khoản Admin.
+  <img src="https://image.prntscr.com/image/N69FIawGQNygTCv_idm99Q.png">
+
+  https://image.prntscr.com/image/NMJ90r-UTRqIJmg-EDKDuA.png<img src="https://image.prntscr.com/image/NMJ90r-UTRqIJmg-EDKDuA.png">
 12. KIểm tra log http, ram, cpu
 13. Change IP của các máy DA khi đổi máy chủ
+
 14. Add thêm IP cho các domain chạy các IP khác nhau
 15. Cấu hình chuyển các mode httpd
 16. Cài đặt và sử dụng CSF
