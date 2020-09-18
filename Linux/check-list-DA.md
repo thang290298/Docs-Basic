@@ -1,20 +1,35 @@
 # Check list Directadmin
 # Mục lục
 [1. Cài đặt DirectAdmin (DA)]()
+
 [2. Tạo gói Packages]
+
 [3. Tạo client]
+
 [4. Tạo domain, tài khoản FTP, database, up site ví dụ wordpress]
+
 [5. Tạo email cho các khg theo tên miền.]
+
 [6. Gửi email khi tạo gói cho KHG hoặc thay đổi các thông tin của client]
+
 [7. Backup / restore code, db trên chính máy DA]
+
 [8. Cấu hình SSL Let's encrypt]
+
 [9. Sử dụng custombuid để thay đổi phiên bản các ứng dụng (hay dùng PHP, MySQL, build Multil version PHP)]
+
 [10. Xác định file log của DA.]
+
 [11. Đặt lịch backup code + DB định kỳ]
+
 [12. Change IP của các máy DA khi đổi máy chủ]
+
 [13. Add thêm IP cho các domain chạy các IP khác nhau]
+
 [14. Cấu hình chuyển các mode httpd]
+
 [15. Cài đặt và sử dụng CSF]
+
 
 ## Thực hiện
 
