@@ -1,6 +1,24 @@
 # Checklist sử dụng CPanel
 # Mục Lục
-[I. Hướng dẫn cài đặt Cpanel trên Centos7]
+[I. Hướng dẫn cài đặt Cpanel trên Centos7]()
+
+[1. Đăng ký tài khoản dùng thử 15 ngày]()
+
+[2. Tiến hành cài đặt]()
+
+  - [2.1 cài đặt trên Centos 7]()
+
+  - [2.2 Cài đặt trên Portal]()
+
+[II. tìm hiểu tính năng trên Cpanel]()
+
+[1 Giới Thiệu]()
+
+
+[2 File Modules]()
+
+[3. Quản lý domain – Tên miền]()
+
 ## I. Hướng dẫn cài đặt Cpanel trên Centos7
 ### 1. Đăng ký tài khoản dùng thử 15 ngày
 - đăng ký tài khoản dùng thử 15 ngày tại [đây](https://cpanel.net/products/trial/)
@@ -56,7 +74,7 @@ https://45.117.80.147:2087
 <img src="https://image.prntscr.com/image/_Hm2yr5MQlWYaOx1Y9I8vw.png">
 
 ## II. tìm hiểu tính năng trên Cpanel
-
+### 1 Giới Thiệu
 cPanel hosting là Linux web hosting đã có cài đặt sẵn cPanel. cPanel có ưu điểm và nhược điểm, nhưng với hầu hết các trường hợp, nó đều hoạt động hiệu quả. Vì vậy cPanel là lựa chọn tốt cho tất cả những ai đang tìm kiếm giải pháp control panel cho hosting. Bạn có thể tham khảo đánh giá của chúng tôi:
 - Ưu điểm:
    - Dễ tìm hiểu
@@ -70,7 +88,7 @@ cPanel hosting là Linux web hosting đã có cài đặt sẵn cPanel. cPanel c
    - Dễ vô tình thay đổi các thông số quan trọng mà
    - Một số host chạy bản cPanel cũ
    - Tốn kém hơn vì thường cPanel không đính kèm trong các gói hosting miễn phí
-### 2.1 File Modules:
+### 2 File Modules:
 <img src="https://image.prntscr.com/image/Gn7ynH5oQci5Gd8QUy66Cw.png">
 
 Những modules này cho phép bạn trực tiếp upload và quản lý file từ trong cPanel mà không cần tài khoản FTP client. Bạn có thể cài đặt mức độ bảo mật, backup và nhiều thứ khác. Những modules thông dụng nhất là:
@@ -83,7 +101,7 @@ Những modules này cho phép bạn trực tiếp upload và quản lý file t�
    - Web Disk
 
 
-### 2.1 Quản lý domain – Tên miền
+### 3. Quản lý domain – Tên miền
 
 <img src="https://image.prntscr.com/image/X5haGoMkRyWtmHbnHWUThQ.png">
 
