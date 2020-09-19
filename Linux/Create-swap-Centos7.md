@@ -9,9 +9,9 @@
 
 [4.  Điều chỉnh giá trị Swappiness](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#4--%C4%91i%E1%BB%81u-ch%E1%BB%89nh-gi%C3%A1-tr%E1%BB%8B-swappiness)
 
-[5. Xóa Swap](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#4--%C4%91i%E1%BB%81u-ch%E1%BB%89nh-gi%C3%A1-tr%E1%BB%8B-swappiness)
+[5. Xóa Swap](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#5-x%C3%B3a-swap)
 
-[6. Nguồn tham khảo](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#4--%C4%91i%E1%BB%81u-ch%E1%BB%89nh-gi%C3%A1-tr%E1%BB%8B-swappiness)
+[6. Nguồn tham khảo](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#6-ngu%E1%BB%93n-tham-kh%E1%BA%A3o)
 
 ## 1. Giới thiệu về Swap
 - Swap hay còn được gọi là RAM ảo được sử dụng để hỗ trợ lưu trữ dữ liệu khi bộ nhớ vật lý (RAM) đã đầy. Đôi khi SWAP cũng được dùng song song để tăng dung lượng bộ nhớ đệm. SWAP thường dùng trên các hệ điều hành Linux, Ubuntu hoặc CentOS.
