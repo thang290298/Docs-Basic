@@ -346,3 +346,18 @@ Nếu muốn xóa cài đặt CSF, chỉ cần sử dụng lệnh
 ```
 
 Việc này sẽ xóa toàn bộ CSF nên bạn cần cân nhắc khi dùng. Nếu muốn tạm thời tắt CSF thì có thể chuyển chế độ TESTING sang 1.
+
+#### 6. Sủ dụng CSF trên DA
+sử dụng tính năng `ConfigServer Security & Firewall`
+
+<img src="https://image.prntscr.com/image/ZNLbuv_UQHSA4UugFlZMNw.png">
+
+một số tính năng
+<img src="https://image.prntscr.com/image/KdKQZBAaTeWekg9Y3NpTxA.png">
+
+  - Quick Allow ip: Cho phép địa chỉ IP thông qua tường lửa và thêm vào tệp cho phép (csf.allow).
+  - QuickDeny IP : Chặn địa chỉ IP trong tường lửa và thêm vào tệp từ chối (csf.deny).
+  - Quick Ignore IP: Bỏ qua địa chỉ IP trong lfd, thêm vào tệp bỏ qua (csf.ignore) và khởi động lại lfd
+  - Quick unblock IP:Xóa địa chỉ IP từ tường lửa (các khối tạm thời và cố định)
+  - Search IP: Tìm kiếm địa chỉ IP trên iptables
+
