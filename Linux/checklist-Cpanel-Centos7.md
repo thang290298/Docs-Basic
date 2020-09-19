@@ -1,23 +1,23 @@
 # Checklist sử dụng CPanel
 # Mục Lục
-[I. Hướng dẫn cài đặt Cpanel trên Centos7]()
+[I. Hướng dẫn cài đặt Cpanel trên Centos7](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#i-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-cpanel-tr%C3%AAn-centos7)
 
-[1. Đăng ký tài khoản dùng thử 15 ngày]()
+[1. Đăng ký tài khoản dùng thử 15 ngày](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#1-%C4%91%C4%83ng-k%C3%BD-t%C3%A0i-kho%E1%BA%A3n-d%C3%B9ng-th%E1%BB%AD-15-ng%C3%A0y)
 
-[2. Tiến hành cài đặt]()
+[2. Tiến hành cài đặt](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#2-ti%E1%BA%BFn-h%C3%A0nh-c%C3%A0i-%C4%91%E1%BA%B7t)
 
-  - [2.1 cài đặt trên Centos 7]()
+  - [2.1 cài đặt trên Centos 7](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#21-c%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-centos-7)
 
-  - [2.2 Cài đặt trên Portal]()
+  - [2.2 Cài đặt trên Portal](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#22-c%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-portal)
 
-[II. tìm hiểu tính năng trên Cpanel]()
+[II. tìm hiểu tính năng trên Cpanel](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#ii-t%C3%ACm-hi%E1%BB%83u-t%C3%ADnh-n%C4%83ng-tr%C3%AAn-cpanel)
 
-[1 Giới Thiệu]()
+[1 Giới Thiệu](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#1-gi%E1%BB%9Bi-thi%E1%BB%87u)
 
 
-[2 File Modules]()
+[2 File Modules](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#2-file-modules)
 
-[3. Quản lý domain – Tên miền]()
+[3. Quản lý domain – Tên miền](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#3-qu%E1%BA%A3n-l%C3%BD-domain--t%C3%AAn-mi%E1%BB%81n)
 
 ## I. Hướng dẫn cài đặt Cpanel trên Centos7
 ### 1. Đăng ký tài khoản dùng thử 15 ngày
