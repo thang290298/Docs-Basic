@@ -2,10 +2,15 @@
 # Mục Lục
 
 [1. Giới thiệu về Swap](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#1-gi%E1%BB%9Bi-thi%E1%BB%87u-v%E1%BB%81-swap)
+
 [2. Kiểm tra Swap](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#2-ki%E1%BB%83m-tra-swap)
+
 [3. Tạo Swap](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#3-t%E1%BA%A1o-swap)
+
 [4.  Điều chỉnh giá trị Swappiness](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#4--%C4%91i%E1%BB%81u-ch%E1%BB%89nh-gi%C3%A1-tr%E1%BB%8B-swappiness)
+
 [5. Xóa Swap](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#4--%C4%91i%E1%BB%81u-ch%E1%BB%89nh-gi%C3%A1-tr%E1%BB%8B-swappiness)
+
 [6. Nguồn tham khảo](https://github.com/thang290298/work-Document/blob/master/Linux/Create-swap-Centos7.md#4--%C4%91i%E1%BB%81u-ch%E1%BB%89nh-gi%C3%A1-tr%E1%BB%8B-swappiness)
 
 ## 1. Giới thiệu về Swap
