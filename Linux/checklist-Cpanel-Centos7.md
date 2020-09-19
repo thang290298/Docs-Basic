@@ -6,13 +6,16 @@
 - đăng ký tài khoản dùng thử 15 ngày tại [đây](https://cpanel.net/products/trial/)
 - sau khi đăng kí dùng thử sẽ nhận được thông tin email thoong báo cài đặt dùng thử :
 
+
 <img src="https://image.prntscr.com/image/DAH_b9r0QIGBcf-qJ9ZFXQ.png">
 
 - kiểm tra thông tin phiên bản tại [đây](https://verify.cpanel.net/app/verify)
 
+
 <img src="https://image.prntscr.com/image/PWQV_esGR-_b1zn5fBgpfw.png">
 
 ### 2. Tiến hành cài đặt
+#### 2.1 cài đặt trên Centos 7
 - ssh vào bằng tài khoản có quyền sudo
 - Mặc định, cPanel sẽ không hỗ trợ Network Manager service. Do đó để có thể cài đặt được, bạn cần phải tắt service này đi theo các bước sau:
 ```
@@ -30,6 +33,27 @@ sau khi cài đặt thành công sẽ hiển thị thông tin đang nhập WHM
 đăng nhập bằng tài khoản `root` và tiến hành cấu hình cài đặt:
 
 <img src="https://image.prntscr.com/image/PUXAMjaASIyML5306ruaeQ.png">
+
+để kích hoạt phiên bản tiến hành chạy file `/usr/local/cpanel/cpkeyclt`
+```
+  cd /usr/local/cpanel
+  sh ./cpkeyclt
+```
+#### 2.2 Cài đặt trên Portal
+- Đăng nhập tài khoản Portal
+- Chon Server muốn cài đặt và tiến hành rebuild server
+
+<img src="https://image.prntscr.com/image/F7vkipxLQRmxRa8tQNa1qQ.png">
+- tiến hành cài đặt Cpanel trên CentOS 7
+
+<img src="https://image.prntscr.com/image/MDfCs0bzTc2rcwA93nlsSQ.png">
+- sau khi cài đăt thành công bạn sẽ nhận được email thông tin 
+<img src="https://image.prntscr.com/image/M4NK0jmAQpG5oC2xUvqw2A.png">
+- Thực hiện setup trên WebGUi
+```
+https://45.117.80.147:2087
+```
+<img src="https://image.prntscr.com/image/_Hm2yr5MQlWYaOx1Y9I8vw.png">
 
 ## II. tìm hiểu tính năng trên Cpanel
 
