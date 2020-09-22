@@ -52,11 +52,9 @@ sau khi cài đặt thành công sẽ hiển thị thông tin đang nhập WHM
 
 <img src="https://image.prntscr.com/image/PUXAMjaASIyML5306ruaeQ.png">
 
-để kích hoạt phiên bản tiến hành chạy file `/usr/local/cpanel/cpkeyclt`
-```
-  cd /usr/local/cpanel
-  sh ./cpkeyclt
-```
+kết quả: 
+<img src="https://image.prntscr.com/image/-0sgApEqQga6TlS3O9Qxjg.png">
+
 #### 2.2 Cài đặt trên Portal
 - Đăng nhập tài khoản Portal
 - Chon Server muốn cài đặt và tiến hành rebuild server
@@ -99,6 +97,8 @@ Những modules này cho phép bạn trực tiếp upload và quản lý file t�
    - File Manager
    - Images
    - Web Disk
+   - FTP Accounts
+   - FTP Connections
 
 
 ### 3. Quản lý domain – Tên miền
@@ -109,6 +109,90 @@ Những modules này cho phép bạn trực tiếp upload và quản lý file t�
   - Addon Domain: Với cùng 1 tài khoản hosting có thể chạy thêm domain và website
   - Parker Domains : Cho phép chạy 1 site trên nhiều domain khác nhau
   - Redirects: Chuyển hướng domain
+  - Zone Editor: Cập nhật các bản ghi DNS cho domain
+  ### 4. E-mail
+
+<img src="https://image.prntscr.com/image/lV-3Yad8S2OD202ahpmKFQ.png">
+
+Không phải tất cả web hosting đều bao gồm email, nhưng nếu gói hosting của bạn có cả email và cPanel vậy thì phần này là để quản lý Email. Các modules thông dụng nhất là:
+  - Address Importer
+  - Apache SpamAssassin
+  - Autoresponders
+  - Default Address
+  - Email Wizard
+  - Encryption
+  - Forwarders
+  - Global Filters
+  - MX Entry
+  - Track Delivery
+  - User Filters
+### 5. Metrics
+<img src="https://image.prntscr.com/image/46uORfV7SCyAKb91cm-Qlg.png">
+
+Nếu bạn đang chạy một website và đang quan tâm đến thống kê truy cập của nó. Vậy bạn cần tìm đến khu vực Metrics này. Khu vực này để đưa ra cho bạn toàn bộ thông số thống kê mà có thể giúp bạn đánh giá website có hoạt động hiệu quả không. Các modules thông dụng là:
+  - Awstats
+  - Bandwidth
+  - CPU and Concurrent Connection Usage
+  - Errors
+  - Raw Access
+  - Visitors
+  - Webalizer
+  - Webalizer FTP
+### 6. SECURITY
+
+<img src="https://image.prntscr.com/image/GnVbVvTWSjW8aibTINbjQA.png">
+
+Bảo mật là ưu tiên hàng đầu của nhiều webmaster, đặc biệt là nếu website của bạn chứa các thông tin nhạy cảm như usnername, password và thông tin tài chính. Module này sẽ giúp bạn quản lý các vấn đề liên quan đến bảo mật, làm website của bạn an toàn hơn. Các modules thông dụng nhất là:
+  - Hotlink Protection
+  - IP Blocker
+  - Leech Protection
+  - SSH Access
+  - SSL/TLS
+  - Let's Encrypt™ SSL
+
+### 7. Software
+
+<img src="https://image.prntscr.com/image/s75QmFaDQfC3RazXivOlLA.png">
+
+Module này chủ yếu dùng nhiều các phần mềm PHP và Perl, người dùng thông thường không cần lắm những tính năng trong này. Các modules thông dụng nhất là:
+  - Softaculpis Apps Installer
+  - Optimize Website
+  - Perl Modules
+  - PHP PEAR Packages
+  - CloudFlare
+  - PHP Version Selector
+
+### 8. Advanced
+
+<img src="https://image.prntscr.com/image/-gs69L1xS7e0BS2pboPRsQ.png">
+
+Như tiêu đề, những thông số này dành cho người dùng chuyên nghiệp. Các modules thông dụng nhất:
+  
+   - Apache Handlers
+   - Cron Jobs
+   - Error Pages
+   - Indexes
+   - MIME Types
+   - Track DNS
+
+### 9. Preferences
+
+<img src="https://image.prntscr.com/image/nrYqUpsUTKax9VUQG3cSUQ.png">
+
+Đây là nơi bạn tùy biến giao diện của cPanel để làm cho nó tiện nhìn hơn. Những modules thông dụng nhất là:
+   - Change Language: đổi ngôn ngữ cPanel
+   - Change Main Domain: đổi tên miền
+   - Getting Started Wizard: quy trình khi mới dùng
+   - Manage Resources: Quản lý tài nguyên
+   - Shortcuts
+   - Update Contact Info: cập nhật thông tin cá nhân
+   - Video Tutorials: hướng dẫn bằng video
+   
+
+
+
+
+
 
 
 
