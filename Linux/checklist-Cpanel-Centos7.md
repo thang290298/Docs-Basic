@@ -32,9 +32,13 @@
   - [3.1 Tạo tài khoản FTP.](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#31-t%E1%BA%A1o-t%C3%A0i-kho%E1%BA%A3n-ftp)
   - [3.2 Tạo DB](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#32-t%E1%BA%A1o-db)
   - [3.3 up site Wordpress](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#33-up-site-wordpress)
+
 [4. Cài đặt Plugin Let's Encrypt trên cPanel](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#4-c%C3%A0i-%C4%91%E1%BA%B7t-plugin-lets-encrypt-tr%C3%AAn-cpanel)
+
 [5. Tạo E-mail cho khách hàng theo tên miền](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#5-t%E1%BA%A1o-e-mail-cho-kh%C3%A1ch-h%C3%A0ng-theo-t%C3%AAn-mi%E1%BB%81n)
+
 [6. kiểm tra tính năng gửi mail thông báo cho khách hàng khi thay đổi thông tin](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#6-ki%E1%BB%83m-tra-t%C3%ADnh-n%C4%83ng-g%E1%BB%ADi-mail-th%C3%B4ng-b%C3%A1o-cho-kh%C3%A1ch-h%C3%A0ng-khi-thay-%C4%91%E1%BB%95i-th%C3%B4ng-tin)
+
 [7. Backups Database, code](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#7-backups-database-code)
 
 
