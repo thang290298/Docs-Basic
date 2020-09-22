@@ -32,9 +32,13 @@
 [9. Preferences](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#9-preferences)
 
 [III. Thực hiện Check list](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#iii-th%E1%BB%B1c-hi%E1%BB%87n-check-list)
+
 [1. Tạo gói Packages](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#1-t%E1%BA%A1o-g%C3%B3i-packages)
+
 [2. Tạo Client, Domain](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#2-t%E1%BA%A1o-client-domain)
+
 [3. Tạo tài khoản FTP,Database và up 1 site wordpress ví dụ.](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#3-t%E1%BA%A1o-t%C3%A0i-kho%E1%BA%A3n-ftpdatabase-v%C3%A0-up-1-site-wordpress-v%C3%AD-d%E1%BB%A5)
+
   - [3.1 Tạo tài khoản FTP.](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#31-t%E1%BA%A1o-t%C3%A0i-kho%E1%BA%A3n-ftp)
   - [3.2 Tạo DB](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#32-t%E1%BA%A1o-db)
   - [3.3 up site Wordpress](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#33-up-site-wordpress)
