@@ -187,12 +187,190 @@ Như tiêu đề, những thông số này dành cho người dùng chuyên nghi
    - Shortcuts
    - Update Contact Info: cập nhật thông tin cá nhân
    - Video Tutorials: hướng dẫn bằng video
+## III. Thực hiện Check list
+### 1. Tạo gói Packages
+
+Đăng nhập WHM bằng tài khoản `root` tới mục `Manage Your Accounts` chọn : ` Add a Package`
+
+<img src="https://image.prntscr.com/image/2lsjNrZuQUCJ5_eLeTVl5g.png">
+
+- tại đây chúng ta  điền thống tin tên `package` và dung lương các gói cho phù hợp và tiến hành ` add` Package.
+
+
+<img src="https://image.prntscr.com/image/TqZfxwXiT-yWzm_bd0wbzA.png">
+
+### 2. Tạo Client, Domain
+
+- Để tạo tài khoản cPanel trên WHM chúng ta làm như sau:
+   - Trang chủ WHM >> Account Funtions >> Create a New Account.
+- Domain Information là nơi thiết lập các thông tin cơ bản cho tài khoản cPanel.
+
+<img src="https://image.prntscr.com/image/ehsciEiKTMSqUUhX1RpBZQ.png">
+
+  - Domain: Địa chỉ tên miền
+  - Username: Tài khoản dùng để đăng nhâp vào thệ thống cPanel
+  - Password: Mật khẩu của tài khoản
+  - Re-type Password: Nhập lại mật khẩu lần nữa
+  - Email: Email của tài khoản tên miền
+
+- Package cho phép chỉ định một package vào một tài khoản mới
+
+<img src="https://image.prntscr.com/image/1I8NdoAzTYabS-VtTG2Vxw.png">
+
+- Setting cho phép thiết lập chủ đề mặc định của cPanel:
+
+<img src="https://image.prntscr.com/image/9deyuSEfTlCSPZOV8eKiZg.png">
+
+
+- Mail Routing Settings cho phép chỉ định cách thư được chuyển cho tài khoản mới.
+<img src="https://image.prntscr.com/image/c7-lI1b5Rx_NywWDuXApCA.png">
    
+   - Automatically Detect Configuration: Tự động thiết lập cấu hình hoạt động.
+   - Local Mail Exchanger: Cấu hình mail nội bộ, chấp nhận mail local cho các tên miền mới.
+   - Backup Mail Exchanger: Cấu hình máy chủ thành mail dự phòng cho tên miền này.
+   - Remote Mail Exchanger: Tính năng này không chấp nhận bởi mail local.
+
+- DNS Setting cho phép thiết lập DNS cho tên miền của tài khoản
+
+   <img src="https://image.prntscr.com/image/8mKcEZBjT3arvfViz-jFOw.png">
+
+   - Enable DKIM on this account: DKIM (DomainKeys Indentified Mail) là một dạng chữ kỹ điện tử được đưa vào tiêu đề đầy đủ của email của bạn để xác định nguồn gốc của nơi mà thông điệp được gửi đi.
+   - Enable SPF on this account: SPF – mở rộng hỗ trợ cho giao thức gửi mail (SMTP). SPF cho phép nhận dạng, chứng thực và loại bỏ những nội dung mail từ địa chỉ mail giả mạo.
+   - Use the nameservers specified at the Domain’s Registrar. (Ignore locallly specified nameserver.): Sử dụng nameserver được đăng kí tại nơi mua domain.
+   
+- Sau khi điền đầy đủ các thông tin nêu ở trên, nhấn `Create` để tạo user.
+kết quả:
+
+<img src="https://image.prntscr.com/image/R8DblRSSRtiwFHULtD3ljQ.png">
+
+### 3. Tạo tài khoản FTP,Database và up 1 site wordpress ví dụ.
+#### 3.1 Tạo tài khoản FTP.
+- Để tạo tài khoản FTP trên cPanel. Các bạn có thể nhấn vào `FTP Accounts` như hình sau:
+<img src="https://image.prntscr.com/image/80bWvMReRLWS482GfKC3eQ.png">
+
+- tiếp theo ta điển tên user và thông tin mật khẩu:
+
+<img src="https://image.prntscr.com/image/9Y2JrDpjTbO06WVM-F_5eg.png">
+
+- sử dụng fiezilla để đẩy file từ `local` hosting
+
+<img src="https://image.prntscr.com/image/bNmDPX_iTHaU9TBhCteCsA.png">
+
+- tiến hành đẩy file thành công:
+#### 3.2 Tạo DB 
+- Create Database MySQL:
+ Để tạo mới ` Database ` trên màn hình ta ấn chọn vào `MySQL® Databases` và tạo mới ` Database ` ở mục `Create New Database`
+
+<img src="https://image.prntscr.com/image/eoe2eNJbTpeqfuSLx9RGag.png">
+
+- Create User Database MySQL:
+   - điền thông tin và chọn `Create User`
+
+<img src="https://image.prntscr.com/image/o1ftZREyQKKsY0Nnt6GKOA.png">
+
+- Gán  cho `user` kết nối `database` :
+
+
+<img src="https://image.prntscr.com/image/avWNdF0hSKKEEWD6pG9EYg.png">
+
+- Phân quyền cho user:
+
+<img src="https://image.prntscr.com/image/0-RCxCKUQ0a2dmGwROWreQ.png">
+
+  - sau khi phân quyền xong ấn ` Make change ` để lưu thay đổi và áp dụng
+
+
+#### 3.3 up site Wordpress
+ Sau khi đẩy file Wordpress lên bằng tài khoản FTP, tiến hành giải nén và lưu vào thư mục ` Public_html`
+
+ <img src="https://image.prntscr.com/image/hTMpXB5gRf6tHRgcZo__Bw.png">
+
+ - tiến hành `rename` file `wp-config-sample.php` thành ` wp-config.php` và cấu hình kết nối `Database `.
+
+ <img src="https://image.prntscr.com/image/wQdxIYprS0mOFl6rbzXyDw.png">
+
+ - truy cập thư mục `wp-contens` tạo mới thư mục `upload` để lưu trữ các bài đăng cửa website.
+
+
+ <img src="https://image.prntscr.com/image/N-4uUFrgRECW0er_zvngyw.png">
 
 
 
+sau khi cấu hình cài đặt website thành công tiến hành trỏ bản ghi DNS về ` IP ` server chạy Web và cài đặt  trên trình duyệt:
+```
+http://learning365.online
+```
 
 
+<img src="https://image.prntscr.com/image/Ix-R-GDETm_c6WAFgix6mQ.png">
+
+kết quả :
+<img src="https://image.prntscr.com/image/fKAG_0CtS62zxYqcreTzRw.png">  
+
+### 4. Cài đặt Plugin Let's Encrypt trên cPanel
+- Thêm package letsencrypt vào repository:
+```
+wget https://cpanel.fleetssl.com/static/letsencrypt.repo -O /etc/yum.repos.d/letsencrypt.repo
+```
+- Cài đặt Plugin thông qua lệnh yum
+```
+yum -y install letsencrypt-cpanel
+```
+- Test Plugin
+```
+le-cp self-test
+```
+- Nếu không có vấn đề gì hệ thống sẽ trả về SUCCESS:
+
+<img src="https://image.prntscr.com/image/ACcSZOoRQOG8hECcdOX1qg.png">
+
+-  check trên web:
+
+<img src="https://image.prntscr.com/image/-IQqwTkzSTukfkrZ29UQbg.png">
+
+- kiểm tra bảo mật tên miền:
+
+<img src="https://image.prntscr.com/image/TukcRAclSA2a-ypJwTVuAw.png">
+
+### 5. Tạo E-mail cho khách hàng theo tên miền
+
+- Kéo xuống phần Email > Email Accounts
+
+<img src="https://image.prntscr.com/image/DrU_AM03S0O9idmZu1ohNg.png">
+
+- Bạn nhấn vào nút `CREATE` ở phía bên phải:
+
+<img src="https://image.prntscr.com/image/tj3oxOdDR8aBsAhifyVmKA.png">
+
+Ở cửa sổ mới hiện ra bạn làm như sau:
+
+<img src="https://image.prntscr.com/image/QHxpqrqwRSCg5cWoe0mKUQ.png">
+
+  - Bước 1: đặt tiền tố cho email, ví dụ info, admin hay contact…
+
+  - Bước 2: đặt mật khẩu cho tài khoản email. Bạn có thể nhấn vào nút GENERATE để tự động tạo mật khẩu mạnh
+
+  - Bước 3: Các thiết lập khác bạn có thể giữ nguyên. Xong thì nhấn `CREATE` để tiếp tục.
+
+Bạn sẽ được đưa về màn hình lúc nãy. Nhấn vào nút CHECK MAIL trong email mà bạn vừa tạo xong.
+
+<img src="https://image.prntscr.com/image/zeLMSEPyTEaOH__cRyp6zQ.png">
+
+Chọn một ứng dụng Webmail làm mặc định. Ở đây mình chọn roundcube:
+
+<img src="https://image.prntscr.com/image/SYMVwljESn2GhYSbZ0gThg.png">
+
+### 6. kiểm tra tính năng gửi mail thông báo cho khách hàng khi thay đổi thông tin
+- Cấu hình các trường hợp gửi mail thông báo tới khách hàng:
+<img src="https://image.prntscr.com/image/eE8FZH1xQxm0pDGJeer6IQ.png">
+
+- check mail kiểm tra khi thay đổi thông tin e-mail khách hàng.
+   - trên tài khoản mail: `b@learning.online`
+   <img src="https://image.prntscr.com/image/tzs0GKSDRz605wyjC1r3eA.png">
+   - trên tài khoản mail : `xboy.vjp.292@gmail.com`
+   <img src="https://image.prntscr.com/image/ogN4KVFaT2K2qrunX72ilg.png">
+
+### 7. Backups Database, code
 
 
 
