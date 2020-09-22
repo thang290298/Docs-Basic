@@ -20,11 +20,17 @@
 [3. Quản lý domain – Tên miền](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#3-qu%E1%BA%A3n-l%C3%BD-domain--t%C3%AAn-mi%E1%BB%81n)
 
 [4. E-mail](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#4-e-mail)
+
 [5. Metrics](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#5-metrics)
+
 [6. SECURITY](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#6-security)
+
 [7. Software](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#7-software)
+
 [8. Advanced](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#8-advanced)
+
 [9. Preferences](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#9-preferences)
+
 [III. Thực hiện Check list](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#iii-th%E1%BB%B1c-hi%E1%BB%87n-check-list)
 [1. Tạo gói Packages](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#1-t%E1%BA%A1o-g%C3%B3i-packages)
 [2. Tạo Client, Domain](https://github.com/thang290298/work-Document/blob/master/Linux/checklist-Cpanel-Centos7.md#2-t%E1%BA%A1o-client-domain)
