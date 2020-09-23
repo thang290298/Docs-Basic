@@ -457,6 +457,49 @@ tiến hành chạy thử nghiệm backup với 1 phút 1 lần
 
 ### 8. Xác định File Log trên Cpanel
 
+Log file của cPanel được lưu tại thư mục /usr/local/cpanel/logs/, gồm có các file chính sau:
+  - access_log: log truy cập của cPanel và WHM.
+
+
+  - error_log: log các lỗi của cPanel và WHM.
+
+  - login_log: log các đăng nhập cPanel và WHM.
+
+  - Ngoài ra, cPanel còn lưu log hệ thống tại thư mục /var/log/, gồm có
+
+  - bandwidth: log lưu lượng băng thông sử dụng của server.
+
+  - chkservd.log: log hệ thống theo dõi các dịch vụ trên server.
+
+  - clamav: log của hệ thống quét virus clamav.
+
+  - cpupdate: log tác vụ nâng cấp của cPanel.
+
+  - exim_mainlog: log gửi/nhận thư của hệ thống mail exim.
+
+  - exim_rejectlog: log các kết nối bị từ chối của exim.
+
+  - exim_paniclog: log các lỗi của exim.
+
+  - maillog: log các đăng nhập và kết nối gửi/nhận thư của các dịch vụ mail (pop3/imap).
+
+  - xferlog: log các kết nối qua FTP.
+
+Ngoài ra, log của các tài khoản được lưu trữ trong thư mục /usr/local/cpanel/domlogs/ và log của Apache được lưu tại /usr/local/apache/logs/.
+
+- Ở trang chủ sau khi login Cpanel hỗ trợ người các tính năng kiếm soát truy cập , băng thông cũng như hiển thị một số log
+  - Awstats
+  - Bandwidth
+  - CPU and Concurrent Connection Usage
+  - Errors
+  - Raw Access
+  - Visitors
+  - Webalizer
+  - Webalizer FTP
+
+<img src="https://image.prntscr.com/image/46uORfV7SCyAKb91cm-Qlg.png">
+
+
 
 
 
