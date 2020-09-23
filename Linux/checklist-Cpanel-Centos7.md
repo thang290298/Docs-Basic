@@ -403,7 +403,73 @@ Chọn một ứng dụng Webmail làm mặc định. Ở đây mình chọn rou
    - trên tài khoản mail : `xboy.vjp.292@gmail.com`
    <img src="https://image.prntscr.com/image/ogN4KVFaT2K2qrunX72ilg.png">
 
-### 7. Backups Database, code
+### 7. Backups/Restore Database, code 
+
+Trong giao diện quản trị `Cpanel` truy cập mục `Backup Wizard`
+
+<img src="https://image.prntscr.com/image/iEOdHUmoTZGKWGlUlSAJHw.png">
+
+Tại đây, các bạn sẽ được tùy chọn các mục để backup như source code Website, Email, và Database.
+#### 7.1 Backup/Restore 
+
+- Backup
+Tạo bản backup thư mục trang chủ
+
+Để tạo bản backup trang chủ chúng trên hosting bạn chọn phần `Select Partial Backup` >> ` home directory`
+
+<img src="https://image.prntscr.com/image/iDv0nbyYS2yS2xmVY0v9jw.png">
+
+tiếp theo bấm chọn ` Home Directory ` để download file backup:
+
+<img src="https://image.prntscr.com/image/1L8VRyvZT_a7tWej4_PQCg.png">
+
+- Restore:
+
+Để restore bản backup trang chủ chúng trên hosting bạn chọn phần`Restore`>> `Select Partial Backup` >> ` home directory`
+<img src="https://image.prntscr.com/image/KEzkuS-5TYiJyjQNHHhETA.png">
+
+  - 1: chọn file backup từ thiết bị
+  - 2: tiến hành restore
+
+*Lưu ý *: làm tương tự để backup Database và Email
+
+#### 7.2 Đặt lịch Backup dữ liệu auto hàng ngày bằng Cron Jobs
+
+- Trước tiên chúng ta tạo một folder tên là backups trong home/learning365/
+
+<img src="https://image.prntscr.com/image/hatFymm7RWKaKS4QMwW-Kw.png">
+
+- Sau đó di chuyển đến phần `Advanced` chọn ` Cron Jobs` :
+
+<img src="https://image.prntscr.com/image/3Sqm5bO3SnStocHIOusMNQ.png">
+
+Trình Cron Job của cPanel gồm 3 mục:
+  - `Cron Email`: Đây là email mà mỗi khi  thực hiện công việc tự động hệ thống sẽ gửi báo cáo về email này. Email này là duy nhất, bạn không thể thêm mà chỉ có thể sửa.
+  - `Add a New Cron Job`: Đây là mục thêm công việc tự động chính gồm:
+      - Common setting: Lựa chọn tần suất cho công việc. Có các lựa chọn từ mỗi phút cho đến mỗi năm.
+      - Minute, Hour, Day, Month, Weekday: Chọn tần suất cho công việc theo phút, giờ, ngày, tháng, ngày trong tuần.
+      - Comment: Câu lệnh Linux mà khi đến giờ hẹn sẽ thực hiện.
+
+tiến hành chạy thử nghiệm backup với 1 phút 1 lần
+
+
+<img src="https://image.prntscr.com/image/q9l8LzrDTmiSsRplYO5bNQ.png">
+
+### 8. Xác định File Log trên Cpanel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
