@@ -1,32 +1,48 @@
 # Check list sử dụng Plesk
 # Mục Lục
-[I. Tìm hiểu về Plesk]
-  [1. Pleck là gì?]
-  [2. Plesk Onyx là gì?]
-  [3. Plesk Obsidian là gì?]
-  [4. Đối tượng sử dụng Plesk]
-  [5. Ưu điểm của Ples]
-  [6. Tại sao nên sử dụng Pesk]
-  [7. Sự khác biệt giữa Plesk Obisidian và Plesk Onyx]
-  [8. Tổng quan các tính năng có trên Plesk]
-[II. Cài đặt Plesk]
-  [1. Đăng ký tài khoản dùng thử miễn phí Plesk]
-  [2. Rebuild cài đặt Plesk trên Portal]
-[III. hướng dẫn sử dụng Plesk]
-  [1. tạo gói Plan]
-  
+[I. Tìm hiểu về Plesk](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#i-t%C3%ACm-hi%E1%BB%83u-v%E1%BB%81-plesk)
+
+  [1. Pleck là gì?](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#1-pleck-l%C3%A0-g%C3%AC)
+
+  [2. Plesk Onyx là gì?](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#2-plesk-onyx-l%C3%A0-g%C3%AC)
+
+  [3. Plesk Obsidian là gì?](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#3-plesk-obsidian-l%C3%A0-g%C3%AC)
+
+  [4. Đối tượng sử dụng Plesk](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#4-%C4%91%E1%BB%91i-t%C6%B0%E1%BB%A3ng-s%E1%BB%AD-d%E1%BB%A5ng-plesk)
+
+  [5. Ưu điểm của Ples](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#5-%C6%B0u-%C4%91i%E1%BB%83m-c%E1%BB%A7a-plesk)
+
+  [6. Tại sao nên sử dụng Pesk](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#6-t%E1%BA%A1i-sao-n%C3%AAn-s%E1%BB%AD-d%E1%BB%A5ng-pesk)
+
+  [7. Sự khác biệt giữa Plesk Obisidian và Plesk Onyx](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#7-s%E1%BB%B1-kh%C3%A1c-bi%E1%BB%87t-gi%E1%BB%AFa-plesk-obisidian-v%C3%A0-plesk-onyx)
+
+  [8. Tổng quan các tính năng có trên Plesk](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#8-t%E1%BB%95ng-quan-c%C3%A1c-t%C3%ADnh-n%C4%83ng-c%C3%B3-tr%C3%AAn-plesk)
+
+[II. Cài đặt Plesk](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#ii-c%C3%A0i-%C4%91%E1%BA%B7t-plesk)
+
+  [1. Đăng ký tài khoản dùng thử miễn phí Plesk](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#1-%C4%91%C4%83ng-k%C3%BD-t%C3%A0i-kho%E1%BA%A3n-d%C3%B9ng-th%E1%BB%AD-mi%E1%BB%85n-ph%C3%AD-plesk)
+
+  [2. Rebuild cài đặt Plesk trên Portal](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#2-rebuild-c%C3%A0i-%C4%91%E1%BA%B7t-plesk-tr%C3%AAn-portal)
+
+  [3. Hướng dẫn cài đặt Plesk trên CentOS 7](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#3-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-c%C3%A0i-%C4%91%E1%BA%B7t-plesk-tr%C3%AAn-centos-7)
+
+[III. hướng dẫn sử dụng Plesk](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#iii-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-s%E1%BB%AD-d%E1%BB%A5ng-plesk)
+
+  [1. tạo gói Plan](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#1-t%E1%BA%A1o-g%C3%B3i-plan)
+
+
 
 
 
 ## I. Tìm hiểu về Plesk
 ### 1. Pleck là gì?
 - Plesk là một hệ thống quản lý hosting cấp cao rất được ưa chuộng hiện nay. Nhiệm vụ của phần mềm Plesk là hỗ trợ các chức năng quản lý các tác vụ liên quan tới website như hosting, tên miền. 
-<img src="https://image.prntscr.com/image/0uZNOUO5SsiLgvRk-nzyfw.png">
+<img src="https://www.ods.vn/wp-content/uploads/2020/02/plesk-cong-cu-quan-tri-web-hosting-khong-the-thieu-cua-doanh-nghiep-2.png">
 - Hệ thống này đem đến cho nhà cung cấp hosting một môi trường quản lý lưu trữ website hoàn hảo cho khách hàng, từ thuê hosting giá rẻ đến thuê hosting Windows. Nó bao gồm hệ thống tự động thanh toán và backup dữ liệu. Chưa hết, những tính năng đi kèm dành cho website như điều chỉnh tên miền, giấy chứng nhận SSL, tối ưu phiên bản web di động,… cũng giúp người dùng thao tác nhanh gọn hơn ngay trên giao diện Plesk.
 - Bên cạnh các chức năng thông thường, lý do khiến nó tạo được ấn tượng mạnh là bởi sự đa năng: khả năng thiết kế web, giao diện storefront SaaS lẫn phân hệ Hóa đơn điện tử và thanh toán – Billing – Plesk là phần mềm quản lý Hosting duy nhất được tích hợp các yếu tố này.
 
 ### 2. Plesk Onyx là gì?
-<img src="https://image.prntscr.com/image/0uZNOUO5SsiLgvRk-nzyfw.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/Plesk/plesk-la-gi-3.jpg?raw=true">
 
 - Phần mềm Plesk Onyx là phiên bản quản lý website cơ bản và đầu tiên từ Plesk. Plesk Onyx bao gồm các tính năng cơ bản trong việc quản lý và hiệu chỉnh các ứng dụng cho Website như:
    - Quản lý các dữ liệu file tiêu chuẩn.
@@ -34,7 +50,7 @@
    - Điều chỉnh hiệu suất hoạt động.
    - Tự động cập nhật các dữ liệu và tính năng mới.
 ### 3. Plesk Obsidian là gì?
-<img src="https://image.prntscr.com/image/0uZNOUO5SsiLgvRk-nzyfw.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/Plesk/plesk-la-gi-4.jpg?raw=true">
 
 Plesk Obsidian là phiên bản quản lý website mới nhất ra mắt vào 25/09/2019 của Plesk. Phiên bản mới này tập trung giải quyết tối đa các vấn đề liên quan đến Bảo mật, hiệu suất và sự tiện dụng.
 ### 4. Đối tượng sử dụng Plesk
