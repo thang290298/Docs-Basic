@@ -39,14 +39,14 @@
   [5. Cài đặt chứng chỉ SSL DAOUSIGN](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#5-c%C3%A0i-%C4%91%E1%BA%B7t-ch%E1%BB%A9ng-ch%E1%BB%89-ssl-daousign)
 
   [6. Thực hiện Backups/Restore](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#6-th%E1%BB%B1c-hi%E1%BB%87n-backupsrestore)
-      - [6.1 thực hiện Backup](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#61-th%E1%BB%B1c-hi%E1%BB%87n-backup)
-      - [6.2 Đặt lịch Backups](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#62-%C4%91%E1%BA%B7t-l%E1%BB%8Bch-backups)
-      - [6.3 Restore](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#63-restore)
+    - [6.1 thực hiện Backup](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#61-th%E1%BB%B1c-hi%E1%BB%87n-backup)
+    - [6.2 Đặt lịch Backups](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#62-%C4%91%E1%BA%B7t-l%E1%BB%8Bch-backups)
+    - [6.3 Restore](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#63-restore)
 
   [7. Tạo mail theo tên miền khách hàng](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#7-t%E1%BA%A1o-mail-theo-t%C3%AAn-mi%E1%BB%81n-kh%C3%A1ch-h%C3%A0ng)
 
   [8. Xác định file logs](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#8-x%C3%A1c-%C4%91%E1%BB%8Bnh-file-logs)
-  
+
   [9. Kiểm tra hiệu năng hệ thống tại Advanced Monitoring](https://github.com/thang290298/work-Document/blob/master/Linux/check-list-Plesk.md#9-ki%E1%BB%83m-tra-hi%E1%BB%87u-n%C4%83ng-h%E1%BB%87-th%E1%BB%91ng-t%E1%BA%A1i-advanced-monitoring)
 
 
