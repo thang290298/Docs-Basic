@@ -204,6 +204,277 @@ sau khi cấu hình các gói dịch vụ ở phần `Required fields` lựa ch�
 
 <img src="https://image.prntscr.com/image/Vh2nBo3TSECPZIxjUs5eJA.png">
 
+### 2. Tạo user, Domain
+
+Để tạo User, domain thực hiện các bước sau:
+
+#### Bước 1 : Trên giao Home tìm mục “Customers”->Click “Add New Customer”
+<img src="https://image.prntscr.com/image/hBkMrl42QkCN7NvwvFcThg.png">
+
+#### Bước 2 : Khai báo thông tin Domain cần tạo->Click “OK” hoàn tất
+
+<img src="https://image.prntscr.com/image/ZwUHRC1ASG2ZYGf6ZTlbCg.png">
+
+#### Bước 3: Sau khi tạo mới thành công tiến hành kích hoạt tài khoản.
+
+
+<img src="https://image.prntscr.com/image/ntb2wuefTROMybUaZ5dt1w.png">
+ 
+ kết quả:
+
+ 
+<img src="https://image.prntscr.com/image/IpVeO8oUQJS2lY4EuPrGQQ.png">
+
+### 3. Tạo tài khoản FTP
+
+Để tạo tài khoản FTP ` login` vào tài khoản domain cần tạo tài khoản `FTP`
+#### Bước 1: Ở giao diện màn "Websites & Domains" chọn mục "FTP Access" và " add and FTP Account"
+
+<img src="https://image.prntscr.com/image/PNY4XaEwRwu78MOKbiEOEA.png">
+
+#### Bước 2: Điền nội dung thông tin tài khoản và bấm "OK"
+
+
+<img src="https://image.prntscr.com/image/8mQ-6QVgTOaUZmdrzcUGpg.png">
+
+#### Bước 3: thực hiện kiểm tra trên phần mềm FIleZilla
+
+<img src="https://image.prntscr.com/image/84Il2WRCSAyQpWZDUmCZWQ.png">
+
+### 4. up site Wordpress
+để thực hiện up site wordpress
+#### Bước 1: tạo cơ sở dữ liệu 
+ 
+- Ở màn hình `Websites & Domains` lựa chọn ` database` để `add Database`
+
+<img src="https://image.prntscr.com/image/soaJjb6uSrOD7cPhlanoOA.png">
+
+- Điền nội thông tin `Database` và `user` cho cơ sở dữ liệu
+
+
+<img src="https://image.prntscr.com/image/CQVAUKluRduXImXO5WMDKQ.png">
+
+#### Bước 2: Cấu hình cài đặt Wordpress
+- Giải nén file wordpress đã đẩy lên từ tài khoản FTP:
+  - truy cập thư mục ` httpdocs` và giải nén file ta có thư mục `Wordpress`
+
+<img src="https://image.prntscr.com/image/q03W2e60R1CbF8E1te8ldQ.png">
+
+ - Chuyển tất cả các file giải nén và thư mục `httpdocs`:
+
+ <img src="https://image.prntscr.com/image/BJEDtWvTRPOOw2M4OFdY_Q.png">
+
+- Đổi tên file `wp-config-sample.phph` thành `wp-config.php` và cấu hình kết nối Database:
+
+   <img src="https://image.prntscr.com/image/978g5ijFSnCgnD65ue7mFw.png">
+
+#### Bước 3: cấu hình tài khoản quản trị trên web
+
+<img src="https://image.prntscr.com/image/Zx0zkzm8R9yrHns_4twsrw.png">
+
+#### Kiểm tra kết quả với tên miền: jaeger292.xyz
+
+<img src="https://image.prntscr.com/image/ihU9R9MFRhWUskdgM9TlYQ.png">
+
+
+#### thực hiện cài đặt Wordpress bằng tiện ích Wordpress Toolkit:
+
+- Ở trang chủ màn hình home chọn `Wordpress` và `install`
+<img src="https://image.prntscr.com/image/Ha4ethuTTruozWtN8gfQSA.png">
+
+- Điền thông tin cấu hình và lựa chọn phiên bản cài đặt:
+
+<img src="https://image.prntscr.com/image/lmxY1wxjS-aK7JRqlCBa3w.png">
+
+- Sau khi cài đặt hệ thống hiển thị thông tin cơ bản cấu hình đã khởi tại
+
+<img src="https://image.prntscr.com/image/9TaHfERXTpWdeCg8RDzbsg.png">
+
+- TRuy cập Website: `https://jaeger292.xyz`
+
+<img src="https://image.prntscr.com/image/6Lk4nFTtTD6XBZLSVwkb9w.png">
+
+### 5. Cài đặt chứng chỉ SSL DAOUSIGN
+ 
+
+
+- Nhấn vào biểu tượng “Chứng nhận SSL/TLS” trên màn hình để bắt đầu cài đặt SSL cho website
+<img src="https://image.prntscr.com/image/nluAI5uCTOWCJtGgUV8AaA.png">
+
+- chọn `Advanced Setting` và `Add SSL/TLS Certificate` và tiến hành upload file chứng chỉ.
+
+<img src="https://image.prntscr.com/image/nbV8J4YkQdGXv5478frBfA.png">
+
+  - Sau khi nhập tên chứng chỉ và uploa thành công ta tiến hành update chứng chỉ
+  - upload thành công:
+
+  <img src="https://image.prntscr.com/image/jGFWWLJPSoOVTYBtB62Exg.png">
+
+ - Để kích hoạt tính năng SSL cho `Domain` trên màn hình `Websites & Domains` chọn `Hosting & DNS` truy cập vào ` Hosting Setting`:
+
+<img src="https://image.prntscr.com/image/E0Xk0X-mRI6beEwvRiVELw.png">
+- Kích hoạt tính năng SSL ta bật các dịch vụ:
+   - SSL/TLS support 
+   - Permanent SEO-safe 301 redirect from HTTP to HTTPS 
+   - lựa chọn tên miền jaeger292.xyz cho dịch vụ Certificate
+
+<img src="https://image.prntscr.com/image/1UTnXbkETm_wUZW56gWYdg.png">
+
+
+- kiểm tra chứng chỉ trên Web:
+```
+https://jaeger292.xyz
+```
+
+<img src="https://image.prntscr.com/image/B76y-rc6QY6P4583JATXrQ.png">
+
+
+### 6. Thực hiện Backups/Restore
+#### 6.1 thực hiện Backup
+- Trên màn hình `Websites & Domains` kích chọn ` Database Manager`
+
+<img src="https://image.prntscr.com/image/90ihoLmYQSiJLqdAM6FPow.png">
+
+- Chọn ` Backup ` để lựa chọn nội dung backups
+
+<img src="https://image.prntscr.com/image/LJvoPqcMQxKR_lzMNlJibw.png">
+
+- Sau khi Backup thành công hệ thống sẽ sinh ra file backups có tên chứa thời gian backup
+
+<img src="https://image.prntscr.com/image/kAglXfQwSkGtgSPUkH85SQ.png">
+
+#### 6.2 Đặt lịch Backups
+- Tại màn hình `Database Manager` lựa chọn `  Schedule`
+- Chọn `Activate this backup task` này và chỉ định những điều sau
+   -  Khi nào và tần suất chạy bản sao lưu.
+   - Có thực hiện sao lưu gia tăng hay không và nếu có, tần suất sao lưu đầy đủ nên được thực hiện. Một bản sao lưu đầy đủ chứa tất cả cấu hình và nội dung (nếu bạn chọn sao lưu nội dung) nhưng chiếm nhiều dung lượng hơn. Bản sao lưu gia tăng chỉ chứa sự khác biệt giữa trạng thái hiện tại của tài khoản của bạn và trạng thái tại thời điểm sao lưu đầy đủ cuối cùng được thực hiện. Điều này giúp tiết kiệm dung lượng ổ đĩa, nhưng một bản sao lưu gia tăng sẽ vô dụng nếu bản sao lưu đầy đủ tương ứng bị xóa hoặc bị hỏng.
+   - Các tệp sao lưu sẽ được giữ trong bao lâu trước khi bị xóa.
+   - Có bao gồm cấu hình và nội dung thư cũng như tệp người dùng và cơ sở dữ liệu trong bản sao lưu hay chỉ sao lưu cấu hình miền.
+   - Lưu trữ bản sao lưu trên máy chủ hay trong bộ lưu trữ FTP. Nếu không có bộ lưu trữ FTP nào được định cấu hình, hãy nhấp vào Định cấu hình để thiết lập một bộ nhớ.
+   - Bạn cũng có thể gửi thông báo cho bạn trong trường hợp có bất kỳ sự cố nào với quy trình sao lưu hoặc tạm dừng tất cả các miền trong quá trình sao lưu để đảm bảo tính nhất quán của bản sao lưu. Trên Windows, bạn cũng có thể chọn sao lưu cơ sở dữ liệu Microsoft SQL Server bằng chức năng sao lưu gốc bất cứ khi nào có thể.
+
+- Bấm `OK`
+Để chỉnh sửa cài đặt sao lưu đã lên lịch:
+
+- Đi tới `Tools & Utilities > Backup Manager`.
+- Nhấp vào `Schedule` và thực hiện các thay đổi mong muốn.
+- Để tắt các bản sao lưu đã lên lịch:
+- đi tới `Tools & Utilities > Backup Manager`.
+- Click `Schedule` và bỏ chọn `Activate this backup task checkbox`.
+<img src="https://image.prntscr.com/image/13QSRkXfTWuTuGi85bZ6bA.png">
+
+#### 6.3 Restore
+
+
+- Tại màn hình `Database Manager` hiển thị các bản Backup hiện có, để Restore bạn cọn 1 bản bất kỳ  và lựa chọn nội dung Restore.
+
+<img src="https://image.prntscr.com/image/CSblkPHCQ96cbKBwpxqkzQ.png">
+
+- hệ thống đang Restore dữ liệu
+<img src="https://image.prntscr.com/image/4GfpFJKYSjOdtou3amTOyg.png">
+
+- Hệ thống đã hoàn thành Restore dữ liệu
+
+<img src="https://image.prntscr.com/image/EUR8NFGATIqeu7P0Dj79NA.png">
+
+
+### 7. Tạo mail theo tên miền khách hàng
+- đi tới thư mục ` MAIL ` trên trang chủ
+
+<img src="https://image.prntscr.com/image/-JdeYiF8TmKqVTSpp856-g.png">
+
+- nhấn vào ` Create Email Address` 
+
+<img src="https://image.prntscr.com/image/-JdeYiF8TmKqVTSpp856-g.png">
+
+ - Nhập phần bên trái của địa chỉ email trước dấu @ và nếu bạn có nhiều tên miền trong tài khoản của mình, hãy chọn tên miền mà địa chỉ email sẽ được tạo.
+
+ - Chỉ định một địa chỉ email bên ngoài. Nó sẽ được sử dụng để đặt lại mật khẩu của bạn nếu bạn mất quyền truy cập vào địa chỉ email chính của mình.
+
+ - Chọn hộp kiểm Hộp thư . Xóa hộp kiểm này chỉ có ý nghĩa nếu bạn muốn sử dụng địa chỉ này làm trình chuyển tiếp thư, sẽ chuyển tiếp tất cả thư đến đến một địa chỉ khác.
+
+ - Chỉ định kích thước hộp thư hoặc sử dụng kích thước mặc định được xác định bởi chính sách của nhà cung cấp hoặc gói dịch vụ của bạn.
+
+ - Chỉ định mật khẩu bao gồm năm ký tự Latinh trở lên.
+
+ - Bấm OK .
+
+ <img src="https://image.prntscr.com/image/b1ABRvrpR8mxGnjUK4PdHg.png">
+
+ - Đăng nhập `Roundcube` để kiểm tra
+
+ <img src="https://image.prntscr.com/image/LC6JgUByTlGrvgbumooWuQ.png">
+
+ ### 8. Xác định file logs
+
+- Vào mục `Websites and Domains ` >>> `Logs`.
+ tại đây hệ thống lưu trữ logs theo tài khoản người dùng bao gồm:
+    -  logs/access_ssl_log
+    - logs/proxy_access_ssl_log
+    - logs/proxy_error_log
+    - logs/error_log
+
+
+<img src="https://image.prntscr.com/image/-0V8pV4tTwiHDYDYUTK7SA.png">
+
+- Plesk hỗ trợ người dùng tính năng real-time trực tiếp để kiểm tra hệ thống
+
+<img src="https://image.prntscr.com/image/HL8zkbFzSbeCT4kjvFjx9w.png">
+
+
+- Đối với log hệ thống Plesk lưu trữ ở mục ` Action Log` trong `Tools & Settings`
+
+<img src="https://image.prntscr.com/image/jW2QCXo8Q0CqeOjaknKIRw.png">
+ 
+ - ở đây muốn đọc log ta tiến hành tải log về bằng cách chọn thời gian xem log cụ thể muốn đọc và tiến hành ` download`
+
+ <img src="https://image.prntscr.com/image/G0qF6v3wQR2qYuU8I3OtZg.png">
+
+
+ - file log hệ thống sau khi download:
+
+<img src="https://image.prntscr.com/image/PnqIs1mSSruFvQ2FlFWixQ.png">
+
+### 9. Kiểm tra hiệu năng hệ thống tại `Advanced Monitoring`
+
+<img src="https://image.prntscr.com/image/hULgsLP8QCCjda62VszVNw.png">
+
+Các giá trị được hiển thị trong Giám sát nâng cao phản ánh việc sử dụng tài nguyên tại thời điểm trang được tải chứ không phải việc sử dụng tài nguyên hiện tại. Có thể chọn tần suất Giám sát nâng cao sẽ tự động làm mới dữ liệu của nó (ví dụ: mỗi năm giây hoặc mỗi giờ) hoặc bạn có thể tắt tự động làm mới và làm mới dữ liệu theo cách thủ công bằng cách nhấp vào làm mới hình ảnhbiểu tượng. Theo mặc định, Giám sát nâng cao tự động làm mới dữ liệu của nó hai phút một lần.
+
+- Theo dõi thông báo giám sát nâng cao: 
+  - Một số tài nguyên nhất định đã được bật thông báo và ngưỡng của chúng được đặt theo mặc định. Khi vượt quá ngưỡng mặc định, điều đó có nghĩa là một thông số gần với giá trị quan trọng của nó và mức tải cao này có thể tiềm ẩn sự cố.
+  - Để đặt ngưỡng tùy chỉnh và / hoặc bật và tắt thông báo cho các tài nguyên cụ thể:
+    - Đi tới `Advanced Monitoring` chọn ` setting`
+    - Bật và tắt thông báo cho các tài nguyên cụ thể.
+
+Tùy chỉnh ngưỡng.
+
+Có thể tùy chỉnh ngưỡng cho tài nguyên được bật. Nếu cần, hãy bật nó lên và sau đó đặt ngưỡng. Một số tài nguyên nhất định có thể có hai ngưỡng: ngưỡng tuyệt đối (tính bằng đơn vị đo lường) và ngưỡng tương đối (tính bằng phần trăm). Trong trường hợp này, hãy chọn ngưỡng ưa thích trước rồi đặt giá trị của nó.
+
+
+<img src="https://image.prntscr.com/image/oqBm53nuTpK6A68Fri3w9w.png">
+
+- Sau khi thiết lập xong chọn ` Apply` và quay lại thống kê để giám sát hệ thống.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
