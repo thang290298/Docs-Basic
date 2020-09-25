@@ -427,6 +427,13 @@ https://jaeger292.xyz
 
  <img src="https://image.prntscr.com/image/LC6JgUByTlGrvgbumooWuQ.png">
 
+ - tiến hành Cài đặt mail lên `outlock` và test thử gửi 1 mail bất kỳ .
+
+ <img src="https://image.prntscr.com/image/uDPeo-ItTb6XuXGWz5yhWQ.png">
+ - kiểm tra mail trên tài khoản đích:
+
+ <img src="https://image.prntscr.com/image/jgU_5dq3Tj2OKMCf6bXnGQ.png">
+
  ### 8. Xác định file logs
 
 - Vào mục `Websites and Domains ` >>> `Logs`.
