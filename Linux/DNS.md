@@ -1,5 +1,40 @@
 # Tìm hiểu DNS Server
-# Tổng quan về DNS
+[I. DNS và các khái niệm](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#i-dns-v%C3%A0-c%C3%A1c-kh%C3%A1i-ni%E1%BB%87m)
+
+  - [1. Khái niệm](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#1-kh%C3%A1i-ni%E1%BB%87m)
+
+  - [2. Chức năng của DNS](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#2-ch%E1%BB%A9c-n%C4%83ng-c%E1%BB%A7a-dns)
+
+  - [3. File /etc/hosts](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#3-file-etchosts)
+
+  - [4. Domain](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#4-domain)
+
+  - [5. Các loại DNS Servers](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#5-c%C3%A1c-lo%E1%BA%A1i-dns-servers)
+
+[II. Hoạt động của hệ thống DNS](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#ii-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-c%E1%BB%A7a-h%E1%BB%87-th%E1%BB%91ng-dns)
+  - [1. Hoạt động của hệ thống DNS](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#1-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-c%E1%BB%A7a-h%E1%BB%87-th%E1%BB%91ng-dns)
+  - [2. Các thành phần của DNS](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#2-c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-c%E1%BB%A7a-dns)
+    - [2.1 DNS Cache](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#21-dns-cache)
+    - [2.2 Resolvers](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#22-resolvers)
+    - [2.3 Name Servers](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#23-name-servers)
+    - [2.4 Name Space.](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#24-name-space)
+
+[III. Các loại bản ghi trên DNS](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#iii-c%C3%A1c-lo%E1%BA%A1i-b%E1%BA%A3n-ghi-tr%C3%AAn-dns)
+  - [1 Resource Records](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#1-resource-records)
+  - [2. Các loại Resource Record](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#2-c%C3%A1c-lo%E1%BA%A1i-resource-record)
+    - [2.1. SOA (Start of Authority)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#21-soa-start-of-authority)
+    - [2.2. NS (Name Server)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#22-ns-name-server)
+    - [2.3. Record A](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#23-record-a)
+    - [2.4. Record AAAA](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#24-record-aaaa)
+    - [2.5. PTR(Pointer Records)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#25-ptrpointer-records)
+    - [2.6.SRV(Service)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#26srvservice)
+    - [2.7. CNAME (Canonical Name)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#27-cname-canonical-name)
+    - [2.8. MX(Mail Exchange)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#28-mxmail-exchange)
+    - [2.9. TXT(Text)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#29-txttext)
+    - [2.10. DKIM(DomainKeys Identified Email)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#210-dkimdomainkeys-identified-email)
+    - [2.11. SPF(Sender Policy Framework)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#211-spfsender-policy-framework)
+
+
 ## I. DNS và các khái niệm
 ### 1. Khái niệm
 - DNS là “Domain Name Server” nhưng thực chất nó là viết tắt của Domain Name System – hệ thống tên miền – là một hệ thống cho phép thiết lập tương ứng giữa địa chỉ IP và tên miền trên Internet
@@ -203,7 +238,7 @@ Một Client trong trường hợp này có thể nhờ DNS nhận ra rằng, tr
 
 ```
 Tùy vào hệ thống DNS mà có thể hiển thị bản ghi SPF hoặc TXT Với bản ghi SPF, máy chủ tiếp nhận mail sẽ kiểm tra IP của máy chủ gửi và IP của máy chủ đã đăng kí bản ghi SPF example.com. Nếu Khách hàng có nhiều máy chủ mail nên liệt kê tất cả trong bản ghi SPF giúp đảm bảo thư đến được chính xác và đầy đủ.
-## III. Triển khai DNS Server trên Centos 8
+## IV. Triển khai DNS Server trên Centos 8
 ### 1. chuẩn bị
 - Máy chủ DNS Server:
     - Hệ điều hành: CentOS 8
@@ -408,7 +443,7 @@ nslookup 192.168.18.188
 ```
 <img src="https://image.prntscr.com/image/D3MIJyeDQBi61jMQNb-DHQ.png">
 
-## IV. Bắt gói tin DNS
+## V. Bắt gói tin DNS
 ### 1. Sử dụng TCPDUMP
 - Cài đặt TCPDump trên `CentOS 7`
 ```
