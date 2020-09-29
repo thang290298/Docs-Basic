@@ -1,4 +1,21 @@
 # Tổng quan về DIG
+# Mục Lục
+[I. Khái niệm](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#i-kh%C3%A1i-ni%E1%BB%87m)
+
+[II. Cài đặt và sử dụng DIG](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#ii-c%C3%A0i-%C4%91%E1%BA%B7t-v%C3%A0-s%E1%BB%AD-d%E1%BB%A5ng-dig)
+ - [1. Cài đặt](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#1-c%C3%A0i-%C4%91%E1%BA%B7t)
+ - [2. cú pháp của Dig](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#2-c%C3%BA-ph%C3%A1p-c%E1%BB%A7a-dig)
+ - [3. Cách sử dụng lệnh dig](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#3-c%C3%A1ch-s%E1%BB%AD-d%E1%BB%A5ng-l%E1%BB%87nh-dig)
+ - [4. Sử dụng lệnh dig với các truy vấn ngắn](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#4-s%E1%BB%AD-d%E1%BB%A5ng-l%E1%BB%87nh-dig-v%E1%BB%9Bi-c%C3%A1c-truy-v%E1%BA%A5n-ng%E1%BA%AFn)
+   - [Truy vấn lấy địa chỉ IP](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#truy-v%E1%BA%A5n-l%E1%BA%A5y-%C4%91%E1%BB%8Ba-ch%E1%BB%89-ip)
+   - [Truy vấn với name server cụ thể](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#truy-v%E1%BA%A5n-v%E1%BB%9Bi-name-server-c%E1%BB%A5-th%E1%BB%83)
+   - [Truy vấn theo bản ghi](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#truy-v%E1%BA%A5n-theo-b%E1%BA%A3n-ghi)
+   - [Tra cứu DNS Ngược](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#tra-c%E1%BB%A9u-dns-ng%C6%B0%E1%BB%A3c)
+   - [Truy vấn số lượng lớn tên miền](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#truy-v%E1%BA%A5n-s%E1%BB%91-l%C6%B0%E1%BB%A3ng-l%E1%BB%9Bn-t%C3%AAn-mi%E1%BB%81n)
+   - [Truy vấn DNS bằng TCP](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#truy-v%E1%BA%A5n-dns-b%E1%BA%B1ng-tcp)
+[Nguồn tham khảo](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#ngu%E1%BB%93n-tham-kh%E1%BA%A3o)
+
+
 
 ## I. Khái niệm
 - Dig(Domain Information Groper) là , bạn có thể truy vấn máy chủ DNS để biết thông tin về các bản ghi DNS khác nhau, bao gồm địa chỉ máy chủ, trao đổi thư, máy chủ tên và thông tin liên quan. Ngoài ra, nó được dự định là một công cụ để chẩn đoán các vấn đề DNS. Không dừng ở đó, dig còn có thể dùng để “chọc ngoáy” tìm hiểu về thêm về cách hoạt động của DNS.
