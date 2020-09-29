@@ -34,6 +34,18 @@
     - [2.10. DKIM(DomainKeys Identified Email)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#210-dkimdomainkeys-identified-email)
     - [2.11. SPF(Sender Policy Framework)](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#211-spfsender-policy-framework)
 
+[IV. Triển khai DNS Server trên Centos 8](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#iv-tri%E1%BB%83n-khai-dns-server-tr%C3%AAn-centos-8)
+  - [1. chuẩn bị](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#1-chu%E1%BA%A9n-b%E1%BB%8B)
+  - [2. Các Bước triển khai](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#2-c%C3%A1c-b%C6%B0%E1%BB%9Bc-tri%E1%BB%83n-khai)
+    - [Thực hiện trên DNS Server](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#th%E1%BB%B1c-hi%E1%BB%87n-tr%C3%AAn-dns-server)
+    - [Kiểm tra kết nối DNS trên Client](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#ki%E1%BB%83m-tra-k%E1%BA%BFt-n%E1%BB%91i-dns-tr%C3%AAn-client)
+[V. Bắt gói tin DNS](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#v-b%E1%BA%AFt-g%C3%B3i-tin-dns)
+  - [1. Sử dụng TCPDUMP](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#1-s%E1%BB%AD-d%E1%BB%A5ng-tcpdump)
+  - [2. Sử dụng Wireshark để bắt gói tin DNS](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#2-s%E1%BB%AD-d%E1%BB%A5ng-wireshark-%C4%91%E1%BB%83-b%E1%BA%AFt-g%C3%B3i-tin-dns)
+  
+[Nguồn tham khảo](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#ngu%E1%BB%93n-tham-kh%E1%BA%A3o)
+
+
 
 ## I. DNS và các khái niệm
 ### 1. Khái niệm
