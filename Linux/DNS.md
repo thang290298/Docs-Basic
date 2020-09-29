@@ -1,4 +1,5 @@
 # Tìm hiểu DNS Server
+# Mục Lục
 [I. DNS và các khái niệm](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#i-dns-v%C3%A0-c%C3%A1c-kh%C3%A1i-ni%E1%BB%87m)
 
   - [1. Khái niệm](https://github.com/thang290298/work-Document/blob/master/Linux/DNS.md#1-kh%C3%A1i-ni%E1%BB%87m)

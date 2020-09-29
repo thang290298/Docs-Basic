@@ -1,4 +1,5 @@
 # Tổng quan về DIG
+
 ## I. Khái niệm
 - Dig(Domain Information Groper) là , bạn có thể truy vấn máy chủ DNS để biết thông tin về các bản ghi DNS khác nhau, bao gồm địa chỉ máy chủ, trao đổi thư, máy chủ tên và thông tin liên quan. Ngoài ra, nó được dự định là một công cụ để chẩn đoán các vấn đề DNS. Không dừng ở đó, dig còn có thể dùng để “chọc ngoáy” tìm hiểu về thêm về cách hoạt động của DNS.
 
