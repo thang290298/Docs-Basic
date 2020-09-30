@@ -4,10 +4,12 @@
 - [1. Tổng quát](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#1-t%E1%BB%95ng-qu%C3%A1t)
 - [2. Các bản phân phối](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#2-c%C3%A1c-b%E1%BA%A3n-ph%C3%A2n-ph%E1%BB%91i)
 - [3. Phân biệt OMD-LABS và OMD(check_mk)](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#3-ph%C3%A2n-bi%E1%BB%87t-omd-labs-v%C3%A0-omdcheck_mk)
+
 [II. Check_mk](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#ii-check_mk)
 - [1. Tổng quan](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#1-t%E1%BB%95ng-quan)
 - [2. Thành phần](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#2-th%C3%A0nh-ph%E1%BA%A7n)
 - [3. Phiên bản](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#3-phi%C3%AAn-b%E1%BA%A3n)
+
 [III. Sự hoạt động trong kiến trúc của OMD](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#iii-s%E1%BB%B1-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-trong-ki%E1%BA%BFn-tr%C3%BAc-c%E1%BB%A7a-omd)
 - [3.1 Live Status](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#31-live-status)
 - [3.2 Livecheck](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#32-livecheck)
