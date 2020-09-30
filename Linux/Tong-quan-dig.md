@@ -13,6 +13,7 @@
    - [Tra cứu DNS Ngược](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#tra-c%E1%BB%A9u-dns-ng%C6%B0%E1%BB%A3c)
    - [Truy vấn số lượng lớn tên miền](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#truy-v%E1%BA%A5n-s%E1%BB%91-l%C6%B0%E1%BB%A3ng-l%E1%BB%9Bn-t%C3%AAn-mi%E1%BB%81n)
    - [Truy vấn DNS bằng TCP](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#truy-v%E1%BA%A5n-dns-b%E1%BA%B1ng-tcp)
+   
 [Nguồn tham khảo](https://github.com/thang290298/work-Document/blob/master/Linux/Tong-quan-dig.md#ngu%E1%BB%93n-tham-kh%E1%BA%A3o)
 
 
