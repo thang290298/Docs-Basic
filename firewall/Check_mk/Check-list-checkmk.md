@@ -1,5 +1,22 @@
 # Check list cài dặt và thực hiện giám sát trên Check MK
 # Mục lục
+[I. Cài đặt check Mk trên Centos 7](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#i-c%C3%A0i-%C4%91%E1%BA%B7t-check-mk-tr%C3%AAn-centos-7)
+- [1. Mô hình triển khai](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#1-m%C3%B4-h%C3%ACnh-tri%E1%BB%83n-khai)
+- [2. Thiết lập ban đầu](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#2-thi%E1%BA%BFt-l%E1%BA%ADp-ban-%C4%91%E1%BA%A7u)
+- [3. Cài đặt Check_mk Server](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#3-c%C3%A0i-%C4%91%E1%BA%B7t-check_mk-server)
+- [4. Cài đặt Agen check_mk](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#4-c%C3%A0i-%C4%91%E1%BA%B7t-agen-check_mk)
+  - [4.1 Cài đặt Agen check_mk trên Centos 8](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#41-c%C3%A0i-%C4%91%E1%BA%B7t-agen-check_mk-tr%C3%AAn-centos-8)
+  - [4.2 Cài đặt Agent check_mk trên Ubuntu](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#42-c%C3%A0i-%C4%91%E1%BA%B7t-agent-check_mk-tr%C3%AAn-ubuntu)
+- [5. ADD host](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#5-add-host)
+- [6. Setup cảnh báo qua telegram, setup notify.](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#6-setup-c%E1%BA%A3nh-b%C3%A1o-qua-telegram-setup-notify)
+  - [6.1 Tạo bot telegram và tìm ID user](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#61-t%E1%BA%A1o-bot-telegram-v%C3%A0-t%C3%ACm-id-user)
+  - [6.2 Cấu hình trên check_mk server](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#62-c%E1%BA%A5u-h%C3%ACnh-tr%C3%AAn-check_mk-server)
+- [7. Active checks - monitor service Http](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#7-active-checks---monitor-service-http)
+- [8. Giám sát server process linux](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#8-gi%C3%A1m-s%C3%A1t-server-process-linux)
+- [9. Inventory hardware cho server](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#9-inventory-hardware-cho-server)
+  - [9.1 Thao tác trên web check_mk](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#91-thao-t%C3%A1c-tr%C3%AAn-web-check_mk)
+  - [9.2 Thao tác trên client](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-list-checkmk.md#92-thao-t%C3%A1c-tr%C3%AAn-client)
+
 ## I. Cài đặt check Mk trên Centos 7
 ### 1. Mô hình triển khai
 
@@ -165,8 +182,9 @@ Sau đó chọn Save & go to Services để kiểm tra những dịch vụ và n
 
 <img src="https://image.prntscr.com/image/umjsKvhyRFWsDcCJaGoVnQ.png">
 
-### 5. Setup cảnh báo qua telegram, setup notify.
-#### 5.1 Tạo bot telegram và tìm ID user
+### 6. Setup cảnh báo qua telegram, setup notify.
+
+#### 6.1 Tạo bot telegram và tìm ID user
 - Tạo bot telegram để hiển thị cảnh bảo gửi từ check_mk server về.
 - Sử dụng ứng dụng telegtam để mở `botfather`
 
@@ -192,7 +210,7 @@ https://api.telegram.org/bottokencuaban/getUpdates
 ```
 <img src="https://image.prntscr.com/image/FgI3WxUHQqes72h3jobsRg.png">
 
-#### 5.2 Cấu hình trên check_mk server
+#### 6.2 Cấu hình trên check_mk server
 
 - Tạo ra file telegram.py
 ```
@@ -381,7 +399,7 @@ Khi một host được bật hoặc tắt thì bạn sẽ nhận được cản
 
 <img src="https://image.prntscr.com/image/ZRJ53dU5SfqgzpdhYXYOcw.png">
 
-### 6. Active checks - monitor service Http
+### 7. Active checks - monitor service Http
 Sử dụng kiểu Active check check_mk đã hỗ trợ sẵn.
 Click `Host & Service Parameters -> Active checks (HTTP, TCP, etc.)`
 
@@ -409,7 +427,7 @@ Như vậy đã monitor được service http.
 
 <img src="https://image.prntscr.com/image/FvpvwBOdTWWCmAFg4X8Ttw.png">  
 
-### 7. Giám sát server process linux
+### 8. Giám sát server process linux
 - Click Manual Checks -> Application Processes & Services -> State and count of processes
 <img src="https://image.prntscr.com/image/JDz1M_brQuOJctsWBzRq5g.png"> 
 
@@ -431,8 +449,8 @@ tiến hành Apply change
 
 <img src="https://image.prntscr.com/image/BJKphvvWSc_MPIeXt__XSA.png"> 
 
-### 8. Inventory hardware cho server
-#### 8.1 Thao tác trên web check_mk
+### 9. Inventory hardware cho server
+#### 9.1 Thao tác trên web check_mk
 - Tạo rule Check_MK Hardware/Software-Inventory
 Click Check plugins -> Tìm kiếm inventory
 
@@ -451,7 +469,7 @@ Tùy chỉnh các thông tin
 Apply change
 <img src="https://image.prntscr.com/image/ViLO0LbkRISb1uFl_zUtmw.png"> 
 
-#### 8.2 Thao tác trên client
+#### 9.2 Thao tác trên client
 
 Sử dụng local check phía client:
 ```
