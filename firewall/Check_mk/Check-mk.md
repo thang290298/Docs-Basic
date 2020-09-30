@@ -1,4 +1,19 @@
 # Tổng quan và sử dụng Check MK
+# Mục Mục
+[I. OMD (Open Monitoring Distribution)](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#i-omd-open-monitoring-distribution)
+- [1. Tổng quát](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#1-t%E1%BB%95ng-qu%C3%A1t)
+- [2. Các bản phân phối](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#2-c%C3%A1c-b%E1%BA%A3n-ph%C3%A2n-ph%E1%BB%91i)
+- [3. Phân biệt OMD-LABS và OMD(check_mk)](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#3-ph%C3%A2n-bi%E1%BB%87t-omd-labs-v%C3%A0-omdcheck_mk)
+[II. Check_mk](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#ii-check_mk)
+- [1. Tổng quan](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#1-t%E1%BB%95ng-quan)
+- [2. Thành phần](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#2-th%C3%A0nh-ph%E1%BA%A7n)
+- [3. Phiên bản](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#3-phi%C3%AAn-b%E1%BA%A3n)
+[III. Sự hoạt động trong kiến trúc của OMD](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#iii-s%E1%BB%B1-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-trong-ki%E1%BA%BFn-tr%C3%BAc-c%E1%BB%A7a-omd)
+- [3.1 Live Status](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#31-live-status)
+- [3.2 Livecheck](https://github.com/thang290298/work-Document/blob/master/firewall/Check_mk/Check-mk.md#32-livecheck)
+
+
+
 ## I. OMD (Open Monitoring Distribution)
 ### 1. Tổng quát
 
@@ -6,15 +21,13 @@
 - Phân phối giám sát mở (OMD) là một gói đóng kín bao gồm Nagios cùng với các tiện ích bổ sung cho việc thu thập, giám sát và vẽ dữ liệu đồ thị. Nó đi kèm với Check_MK multisite , một công cụ toàn diện giải quyết nhiều thiếu sót của Nagios . Nó cung cấp một giao diện web để dễ dàng quản trị và cấu hình, một bảng điều khiển thân thiện với người dùng, một hệ thống thông báo mạnh mẽ và các agent giám sát dễ cài đặt cho nhiều bản phân phối Linux. Nếu không có Check_MK multisite, chúng ta sẽ phải sử dụng các view khác nhau cho các nhiệm vụ khác nhau và sẽ không thể cấu hình tất cả các thiết lập mà không cần phải làm việc với các tệp cấu hình.
 - OMD là sự kết hợp của các phương pháp hay nhất về cách Nagios được thiết lập và tích hợp. Nó đã kết hợp tất cả các plug-in Nagios thế hệ 3 phổ biến nhất vào trong một gói đơn giản dễ duy trì, dễ cài đặt và dễ nâng cấp. Một khi bạn đã chạy máy chủ Linux, cài đặt và chạy bộ giám sát OMD chỉ mất khoảng 10 phút với một lệnh. Quản trị viên thực sự có thể tiết kiệm thời gian, không cần phải biên dịch như cài đặt Nagios. Hoặc mất thời gian tích hợp các plug-in vào cấu hình như Nagios
 
-<img src="https://image.prntscr.com/image/bNzTIQSMSuKuSW19ahh1sw.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/check-mk/68747470733a2f2f692e696d6775722e636f6d2f6e3351344a5a662e706e67.png?raw=true">
 
 - OMD - Open Monitoring Distribution là một project được phát triển từ năm 2010 bới Mathias Kettner. OMD sử dụng nhân là Nagios Core, kết hợp với các phần mềm mã nguồn mở khác để đóng gói thành một sản phẩm phục vụ cho nhu cầu giám sát, cảnh báo và hiển thị
 ### 2. Các bản phân phối
 - Năm 2015 phiên bản đơn giản của OMD đã được ra mắt gọi là `CHECK_MK` vào lúc đó có 2 phiên bản của là: `CHECK_MK RAW EDITION(CRE)` và `CHECK_MK ENTERPRISE EDITION(CEE)`. Hiện nay có thêm một phiên bản mới phiên bản này dựa trên phiên bản CEE được gọi là `Checkmk Managed Services Edition`
 
-<img src="https://image.prntscr.com/image/bNzTIQSMSuKuSW19ahh1sw.png">
-
-### 2. Phân biệt OMD-LABS và OMD(check_mk)
+### 3. Phân biệt OMD-LABS và OMD(check_mk)
 #### OMD-LABS
 - OMD Labs-Edition là một nền tảng giám sát và một khái niệm mới về cài đặt, duy trì và cập nhật một hệ thống giám sát được xây dựng trên Nagios. Không được tích hợp sẵn trong các bản phân phối Linux mà tích hợp vào hệ thống dưới dạng các Package rpm và deb.
 - Phiên bản stable là 2.40, thường thì 6 tháng sẽ có một phiên bản stable được phát hành. Tính từ thời điểm hiện tại thì đến tháng 11 năm 2017, một phiên bản stable mới sẽ được phát hành.
@@ -30,7 +43,7 @@
 
 #### So sánh OMD-LABS và OMD(check_mk)
 
-<img src="https://image.prntscr.com/image/bNzTIQSMSuKuSW19ahh1sw.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/check-mk/68747470733a2f2f692e696d6775722e636f6d2f4f3847324c75312e706e67.png?raw=true">
 
 ## II. Check_mk
 ### 1. Tổng quan
@@ -73,10 +86,10 @@ Phiên bản | Bản mới nhất
 
 1.6.0 (stable) | 1.6.0p17 (CRE)
 
-## III, Sự hoạt động trong kiến trúc của OMD
+## III. Sự hoạt động trong kiến trúc của OMD
 
 - OMD được xây dựng từ những đóng góp của cộng đồng về những khó khăn hay khuyết điểm mà Nagios gặp phải, từ đó đưa ra quyết định cần tích hợp thêm những sản phẩm gì để cải thiện. Việc cài đặt trở nên vô cùng đơng giản. OMD được đóng gói hoàn chỉnh trong một package, việc cài đặt và cấu hình chỉ mất khoảng 10 phút với chỉ một vài câu lệnh
-<img src="https://image.prntscr.com/image/bNzTIQSMSuKuSW19ahh1sw.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/check-mk/68747470733a2f2f692e696d6775722e636f6d2f7059574c3947442e706e67.png?raw=true">
 
 - Check_MK ra đời để giải quyết bài toán về hiệu năng mà Nagios gặp phải trong quá khứ.Cơ chế mới của Check_MK cho phép việc mở rộng hệ thống trở nên dễ dàng hơn, có thể giám sát nhiều hệ thống chỉ từ một máy chủ Nagios server.
 - Multisite là một phần của dự án Check_MK như là một giao diện web cho người dùng tốt hơn để thay thế cho Nagios. Một GUI mới và sáng tạo để xem thông tin trạng thái Nagios và kiểm soát hệ thống giám sát. Nó dựa trên MK Livestatus và nhằm mục đích thay thế cho GUI web Nagios. Multisite hỗ trợ giám sát phân tán bằng một cách hiệu quả nhất.
@@ -90,7 +103,10 @@ Nhìn vào hình ảnh trên ta có thể hình dùng cơ bản các thành ph�
   - Phần hiển thị dashboard dựa trên module Livestatus.
   - Module Livestatus sử dụng Multisite hỗ trợ giám sát phân tán bằng một cách hiệu quả nhất hiển thị data lên GUI, mobile hay một app tùy chỉnh.
   - Các event_log cũng được Event Deamon để hiển thị một số loại log.
-  
+
+  <img src="https://github.com/thang290298/work-Document/blob/master/Images/check-mk/68747470733a2f2f692e696d6775722e636f6d2f354777533462642e676966.gif?raw=true>
+
+
   Có 2 mô đun mà Check_MK sử dụng để cải thiện đáng kể hiệu năng là Livestatus và Livecheck
 ### 3.1 Live Status
 Trước khi có Livestatus:
