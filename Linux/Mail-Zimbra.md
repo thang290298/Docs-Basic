@@ -434,20 +434,5 @@ Oct  5 10:51:52 mail postfix/smtpd[21037]: disconnect from unknown[45.142.120.78
 
 Oct  5 10:51:54 mail postfix/postscreen[29291]: CONNECT from [45.142.120.78]:12466 to [45.117.80.147]:25
 
-Oct  5 10:51:54 mail postfix/postscreen[29291]: PREGREET 16 after 0.29 from [45.142.120.78]:12466: EHLO 
-localhost\r\n
-Oct  5 10:51:54 mail postfix/smtpd[23179]: connect from unknown[45.142.120.78]
-
-Oct  5 10:51:54 mail postfix/smtpd[23179]: disconnect from unknown[45.142.120.78] ehlo=1 quit=1 commands=2
-
-Oct  5 10:51:56 mail postfix/amavisd/smtpd[23757]: connect from localhost[127.0.0.1]
-
-Oct  5 10:51:56 mail postfix/amavisd/smtpd[23757]: 1D1B2A366A: client=localhost[127.0.0.1]
-
-Oct  5 10:51:56 mail postfix/cleanup[23419]: 1D1B2A366A: message-id=<CAPyF0sQrui1ycLw1EUzViEv+fYZ762dgn0xwpVdOMy5c1i_dDQ@mail.gmail.com>
-
-Oct  5 10:51:56 mail postfix/qmgr[29255]: 1D1B2A366A: from=<thangjaeger.292@gmail.com>, size=4852, nrcpt=1 (queue active)
-
-Oct  5 10:51:56 mail postfix/smtp[23420]: E1988A367B: to=<nvt292@jaeger292.xyz>, relay=127.0.0.1[127.0.0.1]:10024, delay=14, delays=0.32/0.02/3/11, dsn=2.0.0, status=sent (250 2.0.0 from MTA(smtp:[127.0.0.1]:10025): 250 2.0.0 Ok: queued as 1D1B2A366A)
 
 ```
