@@ -315,3 +315,33 @@ zmcontrol restart
 <img src="https://image.prntscr.com/image/A0_XUNkCQtmtxb-UOhQexw.png">
 
 
+## 3. Chỉnh sửa quota account email zimbra
+
+Khi tạo một account email trong email server zimbra hệ thống sẽ tự động phân chia quota cho mỗi account theo mặc định. Trong thực tế việc thiết lập quota cho account khác nhau với giá trị khác nhau là cần thiết tùy thuộc vào nhu cầu sử dụng của account đó.
+
+
+- Truy cập `Home` => `Account Manager`
+<img src="https://image.prntscr.com/image/rGBTeOKBTkGAqmHbz67uAQ.png">
+
+- lựa chọn tài khoản muốn chỉnh sửa quota -> chuột phải-> edit 
+
+<img src="https://image.prntscr.com/image/sy2PrfN_RaO8fSkgeA9gIg.png">
+
+- Click `Advanced` => `Quota`
+
+<img src="https://image.prntscr.com/image/YWRC36tOTj2oyKRAZs7WYA.png">
+
+- tùy chỉnh các tham số:
+  - Limit user-specified forwarding addresses field to (chars): Giới hạn địa chỉ chuyển tiếp theo người dùng trong phạm vi (ký tự)
+  - Maximum number of user-specified forwarding addresses:Số lượng tối đa các địa chỉ chuyển tiếp theo người dùng
+  - Account quota (MB):Hạn mức tài khoản (MB) (0 là không có giới hạn)
+  - Maximum number of contacts allowed in folder:Số lượng liên hệ tối đa cho phép trong thư mục
+  - Percentage threshold for quota warning messages (%): Ngưỡng phần trăm cho các thư cảnh báo hạn mức (%)
+  - Minimum duration of time between quota warnings: Khoảng thời gian tối thiểu giữa các cảnh báo hạn mức
+  - Quota warning message template: Mẫu thư cảnh báo hạn mức
+
+
+  <img src="https://image.prntscr.com/image/jlBR3YFQSvGAJHHeAFdQow.png">
+
+  
+
