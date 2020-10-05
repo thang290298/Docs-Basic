@@ -184,7 +184,7 @@ git clone https://github.com/letsencrypt/letsencrypt
 cd letsencrypt
 
 ```
-<img src="https://image.prntscr.com/image/2IQmpmc_Te_LjD2WxfvxcA.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/check-mk/letsencrypt.png?raw=true">
 
 ### Bước 4: Chạy auto chứng chỉ Let's Encrypt cho tên miền jaeger292.xyz
 
