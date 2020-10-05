@@ -343,5 +343,111 @@ Khi tạo một account email trong email server zimbra hệ thống sẽ tự �
 
   <img src="https://image.prntscr.com/image/jlBR3YFQSvGAJHHeAFdQow.png">
 
-  
+  ## 3. Khởi tạo user 
+  - Bước 1: Đăng nhập
+  Vào trang quản trị admin theo link Nhân Hòa cung cấp, ví dụ: https://mail.jaeger292.xyz:7071/ Nhập user và pass được cấp sau đó Sign in
 
+
+<img src="https://image.prntscr.com/image/3slLOu-wRua8udxSw6X20Q.png">
+
+
+
+- Sau khi đăng nhập chọn manage
+
+<img src="https://image.prntscr.com/image/gVrvU8ZdRba_wJO7n6YYkw.png">
+
+- Chọn cấu hình bên tay phải sau đó vào phần new để khởi tạo user
+
+<img src="https://image.prntscr.com/image/tItlrCaBS1SHfx_KqmK83Q.png">
+
+- Điền tên người dùng ở ô account name và điền last name phần bắt buộc
+<img src="https://image.prntscr.com/image/X5iK2HcQQtKzSoKmt3XoRg.png">
+
+Kéo thanh cuốn bên tay phải xuống dưới nhập pass user và nhập lại pass. Sau khi điền chính xác thì click finish. Chú ý:
+   - Pass tạo cần tạo pass có độ khó ( trên 10 ký tự, có chữ thường, chữ hoa, số). Nếu dùng pass dễ quá sẽ có báo lỗi.
+   - Ở mục must change pass nếu tic vào sẽ yêu cầu người dùng phải đổi pass sau khi đăng nhập lần đầu. Nếu dùng luôn pass admin tạo thì ko cần tic vào phần này.
+
+<img src="https://image.prntscr.com/image/bsa28ZpQSFqQTS4DHwH0-w.png">
+
+
+## 4. Kiểm tra log gửi/nhận email zimbra
+  Việc kiểm tra log gửi/nhận của email server zimbra là rất cần thiết, giúp xác định được một email đã gửi/nhận thành công hay chưa và nếu chưa thành công thì bị dừng ở bước nào và báo lỗi ra sao.
+- Đường dẫn file log
+```
+/var/log/maillog
+```
+Oct  5 10:51:40 mail postfix/smtpd[23179]: connect from mail-pj1-f48.google.com[209.85.216.48]
+
+Oct  5 10:51:41 mail postfix/smtpd[23179]: Anonymous TLS connection established from mail-pj1-f48.google.com[209.85.216.48]: TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits)
+
+Oct  5 10:51:41 mail postfix/smtpd[23179]: NOQUEUE: filter: RCPT from mail-pj1-f48.google.com[209.85.216.48]: <thangjaeger.292@gmail.com>: Sender address triggers FILTER smtp-amavis:[127.0.0.1]:10026; from=<thangjaeger.292@gmail.com> to=<nvt292@jaeger292.xyz> proto=ESMTP helo=<mail-pj1-f48.google.com>
+
+Oct  5 10:51:41 mail postfix/smtpd[23179]: NOQUEUE: filter: RCPT from mail-pj1-f48.google.com[209.85.216.48]: <thangjaeger.292@gmail.com>: Sender address triggers FILTER smtp-amavis:[127.0.0.1]:10024; from=<thangjaeger.292@gmail.com> to=<nvt292@jaeger292.xyz> proto=ESMTP helo=<mail-pj1-f48.google.com>
+
+Oct  5 10:51:41 mail postfix/smtpd[23179]: E1988A367B: client=mail-pj1-f48.google.com[209.85.216.48]
+
+Oct  5 10:51:41 mail postfix/postscreen[29291]: CONNECT from [45.142.120.78]:21600 to [45.117.80.147]:25
+
+Oct  5 10:51:42 mail postfix/cleanup[23419]: E1988A367B: message-id=<CAPyF0sQrui1ycLw1EUzViEv+fYZ762dgn0xwpVdOMy5c1i_dDQ@mail.gmail.com>
+Oct  5 10:51:42 mail postfix/qmgr[29255]: E1988A367B: from=<thangjaeger.292@gmail.com>, size=3921, nrcpt=1 (queue active)
+
+Oct  5 10:51:42 mail postfix/postscreen[29291]: PREGREET 16 after 0.31 from [45.142.120.78]:21600: EHLO localhost\r\n
+
+Oct  5 10:51:42 mail postfix/smtpd[23179]: disconnect from mail-pj1-f48.google.com[209.85.216.48] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+
+
+Oct  5 10:51:42 mail postfix/smtpd[21037]: connect from unknown[45.142.120.78]
+
+Oct  5 10:51:43 mail postfix/smtpd[21037]: disconnect from unknown[45.142.120.78] ehlo=1 quit=1 commands=2
+
+Oct  5 10:51:44 mail postfix/submission/smtpd[16952]: connect from unknown[212.70.149.36]
+
+Oct  5 10:51:44 mail postfix/postscreen[29291]: CONNECT from [45.142.120.78]:58484 to [45.117.80.147]:25
+
+Oct  5 10:51:44 mail postfix/postscreen[29291]: PREGREET 16 after 0.28 from [45.142.120.78]:58484: EHLO localhost\r\n
+Oct  5 10:51:44 mail postfix/smtpd[23179]: connect from unknown[45.142.120.78]
+
+Oct  5 10:51:45 mail postfix/smtpd[23179]: disconnect from unknown[45.142.120.78] ehlo=1 quit=1 commands=2
+
+Oct  5 10:51:46 mail postfix/postscreen[29291]: CONNECT from [45.142.120.78]:30860 to [45.117.80.147]:25
+
+Oct  5 10:51:47 mail postfix/postscreen[29291]: PREGREET 16 after 0.53 from [45.142.120.78]:30860: EHLO localhost\r\n
+
+Oct  5 10:51:47 mail postfix/smtpd[21037]: connect from unknown[45.142.120.78]
+
+Oct  5 10:51:48 mail postfix/submission/smtpd[16952]: disconnect from unknown[212.70.149.36] ehlo=1 auth=0/1 rset=1 quit=1 commands=3/4
+Oct  5 10:51:48 mail postfix/smtpd[21037]: disconnect from unknown[45.142.120.78] ehlo=1 quit=1 commands=2
+
+Oct  5 10:51:49 mail postfix/postscreen[29291]: CONNECT from [45.142.120.78]:3212 to [45.117.80.147]:25
+
+Oct  5 10:51:49 mail postfix/postscreen[29291]: PREGREET 16 after 0.29 from [45.142.120.78]:3212: EHLO localhost\r\n
+
+Oct  5 10:51:49 mail postfix/smtpd[23179]: connect from unknown[45.142.120.78]
+
+Oct  5 10:51:50 mail postfix/smtpd[23179]: disconnect from unknown[45.142.120.78] ehlo=1 quit=1 commands=2
+
+Oct  5 10:51:51 mail postfix/postscreen[29291]: CONNECT from [45.142.120.78]:40084 to [45.117.80.147]:25
+Oct  5 10:51:51 mail postfix/postscreen[29291]: PREGREET 16 after 0.28 from [45.142.120.78]:40084: EHLO localhost\r\n
+Oct  5 10:51:52 mail postfix/smtpd[21037]: connect from unknown[45.142.120.78]
+
+Oct  5 10:51:52 mail postfix/smtpd[21037]: disconnect from unknown[45.142.120.78] ehlo=1 quit=1 commands=2
+
+Oct  5 10:51:54 mail postfix/postscreen[29291]: CONNECT from [45.142.120.78]:12466 to [45.117.80.147]:25
+
+Oct  5 10:51:54 mail postfix/postscreen[29291]: PREGREET 16 after 0.29 from [45.142.120.78]:12466: EHLO 
+localhost\r\n
+Oct  5 10:51:54 mail postfix/smtpd[23179]: connect from unknown[45.142.120.78]
+
+Oct  5 10:51:54 mail postfix/smtpd[23179]: disconnect from unknown[45.142.120.78] ehlo=1 quit=1 commands=2
+
+Oct  5 10:51:56 mail postfix/amavisd/smtpd[23757]: connect from localhost[127.0.0.1]
+
+Oct  5 10:51:56 mail postfix/amavisd/smtpd[23757]: 1D1B2A366A: client=localhost[127.0.0.1]
+
+Oct  5 10:51:56 mail postfix/cleanup[23419]: 1D1B2A366A: message-id=<CAPyF0sQrui1ycLw1EUzViEv+fYZ762dgn0xwpVdOMy5c1i_dDQ@mail.gmail.com>
+
+Oct  5 10:51:56 mail postfix/qmgr[29255]: 1D1B2A366A: from=<thangjaeger.292@gmail.com>, size=4852, nrcpt=1 (queue active)
+
+Oct  5 10:51:56 mail postfix/smtp[23420]: E1988A367B: to=<nvt292@jaeger292.xyz>, relay=127.0.0.1[127.0.0.1]:10024, delay=14, delays=0.32/0.02/3/11, dsn=2.0.0, status=sent (250 2.0.0 from MTA(smtp:[127.0.0.1]:10025): 250 2.0.0 Ok: queued as 1D1B2A366A)
+
+```
