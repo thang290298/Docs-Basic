@@ -8,7 +8,7 @@
 
 - Khi một thư vào hệ thống thư Postfix, điểm dừng đầu tiên ở bên trong là hàng đợi đến . Hình bên dưới cho thấy các quy trình chính liên quan đến thư mới. Các tên được theo sau bởi một số là lệnh Postfix hoặc chương trình máy chủ, trong khi các tên không được đánh số bên trong vùng bóng mờ đại diện cho hàng đợi Postfix.
 
-<img src="https://image.prntscr.com/image/U1GPyW7KRqWezypsbeI9dg.png">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/mail/postfix/inbound.gif">
 
 
 - Thư được đăng tại địa phương. Các Postfix sendmail tiền gửi chương trình được thông báo vào thế giới-ghi maildrop thư mục, nơi mà các thông điệp được chọn của các xe bán tải daemon. Daemon này thực hiện một số kiểm tra sự tỉnh táo, để bảo vệ phần còn lại của hệ thống Postfix. Để tránh tai nạn, quyền của thư mục trên thư mục maildrop phải sao cho người dùng không thể xóa thư của ai đó.
@@ -21,22 +21,22 @@ Các dọn dẹp daemon cụ giai đoạn xử lý cuối cùng cho thư mới. 
 
 ## 2. Cách Postfix gửi thư
 
-<img src=".../Images\mail\postfix\uotbound.gif">
+<img src="https://github.com/thang290298/work-Document/blob/master/Images/mail/postfix/outbound.gif">
 
 
-Trình quản lý hàng đợi là trái tim của hệ thống thư Postfix. Nó liên hệ với các đại lý phân phối cục bộ , smtp hoặc đường ống và gửi một yêu cầu gửi với thông tin tên đường dẫn tệp hàng đợi, địa chỉ người gửi tin nhắn, máy chủ lưu trữ nếu đích ở xa và một hoặc nhiều địa chỉ người nhận tin nhắn.
-Trình quản lý hàng đợi duy trì một hàng đợi hoãn riêng biệt cho thư không thể gửi được, do đó, việc tồn đọng thư lớn sẽ không làm chậm các truy cập hàng đợi bình thường.
+- Trình quản lý hàng đợi là trái tim của hệ thống thư Postfix. Nó liên hệ với các đại lý phân phối cục bộ , smtp hoặc đường ống và gửi một yêu cầu gửi với thông tin tên đường dẫn tệp hàng đợi, địa chỉ người gửi tin nhắn, máy chủ lưu trữ nếu đích ở xa và một hoặc nhiều địa chỉ người nhận tin nhắn.
+- Trình quản lý hàng đợi duy trì một hàng đợi hoãn riêng biệt cho thư không thể gửi được, do đó, việc tồn đọng thư lớn sẽ không làm chậm các truy cập hàng đợi bình thường.
 
-Trình quản lý hàng đợi duy trì một hàng đợi hoạt động nhỏ chỉ với một vài thông báo mà nó đã mở để gửi. Các hoạt động hàng đợi đóng vai trò như một cửa sổ giới hạn về khả năng lớn hơn nhiều đến hoặc hoãn lại hàng đợi. Hàng đợi hoạt động nhỏ ngăn trình quản lý hàng đợi hết bộ nhớ khi tải nặng.
+- Trình quản lý hàng đợi duy trì một hàng đợi hoạt động nhỏ chỉ với một vài thông báo mà nó đã mở để gửi. Các hoạt động hàng đợi đóng vai trò như một cửa sổ giới hạn về khả năng lớn hơn nhiều đến hoặc hoãn lại hàng đợi. Hàng đợi hoạt động nhỏ ngăn trình quản lý hàng đợi hết bộ nhớ khi tải nặng.
 
-Theo tùy chọn, trình quản lý hàng đợi trả lại thư cho những người nhận được liệt kê trong bảng đã di dời . Bảng này chứa thông tin liên hệ của người dùng hoặc thậm chí toàn bộ miền không còn tồn tại.
+- Theo tùy chọn, trình quản lý hàng đợi trả lại thư cho những người nhận được liệt kê trong bảng đã di dời . Bảng này chứa thông tin liên hệ của người dùng hoặc thậm chí toàn bộ miền không còn tồn tại.
 
-Theo yêu cầu của trình quản lý hàng đợi, trình nền viết lại tầm thường giải quyết các điểm đến. Theo mặc định, nó chỉ phân biệt giữa các điểm đến cục bộ và từ xa . Thông tin định tuyến bổ sung có thể được chỉ định bằng bảng truyền tải tùy chọn .
-Theo yêu cầu của người quản lý hàng đợi, daemon bị trả lại hoặc trì hoãn tạo báo cáo không gửi được khi không thể gửi thư, do lỗi không thể khôi phục hoặc do không thể truy cập được đích trong một khoảng thời gian dài.
-Các địa phương đại lý phân phối hộp thư hiểu UNIX-phong cách, sendmail kiểu system-wide bí danh cơ sở dữ liệu, và sendmail kiểu cho mỗi người dùng .forward tập tin. Nhiều đại lý phân phối địa phương có thể được chạy song song, nhưng việc phân phối song song cho cùng một người dùng thường bị hạn chế.
-Cùng với đại lý đăng thư sendmail , đại lý chuyển phát địa phương triển khai giao diện người dùng Sendmail quen thuộc.
+- Theo yêu cầu của trình quản lý hàng đợi, trình nền viết lại tầm thường giải quyết các điểm đến. Theo mặc định, nó chỉ phân biệt giữa các điểm đến cục bộ và từ xa . Thông tin định tuyến bổ sung có thể được chỉ định bằng bảng truyền tải tùy chọn .
+- Theo yêu cầu của người quản lý hàng đợi, daemon bị trả lại hoặc trì hoãn tạo báo cáo không gửi được khi không thể gửi thư, do lỗi không thể khôi phục hoặc do không thể truy cập được đích trong một khoảng thời gian dài.
+- Các địa phương đại lý phân phối hộp thư hiểu UNIX-phong cách, sendmail kiểu system-wide bí danh cơ sở dữ liệu, và sendmail kiểu cho mỗi người dùng .forward tập tin. Nhiều đại lý phân phối địa phương có thể được chạy song song, nhưng việc phân phối song song cho cùng một người dùng thường bị hạn chế.
+- Cùng với đại lý đăng thư sendmail , đại lý chuyển phát địa phương triển khai giao diện người dùng Sendmail quen thuộc.
 
-Các địa phương đại lý phân phối có móc cho các hình thức khác để giao hàng địa phương: bạn có thể cấu hình nó để cung cấp cho các tập tin hộp thư trong thư mục nhà của người dùng, và thậm chí bạn có thể cấu hình nó để ủy thác giao hộp thư đến một lệnh bên ngoài như phổ biến procmail chương trình.
+- Các địa phương đại lý phân phối có móc cho các hình thức khác để giao hàng địa phương: bạn có thể cấu hình nó để cung cấp cho các tập tin hộp thư trong thư mục nhà của người dùng, và thậm chí bạn có thể cấu hình nó để ủy thác giao hộp thư đến một lệnh bên ngoài như phổ biến procmail chương trình.
 
-Máy khách SMTP tra cứu danh sách các bộ trao đổi thư cho máy chủ đích, sắp xếp danh sách theo tùy chọn và thử lần lượt từng địa chỉ cho đến khi tìm thấy máy chủ phản hồi. Trên một hệ thống Postfix bận rộn, bạn sẽ thấy một số tiến trình khách SMTP chạy song song.
-Hộp thư đường ống là giao diện gửi đi cho các phương tiện vận chuyển thư khác ( chương trình sendmail là giao diện gửi đến). Hệ thống thư Postfix đi kèm với các ví dụ để gửi qua giao thức UUCP . Tại thời điểm viết bài, giao thức đáng kính này vẫn được sử dụng rộng rãi. Theo mặc định, Postfix hiểu các địa chỉ kiểu đường dẫn bang .
+- Máy khách SMTP tra cứu danh sách các bộ trao đổi thư cho máy chủ đích, sắp xếp danh sách theo tùy chọn và thử lần lượt từng địa chỉ cho đến khi tìm thấy máy chủ phản hồi. Trên một hệ thống Postfix bận rộn, bạn sẽ thấy một số tiến trình khách SMTP chạy song song.
+- Hộp thư đường ống là giao diện gửi đi cho các phương tiện vận chuyển thư khác ( chương trình sendmail là giao diện gửi đến). Hệ thống thư Postfix đi kèm với các ví dụ để gửi qua giao thức UUCP . Tại thời điểm viết bài, giao thức đáng kính này vẫn được sử dụng rộng rãi. Theo mặc định, Postfix hiểu các địa chỉ kiểu đường dẫn bang .
