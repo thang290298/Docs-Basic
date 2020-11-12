@@ -485,6 +485,10 @@ Lúc này trên giao diện web check_mk sẽ hiển thị nhưng thông số v�
 
 <img src="https://image.prntscr.com/image/DaAQmIFoRHa7s8V2JLvd8Q.png">  
 
+
+
+dsfsdfsdf
+
 # Nguồn tham khảo
 https://github.com/domanhduy/ghichep/blob/master/DuyDM/Check-MK/ly-thuyet/Ly-thuyet-Check-MK.md
 https://github.com/domanhduy/ghichep/blob/master/DuyDM/Check-MK/thuc-hanh/docs/1.cai-dat-check-mk-server-centos7.md
