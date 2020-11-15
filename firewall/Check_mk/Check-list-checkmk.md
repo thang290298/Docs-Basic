@@ -487,7 +487,7 @@ Lúc này trên giao diện web check_mk sẽ hiển thị nhưng thông số v�
 
 
 
-<<<<<<< HEAD
+
 ### 10. Giám sát dịch vụ MySQL bằng plugin
 MySQL là một hệ quản trị cơ sở dữ liệu mã nguồn mở được rất nhiều đơn vị sử dụng. Nó vô cùng quan trọng phục vụ việc đọc ghi dữ liệu cho các ứng dụng khác. Chính vì vậy giám sát MySQL là một việc làm vô cùng cần thiết
 
@@ -501,9 +501,7 @@ MySQL là một hệ quản trị cơ sở dữ liệu mã nguồn mở được
 
  Bạn cần tạo một user mysql dùng cho việc giám sát
  
-=======
-dsfsdfsdf
->>>>>>> a0f17f91730e5938593d17e5d807e64ed733cb0b
+
 
 # Nguồn tham khảo
 https://github.com/domanhduy/ghichep/blob/master/DuyDM/Check-MK/ly-thuyet/Ly-thuyet-Check-MK.md
