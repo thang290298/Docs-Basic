@@ -500,7 +500,201 @@ MySQL là một hệ quản trị cơ sở dữ liệu mã nguồn mở được
  ##### Bước 2: Cấu hình MySQL
 
  Bạn cần tạo một user mysql dùng cho việc giám sát
+
+ ```
+ MariaDB [(none)]> GRANT ALL PRIVILEGES ON Wordpress.* TO thang@localhost IDENTIFIED BY 'Thangnguyen2020';
+
+ ```
+
+ Khai báo thông tin của user dùng để giám sát vào file mysql.cfg
+```
+cat <<EOF > /etc/check_mk/mysql.cfg
+[client]
+user=thang
+password=hangnguyen2020
+EOF
+```
+ Thay đổi quyền cho file vừa tạo để chắc chắn rằng nếu không phải user root thì sẽ không được phép sửa file này
+
+ ```
+ chmod 400 /etc/check_mk/mysql.cfg
+ ```
+
+##### Bước 3: Copy file plugin từ checkmk server sang máy chủ mysql
+
+Truy cập vào checkmk server để copy file plugin giám sát mysql sang bên máy đang chạy mysql
+
+```
+scp /opt/omd/versions/1.6.0p18.cee.demo/share/check_mk/agents/plugins/mk_mysql root@103.124.94.180:/usr/lib/check_mk_agent/plugins
+
+```
+Trong đó 103.124.94.180 là địa chỉ của máy chạy mysql
+
+##### Bước 4: Thực hiện thêm service trên WATO
+
+Bây giờ truy cập vào Web UI để thực hiện discovery các dịch vụ
+
+
+<img src="https://image.prntscr.com/image/6vJ7Yt-kR_e8D1KlUN5dMQ.png"> 
+
+Thực hiện discovery để thêm các dịch vụ mới được thêm vào giám sát
+
+<img src="https://image.prntscr.com/image/8LhvnZm_SVOTqQXql58VHg.png"> 
+
+Cập nhật thay đổi
+
+<img src="https://image.prntscr.com/image/BZ5fvaxkS7OZc1tmCVHlUg.png"> 
+
+
+Ta đã có thể giám sát MySQL trên checkmk
+
+<img src="https://image.prntscr.com/image/YH7CVSUOSGyMgZkScrdlVQ.png"> 
+
+
+
+### 11. Monitor TCP port với active checks
+
+“Port” là một thuật ngữ chuyên ngành được sử dụng phổ thông trong network, system nói riêng và hệ thống nói chung. Đối với một dịch vụ được thiết kế chạy trên một port có số hiệu khác nhau. Phân loại port thành 2 loại phổ dựa trên giao thức mà port đó sử dụng là TCP port hay UDP port.
+
+Mỗi dịch vụ sẽ chạy trên một port khác nhau. Chính vì vậy muốn biết dịch vụ có chạy ổn định hay không, có đang hoạt động chính xác cho phép mở kết nối tới client hay không đơn giản là giám sát trạng thái của các port. Bài viết này sẽ hướng dẫn bạn các bước để thiết lập giám sát TCP port sử dụng checkmk.
+
+#### Cài đặt
+
+Trước tiên bạn cần cài agent trên máy muốn giám sát port. Bạn có thể tham khảo các cài đặt agent .
+
+Truy cập vào Web UI để thực hiện các bước tiếp theo trên WATO
+   - Chọn 1 để vào mục `Host & Service Parameters`
+   - Chọn 2 để vào cấu hình `Active checks`
+
+<img src="https://image.prntscr.com/image/uMU8c6D1SxWTc_mYtACTpA.png"> 
+
+
+<img src="https://image.prntscr.com/image/rxv1RKvpQxa_AAKLrQskbA.png"> 
+
+- Tạo rule cho thư mục có chứa host và bạn muốn giám sát port.
+
+<img src="https://image.prntscr.com/image/rxv1RKvpQxa_AAKLrQskbA.png"> 
+
+
+  - Mục 1: Mô tả rule
+  - Mục 2: Comment
+  - Mục 3: Port muốn check (ở đây tôi check port của mysql 3306)
+  - Mục 4: Một số tham số tùy chọn bổ sung
+  - Mục 5: Điều kiện áp dụng rule. Bạn có thể xác định rule này được áp dùng cho thư mục nào, những host có tag xác định, những host xác định hoặc áp dụng cho thư mục nhưng bỏ qua một số host xác định. Ở đây tôi để rule này chỉ áp dụng cho Host_01
+  - Sau đó chọn 6 để lưu
+Một số tham số tùy chọn bổ sung ở mục 4 như sau:
+
+  - Service description: mô tả dịch vụ của port này
+  - DNS hostname: sử dụng domain thay vì IP theo mặc định
+  - Expected response time: xác đinh thời gian response để xác ddingj trạng thái OK hay Warning hoặc Critical
+  - Seconds before connection times out: Xác định thời gian trước khi kết nối times out.
+  - State for connection refusal: Trạng thái nếu kết nối bị từ chối
+  - Strings to expect in response: Chuỗi mong muốn trong kết quả trả về
+  - Maximum number of bytes to receive: Số byte lớn nhất có thể nhận
+  - Use SSL for the connection: Sử dụng SSL cho kết nối
+
+<img src="https://image.prntscr.com/image/lCZYs0sRR8qEfheRSAFagg.png"> 
+
+
+Cập nhật thay đổi
+
+<img src="https://image.prntscr.com/image/BZ5fvaxkS7OZc1tmCVHlUg.png"> 
+
+ Quay trở lại `Host_94.180` ta thấy port `3306` đã được thêm vào giám sát
+
+
+ <img src="https://image.prntscr.com/image/vg4wxYSgRxqPB189s-KP7g.png"> 
+
+ ### 12. Giám sát Volume group và Logical Volume
+ Như agent mặc định của checkmk bạn chỉ có thể giám sát một số thông số như **Disk IO SUMMARY**, **Filesystem /**, **Filesystem /boot** mà bạn ko thể giám sát IO trên từng disk vật lý hay IO trên từng Logical Volume (với LVM).
+
+## Thêm giám sát IO trên từng disk vật lý và Logical Volume
+
+ * Chọn 1 để vào `Host & Service Parameters`
+ * Chọn 2 để vào `Parameters for discovered services`
+
+<img src="https://image.prntscr.com/image/cddY37MmRsmPIpNSFhpqyw.png"> 
+
+Tìm kiếm `Disk` trên thanh tìm kiếm sau đó chọn `Discovary mode for Disk IO check`
+
+<img src="https://image.prntscr.com/image/MhQN52GDSIG8WA7hfP9Kdg.png"> 
+
+ * Chọn 1 để tạo rule
+
+<img src="https://image.prntscr.com/image/wa5RZ9NJQEuMWLBR6V_F9w.png"> 
+
+Khai báo các thông tin cho rule
  
+ * Mục 1: Mô tả cho rule
+ * Mục 2: Các thông số muốn giám sát
+ * Sau đó chọn 3 để lưu
+
+<img src="https://image.prntscr.com/image/6vJ7Yt-kR_e8D1KlUN5dMQ.png"> 
+
+Thực hiện discovery để tìm kiếm những service mới
+ * Chọn 1 để vào mục quản lý host
+ * Chọn 2 để thực hiện discovery
+
+
+<img src="https://image.prntscr.com/image/8LhvnZm_SVOTqQXql58VHg.png"> 
+
+Cập nhật thay đổi
+
+<img src="https://image.prntscr.com/image/BZ5fvaxkS7OZc1tmCVHlUg.png"> 
+
+
+Ta thấy có service mới được tìm thấy
+
+<img src="https://image.prntscr.com/image/ldiVJDgzSd63lxJx8jcDfg.png"> 
+
+Áp dụng những thay đổi
+
+<img src="https://image.prntscr.com/image/BZ5fvaxkS7OZc1tmCVHlUg.png"> 
+
+Bây giờ ta có thể giám sát được I/O của các disk vật lý và Logical Volume
+
+<img src="https://image.prntscr.com/image/lrNLy7u0RYK2Gd00NC3pBw.png"> 
+
+## Kiểm tra dung lượng của Volume Group
+
+Trên checkmk server copy plugin `lvm` trong đường dẫn `/opt/omd/versions/1.6.0p10.cre/share/check_mk/agents/plugins/lvm` sang thư mục `/usr/lib/check_mk_agent/plugins` bên phía agent
+
+Trên agent ta có thể thực hiện lệnh sau để kiểm tra
+
+```
+check_mk_agent
+```
+
+Nếu trong kết quả trả về ta thấy có dòng như sau thì plugin đã chạy
+
+```
+...
+<<<lvm_vgs>>>
+  VolGroup00	2	2	0	wz--n-	31666995200	532676608
+<<<lvm_lvs:sep(124)>>>
+  LogVol00|VolGroup00|-wi-ao----|2147483648||||||||
+  LogVol01|VolGroup00|-wi-ao----|28986834944||||||||
+```
+
+Truy cập vào Web UI để add service
+
+Thực hiện discovery service
+
+![](../images/disk_lvm/11.png)
+
+![](../images/disk_lvm/12.png)
+
+Ta thấy có service đã được add
+
+![](../images/disk_lvm/13.png)
+
+Áp dụng những thay đổi
+
+![](../images/disk_lvm/14.png)
+
+Ở đây trên host chỉ có 1 Volume Group và đã được cấp hết dung lượng cho các Logical Volume
+
+![](../images/disk_lvm/15.png)
 
 
 # Nguồn tham khảo
