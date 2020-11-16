@@ -608,7 +608,7 @@ Cập nhật thay đổi
  ### 12. Giám sát Volume group và Logical Volume
  Như agent mặc định của checkmk bạn chỉ có thể giám sát một số thông số như **Disk IO SUMMARY**, **Filesystem /**, **Filesystem /boot** mà bạn ko thể giám sát IO trên từng disk vật lý hay IO trên từng Logical Volume (với LVM).
 
-## Thêm giám sát IO trên từng disk vật lý và Logical Volume
+#### Thêm giám sát IO trên từng disk vật lý và Logical Volume
 
  * Chọn 1 để vào `Host & Service Parameters`
  * Chọn 2 để vào `Parameters for discovered services`
@@ -653,9 +653,9 @@ Ta thấy có service mới được tìm thấy
 
 Bây giờ ta có thể giám sát được I/O của các disk vật lý và Logical Volume
 
-<img src="https://image.prntscr.com/image/lrNLy7u0RYK2Gd00NC3pBw.png"> 
+<img src="https://image.prntscr.com/image/AJ-3pNT7RleYBkdTYOjvdg.png"> 
 
-## Kiểm tra dung lượng của Volume Group
+#### Kiểm tra dung lượng của Volume Group
 
 Trên checkmk server copy plugin `lvm` trong đường dẫn `/opt/omd/versions/1.6.0p10.cre/share/check_mk/agents/plugins/lvm` sang thư mục `/usr/lib/check_mk_agent/plugins` bên phía agent
 
@@ -668,35 +668,36 @@ check_mk_agent
 Nếu trong kết quả trả về ta thấy có dòng như sau thì plugin đã chạy
 
 ```
-...
 <<<lvm_vgs>>>
-  VolGroup00	2	2	0	wz--n-	31666995200	532676608
+  centos        1       3       0       wz--n-  63346573312     4194304
 <<<lvm_lvs:sep(124)>>>
-  LogVol00|VolGroup00|-wi-ao----|2147483648||||||||
-  LogVol01|VolGroup00|-wi-ao----|28986834944||||||||
+  home|centos|-wi-ao----|20073938944||||||||
+  root|centos|-wi-ao----|41120956416||||||||
+  swap|centos|-wi-ao----|2147483648||||||||
+
 ```
 
 Truy cập vào Web UI để add service
 
 Thực hiện discovery service
 
-![](../images/disk_lvm/11.png)
+<img src="https://image.prntscr.com/image/7lhoKDgyS6KXbq-L9KEMlg.png"> 
 
-![](../images/disk_lvm/12.png)
+<img src="https://image.prntscr.com/image/BZ5fvaxkS7OZc1tmCVHlUg.png"> 
 
 Ta thấy có service đã được add
 
-![](../images/disk_lvm/13.png)
+<img src="https://image.prntscr.com/image/CcDWKqGoSZ_Dds0HVnC9fQ.png"> 
 
 Áp dụng những thay đổi
 
-![](../images/disk_lvm/14.png)
+<img src="https://image.prntscr.com/image/BZ5fvaxkS7OZc1tmCVHlUg.png"> 
 
 Ở đây trên host chỉ có 1 Volume Group và đã được cấp hết dung lượng cho các Logical Volume
 
-![](../images/disk_lvm/15.png)
+<img src="https://image.prntscr.com/image/Fl-sws5vSv6OxHg6OLRpbA.png"> 
 
-
+### 13. Giám sát Volume group và Logical Volume
 # Nguồn tham khảo
 https://github.com/domanhduy/ghichep/blob/master/DuyDM/Check-MK/ly-thuyet/Ly-thuyet-Check-MK.md
 https://github.com/domanhduy/ghichep/blob/master/DuyDM/Check-MK/thuc-hanh/docs/1.cai-dat-check-mk-server-centos7.md
