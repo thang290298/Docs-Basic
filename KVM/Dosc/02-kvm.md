@@ -37,7 +37,7 @@ Và thuộc loại Hypervisor type 2: Host Based. KVM có thể cài đặt trê
 
 ## IV. Cấu trúc KVM
 
-<img src = "..\images\C.png">
+<img src = "..\Images\C.png">
 
 1. **User-facing tools**: Là các công cụ quản lý máy ảo hỗ trợ KVM. Các công cụ có giao diện đồ họa (như virt-manager) hoặc giao diện dòng lệnh như (virsh)
 

@@ -26,7 +26,7 @@ Có 2 loại Hypervisor là **Native hypervisor** (hay còn gọi là Bare metal
 #### **1. Native hypervisor**
 Đây là loại hypervisor chạy trực tiếp trên nền phần cứng (chạy như một hệ điều hành). Ví dụ : VMware ESXi, Microsoft Hyper-V và Apple Boot Camp.
 
-<img src = "..\images\native-hypervisor.png">
+<img src = "..\Images\native-hypervisor.png">
 
 **Ưu điểm:**
 - Cài đặt và cấu hình đơn giản
@@ -43,7 +43,7 @@ Có 2 loại Hypervisor là **Native hypervisor** (hay còn gọi là Bare metal
 Các hypervisor này phụ thuộc vào hệ điều hành máy chủ mà nó hoạt động.
 
 **Ví dụ** : VMware Workstation, Oracle VirtualBox, Parallels Desktop for Mac, 
-<img src = "..\images\host-base.png">
+<img src = "..\Images\host-base.png">
 
 **Ưu điểm**:
 - Phạm vi hỗ trợ phần cứng rộng. Vì cơ bản hệ điều hành máy chủ cơ bản đang kiểm soát truy cập phần cứng.
@@ -51,7 +51,7 @@ Các hypervisor này phụ thuộc vào hệ điều hành máy chủ mà nó ho
 ## III. Protection Ring
 Trong kiến trúc x86 một cơ chế để cách ly ứng dụng người dùng với hệ điều hành để tạo một môi trường hoạt động an toàn bằng cách sử dụng khái niệm cấp đặc quyền (privileged levels)
 
-<img src = "..\images\Protection-Ring.png">
+<img src = "..\Images\Protection-Ring.png">
 
 Như trong hình, ta thấy **Ring 0** có đặc quyền cao nhất. Nhó có thể thao tác với bất kì phần cứng nào như disk, CPU, Memory, ...
 
@@ -63,21 +63,21 @@ Với cách này, Guest OS chạy trên Ring 1, còn Ring 0 để chạy Hypervi
 
 Hypervisor phải cung cấp cho máy ảo một thư viện của toàn hệ thống, bao gồm BIOS ảo, không gian bộ nhớ ảo và các thiết bị ảo.
 
-<img src = "..\images\Full-virtualization.png">
+<img src = "..\Images\Full-virtualization.png">
 
 ### 2. Paravirtualization (ảo hóa song song)
 Là một phương pháp ảo hóa mà HĐH cần phải thay đổi để có thể giao tiếp giữa hypervisor và guest OS thông qua (hypercalls).
 
 Paravirtualization là một công nghệ trong đó hypervisor cung cấp một API và guest OS gọi các API đó yêu cầu sửa đổi HĐH máy vật lý. Mục đích của việc này là để giảm thiểu thời gian thi hành lệnh trên hệ thống. Như vậy các guest OS đã được sửa đổi chạy ở ring 0. Nhưng bên dưới ring 0 này là VMM.
 
-<img src ="..\images\Paravirtualization.png">
+<img src ="..\Images\Paravirtualization.png">
 
 ### 3. Hardware assisted virtualization (Ảo hóa hỗ trợ phần cứng)
 Ảo hóa có hỗ trợ phần cứng là một phương pháp ảo hóa nền tảng được thiết kế để sử dụng hiệu quả ảo hóa hoàn toàn với các khả năng của phần cứng.
 
 Với ảo hóa hỗ trợ phần cứng, hệ điều hành có quyền truy cập trực tiếp vào tài nguyên mà không cần bất kỳ mô phỏng hoặc sửa đổi hệ điều hành nào
 
-<img src ="..\images\Hardware-virtualization.png">
+<img src ="..\Images\Hardware-virtualization.png">
 
 ### 4. Ảo hóa hệ điều hành (Tạo máy ảo - virtual machine)
 Từ máy tính vật lí, ta có thể tạo một máy ảo có hệ điều hành khác trên đó. Các thao tác hoàn toàn như trên máy thật.
