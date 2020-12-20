@@ -2,9 +2,11 @@
 
 ## Mục lục
 
-[1, Thick provisioning]
+[1, Thick provisioning](https://github.com/thang290298/work-Document/blob/master/KVM/Dosc/thick-tin-provisioning-KVM.md#1-thick-provisioning)
 
-[2, Thin Provisioning]
+[2, Thin Provisioning](https://github.com/thang290298/work-Document/blob/master/KVM/Dosc/thick-tin-provisioning-KVM.md#2-thin-provisioning)
+
+[3, Tài liệu tham khảo](https://github.com/thang290298/work-Document/blob/master/KVM/Dosc/thick-tin-provisioning-KVM.md#3-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o)
 
 Khi khởi tạo VM (Virtual Machine) có bước lựa chọn định dạng phân vùng lưu trữ cho VM như: Thin Provisioned, Thick Provisioned Lazy Zeroe & Thick Provisioned Eager Zeroed. Để VM đạt được hiệu năng tốt nhất để đáp ứng nhu cầu riêng biệt cho VM bạn phải hiểu và chọn định dạng phân vùng phù hợp.
 
