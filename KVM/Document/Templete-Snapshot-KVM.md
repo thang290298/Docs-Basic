@@ -36,4 +36,4 @@ Có 2 loại snapshot chính được hỗ trợ bởi libvirt:
 - Ổ đĩa được chồng lên được tạo ra có định dạng qcow2, hoàn toàn trống và nó có thể chứa lượng dữ diệu giống như ổ đĩa ban đầu. External snapshot có thể được tạo với bất kì định dạng ổ đĩa nào mà libvirt hỗ trợ. Tuy nhiên không có công cụ đồ họa nào hỗ trợ cho việc này.
 
 
-snapshot1.png![](../images/snapshot1.png)
+![](../images/snapshot1.png)
