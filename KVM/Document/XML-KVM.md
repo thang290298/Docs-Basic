@@ -72,4 +72,69 @@ maxMemory: Dung lượng RAM tối đa có thể sử dụng
 
 urrentMemory: Dung lượng RAM thực tế đang được sử dụng
 
-![](../Images/Memory-Allocation.png)
+### 9. Events configuration
+
+![](../Images/Events-configuration.png)
+
+on_poweroff: Hành động được thực hiện khi người dùng yêu cầu tắt máy
+on_reboot: Hành động được thực hiện khi người dùng yêu cầu reset máy
+on_crash: Hành động được thực hiện khi có sự cố
+Những hành động được phép thực thi:
+destroy: Chấm dứt và giải phóng tài nguyên
+restart: Chấm dứt rồi khởi động lại giữ nguyên cấu hình
+preserve: Chấm dứt nhưng dữ liệu vẫn được lưu lại
+rename-restart: Khởi động lại với tên mới
+destroy và restart được hỗ trợ trong cả on_poweroff và on_reboot. preserve dùng trong on_reboot, rename-restart dùng trong on_poweroff
+on_crash hỗ trợ 2 hành động:
+coredump-destroy: domain bị lỗi sẽ được dump trước khi bị chấm dứt và giải phóng tài nguyên
+coredump-restart: domain bị lỗi sẽ được dump trước khi được khởi động lại với cấu hình
+
+### 10. Hypervisor features
+![](../Images/Hypervisor-features.png)
+
+pae: Chế độ mở rộng địa chỉ vật lí cho phép sử dụng 32 bit để lưu trữ tới hơn 4GB bộ nhớ.
+acpi: Được sử dụng để quản lí nguồn điện
+apic: Sử dụng cho quản lí IRQ
+hap: Bật/tắt chết độ phần cứng hỗ trợ, mặc định nó sẽ bật.
+
+### 11. Time keeping
+Clock
+
+offset : giá trị utc, localtime, timezone và variable
+
+![](../Images/clock.png)
+
+### 12. Devices
+
+emulator
+* Đường dẫn tới thiết bị mô phỏng nhị phân. Trong KVM, đó là /usr/bin/kvm
+
+![](../Images/emulator.png)
+
+Hard drives, floppy disks, CDROMs
+
+#### 1. Disk
+
+![](../Images/Disk.png)
+
+disk: Mô tả ổ đĩa, bao gồm các giá trị:
+type : kiểu ổ đĩa, có thể chọn “file”, “block”, “dir”, “network” hoặc “volume”
+device : Cách ổ đĩa tiếp xúc với hệ điều hành. Các giá trị có thể chọn là “floppy”, “disk”, “cdrom”, “lun”. Giá trị mặc định là “disk”.
+snapshot : Chọn chế độ mặc định của ổ đĩa khi snapshot. Các giá trị ở đây là “internal”, “external” và “no”
+source :
+file : Đường dẫn tới ổ đĩa
+dir: Đường dẫn tới thư mục chứa ổ đĩa
+target:
+dev: tên loại ổ đĩa, ví dụ: vda, hda…
+bus: xác định loại thiết bị ổ đĩa để mô phỏng, các giá trị: “ide”, “scsi”, “virtio”, “xen”, “usb”, “sata”, or “sd” “sd”
+driver:
+name: tên trình điều khiển hỗ trợ, ở đây mặc định sẽ là “qemu”
+type: “dự bị” cho “name” ở trên, các giá trị có thể chọn : “raw”, “bochs”, “qcow2”, và “qed”
+address:
+type: Loại controller, có thể chọn “pci” hoặc “drive”, đối với “drvie”, các giá trị “controller”, “bus”, “target”, và “unit” sẽ được mặc định thêm vào và có giá trị là 0
+
+#### 2. Controller
+
+
+
+![](../Images/Disk.png)
