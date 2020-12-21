@@ -25,7 +25,9 @@ Ngoài domain XML, KVM cũng có các file XML khác để lưu các thông tin 
 - `metadata`: Chứa những thông tin về file xml.
 
 ### 2. Operating system booting
+
 Có nhiều các để boot máy ảo và mỗi cách lại có những lợi ích và hạn chế riêng. Bài viết này sẽ chỉ đưa ra 2 ví dụ đó là boot từ BIOS và kernel
+
 ### 3. BIOS Bootloader
 Boot thông qua BIOS được hỗ trợ bởi những hypervisors full virtualization. Người dùng sẽ phải thiết lập thứ tự ưu tiên các thiết bị boot.
 
@@ -33,8 +35,10 @@ Boot thông qua BIOS được hỗ trợ bởi những hypervisors full virtuali
 
 
 
-- type: Chỉ ra loại OS được boot để tạo thành VM. hvm cho biết OS cần chạy trên “bare metal”, yêu cầu full virtualization. arch chỉ ra loại kiến trúc CPU dùng để ảo hóa, machine chỉ la loại máy sử dụng.
+- type: Chỉ ra loại OS được boot để tạo thành VM. hvm cho biết OS cần chạy trên `bare metal`, yêu cầu full virtualization. arch chỉ ra loại kiến trúc CPU dùng để ảo hóa, machine chỉ la loại máy sử dụng.
+
 - boot : dev chỉ ra thiết bị dùng để khởi động. Nó có thể là fd, hd, cdrom hoặc network. Nếu có nhiều thiết bị được khai báo, nó sẽ được sắp xếp làm thứ tự ưu tiên.
+
 - bootmenu : Chỉ ra có cho khởi động boot menu hay không. Tùy chọn enable có giá trị yes hoặc no. timeout là thời gian đợi trước khi sử dụng chế độ mặc định.
 
 ### 4. Direct kernel boot
@@ -77,30 +81,45 @@ urrentMemory: Dung lượng RAM thực tế đang được sử dụng
 ![](../Images/Events-configuration.png)
 
 on_poweroff: Hành động được thực hiện khi người dùng yêu cầu tắt máy
+
 on_reboot: Hành động được thực hiện khi người dùng yêu cầu reset máy
+
 on_crash: Hành động được thực hiện khi có sự cố
+
 Những hành động được phép thực thi:
+
 destroy: Chấm dứt và giải phóng tài nguyên
+
 restart: Chấm dứt rồi khởi động lại giữ nguyên cấu hình
+
 preserve: Chấm dứt nhưng dữ liệu vẫn được lưu lại
-rename-restart: Khởi động lại với tên mới
-destroy và restart được hỗ trợ trong cả on_poweroff và on_reboot. preserve dùng trong on_reboot, rename-restart dùng trong on_poweroff
+
+rename-restart: Khởi động lại với tên mớidestroy và restart được hỗ trợ trong cả 
+
+on_poweroff và on_reboot. preserve dùng trong on_reboot, rename-restart dùng trong on_poweroff
+
 on_crash hỗ trợ 2 hành động:
+
 coredump-destroy: domain bị lỗi sẽ được dump trước khi bị chấm dứt và giải phóng tài nguyên
-coredump-restart: domain bị lỗi sẽ được dump trước khi được khởi động lại với cấu hình
+
+coredump-restart: domain bị lỗi sẽ được dump trước khi được khởi động lại với cấu hình cũ
 
 ### 10. Hypervisor features
 ![](../Images/Hypervisor-features.png)
 
 pae: Chế độ mở rộng địa chỉ vật lí cho phép sử dụng 32 bit để lưu trữ tới hơn 4GB bộ nhớ.
+
 acpi: Được sử dụng để quản lí nguồn điện
+
 apic: Sử dụng cho quản lí IRQ
+
 hap: Bật/tắt chết độ phần cứng hỗ trợ, mặc định nó sẽ bật.
+
 
 ### 11. Time keeping
 Clock
 
-offset : giá trị utc, localtime, timezone và variable
+offset : giá trị `utc`, `localtime`, `timezone`và `variable`
 
 ![](../Images/clock.png)
 
@@ -118,20 +137,33 @@ Hard drives, floppy disks, CDROMs
 ![](../Images/Disk.png)
 
 disk: Mô tả ổ đĩa, bao gồm các giá trị:
+
 type : kiểu ổ đĩa, có thể chọn “file”, “block”, “dir”, “network” hoặc “volume”
+
 device : Cách ổ đĩa tiếp xúc với hệ điều hành. Các giá trị có thể chọn là “floppy”, “disk”, “cdrom”, “lun”. Giá trị mặc định là “disk”.
+
 snapshot : Chọn chế độ mặc định của ổ đĩa khi snapshot. Các giá trị ở đây là “internal”, “external” và “no”
-source :
+
+`source :`
+
 file : Đường dẫn tới ổ đĩa
+
 dir: Đường dẫn tới thư mục chứa ổ đĩa
-target:
+
+`target:`
 dev: tên loại ổ đĩa, ví dụ: vda, hda…
+
 bus: xác định loại thiết bị ổ đĩa để mô phỏng, các giá trị: “ide”, “scsi”, “virtio”, “xen”, “usb”, “sata”, or “sd” “sd”
-driver:
+
+`driver:`
 name: tên trình điều khiển hỗ trợ, ở đây mặc định sẽ là “qemu”
+
 type: “dự bị” cho “name” ở trên, các giá trị có thể chọn : “raw”, “bochs”, “qcow2”, và “qed”
-address:
-type: Loại controller, có thể chọn “pci” hoặc “drive”, đối với “drvie”, các giá trị “controller”, “bus”, “target”, và “unit” sẽ được mặc định thêm vào và có giá trị là 0
+
+`address:`
+type: Loại controller, có thể chọn “pci” hoặc “drive”, đối với “drvie”, các giá trị 
+
+“controller”, “bus”, “target”, và “unit” sẽ được mặc định thêm vào và có giá trị là 0
 
 #### 2. Controller
 
