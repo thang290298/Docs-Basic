@@ -1,11 +1,14 @@
 # Tìm hiểu file XML trong KVM
 ## Mục lỤC
-[I. Tổng quan về XML]
-[II. Các thành phần trong file domain XML]
-[1. Metadata]
-[2. Operating system booting]
-[3. BIOS Bootloader]
-[4. Direct kernel boot]
+[I. Tổng quan về XML](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#i-t%E1%BB%95ng-quan-v%E1%BB%81-xml)
+
+[II. Các thành phần trong file domain XML](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#ii-c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-trong-file-domain-xml)
+
+  [1. Metadata](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#1-metadata)
+
+[2. Operating system booting](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#2-Operating-system-booting)
+[3. BIOS Bootloader](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#3-BIOS-Bootloader)
+[4. Direct kernel boot](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#4-Direct-kernel-boot)
 [5. CPU Allocation]
 [6. vcpu]
 [7. Memory Allocation]
