@@ -6,33 +6,59 @@
 
   [1. Metadata](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#1-metadata)
 
-[2. Operating system booting](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#2-Operating-system-booting)
-[3. BIOS Bootloader](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#3-BIOS-Bootloader)
-[4. Direct kernel boot](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#4-Direct-kernel-boot)
-[5. CPU Allocation]
-[6. vcpu]
-[7. Memory Allocation]
-[8. memory]
-[9. Events configuration]
-[10. Hypervisor features]
-[11. Time keeping]
-[12. Devices]
-[12.1. Disk]
-[12.2. Controller]
-[13. Network interfaces]
-[14. Input devices]
-[15. Graphical framebuffers]
-[16. Video devices]
-[17. Guest interface]
-[18. Sound devices]
-[19. Memory balloon device]
-[III. Các thành phần trong file network XML]
-[1. General Metadata]
-[2. Connectivity]
-[3.Quality of service]
-[4. Static Routes]
-[5. Addressing]
-[IV. Tài liệu tham khảo]
+  [2. Operating system booting](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#2-Operating-system-booting)
+
+  [3. BIOS Bootloader](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#3-BIOS-Bootloader)
+
+  [4. Direct kernel boot](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#4-Direct-kernel-boot)
+
+  [5. CPU Allocation](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#5-cpu-allocation)
+
+  [6. vcpu](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#6-vcpu)
+
+  [7. Memory Allocation](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#7-memory-allocation)
+
+  [8. memory](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#8-memory)
+
+  [9. Events configuration](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#9-events-configuration)
+
+  [10. Hypervisor features](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#10-hypervisor-features)
+
+  [11. Time keeping](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#11-time-keeping)
+
+  [12. Devices](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#12-devices)
+
+  - [12.1. Disk](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#121-disk)
+
+  - [12.2. Controller](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#2-controller)
+
+  [13. Network interfaces](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#13-network-interfaces)
+
+  [14. Input devices](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#14-input-devices)
+
+  [15. Graphical framebuffers](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#15-graphical-framebuffers)
+
+  [16. Video devices](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#16-video-devices)
+
+  [17. Guest interface](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#17-guest-interface)
+
+  [18. Sound devices](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#18-sound-devices)
+
+  [19. Memory balloon device](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#19-memory-balloon-device)
+
+[III. Các thành phần trong file network XML](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#iii-c%C3%A1c-th%C3%A0nh-ph%E1%BA%A7n-trong-file-network-xml)
+
+  [1. General Metadata](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#1-general-metadata)
+
+  [2. Connectivity](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#2-connectivity)
+
+  [3.Quality of service](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#3quality-of-service)
+
+  [4. Static Routes](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#4-static-routes)
+
+  [5. Addressing](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#5-addressing)
+
+[IV. Tài liệu tham khảo](https://github.com/thang290298/work-Document/blob/master/KVM/Document/XML-KVM.md#4-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o)
 ## I. Tổng quan về XML
 XML (viết tắt từ tiếng Anh: eXtensible Markup Language, tức “Ngôn ngữ đánh dấu mở rộng”) là ngôn ngữ đánh dấu với mục đích chung do W3C đề nghị, để tạo ra các ngôn ngữ đánh dấu khác. Đây là một tập con đơn giản của SGML, có khả năng mô tả nhiều loại dữ liệu khác nhau. Mục đích chính của XML là đơn giản hóa việc chia sẻ dữ liệu giữa các hệ thống khác nhau, đặc biệt là các hệ thống được kết nối với Internet.
 
@@ -257,6 +283,7 @@ ram và vram chỉ ra kích thước của primary và secondary bar
 `console:`
 
 ![](../Images/xml19.png)
+
 Nếu không có target type được chọn , mặc định trong KVM sẽ sử dụng serial.
 
 ### 18. Sound devices
