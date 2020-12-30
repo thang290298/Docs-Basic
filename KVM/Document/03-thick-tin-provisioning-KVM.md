@@ -10,20 +10,18 @@
 
 Khi khởi tạo VM (Virtual Machine) có bước lựa chọn định dạng phân vùng lưu trữ cho VM như: Thin Provisioned, Thick Provisioned Lazy Zeroe & Thick Provisioned Eager Zeroed. Để VM đạt được hiệu năng tốt nhất để đáp ứng nhu cầu riêng biệt cho VM bạn phải hiểu và chọn định dạng phân vùng phù hợp.
 
-Điểm khác nhau rõ ràng nhất là sự chiếm dụng tài nguyên lưu trữ của server.
-
+Đặc biết khác biết nhất giữa Thin - Thick Provisioning là cách chiếm dụng và sử dụng disk
 ## 1. Thick provisioning
 
 ![](../Images/thick-provisioning.png)
 
-Với thick Provisioning, dung lượng lưu trữ đĩa ảo hoàn chỉnh được phân bổ trước trên bộ nhớ vật lý khi đĩa ảo được tạo.
-Đĩa ảo được cấp thick Provisioning tiêu thụ tất cả không gian được phân bổ cho nó trong kho dữ liệu ngay từ đầu, do đó không gian không có sẵn để sử dụng bởi các máy ảo khác.
-
+Với thick Provisioning, dung lượng lưu trữ trên đĩa ảo được phân bổ trước trên bộ nhớ vật lý khi đĩa ảo được tạo
+Đĩa ảo được cấp thick Provisioning sử dụng và chiếm đoạt tất cả dung lượng bộ nhớ được cấp phát ngay từ ban đầu, sẽ không tồn tại không gian trống cho các máy ảo khác
 - Có 2 kiểu của thick-provisioned virtual disks
 
-	+ Lazy zeroed disk: là một đĩa ảo dùng tất cả không gian của nó tại thời điểm tạo, nhưng không gian này có thể chứa một số dữ liệu cũ trên phương tiện vật lý. Dữ liệu cũ này không bị xóa hoặc ghi đè lên, do đó, nó cần phải được "zeroed out" trước khi dữ liệu mới có thể được ghi vào các khối. Loại disk này có thể được tạo nhanh hơn, nhưng hiệu suất của nó sẽ thấp hơn cho lần ghi đầu tiên do IOPS tăng cho các block mới.
+	+ Lazy zeroed disk: là một đĩa ảo sử dụng tất cả không gian đĩa  tại thời điểm khởi tạo, nhưng có thể không gian này có thể chuwas một số dung lượng cũ  trên phương tiện vạt lý. Các dữ liệu cũ không bị xóa hoặc ghi đè lên nên nó cần phải xóa dữ liệu cũ trước khi ghi dữu liệu mới. Với loại đĩa này có thể khởi tạo nhanh hơn nhưng hiệu suất sẽ thấp hơn trong lần ghi đầu tiên.
 
-	+ Eager zeroed disk: là một đĩa ảo có được tất cả các không gian cần thiết vẫn còn tại thời điểm tạo ra nó, và không gian bị xóa sạch mọi dữ liệu trước đó trên phương tiện vật lý. Việc tạo đĩa không mong muốn mất nhiều thời gian hơn vì các số 0 được ghi vào toàn bộ đĩa, nhưng hiệu suất của chúng nhanh hơn trong lần viết đầu tiên. Đây là loại phụ của đĩa ảo cung cấp dày hỗ trợ các tính năng phân cụm, chẳng hạn như khả năng chịu lỗi.
+	+ Eager zeroed disk: là đĩa ảo được nhận tất cả dung lượng cần thiết tại thời điểm tạo vào xóa sạch không gian bộ nhớ với mọi dữ liệu có trên phương tiện vật lý.Việc tạo đĩa sẽ mất thời gian hơn vì các số 0 sẽ được ghi vào toàn bộ đĩa , những hiệu suất sẽ nhanh hơn trong lần ghi dữ liệu đầu tiên
 
 Thick Provisioned Eager Zeroed cũng giống như Full Format định dạng này thực hiện việc ghi giá trị 0 lên tất cả sector, đồng nghĩa việc sao chép dữ liệu vào sẽ chỉ việc ghi thêm giá trị 1 lên. 
 Thick Provisioned Lazy Zeroe thì như Quick Format, sao chép dự liệu đến đâu sẽ ghi đến đó.
