@@ -12,7 +12,10 @@
 
 ## II. Cấu trúc
 
+
 ![](../images/cautruclinuxbridge.png)
+![](../images/cautruclinuxbridge.png)
+
 
 Trong đó: 
 - Bridge ở đây là switch ảo
