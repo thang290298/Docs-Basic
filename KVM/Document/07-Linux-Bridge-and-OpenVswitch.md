@@ -13,7 +13,6 @@
 ## II. Cấu trúc
 
 
-![](../images/cautruclinuxbridge.png)
 <img src="https://github.com/thang290298/work-Document/blob/master/KVM/Images/cautruclinuxbridge.png?raw=true">
 
 Trong đó: 
@@ -23,7 +22,7 @@ Trong đó:
 
 Switch ảo do Linux bridge tạo ra có chức năng tương tự với 1 con switch vật lý.
 
-![](../images/3.png)
+<img src="https://github.com/thang290298/work-Document/blob/master/KVM/Images/3.png?raw=true">
 
  - Hình trên mô tả rõ hơn cách kết nối interner. khi máy chủ kết nói với internet (không phải qua card wireless). Trên Swich ảo sẽ tạo ra một kết nối ra ngoài interner, cụ thể là qua card mạng trên máy chủ vật lý. Có thể hình dung card mạng vât lý được gắn vào Switch ảo nên sẽ có chung địa chỉ MAC. Khí đó địa chỉ Ip được gắn trên Card vật lý sẽ được chuyển sang gắn trên card mạng ảo
  - Lúc này các VM muốn kết nối với nhau hay là đi ra interner ddeur phải kết nối qua Switch ảo. Card mang trên VM sẽ được gắn với 1 cổng  của Switch ảo thông qua Tap Interface.
@@ -31,7 +30,7 @@ Switch ảo do Linux bridge tạo ra có chức năng tương tự với 1 con s
 
  # OpenvSwitch
 ## I. Khái niệm
-
+- 
 - OpenvSwitch là phần mềm Switch mã nguồn mở hỗ trợ giao thức OpenFlow, được sử dụng để kết nối giữa các máy ảo trên cùng 1 host vật lý và các máy ảo trên các host vật ký khách nhau.OpenvSwitch được sử dụng trên một số thiết bị chuyển mạch vật lý
 - Open vSwitch là một trong những thành phần quan trọng hỗ trợ SDN (Software Defined Networking - Công nghệ mạng điều khiển bằng phần mềm)
 - Tính Năng:
@@ -42,16 +41,31 @@ Switch ảo do Linux bridge tạo ra có chức năng tương tự với 1 con s
   - Hỗ trợ Flow export (sử dụng các giao thức sflow, netflow)
   - Hỗ trợ các giao thức đường hầm (GRE, VXLAN, IPSEC tunneling)
   - Hỗ trợ kiểm soát QoS
+  - Cơ sở dữ liệu cấu hình giao dịch với các liên kết C và Python
+  - OpenFlow 1.0 cộng với nhiều tiện ích mở rộng
+  - Chuyển tiếp hiệu suất cao sử dụng mô-đun nhân Linux
+
+  Mô-đun nhân Linux đi kèm hỗ trợ Linux 3.10 trở lên.
+
+  Open vSwitch có thể hoạt động trong không gian người dùng mà không cần hỗ trợ từ nhân  kernel module. Việc triển khai không gian người dùng này sẽ dễ dàng hơn so với kernel-based switch
 
   ## II. Cấu trúc Open vSwitch
 
-   ![](../images/ovs_arch.png.png)
+   ![](../images/OpenvSwitch.png)
+
+
 - Open Vswitch được sử dụng để kết nối các VM trong cùng 1 host. Nó quản lý cả các port vật lý (eth0, eth1) và các port ảo (ví dụ như tap port của các VMs).
-- 3 thành phần chính
-  - vswitchd:
-     - Là ovs daemon chạy trên user space
-     - Công cụ tương tác: ovs-dpctl, ovs-appctl, ovs-ofctl, sFlowTrend
-  - ovsdb-server:
-    - Là database server của Open vSwitch chạy trên user space
-    - Công cụ tương tác: ovs-vsctl, ovsdb-client
-  - kernel module (datapath):Là module thuộc kernel space, thực hiện công việc chuyển tiếp gói tin
+
+Các thành phần chính:
+- VOS-Switchd: một công cụ thục hiện chuyển đổi cùng với một số kernel module Linux để chuyển đổi dựa trên luồng
+- ovsdb-server: một máy chủ cơ sở dữ liệu nhẹ mà ovs-vswitchd truy vấn để có được cấu hình của nó.
+- ovs-dpctl : hỗ trợ thiết lập cấu hình kernel module chuyển đổi
+- Tập lệnh và thông số kỹ thuật để xây dựng RPM cho Citrix XenServer và Red Hat Enterprise Linux. Các RPM của XenServer cho phép cài đặt Open vSwitch trên máy chủ Citrix XenServer như một công cụ thay thế cho công tắc của nó, với chức năng bổ sung.
+- ovs-vsctl, một tiện ích để truy vấn và cập nhật cấu hình của ovs-vswitchd.
+- ovs-appctl, một tiện ích gửi lệnh để chạy các daemon Open vSwitch.
+
+Các công cụ hỗ trợ:
+- ovs-ofctl: Hỗ trợ truy vấn và điều khiển các bộ điều khiển OpenFlow.
+- ovs-pki: tiện ích tạo và quản lý cơ sở hạ tầng OpenFlow.
+- ovs-testcontroller, một bộ điều khiển OpenFlow
+- Một bản vá cho tcpdump cho phép nó phân tích cú pháp các tin nhắn OpenFlow.
