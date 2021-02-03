@@ -10,7 +10,7 @@
 
 Khi khởi tạo VM (Virtual Machine) có bước lựa chọn định dạng phân vùng lưu trữ cho VM như: Thin Provisioned, Thick Provisioned Lazy Zeroe & Thick Provisioned Eager Zeroed. Để VM đạt được hiệu năng tốt nhất để đáp ứng nhu cầu riêng biệt cho VM bạn phải hiểu và chọn định dạng phân vùng phù hợp.
 
-Đặc biết khác biết nhất giữa Thin - Thick Provisioning là cách chiếm dụng và sử dụng disk
+Sự khác biệt giữa Thin - Thick Provisioning là khả năng chiếm dụng và sử dụng bộ nhớ 
 ## 1. Thick provisioning
 
 ![](../Images/thick-provisioning.png)
@@ -19,7 +19,7 @@ Với thick Provisioning, dung lượng lưu trữ trên đĩa ảo được ph�
 Đĩa ảo được cấp thick Provisioning sử dụng và chiếm đoạt tất cả dung lượng bộ nhớ được cấp phát ngay từ ban đầu, sẽ không tồn tại không gian trống cho các máy ảo khác
 - Có 2 kiểu của thick-provisioned virtual disks
 
-	+ Lazy zeroed disk: là một đĩa ảo sử dụng tất cả không gian đĩa  tại thời điểm khởi tạo, nhưng có thể không gian này có thể chuwas một số dung lượng cũ  trên phương tiện vạt lý. Các dữ liệu cũ không bị xóa hoặc ghi đè lên nên nó cần phải xóa dữ liệu cũ trước khi ghi dữu liệu mới. Với loại đĩa này có thể khởi tạo nhanh hơn nhưng hiệu suất sẽ thấp hơn trong lần ghi đầu tiên.
+	+ Lazy zeroed disk: là một đĩa ảo sử dụng tất cả không gian đĩa  tại thời điểm khởi tạo, nhưng có thể không gian này có thể chứa một số dung lượng cũ  trên phương tiện vật lý. Các dữ liệu cũ không bị xóa hoặc ghi đè lên nên nó cần phải xóa dữ liệu cũ trước khi ghi dữu liệu mới. Với loại đĩa này có thể khởi tạo nhanh hơn nhưng hiệu suất sẽ thấp hơn trong lần ghi đầu tiên.
 
 	+ Eager zeroed disk: là đĩa ảo được nhận tất cả dung lượng cần thiết tại thời điểm tạo vào xóa sạch không gian bộ nhớ với mọi dữ liệu có trên phương tiện vật lý.Việc tạo đĩa sẽ mất thời gian hơn vì các số 0 sẽ được ghi vào toàn bộ đĩa , những hiệu suất sẽ nhanh hơn trong lần ghi dữ liệu đầu tiên
 
