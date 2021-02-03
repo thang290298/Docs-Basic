@@ -14,8 +14,7 @@
 
 
 ![](../images/cautruclinuxbridge.png)
-![](../images/cautruclinuxbridge.png)
-
+<img src="https://github.com/thang290298/work-Document/blob/master/KVM/Images/cautruclinuxbridge.png?raw=true">
 
 Trong đó: 
 - Bridge ở đây là switch ảo
