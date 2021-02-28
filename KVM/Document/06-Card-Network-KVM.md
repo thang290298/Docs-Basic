@@ -24,6 +24,6 @@ Cung giống như ảo hóa VMware có 3 chế độ card mạng đó là Nat, B
 
 - IP Private được quy định bao gồm các dải:
   - 10.x.x.x
-  - 172.16.x.x
-  -192.168.x.x
+  - 172.16.x.x 
+  - 192.168.x.x
   
