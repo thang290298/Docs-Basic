@@ -482,7 +482,7 @@ virt-sysprep -d OPS_Template_Ubuntu2004
 ### Bước 2: Tối ưu kích thước image:
 
 ```
-virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/OPS_Template_Ubuntu2004.qcow2 U20-Blank
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/OPS_Template_Ubuntu2004.qcow2 PS_Template_Ubuntu2004
 ```
 
 ### Bước 3: Upload image lên glance và sử dụng
