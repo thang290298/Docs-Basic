@@ -414,7 +414,7 @@ Kiểm tra phiên bản qemu-ga bằng lệnh:
 qemu-ga --version
 service qemu-guest-agent status
 ```
-Cài đặt CMDlog và  welcome Display
+### Bước 5:Cài đặt CMDlog và  welcome Display
 ```
 curl -Lso- https://raw.githubusercontent.com/nhanhoadocs/ghichep-cmdlog/master/cmdlog.sh | bash
 wget https://raw.githubusercontent.com/danghai1996/create-images-openstack/master/scripts_all/linux-login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
