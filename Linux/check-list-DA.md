@@ -220,7 +220,7 @@ Chạy script đổi IP trong đó:
    45.117.80.147 là IP mới
 
 ```
-./ipswap.sh 103.124.94.180 45.117.80.147
+  103.124.94.180 45.117.80.147
 ```
 Nếu thực hiện thành công, tại màn hình Terminal ta sẽ thấy kết quả như sau
 ```
