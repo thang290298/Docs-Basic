@@ -47,6 +47,4 @@ init 6
 
 # II. Cài đặt VM
 ## 2.1 Sử dụng công cụ Virt-manager để cài VM
-=======
-sdfshff
->>>>>>> 9ffedee3b5facb54fe29ad780aa3b6794624aa44
+
