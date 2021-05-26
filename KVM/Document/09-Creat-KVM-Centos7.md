@@ -1,5 +1,6 @@
 # Hướng dẫn cài đặt máy ảo KVM trên Centos 7
 # I. Cài đặt KVM
+<<<<<<< HEAD
 ## 1. Kiểm tra hỗ trợ ảo hóa
 Để kiểm tra máy có hỗ trợ ảo hóa hay không?
 ```
@@ -46,3 +47,6 @@ init 6
 
 # II. Cài đặt VM
 ## 2.1 Sử dụng công cụ Virt-manager để cài VM
+=======
+sdfshff
+>>>>>>> 9ffedee3b5facb54fe29ad780aa3b6794624aa44
