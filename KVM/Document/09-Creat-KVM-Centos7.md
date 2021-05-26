@@ -9,7 +9,7 @@
 ```
 Nếu kết quả trả về 0 thì máy không hỗ trợ ảo hóa. Còn khác 0 tức là máy có hỗ trợ ảo hóa.
 
-![](../images/create-vm-kvm/checksupportkvm.png)
+<img src="../Images/createkvm/checksupportkvm.png">
 
 ## 2. Cài đặt các gói cần thiết
 
@@ -29,8 +29,8 @@ Sau khi cài đặt hoàn tất, kiểm tra các module KVM
 ```
 lsmod | grep kvm
 ```
-![](../images/create-vm-kvm/modulekvm.png)
-<img src="../images/create-vm-kvm/modulekvm.png">
+
+<img src="../Images/createkvm/modulekvm.png">
 
 
 ## 3. Bật libvirt và khởi động cùng hệ thống
