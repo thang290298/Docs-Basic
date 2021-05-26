@@ -28,7 +28,51 @@ Switch ảo do Linux bridge tạo ra có chức năng tương tự với 1 con s
  - Lúc này các VM muốn kết nối với nhau hay là đi ra interner ddeur phải kết nối qua Switch ảo. Card mang trên VM sẽ được gắn với 1 cổng  của Switch ảo thông qua Tap Interface.
  - Khi kết nối Switch ảo các VM sẽ nhận địa chỉ IP cùng với dải địa chỉ IP của card đã được add. Những địa chỉ IP này sẽ đươc cấp bởi dịch vụ DHCP trên router.
 
- # OpenvSwitch
+### III.Cấu hình Bridge networking
+
+#### 1. Trường hợp 1
+
+```
+# add bridge "br0"
+nmcli connection add type bridge autoconnect yes con-name br0 ifname br0
+# set IP for br0
+nmcli connection modify br0 ipv4.addresses 10.10.29.1/24 ipv4.method manual
+# set Gateway for br0
+nmcli connection modify br0 ipv4.gateway 10.10.29.1
+# set DNS for "br0"
+nmcli connection modify br0 ipv4.dns 8.8.8.8
+# remove the current setting
+nmcli connection delete eth0
+# add an interface again as a member of br0
+nmcli connection add type bridge-slave autoconnect yes con-name eth0 ifname eth0 master br0
+# restart
+```
+#### 2. Trường hợp 2
+- Cấu hình config trên `em1`
+```
+# vi /etc/sysconfig/network-scripts/ifcfg-em1
+TYPE=Ethernet
+NAME=em1
+DEVICE=em1
+ONBOOT=yes
+HWADDR=b8:2a:72:d1:bb:23
+BRIDGE=br1
+```
+- Khởi tạo và cấu hình `Brigde br1`
+```
+vi /etc/sysconfig/network-scripts/ifcfg-br1
+DEVICE=br1
+TYPE=Bridge
+BOOTPROTO=static
+IPADDR=172.16.2.237
+GATEWAY=172.16.10.1
+NETMASK=255.255.240.0
+ONBOOT=yes
+DNS1=8.8.8.8
+
+```
+
+# OpenvSwitch
 ## I. Khái niệm
 - 
 - OpenvSwitch là phần mềm Switch mã nguồn mở hỗ trợ giao thức OpenFlow, được sử dụng để kết nối giữa các máy ảo trên cùng 1 host vật lý và các máy ảo trên các host vật ký khách nhau.OpenvSwitch được sử dụng trên một số thiết bị chuyển mạch vật lý
