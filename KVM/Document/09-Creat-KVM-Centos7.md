@@ -30,6 +30,7 @@ Sau khi cài đặt hoàn tất, kiểm tra các module KVM
 lsmod | grep kvm
 ```
 ![](../images/create-vm-kvm/modulekvm.png)
+<img src="../images/create-vm-kvm/modulekvm.png">
 
 
 ## 3. Bật libvirt và khởi động cùng hệ thống
