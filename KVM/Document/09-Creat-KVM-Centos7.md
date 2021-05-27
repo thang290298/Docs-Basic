@@ -38,7 +38,6 @@ lsmod | grep kvm
 ```
 systemctl start libvirt
 systemctl enable libvirtd
-
 ```
 
 reboot
@@ -49,3 +48,26 @@ init 6
 # II. Cài đặt VM
 ## 2.1 Sử dụng công cụ Virt-manager để cài VM
 
+- Truy cập ` vỉrt-manager`
+```
+virt-manager
+```
+<img src="../Images/createkvm/virtmanager.png">
+
+
+- chọn đường dẫn đến file ios cài đặt VM
+
+<img src="../Images/createkvm/mapiso.png">
+
+
+- Cài đặt các thông số cơ bản cho máy ảo, lựa chọn cầu hình : card mạng, ram, disk, CPU
+
+<img src="../Images/createkvm/configram.png">
+
+<img src="../Images/createkvm/nat.png">
+
+- kiểm tra các thông số máy ảo rồi click chuột `Begin Installation`
+
+<img src="../Images/createkvm/installvm.png">
+
+<img src="../Images/createkvm/install.png">
