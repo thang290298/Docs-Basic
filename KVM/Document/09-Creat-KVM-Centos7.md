@@ -136,6 +136,27 @@ Các thông số cần chú ý:
   `--network`: loại mạng mà VM sử dụng.
 
 ```
+Để tìm hiểu thêm về các `option` có thể sử dụng lệnh:
+```
+virt-install --help
+```
+
+- Sau khi thực hiện lệnh tiến hành cài đặt như bình thường
 
 
+<img src="../Images/createkvm/caidat.png">
+
+- kiểm tra vị trí lưu file disk của VM
+```
+[root@localhost images]# ls -alh /var/lib/libvirt/images/
+total 52G
+drwx--x--x.  2 root root 4.0K May 27 23:57 .
+drwxr-xr-x. 11 root root 4.0K May 26 23:31 ..
+-rw-------.  1 qemu qemu  21G May 28 00:04 centos7.0-2.qcow2
+-rw-------.  1 qemu qemu  21G May 28 00:11 centos7-03
+-rw-------.  1 qemu qemu  31G May 28 00:12 centos7.0.qcow2
+[root@localhost images]#
+
+
+```
 
