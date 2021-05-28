@@ -301,7 +301,7 @@ Trên đây chỉ là một số thành phần chính trong file domain xml củ
 
 ## III. Các thành phần trong file network XML
 
-Giống như domain, mỗi một virtual network trong KVM sẽ được định nghĩa bằng 1 file có định dạng xml, mặc định lưu tại `/var/lib/libvirt/networks`
+Giống như domain, mỗi một virtual network trong KVM sẽ được định nghĩa bằng 1 file có định dạng xml, mặc định lưu tại `/etc/libvirt/qemu/networks/`
 
 File` virtual network` mặc định của KVM là `default.xml`, trong file này chứa các thông tin giúp KVM tạo mạng ảo với chế độ mặc định là `NAT`
 

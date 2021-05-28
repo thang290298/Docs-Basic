@@ -160,3 +160,188 @@ drwxr-xr-x. 11 root root 4.0K May 26 23:31 ..
 
 ```
 
+## 2.3 Tạo máy ảo với file XML
+
+### Bước 1: Tạo file XML
+- Để tạo 1 file XML khai báo đầy đủ thông tin của máy ảo có 2 phương pháp sử dụng là khai báo file xml theo đúng cấu trúc hoặc coppy 1 file xml hiện có và chính sửa các thông số cần thiết .
+
+- Phương pháp sử dụng ở đây là coppy từ 1 file `XML` có sẵn và ` chỉnh sửa các tham số cần thiết:
+
+<img src="../Images/createkvm/xml1.png">
+<img src="../Images/createkvm/xml2.png">
+<img src="../Images/createkvm/xml3.png">
+
+### Bước 2: Tạo Disk
+
+- khởi tạo ổ đĩa cho máy ảo có dung lượng 30 GB và định dạng là raw
+```
+[root@localhost images]# qemu-img create -f raw /var/lib/libvirt/images/Thangnv.img 30G
+Formatting '/var/lib/libvirt/images/Thangnv.img', fmt=raw size=32212254720
+
+```
+<img src="../Images/createkvm/disk.png">
+
+### Bước 3: Tạo uuid
+
+- Tạo mã uuid, cài đặt gói uuid và generate đoạn mã uuid
+```
+yum install uuid -y
+
+uuid
+```
+
+<img src="../Images/createkvm/uuid.png">
+
+
+### Bước 4: chỉnh sửa các tham số cần thiết
+- Các thông tin và tham số cần chỉnh sửa bao gồm:
+```
+- Thông tin về: ram , CPU, Disk
+- Đường dẫn đến Disk: /var/lib/libvirt/images/Thangnv.img
+- Đường dẫn CDROM để boot máy ảo: /var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-2003.iso
+- Card mạng: NAT IP qua natbr1 để lấy dải IP_Private: 192.168.27.0/24
+```
+
+<img src="../Images/createkvm/change1.png">
+<img src="../Images/createkvm/change2.png">
+
+- Nội dung file xml
+```
+<domain type='kvm'>
+  <name>Thangnv</name>
+  <uuid>17d70d42-bfd8-11eb-8b82-b82a72d1bb23</uuid>
+  <memory unit='KiB'>3145728</memory>
+  <currentMemory unit='KiB'>3145728</currentMemory>
+  <vcpu placement='static'>5</vcpu>
+  <os>
+    <type arch='x86_64' machine='pc-i440fx-rhel7.0.0'>hvm</type>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+  </features>
+  <cpu mode='custom' match='exact' check='partial'>
+    <model fallback='allow'>Haswell-noTSX-IBRS</model>
+    <feature policy='require' name='md-clear'/>
+    <feature policy='require' name='spec-ctrl'/>
+    <feature policy='require' name='ssbd'/>
+  </cpu>
+  <clock offset='utc'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='no'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>destroy</on_crash>
+  <pm>
+    <suspend-to-mem enabled='no'/>
+    <suspend-to-disk enabled='no'/>
+  </pm>
+  <devices>
+    <emulator>/usr/libexec/qemu-kvm</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='raw'/>
+      <source file='/var/lib/libvirt/images/Thangnv.img'/>
+      <target dev='vda' bus='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
+    </disk>
+    <disk type='file' device='cdrom'>
+      <driver name='qemu' type='raw'/>
+	  <source file='/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-2003.iso'/>
+      <target dev='hda' bus='ide'/>
+      <readonly/>
+      <address type='drive' controller='0' bus='0' target='0' unit='0'/>
+    </disk>
+    <controller type='usb' index='0' model='ich9-ehci1'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x7'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci1'>
+      <master startport='0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0' multifunction='on'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci2'>
+      <master startport='2'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x1'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci3'>
+      <master startport='4'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x2'/>
+    </controller>
+    <controller type='pci' index='0' model='pci-root'/>
+    <controller type='ide' index='0'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
+    </controller>
+    <controller type='virtio-serial' index='0'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+    </controller>
+    <interface type='network'>
+      <mac address='52:54:00:cf:ba:54'/>
+      <source network='natbr1'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+    </interface>
+    <serial type='pty'>
+      <target type='isa-serial' port='0'>
+        <model name='isa-serial'/>
+      </target>
+    </serial>
+    <console type='pty'>
+      <target type='serial' port='0'/>
+    </console>
+    <channel type='unix'>
+      <target type='virtio' name='org.qemu.guest_agent.0'/>
+      <address type='virtio-serial' controller='0' bus='0' port='1'/>
+    </channel>
+    <channel type='spicevmc'>
+      <target type='virtio' name='com.redhat.spice.0'/>
+      <address type='virtio-serial' controller='0' bus='0' port='2'/>
+    </channel>
+    <input type='tablet' bus='usb'>
+      <address type='usb' bus='0' port='1'/>
+    </input>
+    <input type='mouse' bus='ps2'/>
+    <input type='keyboard' bus='ps2'/>
+    <graphics type='spice' autoport='yes'>
+      <listen type='address'/>
+      <image compression='off'/>
+    </graphics>
+    <sound model='ich6'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
+    </sound>
+    <video>
+      <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
+    </video>
+    <redirdev bus='usb' type='spicevmc'>
+      <address type='usb' bus='0' port='2'/>
+    </redirdev>
+    <redirdev bus='usb' type='spicevmc'>
+      <address type='usb' bus='0' port='3'/>
+    </redirdev>
+    <memballoon model='virtio'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
+    </memballoon>
+    <rng model='virtio'>
+      <backend model='random'>/dev/urandom</backend>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x09' function='0x0'/>
+    </rng>
+  </devices>
+</domain>
+```
+
+### Bước 5: Khởi tạo máy ảo
+
+- Coppy file xml đã chỉnh sử lên máy chủ KVM
+
+<img src="../Images/createkvm/thangnvxml.png">
+
+- Sử dụng lệnh virsh để tạo máy ảo từ file xml vừa chỉnh sửa -> Một máy ảo sẽ được tạo ra tiến hành cài đặt như bình thường.
+
+```
+[root@localhost qemu]# virsh create Thangnv.xml
+Domain Thangnv created from Thangnv.xml
+```
+
+
