@@ -308,7 +308,7 @@ uuid
 Domain Thangnv created from Thangnv.xml
 ```
 
-<img src="../KVM/Images/createkvm/installxml.png">
+<img src="../../Images/createkvm/installxml.png">
 
 
 
