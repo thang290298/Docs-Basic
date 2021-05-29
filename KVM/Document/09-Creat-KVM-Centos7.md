@@ -245,6 +245,7 @@ uuid
       <driver name='qemu' type='raw'/>
       <source file='/var/lib/libvirt/images/Thangnv.img'/>
       <target dev='vda' bus='virtio'/>
+      <boot order='1'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
     </disk>
     <disk type='file' device='cdrom'>
@@ -252,6 +253,7 @@ uuid
 	  <source file='/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-2003.iso'/>
       <target dev='hda' bus='ide'/>
       <readonly/>
+      <boot order='2'/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
     </disk>
     <controller type='usb' index='0' model='ich9-ehci1'>
