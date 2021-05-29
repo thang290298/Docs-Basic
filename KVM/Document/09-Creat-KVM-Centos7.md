@@ -210,78 +210,58 @@ uuid
 <domain type='kvm'>
   <name>Thangnv</name>
   <uuid>17d70d42-bfd8-11eb-8b82-b82a72d1bb23</uuid>
+  <description>None</description>
   <memory unit='KiB'>3145728</memory>
   <currentMemory unit='KiB'>3145728</currentMemory>
   <vcpu placement='static'>5</vcpu>
   <os>
     <type arch='x86_64' machine='pc-i440fx-rhel7.0.0'>hvm</type>
-    <boot dev='hd'/>
+    <bootmenu enable='yes'/>
   </os>
   <features>
     <acpi/>
     <apic/>
+    <pae/>
   </features>
-  <cpu mode='custom' match='exact' check='partial'>
-    <model fallback='allow'>Haswell-noTSX-IBRS</model>
-    <feature policy='require' name='md-clear'/>
-    <feature policy='require' name='spec-ctrl'/>
-    <feature policy='require' name='ssbd'/>
+  <cpu mode='host-model' check='partial'>
+    <model fallback='allow'/>
   </cpu>
-  <clock offset='utc'>
-    <timer name='rtc' tickpolicy='catchup'/>
-    <timer name='pit' tickpolicy='delay'/>
-    <timer name='hpet' present='no'/>
-  </clock>
+  <clock offset='utc'/>
   <on_poweroff>destroy</on_poweroff>
   <on_reboot>restart</on_reboot>
-  <on_crash>destroy</on_crash>
-  <pm>
-    <suspend-to-mem enabled='no'/>
-    <suspend-to-disk enabled='no'/>
-  </pm>
+  <on_crash>restart</on_crash>
   <devices>
     <emulator>/usr/libexec/qemu-kvm</emulator>
     <disk type='file' device='disk'>
-      <driver name='qemu' type='raw'/>
+      <driver name='qemu' type='raw' cache='directsync'/>
       <source file='/var/lib/libvirt/images/Thangnv.img'/>
       <target dev='vda' bus='virtio'/>
-      <boot order='1'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
+      <boot order='2'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
     </disk>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
-	  <source file='/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-2003.iso'/>
+      <source file='/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-2003.iso'/>
       <target dev='hda' bus='ide'/>
       <readonly/>
-      <boot order='2'/>
+      <boot order='1'/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
     </disk>
-    <controller type='usb' index='0' model='ich9-ehci1'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x7'/>
-    </controller>
-    <controller type='usb' index='0' model='ich9-uhci1'>
-      <master startport='0'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0' multifunction='on'/>
-    </controller>
-    <controller type='usb' index='0' model='ich9-uhci2'>
-      <master startport='2'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x1'/>
-    </controller>
-    <controller type='usb' index='0' model='ich9-uhci3'>
-      <master startport='4'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x2'/>
-    </controller>
-    <controller type='pci' index='0' model='pci-root'/>
     <controller type='ide' index='0'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
     </controller>
     <controller type='virtio-serial' index='0'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
     </controller>
+    <controller type='usb' index='0' model='piix3-uhci'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
+    </controller>
+    <controller type='pci' index='0' model='pci-root'/>
     <interface type='network'>
       <mac address='52:54:00:cf:ba:54'/>
       <source network='natbr1'/>
       <model type='virtio'/>
+      <boot order='3'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>
     <serial type='pty'>
@@ -296,41 +276,24 @@ uuid
       <target type='virtio' name='org.qemu.guest_agent.0'/>
       <address type='virtio-serial' controller='0' bus='0' port='1'/>
     </channel>
-    <channel type='spicevmc'>
-      <target type='virtio' name='com.redhat.spice.0'/>
-      <address type='virtio-serial' controller='0' bus='0' port='2'/>
-    </channel>
+    <input type='mouse' bus='ps2'/>
     <input type='tablet' bus='usb'>
       <address type='usb' bus='0' port='1'/>
     </input>
-    <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
-    <graphics type='spice' autoport='yes'>
-      <listen type='address'/>
-      <image compression='off'/>
+    <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
+      <listen type='address' address='0.0.0.0'/>
     </graphics>
-    <sound model='ich6'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
-    </sound>
     <video>
-      <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
+      <model type='vga' vram='16384' heads='1' primary='yes'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
     </video>
-    <redirdev bus='usb' type='spicevmc'>
-      <address type='usb' bus='0' port='2'/>
-    </redirdev>
-    <redirdev bus='usb' type='spicevmc'>
-      <address type='usb' bus='0' port='3'/>
-    </redirdev>
     <memballoon model='virtio'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
     </memballoon>
-    <rng model='virtio'>
-      <backend model='random'>/dev/urandom</backend>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x09' function='0x0'/>
-    </rng>
   </devices>
 </domain>
+
 ```
 
 ### Bước 5: Khởi tạo máy ảo
