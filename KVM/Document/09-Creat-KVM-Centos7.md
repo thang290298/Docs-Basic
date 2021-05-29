@@ -169,7 +169,6 @@ drwxr-xr-x. 11 root root 4.0K May 26 23:31 ..
 
 <img src="../Images/createkvm/xml1.png">
 <img src="../Images/createkvm/xml2.png">
-<img src="../Images/createkvm/xml3.png">
 
 ### Bước 2: Tạo Disk
 
@@ -309,4 +308,4 @@ uuid
 Domain Thangnv created from Thangnv.xml
 ```
 
-
+<img src="../Images/createkvm/installxml.png">
