@@ -9,7 +9,7 @@
 ```
 Nếu kết quả trả về 0 thì máy không hỗ trợ ảo hóa. Còn khác 0 tức là máy có hỗ trợ ảo hóa.
 
-<img src="../Images/createkvm/checksupportkvm.png">
+<img src="../../Images/createkvm/checksupportkvm.png">
 
 ## 2. Cài đặt các gói cần thiết
 
@@ -30,7 +30,7 @@ Sau khi cài đặt hoàn tất, kiểm tra các module KVM
 lsmod | grep kvm
 ```
 
-<img src="../Images/createkvm/modulekvm.png">
+<img src="../../Images/createkvm/modulekvm.png">
 
 
 ## 3. Bật libvirt và khởi động cùng hệ thống
@@ -54,35 +54,35 @@ Cấu hình cài đặt NAT từ dải mạng `192.168.27.0/24` đi ra internet.
 ```
 virt-manager
 ```
-<img src="../Images/createkvm/virtmanager.png">
+<img src="../../Images/createkvm/virtmanager.png">
 
 
 - chọn đường dẫn đến file ios cài đặt VM
 
-<img src="../Images/createkvm/mapiso.png">
+<img src="../../Images/createkvm/mapiso.png">
 
 
 - Cài đặt các thông số cơ bản cho máy ảo, lựa chọn cầu hình : card mạng, ram, disk, CPU
 
-<img src="../Images/createkvm/configram.png">
+<img src="../../Images/createkvm/configram.png">
 
-<img src="../Images/createkvm/nat.png">
+<img src="../../Images/createkvm/nat.png">
 
 - kiểm tra các thông số máy ảo rồi click chuột `Begin Installation`
 
-<img src="../Images/createkvm/installvm.png">
+<img src="../../Images/createkvm/installvm.png">
 
-<img src="../Images/createkvm/install.png">
+<img src="../../Images/createkvm/install.png">
 
 Kết quả: 
-<img src="../Images/createkvm/1.png">
+<img src="../../Images/createkvm/1.png">
 
 - kiểm tra trạng thái máy ảo
 
 ```
 virsh list --all
 ```
-<img src="../Images/createkvm/manage.png">
+<img src="../../Images/createkvm/manage.png">
 
 
 ## 2.2 Cài đặt máy ảo với virt-install
@@ -114,7 +114,7 @@ virt-install \
 ```
 khi bắ đầu ta sẽ thấy hiển thị sau đây
 
-<img src="../Images/createkvm/2.png">
+<img src="../../Images/createkvm/2.png">
 
 Các thông số cần chú ý:
 ```
@@ -144,7 +144,7 @@ virt-install --help
 - Sau khi thực hiện lệnh tiến hành cài đặt như bình thường
 
 
-<img src="../Images/createkvm/caidat.png">
+<img src="../../Images/createkvm/caidat.png">
 
 - kiểm tra vị trí lưu file disk của VM
 ```
@@ -167,8 +167,8 @@ drwxr-xr-x. 11 root root 4.0K May 26 23:31 ..
 
 - Phương pháp sử dụng ở đây là coppy từ 1 file `XML` có sẵn và ` chỉnh sửa các tham số cần thiết:
 
-<img src="../Images/createkvm/xml1.png">
-<img src="../Images/createkvm/xml2.png">
+<img src="../../Images/createkvm/xml1.png">
+<img src="../../Images/createkvm/xml2.png">
 
 ### Bước 2: Tạo Disk
 
@@ -178,7 +178,7 @@ drwxr-xr-x. 11 root root 4.0K May 26 23:31 ..
 Formatting '/var/lib/libvirt/images/Thangnv.img', fmt=raw size=32212254720
 
 ```
-<img src="../Images/createkvm/disk.png">
+<img src="../../Images/createkvm/disk.png">
 
 ### Bước 3: Tạo uuid
 
@@ -189,7 +189,7 @@ yum install uuid -y
 uuid
 ```
 
-<img src="../Images/createkvm/uuid.png">
+<img src="../../Images/createkvm/uuid.png">
 
 
 ### Bước 4: chỉnh sửa các tham số cần thiết
@@ -201,8 +201,8 @@ uuid
 - Card mạng: NAT IP qua natbr1 để lấy dải IP_Private: 192.168.27.0/24
 ```
 
-<img src="../Images/createkvm/change1.png">
-<img src="../Images/createkvm/change2.png">
+<img src="../../Images/createkvm/change1.png">
+<img src="../../Images/createkvm/change2.png">
 
 - Truy cập thư mục `cd /etc/libvirt/qemu/` tạo `file xml` có nội dung
 
@@ -305,7 +305,7 @@ uuid
 
 - Coppy file xml đã chỉnh sử lên máy chủ KVM
 
-<img src="../Images/createkvm/thangnvxml.png">
+<img src="../../Images/createkvm/thangnvxml.png">
 
 - Sử dụng lệnh virsh để tạo máy ảo từ file xml vừa chỉnh sửa -> Một máy ảo sẽ được tạo ra tiến hành cài đặt như bình thường.
 
@@ -314,4 +314,7 @@ uuid
 Domain Thangnv created from Thangnv.xml
 ```
 
-<img src="../Images/createkvm/installxml.png">
+<img src="../../Images/createkvm/installxml.png">
+
+
+
