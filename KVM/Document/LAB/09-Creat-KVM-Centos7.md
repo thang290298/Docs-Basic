@@ -204,12 +204,13 @@ uuid
 <img src="../../Images/createkvm/change1.png">
 <img src="../../Images/createkvm/change2.png">
 
-- Nội dung file xml
+- Truy cập thư mục `cd /etc/libvirt/qemu/` tạo `file xml` có nội dung
+
 ```
 <domain type='kvm'>
-  <name>Thangnv</name>
-  <uuid>17d70d42-bfd8-11eb-8b82-b82a72d1bb23</uuid>
-  <description>None</description>
+  <name>Thangnv-webvirt</name>
+  <uuid>e896b3ac-c2fc-11eb-9fb9-b82a72d1bb23</uuid>
+  <description>Web virtcloud</description>
   <memory unit='KiB'>3145728</memory>
   <currentMemory unit='KiB'>3145728</currentMemory>
   <vcpu placement='static'>5</vcpu>
@@ -233,7 +234,7 @@ uuid
     <emulator>/usr/libexec/qemu-kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw' cache='directsync'/>
-      <source file='/var/lib/libvirt/images/Thangnv.img'/>
+      <source file='/var/lib/libvirt/images/Thangnv-webvirt.img'/>
       <target dev='vda' bus='virtio'/>
       <boot order='2'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
@@ -256,12 +257,17 @@ uuid
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
     </controller>
     <controller type='pci' index='0' model='pci-root'/>
+    <interface type='bridge'>
+      <mac address='52:54:00:e7:ef:f2'/>
+      <source bridge='br1'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+    </interface>
     <interface type='network'>
-      <mac address='52:54:00:cf:ba:54'/>
+      <mac address='52:54:00:48:c6:6b'/>
       <source network='natbr1'/>
       <model type='virtio'/>
-      <boot order='3'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
     </interface>
     <serial type='pty'>
       <target type='isa-serial' port='0'>

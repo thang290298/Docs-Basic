@@ -48,7 +48,7 @@
 # III. Chuyển đổi giữa raw và qcow2
 Để chuyển đổi từ định dạng raw sang qcow2, ta dùng câu lệnh:
 ```
-qemu-img convert -f raw -O qcow2 /var/lib/libvirt/images/VM.img /var/lib/libvirt/images/VM.qcow2
+qemu-img convert -f raw -O qcow2 /var/lib/libvirt/images/Thangnv-webvirt.img /var/lib/libvirt/images/Thangnv-webvirt.qcow2
 ```
 
 Để chuyển đổi từ định dạng qcow2 sang raw, ta dùng câu lệnh:
@@ -62,6 +62,8 @@ Sau khi chuyển đổi, tiến hành shutdown máy ảo. Đồng thời, sửa 
 ```
 virsh edit VMname
 ```
+
+<img src="../Images/createkvm/raw-qcow2.png">
 
 # IV. Tài liệu tham khảo
 
