@@ -19,6 +19,7 @@
 
   <img src="../../Images/webvirt/9.png">
 Trong đó: 
+```
  - Name: Tên tài khoản user
  - Password: Nhập mật khẩu mới nếu cần thay đổi
  - Is staff: quyền user thường
@@ -28,7 +29,7 @@ Trong đó:
  - Max cpus: Số CPU cấp tối đa
  - Max memory (MB): Số ram có thể sử dụng
  - Max disk size (GB): Tổng dung lượng disk có thể sử dụng
-
+```
 ### 2. Tạo Storage Pool
 Tiến hành tạo Pool đẻ lưu các `Volume` và `ISO` cho các VM
 - Vào `Computers` và chọn `Note Computes` muốn tạo `Pool`
