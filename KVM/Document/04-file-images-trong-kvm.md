@@ -65,6 +65,47 @@ virsh edit VMname
 
 <img src="../Images/createkvm/raw-qcow2.png">
 
-# IV. Tài liệu tham khảo
+# IV. So sánh giữa RAW và QCOWW2
+
+## 1. Dung Lượng
+
+Sử dụng lệnh `qemu-img` để tạo ra 1 file có định dạng `raw` và 1 file có định dạng `qcow2` có mức dung lượng 2GB.
+
+- File Raw:
+```
+qemu-img create -f raw file.raw 2G
+```
+
+- File QCOW2:
+```
+qemu-img create -f qcow2 file.qcow2 2G
+```
+<img src="../Images/10.png">
+
+sau khi tạo ta có thể thấy dung lương 2 file đêu có dung lượng 2GB, nhưng thực thế đối với file có định dạng `raw` dụng lường thực nhận đủ 2GB còn đối với file `QCOW2` chỉ nhận được `193k` dung lượng.
+
+<img src="../Images/11.png">
+
+## 2. Hiệu năng
+
+ Kiểm tra tốc độ đọc và ghi dữ liệu giữa `raw` và `qcow2` sử dụng lệnh `dd`
+
+- kiểm tra tốc độ đọc dữ liêu: `raw` > `qcow2`
+```
+dd if=file.raw of=doc1 bs=8k count=100000
+dd if=file.qcow2 of=doc2 bs=8k count=100000
+```
+<img src="../Images/12.png">
+
+- Kiểm tra tốc độ ghi dữ liệu : `raw`  `qcow2`
+```
+dd if=/dev/zero of=file.raw bs=8k count=100000
+dd if=/dev/zero of=file.qcow2 bs=8k count=100000
+```
+<img src="../Images/13.png">
+
+
+
+# V. Tài liệu tham khảo
 
 https://ductam.info/tong-quan-ve-file-image-trong-kvm/
