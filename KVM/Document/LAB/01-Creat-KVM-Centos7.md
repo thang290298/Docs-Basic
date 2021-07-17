@@ -15,6 +15,7 @@ Nếu kết quả trả về 0 thì máy không hỗ trợ ảo hóa. Còn khác
 
 ```
 yum -y install qemu-kvm libvirt virt-install bridge-utils virt-manager
+yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils -y
 ```
 
 Trong đó: 
@@ -36,7 +37,7 @@ lsmod | grep kvm
 ## 3. Bật libvirt và khởi động cùng hệ thống
 
 ```
-systemctl start libvirt
+systemctl start libvirtd
 systemctl enable libvirtd
 ```
 
