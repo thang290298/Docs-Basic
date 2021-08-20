@@ -38,14 +38,15 @@ systemctl restart libvirtd
 
 ```
 yum install epel-release -y
-yum -y install python-virtualenv python-devel libvirt-devel glibc gcc nginx supervisor python-lxml git python-libguestfs
+yum -y install wget python-virtualenv python-devel libvirt-devel glibc gcc nginx supervisor python-lxml git python-libguestfs
+
 ```
 
 #### 2.2 Tạo thư mục và clone source code từ trang chủ về
 
 ```
-cd /srv
-git clone https://github.com/retspen/webvirtcloud && cd webvirtcloud
+sudo mkdir /srv && cd /srv
+sudo git clone https://github.com/retspen/webvirtcloud && cd webvirtcloud
 git checkout 1e2fbc8
 cp webvirtcloud/settings.py.template webvirtcloud/settings.py
 
@@ -61,7 +62,7 @@ cp webvirtcloud/settings.py.template webvirtcloud/settings.py
 Thay đổi chuỗi secret key trong file `settings.py`bằng một đoạn string ngẫu nhiên mà chỉ mỗi bạn sở hữu
 
 ```
-vim webvirtcloud/settings.py
+vi webvirtcloud/settings.py
 ```
 Như sau:
 ```
@@ -86,11 +87,13 @@ venv/bin/python manage.py migrate
 
 ```
 cp /etc/supervisord.conf /etc/supervisord.conf.bk
-vim /etc/supervisord.conf
+vi /etc/supervisord.conf
 ```
 Nội dung
 
 ```
+
+
 [program:webvirtcloud]
 command=/srv/webvirtcloud/venv/bin/gunicorn webvirtcloud.wsgi:application -c /srv/webvirtcloud/gunicorn.conf.py
 directory=/srv/webvirtcloud
@@ -100,12 +103,13 @@ autorestart=true
 redirect_stderr=true
 
 [program:novncd]
-command=/srv/webvirtcloud/venv/bin/python /srv/webvirtcloud/console/novncd
+command=/srv/webvirtcloud/venv/bin/python3 /srv/webvirtcloud/console/novncd
 directory=/srv/webvirtcloud
 user=nginx
 autostart=true
 autorestart=true
 redirect_stderr=true
+
 ```
 #### 2.6 Cấu hình nginx
 
@@ -113,17 +117,10 @@ Comment lại block server trong file `/etc/nginx/nginx.conf` như sau:
 
 ```
 #    server {
-#        listen       443 ssl http2 default_server;
-#        listen       [::]:443 ssl http2 default_server;
+#        listen       80 default_server;
+#        listen       [::]:80 default_server;
 #        server_name  _;
 #        root         /usr/share/nginx/html;
-#
-#        ssl_certificate "/etc/pki/nginx/server.crt";
-#        ssl_certificate_key "/etc/pki/nginx/private/server.key";
-#        ssl_session_cache shared:SSL:1m;
-#        ssl_session_timeout  10m;
-#        ssl_ciphers HIGH:!aNULL:!MD5;
-#        ssl_prefer_server_ciphers on;
 #
 #        # Load configuration files for the default server block.
 #        include /etc/nginx/default.d/*.conf;
@@ -132,13 +129,14 @@ Comment lại block server trong file `/etc/nginx/nginx.conf` như sau:
 #        }
 #
 #        error_page 404 /404.html;
-#        location = /404.html {
+#            location = /40x.html {
 #        }
 #
 #        error_page 500 502 503 504 /50x.html;
-#        location = /50x.html {
+#            location = /50x.html {
 #        }
 #    }
+}
 
 ```
 Sau đó chỉnh sửa file `/etc/nginx/conf.d/webvirtcloud.conf`:
@@ -165,12 +163,13 @@ server {
         proxy_set_header X-Forwarded-for $proxy_add_x_forwarded_for;
         proxy_set_header Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $remote_addr;
-        proxy_connect_timeout 600;
-        proxy_read_timeout 600;
-        proxy_send_timeout 600;
+        proxy_connect_timeout 1800;
+        proxy_read_timeout 1800;
+        proxy_send_timeout 1800;
         client_max_body_size 1024M;
     }
 }
+
 ```
 2.7 Phần quyền cho các thư mục
 

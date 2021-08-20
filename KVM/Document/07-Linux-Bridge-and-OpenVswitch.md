@@ -55,7 +55,7 @@ TYPE=Ethernet
 NAME=em1
 DEVICE=em1
 ONBOOT=yes
-HWADDR=b8:2a:72:d1:bb:23
+HWADDR=ec:f4:bb:cf:7e:f9
 BRIDGE=br1
 ```
 - Khởi tạo và cấu hình `Brigde br1`
