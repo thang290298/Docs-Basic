@@ -137,6 +137,7 @@ rpm -ivh check-mk-agent-1.6.0p17-1.noarch.rpm
 ```
 Sửa file cấu hình xinetd của checkmk tại `/etc/xinetd.d/check_mk `:
 - Cấu hình gán IP Check_MK ở `only_from`:
+
 <img src="https://image.prntscr.com/image/PKWRdaxpTkCnw-D8222otQ.png">
 
 Khởi động lại xinetd:

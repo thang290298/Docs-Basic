@@ -213,6 +213,7 @@ ssh root@45.117.80.147
 Di chuyển đến thư mục chứa các script hỗ trợ của DA
 ```
 cd /usr/local/directadmin/scripts
+./ipswap.sh 103.124.94.180 45.117.80.147
 ```
 Chạy script đổi IP trong đó:
 
