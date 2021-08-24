@@ -178,15 +178,6 @@ hwclock --systohc
 sed -i 's/GRUB_CMDLINE_LINUX="crashkernel=auto rhgb quiet"/GRUB_CMDLINE_LINUX="crashkernel=auto console=tty0 console=ttyS0,115200n8"/g' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
-
-- Để máy ảo trên OpenStack có thể nhận được Cloud-init cần thay đổi cấu hình mặc định bằng cách sửa đổi file `/etc/cloud/cloud.cfg`. 
-
-``` sh
-sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
-sed -i 's/ssh_pwauth:   0/ssh_pwauth:   1/g' /etc/cloud/cloud.cfg
-sed -i 's/name: centos/name: root/g' /etc/cloud/cloud.cfg
-```
-
 - Disable Default routing
 
 ``` sh
