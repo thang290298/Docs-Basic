@@ -2,9 +2,9 @@
 
 ## Các thành phần chính
 
-- Openlitespeed
-- Mariadb
-- PHP 8.0
+- Openlitespeed OK
+- Mariadb 10.5.12 OK
+- PHP 8.0 OK
 - phpMyAdmin
 - LiteSpeed Cache
 - Memcached
@@ -382,5 +382,5 @@ truy cập kiểm tra:
 <img src = "..\Images\Centos7-app\17.png">
 
   - kiểm tra phiển bản php8.0
-  
+
 <img src = "..\Images\Centos7-app\18.png">
