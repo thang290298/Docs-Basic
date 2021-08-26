@@ -384,3 +384,41 @@ truy cập kiểm tra:
   - kiểm tra phiển bản php8.0
 
 <img src = "..\Images\Centos7-app\18.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://cyberpanel.vn/docs/installing-cyberpanel
+```
+CyberPanel Successfully Installed
+Visit: https://10.10.13.243:8090
+Panel username: admin
+Panel password: 0435626533aA
+
+ Visit: https://10.10.13.243:7080
+WebAdmin console username: admin
+WebAdmin console password: q81CvAwryRcp2Q0b
+
+Visit: https://10.10.13.243:8090/rainloop/?admin
+Rainloop Admin username: admin
+Rainloop Admin password: o0rE0PFNi0hzTN
+
+```
