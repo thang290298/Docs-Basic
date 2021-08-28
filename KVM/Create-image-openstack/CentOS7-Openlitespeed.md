@@ -5,12 +5,12 @@
 - Openlitespeed OK
 - Mariadb 10.5.12 OK
 - PHP 8.0 OK
-- phpMyAdmin
-- LiteSpeed Cache
-- Memcached
-- Redis
-- Certbort
-- Postfix
+- phpMyAdmin OK
+- LiteSpeed Cache ok
+- Memcached ok
+- Redis ok 
+- Certbort ok
+- Postfix ok
 
 ***Lưu ý***: Sử dụng version mới nhất
 
@@ -142,6 +142,7 @@ Cài đặt `epel-release` và update
 yum install epel-release -y
 yum update -y
 yum install -y wget
+sudo yum  install zip unzip -y
 ```
 
 ### 2. Disable firewalld, SElinux
@@ -252,7 +253,8 @@ rm -f /etc/hostname
 ### 8. Tạo Snapshot Begin
 
 ## Bước 3: Cài đặt APP
-### 1. Cài đăt OpenLiteSpeed + PHP 8.0 + Mariadb
+### 1. Cài đăt OpenLiteSpeed + PHP 8.0 + Mariadb + PhpMyAdmin
+### Cách 1: Cài đặt từng thành phần 
 #### 1.1 OpenLiteSpeed
 - Add the Repository
 ```sh
@@ -285,7 +287,7 @@ sudo yum install lsphp80 lsphp80-mysql lsphp80-common lsphp80-opcache lsphp80-cu
 - Install PHP Extensions
 
 ```sh
-yum -y install lsphp80-mysqlnd lsphp80-gd lsphp80-process lsphp80-mbstring lsphp80-xml lsphp80-pdo lsphp80-imap lsphp80-soap lsphp80-bcmath lsphp80-zip
+yum -y install lsphp80-mysqlnd lsphp80-gd lsphp80-process lsphp80-mbstring lsphp80-xml lsphp80-pdo lsphp80-imap lsphp80-soap lsphp80-bcmath lsphp80-zip lsphp80-iconv lsphp80-mysqli
 ```
 
 - check version
@@ -295,7 +297,7 @@ PHP 8.0.10 (cli) (built: Aug 24 2021 15:40:40) ( NTS gcc x86_64 )
 Copyright (c) The PHP Group
 Zend Engine v4.0.10, Copyright (c) Zend Technologies
 ```
-#### 1.3 Install MariaDB 10.6.4
+#### 1.3 Install MariaDB 10.5.12
 - update packages
 ```
 yum install upgrade -y
@@ -306,11 +308,11 @@ vi /etc/yum.repos.d/MariaDB.repo
 ```
 - Nội dung
 ```
-# MariaDB 10.6 CentOS repository list - created 2021-08-04 11:35 UTC
+# MariaDB 10.5 CentOS repository list - created 2021-08-04 11:35 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
 [mariadb]
 name = MariaDB
-baseurl = http://yum.mariadb.org/10.6/centos7-amd64
+baseurl = http://yum.mariadb.org/10.5/centos7-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
@@ -345,8 +347,18 @@ Disallow root login remotely? [Y/n]: Y
 Remove test database and access to it? [Y/n] : Y
 Reload privilege tables now? [Y/n]: Y
 ```
+#### 1.4 Cài đặt PhpMyAdmin
 
-#### 1.4 Configuretion OpenliteSpeed
+- truy cập thư mục `/usr/local/lsws/Example/html` tiến hành download và cài đặt
+```
+wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip
+unzip phpMyAdmin-5.1.0-all-languages.zip
+mv phpMyAdmin-5.1.0-all-languages phpmyadmin
+mkdir tmp && chmod 777 tmp
+```
+
+
+#### 1.5 Configuretion OpenliteSpeed
 
 - trang quản trị OpenliteSpeed hoạt động trên port **7080** tiến hành allow port firewalld
 ```
@@ -367,7 +379,7 @@ sh admpass.sh
 <img src = "..\Images\Centos7-app\14.png">
 
 - Thay đổi PHP version in openlitespeed
-  - chỉnh sửa file `/usr/local/lsws/conf/httpd_config.conf`
+  - chỉnh sửa file `httpd_config.conf`
 ```
 thay thế: `$SERVER_ROOT/lsphp73/bin/lsphp`
 bằng: `$SERVER_ROOT/lsphp80/bin/lsphp`
@@ -385,40 +397,261 @@ truy cập kiểm tra:
 
 <img src = "..\Images\Centos7-app\18.png">
 
+  - login phpmyadmin
 
+<img src = "..\Images\Centos7-app\19.png">
 
+### Cách 2: Sử dụng script cài đặt ( one click )
 
+#### 2.1: Cài đặt Openlitespeed + php8.0 + config port
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-https://cyberpanel.vn/docs/installing-cyberpanel
+- Download script cài đặt và tiến hành cài đặt
 ```
-CyberPanel Successfully Installed
-Visit: https://10.10.13.243:8090
-Panel username: admin
-Panel password: 0435626533aA
+wget https://raw.githubusercontent.com/litespeedtech/ols1clk/master/ols1clk.sh
+chmod +X ols1clk.sh
+chmod +X ols1clk.sh
+bash ./ols1clk.sh --lsphp 80 -A 0435626533aA -e admin@example.com --listenport 80 --ssllistenport 443
+```
+trong đó: 
+  - **./ols1clk.sh -A 0435626533aA -e admin@example.com**: cài đặt Openlitespeed với mật khẩu tài khoản `Webadmin` là `0435626533aA` và email `admin@example.com`
+  - **--lsphp 80**: cài đặt phiên bản PHP 8.0
+  - **--listenport 80**: cấu hình http server sử dụng Port`80` ( default: 8088)
+  - **--ssllistenport 443**: cấu hình https server sử dụng Port`443`
 
- Visit: https://10.10.13.243:7080
-WebAdmin console username: admin
-WebAdmin console password: q81CvAwryRcp2Q0b
+#### 2.2: cài đặt MariaDB
+- update packages
+```
+yum install upgrade -y
+```
+Mặc định, repo cài đặt MariaDB trên CentOS-7 là phiên bản 5.x. Vì vậy, để cài đặt bản mới cần chỉnh sửa repo cài MariaDB (phiên bản 10.6.4 - Stable)
+```sh
+vi /etc/yum.repos.d/MariaDB.repo
+```
+- Nội dung
+```
+# MariaDB 10.5 CentOS repository list - created 2021-08-04 11:35 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.5/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+```
+- Cài đặt MariaDB:
+```
+yum install MariaDB-server MariaDB-client -y
+```
+- Khởi động Mariadb service:
+```
+systemctl start mariadb
+systemctl enable mariadb
+```
+- Disable unix_socket authentication: Thêm đoạn sau vào file /etc/my.cnf
+```
+[mariadb]
+unix_socket=OFF
+```
+- Cài đặt 1 số thông tin ban đầu:
+```
+sudo mysql_secure_installation
 
-Visit: https://10.10.13.243:8090/rainloop/?admin
-Rainloop Admin username: admin
-Rainloop Admin password: o0rE0PFNi0hzTN
+```
+  - Tiến hành lựa chọn giống như sau
+```
+Enter current password for root (enter for none): Nhấn phím Enter
+Switch to unix_socket authentication [Y/n]: n
+Change the root password? [Y/n]: Y
+New password: Nhập password root các bạn muốn tạo
+Re-enter new password: Nhập lại password root
+Remove anonymous users? [Y/n] : Y
+Disallow root login remotely? [Y/n]: Y
+Remove test database and access to it? [Y/n] : Y
+Reload privilege tables now? [Y/n]: Y
+```
+#### 2.2 Cài đặt PhpMyAdmin
 
+- truy cập thư mục `/usr/local/lsws/Example/html` tiến hành download và cài đặt
+```
+wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip
+unzip phpMyAdmin-5.1.0-all-languages.zip
+mv phpMyAdmin-5.1.0-all-languages phpmyadmin
+mkdir tmp && chmod 777 tmp
+```
+### 2.3 Cấu hình firewallđ
+
+```
+firewall-cmd --add-port=7080/tcp --permanent
+firewall-cmd --add-port=80/tcp --permanent
+firewall-cmd --add-port=443/tcp --permanent
+firewall-cmd --reload
+``` 
+
+### 2. LiteSpeed Cache
+#### 2.1 Cache Module Configuration
+
+- Chọn `Server Configuration` -> `Modules` tại trang quản trị WebAdmin
+
+- Chọn chỉnh chỉnh sửa 
+
+- thay đổi nội dung ở mục `Module Parameters` :
+```
+checkPrivateCache   1
+checkPublicCache    1
+maxCacheObjSize     10000000
+maxStaleAge         200
+qsCache             1
+reqCookieCache      1
+respCookieCache     1
+ignoreReqCacheCtrl  1
+ignoreRespCacheCtrl 0
+
+enableCache         0
+expireInSeconds     3600
+enablePrivateCache  0
+privateExpireInSeconds 3600
+```
+- tiến hành `lưu` và `restart` openlitespeed
+
+#### 2.2 Rewrite Configuration and Read From .htaccess File
+
+- Chọn `Virtual Hosts` tại trang quản trị WebAdmin
+- Tại `Rewrite` thay đổi cấu hình seting:
+```
+Enable Rewrite: Yes
+Auto Load from .htaccess: Yes
+```
+### 3. Memcached
+#### 1: Cài đặt LSMemcached
+- Truy cập SSh VPS
+- Sau khi SSH thành công vào VPS, các bạn cài đặt mã nguồn **LSMemcached** bằng lệnh sau:
+```
+cd ~
+yum groupinstall "Development Tools" 
+yum install autoconf automake zlib-devel openssl-devel expat-devel pcre-devel libmemcached-devel cyrus-sasl*
+git clone https://github.com/litespeedtech/lsmcd.git
+cd lsmcd
+./fixtimestamp.sh
+./configure CFLAGS=" -O3" CXXFLAGS=" -O3"
+make
+sudo make install
+```
+- Sau khi hoàn thành cài đặt tiến hành thay đổi toàn bộ nội dung file: `/usr/local/lsmcd/conf/node.conf`, nội dung sau khi thay đổi:
+```
+Repl.HeartBeatReq=30
+Repl.HeartBeatRetry=3000
+Repl.MaxTidPacket=2048000
+Repl.GzipStream=YES
+Repl.LbAddrs=127.0.0.1:12340
+Repl.ListenSvrAddr=127.0.0.1:12340
+REPL.DispatchAddr=127.0.0.1:5501
+RepldSockPath=/tmp/repld.usock
+CACHED.PRIADDR=127.0.0.1:11000
+
+CACHED.ADDR=127.0.0.1:11211
+CACHED.ADDR=UDS:///tmp/lsmcd.sock
+#default is 8, it can be bigger depending on cache data amount
+Cached.Slices=8
+Cached.Slice.Priority.0=100
+Cached.Slice.Priority.1=100
+Cached.Slice.Priority.2=100
+Cached.Slice.Priority.3=100
+Cached.Slice.Priority.4=100
+Cached.Slice.Priority.5=100
+Cached.Slice.Priority.6=100
+Cached.Slice.Priority.7=100
+
+Cached.ShmDir=/dev/shm/lsmcd
+#If you change the UseSasl or DataByUser configuration options you need to remove the ShmDir folder and contents.
+#Cached.UseSasl=true
+#Cached.DataByUser=true
+#Cached.Anonymous=false
+#Cached.UserSize=1000
+#Cached.HashSize=500000
+#CACHED.MEMMAXSZ=0
+#CACHED.NOMEMFAIL=false
+
+##this is the global setting, no need to have per slice configuration. 
+User=nobody
+Group=nobody
+#depends CPU core
+CachedProcCnt=4
+CachedSockPath=/tmp/cached.usock.
+#TmpDir=/tmp/lsmcd
+LogLevel=notice
+#LogLevel=dbg_medium
+LogFile=/tmp/lsmcd.log
+```
+- bật và thiết lập khởi động cùng hệ thống
+```
+systemctl start lsmcd
+systemctl enable lsmcd
+chkconfig lsmcd on
+```
+- khởi động lại Litespeed nữa là hoàn tất.
+```
+systemctl restart lsws
+```
+- mở port trên firewall
+```
+firewall-cmd --zone=public --add-port=11211/tcp --permanent
+firewall-cmd --reload
+```
+### 4. Redis
+#### 4.1 cài đặt Redis
+- Cài đặt Redis
+```
+yum install epel-release -y
+yum install redis -y
+```
+- bật và thiết lập khởi động cùng hệ thống
+```
+systemctl start redis
+systemctl enable redis
+```
+- kiểm tra redis có hoạt động ổn định hay không
+```
+yum install redis-tools -y
+redis-cli ping
+- kết quả:
+PONG
+```
+- OK. Giờ chúng ta sẽ tiến hành “bắc cầu” giữa LSPHP và Redis.
+#### 4.2 Cài đặt extension Redis
+
+- bổ sung repository của LiteSpeed
+```
+rpm -ivh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
+```
+- cài đặt extension Redis.
+```
+yum install -y lsphp80-pecl-redis
+```
+
+### 5. Cài dặt certbot
+```
+yum -y install yum-utils
+yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+sudo yum install certbot
+```
+
+### 6. Cài đặt Postfix
+
+- Cài đặt postfix và một số gói liên quan :
+```
+yum -y install postfix cyrus-sasl-plain mailx
+```
+- Đặt postfix như MTA mặc định của hệ thống :
+```
+alternatives --set mta /usr/sbin/postfix
+```
+  - Nếu câu lệnh bị lỗi và trả về output "/usr/sbin/postfix has not been configured as an alternative for mta" thì thực hiện lệnh sau :
+  ```
+alternatives --set mta /usr/sbin/sendmail.postfix
+  ```
+- Đặt lại giá trị `inet_interfaces` trong file `/etc/postfix/main.cf` bằng `127.0.0.1`
+- Khởi động dịch vụ postfix và cho phép nó khởi động cùng hệ thống :
+```
+systemctl start postfix
+
+systemctl enable postfix
 ```
