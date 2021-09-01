@@ -351,12 +351,26 @@ Reload privilege tables now? [Y/n]: Y
 
 - truy cập thư mục `/usr/local/lsws/Example/html` tiến hành download và cài đặt
 ```
-wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip
-unzip phpMyAdmin-5.1.0-all-languages.zip
-mv phpMyAdmin-5.1.0-all-languages phpmyadmin
+wget https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.zip
+unzip phpMyAdmin-5.1.1-all-languages.zip
+mv phpMyAdmin-5.1.1-all-languages phpmyadmin
+cd phpmyadmin
 mkdir tmp && chmod 777 tmp
 ```
+- Cấu hình mật khẩu blowfish vào tệp cấu hình của phpMyAdmin:
+  - truy cập thư mục: `/usr/local/lsws/Example/html/phpmyadmin/` 
+  - mở file `config.sample.inc.php` va thay đổi nội dung dòng thứ 16
+```
+  # trước:
+$cfg['blowfish_secret'] = ; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */  
 
+  # sau:
+$cfg['blowfish_secret'] = 'qtdRoGmbc9{8IZr323xYcSN]0s)r$9b_JUnb{~Xz'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+```
+  - thay đổi tên file
+  ```
+mv config.sample.inc.php config.inc.php
+  ```
 
 #### 1.5 Configuretion OpenliteSpeed
 
@@ -525,6 +539,7 @@ Auto Load from .htaccess: Yes
 - Truy cập SSh VPS
 - Sau khi SSH thành công vào VPS, các bạn cài đặt mã nguồn **LSMemcached** bằng lệnh sau:
 ```
+yum install lsphp80-pecl-memcached
 cd ~
 yum groupinstall "Development Tools" 
 yum install autoconf automake zlib-devel openssl-devel expat-devel pcre-devel libmemcached-devel cyrus-sasl*
@@ -596,6 +611,25 @@ systemctl restart lsws
 firewall-cmd --zone=public --add-port=11211/tcp --permanent
 firewall-cmd --reload
 ```
+- Cấu hình connect local
+```
+vi /etc/sysconfig/memcached
+cập nhật thông số:
+
+OPTIONS="-l 127.0.0.1"
+
+Sau đó: sudo systemctl restart memcached
+```
+
+- Allow Firewall
+```
+sudo firewall-cmd --new-zone=memcached --permanent
+sudo firewall-cmd --zone=memcached --add-port=11211/udp --permanent
+sudo firewall-cmd --zone=memcached --add-port=11211/tcp --permanent
+sudo firewall-cmd --reload
+CopyCopyCopyCopyCopy
+
+```
 ### 4. Redis
 #### 4.1 cài đặt Redis
 - Cài đặt Redis
@@ -645,13 +679,174 @@ yum -y install postfix cyrus-sasl-plain mailx
 alternatives --set mta /usr/sbin/postfix
 ```
   - Nếu câu lệnh bị lỗi và trả về output "/usr/sbin/postfix has not been configured as an alternative for mta" thì thực hiện lệnh sau :
-  ```
+```
 alternatives --set mta /usr/sbin/sendmail.postfix
-  ```
+```
 - Đặt lại giá trị `inet_interfaces` trong file `/etc/postfix/main.cf` bằng `127.0.0.1`
 - Khởi động dịch vụ postfix và cho phép nó khởi động cùng hệ thống :
 ```
 systemctl start postfix
-
 systemctl enable postfix
+```
+
+## Bước 4. Cài đặt một số dịch vụ cần thiết cho Template
+
+- Cài đặt acpid nhằm cho phép hypervisor có thể reboot hoặc shutdown instance.
+    ```
+    yum install acpid -y
+    systemctl enable acpid
+    ```
+
+- Cài đặt qemu guest agent, kích hoạt và khởi động qemu-guest-agent service
+    ```
+    yum install -y qemu-guest-agent
+    systemctl enable qemu-guest-agent.service
+    systemctl start qemu-guest-agent.service
+    ```
+
+**Lưu ý:**
+
+- Để sử sụng qemu-agent, phiên bản selinux phải > 3.12
+    ```
+    rpm -qa | grep -i selinux-policy
+    ```
+- Để có thể thay đổi password máy ảo thì phiên bản qemu-guest-agent phải >= 2.5.0
+    ```
+    qemu-ga --version
+    ```
+- Cài đặt CMDlog và  welcome Display
+```
+curl -Lso- https://raw.githubusercontent.com/nhanhoadocs/ghichep-cmdlog/master/cmdlog.sh | bash
+wget https://raw.githubusercontent.com/danghai1996/create-images-openstack/master/scripts_all/linux-login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
+
+```
+Log out rồi login lại kiểm tra:
+  - Log cmd: /var/log/cmdlog.log
+  - Giao diện sau khi login:
+      ```
+    Welcome to Cloud365 | nhanhoa.com
+
+    Tue 23 Mar 2021 03:04:17 PM +07
+
+    ______ __                   __ _____  _____  ______
+    / ____// /____   __  __ ____/ /|__  / / ___/ / ____/
+    / /    / // __ \ / / / // __  /  /_ < / __ \ /___ \
+    / /___ / // /_/ // /_/ // /_/ / ___/ // /_/ /____/ /
+    \____//_/ \____/ \__,_/ \__,_/ /____/ \____//_____/
+
+    * Trang chu NhanHoa : https://nhanhoa.com/
+    * Cloud365          : https://cloud365.vn/
+    * Portal            : https://portal.cloud365.vn/
+    * Huong dan su dung : https://support.cloud365.vn/
+    * Email ho tro      : support@nhanhoa.com
+
+    *----------------------------------------------------*
+
+    root@cloud:~# 
+    ```
+Kiểm tra lỗ hổng CVE-2021 và dọn dẹp
+```
+sudoedit -s /
+```
+- Kết quả trả ra như sau:
+```
+TH1: "sudoedit: /: not a regular file" -> sudo có lỗ hổng
+TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host] [-p prompt] [-T timeout] [-u user] file" -> sudo đã được vá.
+```
+
+- Cài đặt cloud-init và cloud-utils:
+    ```
+    yum install -y cloud-init cloud-utils
+    ```
+    Để máy ảo trên OpenStack có thể nhận được Cloud-init cần thay đổi cấu hình mặc định bằng cách sửa đổi file `/etc/cloud/cloud.cfg`.
+    ```
+    sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
+    sed -i 's/ssh_pwauth:   0/ssh_pwauth:   1/g' /etc/cloud/cloud.cfg
+    sed -i 's/name: centos/name: root/g' /etc/cloud/cloud.cfg
+    ```
+- Clean all
+    ```
+    yum clean all
+
+    rm -f /var/log/wtmp /var/log/btmp
+
+    rm -f /root/.bash_history
+
+    > /var/log/cmdlog.log
+
+    history -c
+    ```
+
+> ## Tắt VM -> Snapshot: Final
+## Phần 5: Xử lý image trên KVM host
+###  Sử dụng lệnh virt-sysprep để xóa toàn bộ các thông tin máy ảo
+```
+virt-sysprep -d ThangNV_CentOS7_APP
+```
+
+### Tối ưu kích thước image:
+```
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/ThangNV_WP-LAMP.qcow2 CentOS7_OLSv1
+```
+### SCP sang Node Openstack
+
+```
+scp CentOS7_OLSv1 root@172.16.4.125:/root/image-create-ops-test/
+```
+
+### chuyện định dạng file image về định dạng raw
+
+```
+qemu-img convert -O raw CentOS7_OLS CentOS7_OLS.raw
+```
+
+### Upload image lên glance và sử dụng
+```
+glance image-create --container-format bare --visibility=public \
+--name CentOS7_OLSv2 --disk-format raw \
+--file /root/image-create-ops-test/CentOS7_OLSv2.raw --visibility=public \
+--property os_type=linux \
+--property hw_qemu_guest_agent=yes \
+--property vps_image_user=root \
+--property vps_image_type=CentOS \
+--property vps_image_app=true \
+--min-disk 10 --min-ram 1024 --progress
+```
+## scipt
+```
+#!/bin/bash
+# Openlitespeed reset password
+# ThangNV NhanHoa Cloud Team
+# Get info mysql_root_passwd
+old_passwd_mysl=0435626533aA
+# Input from cloud-init
+new_passwd_1=$1
+new_passwd_2=$2
+# Input from random
+# new_passwd_1=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
+# Change password
+mysqladmin --user=root --password=$old_passwd_mysl password $new_passwd_1
+echo -e "admin\n$new_passwd_2\n$new_passwd_2" | /usr/local/lsws/admin/misc/admpass.sh
+# Restart Openlitespeed
+systemctl restart lsws
+systemctl restart mysqld
+# DONE
+```
+
+## Cloud-init
+
+```
+#cloud-config
+password: '{vps_password}'
+chpasswd: { expire: False }
+ssh_pwauth: True
+write_files:
+- encoding: gzip
+  content: !!binary |
+    H4sIAOpPL2EAA21RTUsDMRS87694tisossZu273IHqSKemmhFE9CSTevbiAfa16WUvDHmwSrbfGUSebN5A0zvGAbadiGU5sNYdGhUdIjdYgCHBJ66DjRzjoR6FXLzcf8DebhfLEcZsr2AlbIdSCfw6w0Wwt6T59q7az166QVmVXiB64Dqeq7yXhaldV0POYPQflqut7D1lkNTXQspJE+M7g7iEZ1Pjq+l3VenuocN8LGLU5VV4J7hJtLgi+glpfTinodcIiL1SSAFrmAooFRBfeATWuvg8csxsS/4CkQF1oaKIqe0NUxXMCHiTo/S/irhfx4oSz+AAXCILm9m2O2PLsOwnqsJ8eUbbhiinbEkoxpSU2EcfI29bZE8tz50/4y2pNH3XgVm0x8NPnnOQWMBT8u5k/ZNxXxgTUTAgAA
+  path: /opt/OLS_reset_pass.sh
+  permissions: '0755'
+runcmd:
+  - bash /opt/OLS_reset_pass.sh {vps_mysql_password} {vps_da_password}
+  - rm -f /opt/OLS_reset_pass.sh
 ```
