@@ -864,9 +864,9 @@ write_files:
 - encoding: gzip
   content: !!binary |
     H4sIAOpPL2EAA21RTUsDMRS87694tisossZu273IHqSKemmhFE9CSTevbiAfa16WUvDHmwSrbfGUSebN5A0zvGAbadiGU5sNYdGhUdIjdYgCHBJ66DjRzjoR6FXLzcf8DebhfLEcZsr2AlbIdSCfw6w0Wwt6T59q7az166QVmVXiB64Dqeq7yXhaldV0POYPQflqut7D1lkNTXQspJE+M7g7iEZ1Pjq+l3VenuocN8LGLU5VV4J7hJtLgi+glpfTinodcIiL1SSAFrmAooFRBfeATWuvg8csxsS/4CkQF1oaKIqe0NUxXMCHiTo/S/irhfx4oSz+AAXCILm9m2O2PLsOwnqsJ8eUbbhiinbEkoxpSU2EcfI29bZE8tz50/4y2pNH3XgVm0x8NPnnOQWMBT8u5k/ZNxXxgTUTAgAA
-  path: /opt/OLS_reset_pass.sh
+  path: /opt/da_reset_passwd.sh
   permissions: '0755'
 runcmd:
-  - bash /opt/OLS_reset_pass.sh {vps_mysql_password} {vps_da_password}
-  - rm -f /opt/OLS_reset_pass.sh
+  - bash /opt/da_reset_passwd.sh {vps_mysql_password} {vps_da_password}
+  - rm -f /opt/da_reset_passwd.sh
 ```
