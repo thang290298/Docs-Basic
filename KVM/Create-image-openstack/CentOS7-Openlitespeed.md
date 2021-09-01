@@ -486,12 +486,20 @@ Reload privilege tables now? [Y/n]: Y
 
 - truy cập thư mục `/usr/local/lsws/Example/html` tiến hành download và cài đặt
 ```
-wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip
-unzip phpMyAdmin-5.1.0-all-languages.zip
-mv phpMyAdmin-5.1.0-all-languages phpmyadmin
+wget https://files.phpmyadmin.net/phpMyAdmin/5.1.1/phpMyAdmin-5.1.1-all-languages.zip
+unzip phpMyAdmin-5.1.1-all-languages.zip
+mv phpMyAdmin-5.1.1-all-languages phpmyadmin
+cd phpmyadmin
 mkdir tmp && chmod 777 tmp
 ```
-### 2.3 Cấu hình firewallđ
+- cấu hình `mật khẩu blowfish` vào tệp cấu hình của phpMyAdmin.
+```
+vi /usr/local/lsws/Example/html/phpmyadmin/config.sample.inc.php
+# thay thế : $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+# Bằng : $cfg['blowfish_secret'] = 'qtdRoGmbc9{8IZr323xYcSN]0s)r$9b_JUnb{~Xz'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+
+mv config.sample.inc.php config.inc.php
+```
 
 ```
 firewall-cmd --add-port=7080/tcp --permanent
@@ -539,7 +547,8 @@ Auto Load from .htaccess: Yes
 - Truy cập SSh VPS
 - Sau khi SSH thành công vào VPS, các bạn cài đặt mã nguồn **LSMemcached** bằng lệnh sau:
 ```
-yum install lsphp80-pecl-memcached
+yum -y install memcached
+yum install lsphp80-pecl-memcached -y
 cd ~
 yum groupinstall "Development Tools" 
 yum install autoconf automake zlib-devel openssl-devel expat-devel pcre-devel libmemcached-devel cyrus-sasl*
@@ -596,26 +605,16 @@ LogLevel=notice
 #LogLevel=dbg_medium
 LogFile=/tmp/lsmcd.log
 ```
-- bật và thiết lập khởi động cùng hệ thống
-```
-systemctl start lsmcd
-systemctl enable lsmcd
-chkconfig lsmcd on
-```
-- khởi động lại Litespeed nữa là hoàn tất.
-```
-systemctl restart lsws
-```
-- mở port trên firewall
-```
-firewall-cmd --zone=public --add-port=11211/tcp --permanent
-firewall-cmd --reload
-```
+
 - Cấu hình connect local
 ```
 vi /etc/sysconfig/memcached
 cập nhật thông số:
 
+PORT="11211"
+USER="memcached"
+MAXCONN="10240"
+CACHESIZE="1024"
 OPTIONS="-l 127.0.0.1"
 
 Sau đó: sudo systemctl restart memcached
@@ -627,8 +626,15 @@ sudo firewall-cmd --new-zone=memcached --permanent
 sudo firewall-cmd --zone=memcached --add-port=11211/udp --permanent
 sudo firewall-cmd --zone=memcached --add-port=11211/tcp --permanent
 sudo firewall-cmd --reload
-CopyCopyCopyCopyCopy
-
+```
+- bật và thiết lập khởi động cùng hệ thống
+```
+systemctl start memcached
+systemctl enable memcached
+systemctl start lsmcd
+systemctl enable lsmcd
+chkconfig lsmcd on
+systemctl restart lsws
 ```
 ### 4. Redis
 #### 4.1 cài đặt Redis
@@ -664,8 +670,9 @@ yum install -y lsphp80-pecl-redis
 ### 5. Cài dặt certbot
 ```
 yum -y install yum-utils
+rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
-sudo yum install certbot
+sudo yum install certbot -y
 ```
 
 ### 6. Cài đặt Postfix
@@ -682,13 +689,24 @@ alternatives --set mta /usr/sbin/postfix
 ```
 alternatives --set mta /usr/sbin/sendmail.postfix
 ```
-- Đặt lại giá trị `inet_interfaces` trong file `/etc/postfix/main.cf` bằng `127.0.0.1`
+- Đặt lại giá trị `inet_interfaces` trong file `/etc/postfix/main.cf` bằng `all`
 - Khởi động dịch vụ postfix và cho phép nó khởi động cùng hệ thống :
 ```
 systemctl start postfix
 systemctl enable postfix
 ```
+### 6. Secure thư mục tmp
 
+```
+mount -t tmpfs -o defaults,nodev,nosuid,noexec tmpfs /tmp/
+mount -t tmpfs -o defaults,nodev,nosuid,noexec tmpfs /var/tmp/
+mount -t tmpfs -o defaults,nodev,nosuid,noexec tmpfs /dev/shm
+
+echo "tmpfs                   /tmp                    tmpfs   defaults,nodev,nosuid,noexec        0 0" >> /etc/fstab
+echo "tmpfs                   /var/tmp                tmpfs   defaults,nodev,nosuid,noexec        0 0" >> /etc/fstab
+echo "tmpfs                   /dev/shm                tmpfs   defaults,nodev,nosuid,noexec        0 0" >> /etc/fstab
+
+```
 ## Bước 4. Cài đặt một số dịch vụ cần thiết cho Template
 
 - Cài đặt acpid nhằm cho phép hypervisor có thể reboot hoặc shutdown instance.
@@ -786,25 +804,27 @@ virt-sysprep -d ThangNV_CentOS7_APP
 
 ### Tối ưu kích thước image:
 ```
-virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/ThangNV_WP-LAMP.qcow2 CentOS7_OLSv1
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/ThangNV_CentOS7_APP.qcow2 CentOS7_OLS
 ```
 ### SCP sang Node Openstack
 
 ```
-scp CentOS7_OLSv1 root@172.16.4.125:/root/image-create-ops-test/
+scp CentOS7_OLS root@172.16.4.125:/root/image-create-ops-test/
 ```
 
 ### chuyện định dạng file image về định dạng raw
 
 ```
+source admin-openrc
+cd /root/image-create-ops-test/
 qemu-img convert -O raw CentOS7_OLS CentOS7_OLS.raw
 ```
 
 ### Upload image lên glance và sử dụng
 ```
 glance image-create --container-format bare --visibility=public \
---name CentOS7_OLSv2 --disk-format raw \
---file /root/image-create-ops-test/CentOS7_OLSv2.raw --visibility=public \
+--name CentOS7_OLS --disk-format raw \
+--file /root/image-create-ops-test/CentOS7_OLS.raw --visibility=public \
 --property os_type=linux \
 --property hw_qemu_guest_agent=yes \
 --property vps_image_user=root \
