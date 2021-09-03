@@ -12,7 +12,6 @@ new_passwd_2=$2
 mysqladmin --user=root --password=$old_passwd_mysl password $new_passwd_1
 echo -e "admin\n$new_passwd_2\n$new_passwd_2" | /usr/local/lsws/admin/misc/admpass.sh
 # Restart Openlitespeed
-EOF
-# DONE
-
-
+systemctl restart lsws
+systemctl restart mysqld
+#Donell

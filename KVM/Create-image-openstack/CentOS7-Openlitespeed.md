@@ -817,7 +817,7 @@ scp CentOS7_OLS root@172.16.4.125:/root/image-create-ops-test/
 ```
 source admin-openrc
 cd /root/image-create-ops-test/
-qemu-img convert -O raw CentOS7_OLS CentOS7_OLS.raw
+qemu-img convert -O raw CentOS7_OLS3 CentOS7_OLS3.raw
 ```
 
 ### Upload image lên glance và sử dụng
@@ -863,10 +863,25 @@ ssh_pwauth: True
 write_files:
 - encoding: gzip
   content: !!binary |
-    H4sIAOpPL2EAA21RTUsDMRS87694tisossZu273IHqSKemmhFE9CSTevbiAfa16WUvDHmwSrbfGUSebN5A0zvGAbadiGU5sNYdGhUdIjdYgCHBJ66DjRzjoR6FXLzcf8DebhfLEcZsr2AlbIdSCfw6w0Wwt6T59q7az166QVmVXiB64Dqeq7yXhaldV0POYPQflqut7D1lkNTXQspJE+M7g7iEZ1Pjq+l3VenuocN8LGLU5VV4J7hJtLgi+glpfTinodcIiL1SSAFrmAooFRBfeATWuvg8csxsS/4CkQF1oaKIqe0NUxXMCHiTo/S/irhfx4oSz+AAXCILm9m2O2PLsOwnqsJ8eUbbhiinbEkoxpSU2EcfI29bZE8tz50/4y2pNH3XgVm0x8NPnnOQWMBT8u5k/ZNxXxgTUTAgAA
-  path: /opt/da_reset_passwd.sh
+    H4sIAFEhMmEAA21RTUsDMRS87694tisossZu273IHqSKemmhFE9CSTevbiAfa16WUvDHmwSrbfGUSebN5A0zvGAbadiGU5sNYdGhUdIjdYgCHBJ66DjRzjoR6FXLzcf8DebhfLEcZsr2AlbIdSCfw6w0Wwt6T59q7az166QVmVXiB64Dqeq7yXhaldV0POYPQflqut7D1lkNTXQspJE+M7g7iEZ1Pjq+l3VenuocN8LGLU5VV4J7hJtLgi+glpfTinodcIiL1SSAFrmAooFRBfeATWuvg8csxsS/4CkQF1oaKIqe0NUxXMCHiTo/S/irhfx4oSz+AAXCILm9m2O2PLsOwnqsJ8eUbbhiinbEkoxpSU2EcfI29bZE8tz50/4y2pNH3XgVm0x8NPnnOQWMBT8u5k/ZNxXxgTUTAgAA
+  path: /opt/OLS_reset_passwd.sh
   permissions: '0755'
 runcmd:
-  - bash /opt/da_reset_passwd.sh {vps_mysql_password} {vps_da_password}
-  - rm -f /opt/da_reset_passwd.sh
+  - bash /opt/OLS_reset_passwd.sh {vps_mysql_password} {vps_da_password}
+  - rm -rf /opt/OLS_reset_passwd.sh
+```
+```
+#cloud-config
+password: '{vps_password}'
+chpasswd: { expire: False }
+ssh_pwauth: True
+write_files:
+- encoding: gzip
+  content: !!binary |
+    H4sIAAf5L2EAA21RTUsDMRS851c82xUUWbe76GKRPVVRLy1I8SSUdPPqBvKx5mUpBX+8SbDaFk+ZZN5M3jDjs2ItTbHm1LExLHo0SnqkHlGAQ0IPPSfaWicCvey4+Zi/wTycz5bDTNlBwBK5DuRTmJVmY0Hv6FOtnLV+lbSCWSV+4CqQqplM62pSVtPyzi+D8sX0g4eNsxra6JhLIz0zuN2LyiYrD+9Vk1XHOseNsHGLY9WF4B7h6pzgC6jj1W1Ngw44xMX6JoAOuYC8hbKGe8C2s5fBYxZj4l/wFIgLLQ3k+UDomhgu4P1Ek50k/NVCdrgQiz9AjjBKbu/mkK1OrqOwXjGQK5RtuSoUbalIskJLaiOMk9ept1ckz50/7o/Rjjzq1qvYZOKjyT/PKWAs+GExf2TsG85hSDAUAgAA
+  path: /opt/reset_passwd.sh
+  permissions: '0755'
+runcmd:
+  - bash /opt/reset_passwd.sh {vps_mysql_password} {vps_da_password}
+  - rm -f /opt/reset_passwd.sh
 ```
