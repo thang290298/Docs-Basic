@@ -869,7 +869,13 @@ write_files:
 runcmd:
   - bash /opt/OLS_reset_passwd.sh {vps_mysql_password} {vps_da_password}
   - rm -rf /opt/OLS_reset_passwd.sh
+  - sed -i "s|NjZkYWIw|{vps_da_password}|g" /usr/local/lsws/adminpasswd
+  - sed -i "s|$old_passwd_mysl|{vps_da_password}|g" /usr/local/lsws/password
+
 ```
+sed -i "s|NjZkYWIw|$new_passwd_2|g" /usr/local/lsws/adminpasswd
+sed -i "s|$old_passwd_mysl|$new_passwd_2|g" /usr/local/lsws/password
+----------------------------------------------------------------------------------------------------------------
 ```
 #cloud-config
 password: '{vps_password}'
@@ -878,7 +884,7 @@ ssh_pwauth: True
 write_files:
 - encoding: gzip
   content: !!binary |
-    H4sIAAf5L2EAA21RTUsDMRS851c82xUUWbe76GKRPVVRLy1I8SSUdPPqBvKx5mUpBX+8SbDaFk+ZZN5M3jDjs2ItTbHm1LExLHo0SnqkHlGAQ0IPPSfaWicCvey4+Zi/wTycz5bDTNlBwBK5DuRTmJVmY0Hv6FOtnLV+lbSCWSV+4CqQqplM62pSVtPyzi+D8sX0g4eNsxra6JhLIz0zuN2LyiYrD+9Vk1XHOseNsHGLY9WF4B7h6pzgC6jj1W1Ngw44xMX6JoAOuYC8hbKGe8C2s5fBYxZj4l/wFIgLLQ3k+UDomhgu4P1Ek50k/NVCdrgQiz9AjjBKbu/mkK1OrqOwXjGQK5RtuSoUbalIskJLaiOMk9ept1ckz50/7o/Rjjzq1qvYZOKjyT/PKWAs+GExf2TsG85hSDAUAgAA
+    H4sIAOmNM2EAA51SwU7CQBC99ytGwKAxtVKgF9ODQaNcIDFEozEhS3eg1e0u7mxDSPrx7jYgLSEx8dS3ffPe7ryZ9lmwyGSwYJR6bZiuUYrMIK0ROWgkNLBmRBuluaVnKZOryQtM7PdJMRgJVXCYIcst+WhrM7lUkG/pW8y1UmZeabmnBN/BuSVFfDPoD6MwGvb77M4qx3JdGFhqlUPiHP1MZsaTuNmLenGnVz+HcSds6jSTXLlXNFUXnBmEq3OCEihl4TCiIrfYtovRwIIUGQc/gV4Et4BJqi6bHuF/PUYuKjyEV4XCeJ5J8P2CUMcuIIv3FXHnKKVfLXTqTXnuBvARWpXbh6yz4dGxZZ8XFKQDoRImAkEbCipZkGeUOOgqr+3syc7bz6BL5eTz/evtdbwpG07lqnvaaTfig/64j799ahv2jGSYNs1F9GhLBvPECLeSFe90J35XKTuf++nkwfsBFjvyxtwCAAA
   path: /opt/reset_passwd.sh
   permissions: '0755'
 runcmd:
