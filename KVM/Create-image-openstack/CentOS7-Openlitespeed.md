@@ -847,6 +847,8 @@ new_passwd_2=$2
 # Change password
 mysqladmin --user=root --password=$old_passwd_mysl password $new_passwd_1
 echo -e "admin\n$new_passwd_2\n$new_passwd_2" | /usr/local/lsws/admin/misc/admpass.sh
+sed -i "s|NjZkYWIw|new_passwd_2|g" /usr/local/lsws/adminpasswd
+sed -i "s|$old_passwd_mysl|new_passwd_2|g" /usr/local/lsws/password
 # Restart Openlitespeed
 systemctl restart lsws
 systemctl restart mysqld
@@ -863,31 +865,10 @@ ssh_pwauth: True
 write_files:
 - encoding: gzip
   content: !!binary |
-    H4sIAFEhMmEAA21RTUsDMRS87694tisossZu273IHqSKemmhFE9CSTevbiAfa16WUvDHmwSrbfGUSebN5A0zvGAbadiGU5sNYdGhUdIjdYgCHBJ66DjRzjoR6FXLzcf8DebhfLEcZsr2AlbIdSCfw6w0Wwt6T59q7az166QVmVXiB64Dqeq7yXhaldV0POYPQflqut7D1lkNTXQspJE+M7g7iEZ1Pjq+l3VenuocN8LGLU5VV4J7hJtLgi+glpfTinodcIiL1SSAFrmAooFRBfeATWuvg8csxsS/4CkQF1oaKIqe0NUxXMCHiTo/S/irhfx4oSz+AAXCILm9m2O2PLsOwnqsJ8eUbbhiinbEkoxpSU2EcfI29bZE8tz50/4y2pNH3XgVm0x8NPnnOQWMBT8u5k/ZNxXxgTUTAgAA
+    H4sIABdjNmEAA4VSwUrDQBC95yvGNIIiMTZtc5EcpIr2koIURRHKNjttopvdmNkQCv14d0NrkyJ42rd5817m7czgLFjlMlgxypwBzEuUItdIJSKHCgk1lIyoURU39CJjcpO8QGLOJ8VgKlTNYYGsMOSjqc3lWkGxpW+xrJTSy1bLHSX4Hi4NKeKb8WgShdFkNGJ3RjmTZa1hXakCUuvo5zLXjsTmIBrG3rB7D2Mv7OsqJrmyXfRVF5xphKtzgh1QxsJJRHVhsImL0diADBkHP4VhBLeAaaYujcfUxsRj8DYQ40Uuwfdrwiq24Qw+VMTeScJfLXjdhhz7B/AR3NbtQ3bZ8OTqmvaCmqpAqJSJQFBDQSsLipxSC23ltZkbmVn5Obi0Sz7fv95eZ82u57TbuH877cdz1HcH879HZzOekTSrdH+BHNqSxiLVwq5Sy1vdH5/bF7Y+9/PkwfkBJEinApQCAAA=
   path: /opt/OLS_reset_passwd.sh
   permissions: '0755'
 runcmd:
-  - bash /opt/OLS_reset_passwd.sh {vps_mysql_password} {vps_da_password}
+  - bash /opt/OLS_reset_passwd.sh {vps_mysql_password} {vps_ols_password}
   - rm -rf /opt/OLS_reset_passwd.sh
-  - sed -i "s|NjZkYWIw|{vps_da_password}|g" /usr/local/lsws/adminpasswd
-  - sed -i "s|$old_passwd_mysl|{vps_da_password}|g" /usr/local/lsws/password
-
-```
-sed -i "s|NjZkYWIw|$new_passwd_2|g" /usr/local/lsws/adminpasswd
-sed -i "s|$old_passwd_mysl|$new_passwd_2|g" /usr/local/lsws/password
-----------------------------------------------------------------------------------------------------------------
-```
-#cloud-config
-password: '{vps_password}'
-chpasswd: { expire: False }
-ssh_pwauth: True
-write_files:
-- encoding: gzip
-  content: !!binary |
-    H4sIAOmNM2EAA51SwU7CQBC99ytGwKAxtVKgF9ODQaNcIDFEozEhS3eg1e0u7mxDSPrx7jYgLSEx8dS3ffPe7ryZ9lmwyGSwYJR6bZiuUYrMIK0ROWgkNLBmRBuluaVnKZOryQtM7PdJMRgJVXCYIcst+WhrM7lUkG/pW8y1UmZeabmnBN/BuSVFfDPoD6MwGvb77M4qx3JdGFhqlUPiHP1MZsaTuNmLenGnVz+HcSds6jSTXLlXNFUXnBmEq3OCEihl4TCiIrfYtovRwIIUGQc/gV4Et4BJqi6bHuF/PUYuKjyEV4XCeJ5J8P2CUMcuIIv3FXHnKKVfLXTqTXnuBvARWpXbh6yz4dGxZZ8XFKQDoRImAkEbCipZkGeUOOgqr+3syc7bz6BL5eTz/evtdbwpG07lqnvaaTfig/64j799ahv2jGSYNs1F9GhLBvPECLeSFe90J35XKTuf++nkwfsBFjvyxtwCAAA
-  path: /opt/reset_passwd.sh
-  permissions: '0755'
-runcmd:
-  - bash /opt/reset_passwd.sh {vps_mysql_password} {vps_da_password}
-  - rm -f /opt/reset_passwd.sh
 ```
