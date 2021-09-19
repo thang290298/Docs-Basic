@@ -74,7 +74,7 @@
 <img src = "..\Images\debian11\29.png">
 <img src = "..\Images\debian11\30.png">
 <img src = "..\Images\debian11\31.png">
-## Bước 8: Tắt VM, chỉnh lại BOOT OPTION
+### Bước 8: Tắt VM, chỉnh lại BOOT OPTION
 
 <img src = "..\Images\debian11\32.png">
 
@@ -164,7 +164,20 @@ apt-get upgrade -y
 apt-get dist-upgrade -y
 apt-get autoremove 
 ```
-### Bước 4: Cấu hình Card mạng
+### Bước 4: Cài đặt trình soạn thảo VIM
+
+```
+apt-get install vim -y
+```
+### Bước 5: Cấu hình Card mạng và log console
+
+Để sử dụng nova console-log, bạn cần thay đổi option cho `GRUB_CMDLINE_LINUX` và lưu lại 
+```
+sed -i 's|GRUB_CMDLINE_LINUX_DEFAULT="quiet"|GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"|g' /etc/default/grubsed -i 's|GRUB_CMDLINE_LINUX_DEFAULT=""|GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"|g' /etc/default/grub
+
+update-grub
+```
+
 - Cấu hình để đổi name Card mạng về eth* thay vì ens, eno (Để scripts netplug chạy ổn định)
 ```
 sed -i 's|GRUB_CMDLINE_LINUX=""|GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"|g' /etc/default/grub
@@ -172,11 +185,6 @@ sed -i 's|GRUB_CMDLINE_LINUX=""|GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
 - Lưu lại config
 ```
 update-grub
-```
-- Xóa thông tin altname card mạng
-```
-ip link property del dev eth0 altname ens3
-ip link property del dev eth0 altname enp0s3
 ```
 - Reboot VM
 ```
@@ -206,30 +214,12 @@ mv netplug /etc/netplug/netplug
 
 chmod +x /etc/netplug/netplug
 ```
-
-### Bước 2: Thiết lập gói cloud-init
-- Cài đặt cloud-init
+- Xóa  thông tin MAC card mạng
 ```
-apt-get install cloud-utils cloud-initramfs-growroot cloud-init -y
+echo > /lib/udev/rules.d/75-persistent-net-generator.rules
+echo > /etc/udev/rules.d/70-persistent-net.rules
 ```
-- Cấu hình user mặc định
-```
-sed -i 's/name: debian/name: root/g' /etc/cloud/cloud.cfg
-```
-- Disable default config route
-```
-sed -i 's|link-local|#link-local|g' /etc/networks
-```
-- Clean cấu hình và restart service
-```
-cloud-init clean
-systemctl restart cloud-init
-systemctl enable cloud-init
-systemctl status cloud-init
-```
-Lưu ý: Việc restart có thể mất 2-3 phút hoặc hơn (Nếu quá lâu có thể bỏ qua bước restart cloud-init)
-
-### Bước 4: Cài đặt qemu-agent
+### Bước 2: Cài đặt qemu-agent
 
 Chú ý: qemu-guest-agent là một daemon chạy trong máy ảo, giúp quản lý và hỗ trợ máy ảo khi cần (có thể cân nhắc việc cài thành phần này lên máy ảo)
 
@@ -248,8 +238,8 @@ qemu-ga --version
 service qemu-guest-agent status
 ```
 
-### Bước 4: welcome Display
-
+### Bước 3: welcome Display và CMD Log
+- welcome Display
 ```
 wget https://raw.githubusercontent.com/danghai1996/create-images-openstack/master/scripts_all/linux-login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
 ```
@@ -278,46 +268,75 @@ Log out rồi login lại kiểm tra:
     root@cloud:~# 
     ```
 
+- CMD Log thực hiện theo tài liệu tại [đây](https://news.cloud365.vn/tools-log-all-command-of-user-in-linux/)
+
+
+### Bước 4: Thiết lập gói cloud-init
+- Cài đặt cloud-init
 ```
-apt-get update -y
-apt-get install vim -y
-wget https://raw.githubusercontent.com/danghai1996/thuctapsinh/master/HaiDD/CreateImage/scripts/netplug_debian -O netplug
-mv netplug /etc/netplug/netplug
-chmod +x /etc/netplug/netplug
-sed -i 's|GRUB_CMDLINE_LINUX_DEFAULT="quiet"|GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"|g' /etc/default/grubsed -i 's|GRUB_CMDLINE_LINUX_DEFAULT=""|GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"|g' /etc/default/grub
-update-grub
-apt-get install software-properties-common -y
-apt-get update -y
-apt-get install qemu-guest-agent -y
-service qemu-guest-agent start
-qemu-ga --version
-service qemu-guest-agent status
-wget https://raw.githubusercontent.com/danghai1996/create-images-openstack/master/scripts_all/linux-login.sh -O /etc/profile.d/linux-login.sh && chmod +x /etc/profile.d/linux-login.sh
-echo > /lib/udev/rules.d/75-persistent-net-generator.rules
-echo > /etc/udev/rules.d/70-persistent-net.rules
 apt-get install cloud-utils cloud-initramfs-growroot cloud-init -y
+```
+- Cấu hình user mặc định
+```
 sed -i 's/name: debian/name: root/g' /etc/cloud/cloud.cfg
+```
+- Disable default config route
+```
 sed -i 's|link-local|#link-local|g' /etc/networks
-touch /root/.cloud-warnings.skip
+```
+- Clean cấu hình và restart service
+```
 cloud-init clean
 systemctl restart cloud-init
 systemctl enable cloud-init
 systemctl status cloud-init
+```
+Lưu ý: Việc restart có thể mất 2-3 phút hoặc hơn (Nếu quá lâu có thể bỏ qua bước restart cloud-init)
+
+### Bước 5: Xóa thông tin log CMD
+```
 apt-get clean all
 rm -f /var/log/wtmp /var/log/btmp
 > /var/log/cmdlog.log
 history -c
+```
 
+## Phần 4. Tổi ưu và dẩy images
+
+### Bước 1: Sử dụng lệnh virt-sysprep để xóa toàn bộ các thông tin máy ảo
+
+```
+virt-sysprep -d OPS_Template_Debian11
+```
+
+### Bước 2: Tối ưu kích thước image:
+```
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/OPS_Template_Debian11.qcow2 OPS_Template_Debian11
+```
+
+### Bước 3: Upload image lên glance và sử dụng
+- trước tiên cần Coppy file images sang note Controller
+- Convert images về định dạng raw
+```
+qemu-img convert -O raw OPS_Template_Debian11 OPS_Template_Debian11.raw
+```
+- Đẩy image lên hệ thống và sử dụng
+```
+glance image-create --name OPS_Template_Debian11 \
+--file /root/image-create-ops-test/OPS_Template_Debian11.raw \
+--disk-format raw \
+--container-format bare \
+--visibility=public \
+--property hw_qemu_guest_agent=yes \
+--min-disk 10 --min-ram 1024 --progress
 ```
 
 
-<img src = "..\Images\debian11\35.png">
-<img src = "..\Images\debian11\36.png">
-<img src = "..\Images\debian11\37.png">
-<img src = "..\Images\debian11\38.png">
-<img src = "..\Images\debian11\39.png">
-<img src = "..\Images\debian11\40.png">
-<img src = "..\Images\debian11\41.png">
-<img src = "..\Images\debian11\42.png">
-<img src = "..\Images\debian11\43.png">
-<img src = "..\Images\debian11\44.png">
+### Bước 4: Nội dung cloud-init
+
+```
+#cloud-config
+password: '{vps_password}'
+chpasswd: { expire: False }
+ssh_pwauth: True
+```
