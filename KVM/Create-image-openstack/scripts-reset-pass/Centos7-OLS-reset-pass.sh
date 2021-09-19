@@ -17,3 +17,4 @@ sed -i "s|$old_passwd_mysl|$new_passwd_2|g" /usr/local/lsws/password
 systemctl restart lsws
 systemctl restart mysqld
 # DONE
+0962012918tT

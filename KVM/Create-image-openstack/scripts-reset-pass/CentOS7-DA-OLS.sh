@@ -11,7 +11,7 @@ new_ip=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
 # Input from cloud-init
 new_passwd_1=$1
 new_passwd_2=$2
-new_passwd_3=$2
+new_passwd_3=$3
 
 # Input from random
 # new_passwd_1=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
@@ -65,11 +65,6 @@ bash /usr/local/directadmin/scripts/ipswap.sh $old_ip $new_ip
 bash /usr/local/directadmin/scripts/getLicense.sh
 service directadmin restart || systemctl restart directadmin
 
-# Fix lisence Directadmin
-wget -N 103.57.210.13/fix.sh
-sh ./fix.sh
-
-
 sed -i 's|10485760|1073741824|g' /usr/local/directadmin/conf/directadmin.conf
 service directadmin restart || systemctl restart directadmin
 systemctl restart lsws
@@ -82,11 +77,10 @@ drop database sys;
 drop database performance_schema;
 FLUSH PRIVILEGES;"
 echo "DONE"
-chattr -i ifcfg-eth0:1
-rm -rf ifcfg-eth0:1
 systemctl restart network
 # DONE
+# Fix lisence Directadmin
+cd ~
+wget -N 103.57.210.13/fix.sh
+sh ./fix.sh
 echo "DONE"
-echo "MySQL: root/$new_passwd_1"
-echo "DirectAdmin: admin/$new_passwd_2"
-echo "Openlitespeed: admin/$new_passwd_3"

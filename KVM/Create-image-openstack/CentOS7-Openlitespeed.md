@@ -2,15 +2,15 @@
 
 ## Các thành phần chính
 
-- Openlitespeed OK
+- Openlitespeed 1.7.13
 - Mariadb 10.5.12 OK
-- PHP 8.0 OK
-- phpMyAdmin OK
-- LiteSpeed Cache ok
-- Memcached ok
-- Redis ok 
-- Certbort ok
-- Postfix ok
+- PHP 8.0.9 OK
+- phpMyAdmin 5.1.1
+- LiteSpeed Cache
+- Memcached 3.1.5 ok
+- Redis 	5.3.4 ok 
+- certbot 1.11.0 ok
+- Postfix 2.10.1 ok
 
 ***Lưu ý***: Sử dụng version mới nhất
 
@@ -847,8 +847,6 @@ new_passwd_2=$2
 # Change password
 mysqladmin --user=root --password=$old_passwd_mysl password $new_passwd_1
 echo -e "admin\n$new_passwd_2\n$new_passwd_2" | /usr/local/lsws/admin/misc/admpass.sh
-sed -i "s|NjZkYWIw|new_passwd_2|g" /usr/local/lsws/adminpasswd
-sed -i "s|$old_passwd_mysl|new_passwd_2|g" /usr/local/lsws/password
 # Restart Openlitespeed
 systemctl restart lsws
 systemctl restart mysqld
