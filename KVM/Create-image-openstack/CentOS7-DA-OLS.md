@@ -1,5 +1,5 @@
 # Tài liệu đóng Image CentOS7 + Directadmin + Openlitespeed
-## Phần I. Khởi tạo Host
+# Phần I. Khởi tạo Host
 ## Bước 1: Trên KVM host tạo máy ảo CentOS7
 
 ### 1. Khởi tạo ổ cứng sử dụng cho máy ảo:
@@ -120,9 +120,9 @@ Nếu đã tồn tại channel đổi port channel này về port='2' và add ch
 </channel>
 </devices>
 ```
-## Phần 2: Setup môi trường cơ bản CentOS7
+# Phần II: Setup môi trường cơ bản CentOS7
 
-### 1. Cấu hình và cài đặt các gói
+## 1. Cấu hình và cài đặt các gói
 Cài đặt `epel-release` và update
 ```sh
 yum install epel-release -y
@@ -131,7 +131,7 @@ yum install -y wget
 sudo yum  install zip unzip -y
 ```
 
-### 2. Disable firewalld, SElinux
+## 2. Disable firewalld, SElinux
 ```sh
 systemctl disable firewalld
 systemctl stop firewalld
@@ -144,7 +144,7 @@ sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config
 
 Reboot kiểm tra lại firewalld và SElinux
 
-### 3. Cấu hình Network
+## 3. Cấu hình Network
 Disable NetworkManager, sử dụng network service
 ```sh
 systemctl disable NetworkManager
@@ -167,19 +167,19 @@ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
 Lưu ý: Kết quả ra `1` => Tắt thành công, `0` tức IPv6 vẫn bật
 
-### 4. Cấu hình SSH
+## 4. Cấu hình SSH
 ```sh
 sed -i 's/#ListenAddress 0.0.0.0/ListenAddress 0.0.0.0/g' /etc/ssh/sshd_config 
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config 
 systemctl restart sshd
 ```
 
-### 5. Điều chỉnh timezone
+## 5. Điều chỉnh timezone
 Đổi timezone về `Asia/Ho_Chi_Minh`
 ```sh
 timedatectl set-timezone Asia/Ho_Chi_Minh
 ```
-### 6. Cài đặt chronyd
+## 6. Cài đặt chronyd
 ```sh
 yum install chrony -y
 sed -i 's|server 1.vn.pool.ntp.org iburst|server 162.159.200.123 iburst|g' /etc/chrony.conf
@@ -187,7 +187,7 @@ systemctl enable --now chronyd
 hwclock --systohc
 ```
 
-### 7. Cấu hình console và network
+## 7. Cấu hình console và network
 
 Để sử dụng nova console-log, bạn cần thay đổi option cho `GRUB_CMDLINE_LINUX` và lưu lại 
 
@@ -236,7 +236,7 @@ chmod +x /etc/rc.local
 rm -f /etc/hostname
 ```
 
-### 8. Tạo Snapshot Begin
+###8. Tạo Snapshot Begin
 ## Phần III. Cài đặt DirectAdmin
 
 Sau đó cài đặt DA theo hướng dẫn sau:
@@ -526,73 +526,7 @@ systemctl status memcached
 cd /usr/local/directadmin/scripts/custom
 ./php-extension.sh status memcached
 ```
-  - kết quả:
-```
-PHP Warning:  Module 'memcached' already loaded in Unknown on line 0
-[OK] The extension memcached for PHP 74 seems to be enabled!
-PHP Warning:  Module 'memcached' already loaded in Unknown on line 0
-memcached
-memcached support => enabled
-memcached.compression_factor => 1.3 => 1.3
-memcached.compression_threshold => 2000 => 2000
-memcached.compression_type => fastlz => fastlz
-memcached.default_binary_protocol => Off => Off
-memcached.default_connect_timeout => 0 => 0
-memcached.default_consistent_hash => Off => Off
-memcached.serializer => php => php
-memcached.sess_binary_protocol => Off => Off
-memcached.sess_connect_timeout => 0 => 0
-memcached.sess_consistent_hash => On => On
-memcached.sess_consistent_hash_type => ketama => ketama
-memcached.sess_lock_expire => 0 => 0
-memcached.sess_lock_max_wait => not set => not set
-memcached.sess_lock_retries => 5 => 5
-memcached.sess_lock_wait => not set => not set
-memcached.sess_lock_wait_max => 150 => 150
-memcached.sess_lock_wait_min => 150 => 150
-memcached.sess_locking => On => On
-memcached.sess_number_of_replicas => 0 => 0
-memcached.sess_persistent => Off => Off
-memcached.sess_prefix => memc.sess.key. => memc.sess.key.
-memcached.sess_randomize_replica_read => Off => Off
-memcached.sess_remove_failed_servers => Off => Off
-memcached.sess_sasl_password => no value => no value
-memcached.sess_sasl_username => no value => no value
-memcached.sess_server_failure_limit => 0 => 0
-memcached.store_retry_count => 2 => 2
-PHP Warning:  Module "memcached" is already loaded in Unknown on line 0
-[OK] The extension memcached for PHP 80 seems to be enabled!
-PHP Warning:  Module "memcached" is already loaded in Unknown on line 0
-memcached
-memcached support => enabled
-memcached.compression_factor => 1.3 => 1.3
-memcached.compression_threshold => 2000 => 2000
-memcached.compression_type => fastlz => fastlz
-memcached.default_binary_protocol => Off => Off
-memcached.default_connect_timeout => 0 => 0
-memcached.default_consistent_hash => Off => Off
-memcached.serializer => php => php
-memcached.sess_binary_protocol => Off => Off
-memcached.sess_connect_timeout => 0 => 0
-memcached.sess_consistent_hash => On => On
-memcached.sess_consistent_hash_type => ketama => ketama
-memcached.sess_lock_expire => 0 => 0
-memcached.sess_lock_max_wait => not set => not set
-memcached.sess_lock_retries => 5 => 5
-memcached.sess_lock_wait => not set => not set
-memcached.sess_lock_wait_max => 150 => 150
-memcached.sess_lock_wait_min => 150 => 150
-memcached.sess_locking => On => On
-memcached.sess_number_of_replicas => 0 => 0
-memcached.sess_persistent => Off => Off
-memcached.sess_prefix => memc.sess.key. => memc.sess.key.
-memcached.sess_randomize_replica_read => Off => Off
-memcached.sess_remove_failed_servers => Off => Off
-memcached.sess_sasl_password => no value => no value
-memcached.sess_sasl_username => no value => no value
-memcached.sess_server_failure_limit => 0 => 0
-memcached.store_retry_count => 2 => 2
-```
+
 3. 2. cài đặt Redis PHP
 
 ```
@@ -603,7 +537,7 @@ chmod 750 php-extension.sh
 ./php-extension.sh status redis
 ```
 
-## Phần Cài đặt một số dịch vụ cần thiết cho Template
+# Phần III. Phần Cài đặt một số dịch vụ cần thiết cho Template
 - Cài đặt acpid nhằm cho phép hypervisor có thể reboot hoặc shutdown instance.
     ```
     yum install acpid -y
@@ -678,7 +612,7 @@ TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host]
     sed -i 's/name: centos/name: root/g' /etc/cloud/cloud.cfg
     ```
 - Clean all
-    ```
+```
     yum clean all
 
     rm -f /var/log/wtmp /var/log/btmp
@@ -688,37 +622,41 @@ TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host]
     > /var/log/cmdlog.log
 
     history -c
-    ```
 ```
-mysql=FtwBvEGjIh
-mysqluser=da_admin
-adminname=admin
-adminpass=4v6WlkhcQf
+# Phần IV. Tổi ưu và dẩy images
 
-
-Admin password: bG7tOMXNIn7X
-```
-
-
-
-
-# đã mã hóa
+### Bước 1: Sử dụng lệnh virt-sysprep để xóa toàn bộ các thông tin máy ảo
 
 ```
-#cloud-config
-password: '{vps_password}'
-chpasswd: { expire: False }
-ssh_pwauth: True
-write_files:
-- encoding: gzip
-  content: !!binary |
-    H4sIAH7VQGEAA81W+2/bNhD+XX/FzXEhe60sv+IEyYwhDyc14NqZHwW2ZRNkibKJ6lWSihPE/d93pCxbipMu7TZgRmKTx+N3d7y7jzz4wZzT0JzbfKkdwJhwIuDG5nwVMRemJIh9WxBcmS7tcDH8CEP8fR/ZcOFHiVSwAw1Xr3EXDb0Iggf+2bdYFAkrligu2KELrm3ZbkDDSrqsxpv1KsQba1rkuxuh1eiWK44twEw4M/3IsX3TpYw4Qm01ucNoLLiJziZxTdwLWMOCkTg138WZkwgwXNC7Ohhe06jmwZvfCa6WJcaLBmj8ndC48TnMkKxSTBqD0UYHXAZ8Ga2AiGU922tEN6BXfv6pS0Mibnn11n1bua3hd/Wx9UVHrSWxXTBCaFRlqvphjGY8FgXgyBwaNKRCWdqdfSM/x+Nq5uetbrn1BIhhkqMAZUWYiou1A2/fcHSCL+3mYYcnAY6x2EinvfXMgUYHToE4y6haxGh+C0Z9i4EgF7Jcya625AIYBErlPPxtWJiWEC6rWpkvCTTxCZ6xFzFghAubCfjwMPllABckFKNJ5x3M5kkokkZ7OzrWqAeqCIhwzB8Z8Qn6mmUr3XcKYklCDfCDyr9DucLiAAyD3Nk+6G8eHdSKuHVH2Be9Ct0u6B0d/oDcNvnhhN1Rh6RV72YO7paV6406VxKPasT/mmd/Ds8+9LJJGsu+mz6fW9k+PPQsqMgloR1IKHv1CfTHmNFQQLmZeS9YwsWDCqEQgXJEFmDNNf//UcxpFFJnPwr+wAUJHOFvaySN5eUY8E/TlJIqNMx8gsnsSt7EcVa13XKeErfFDPmibWgH+zgZ376E1Xweq7lrE7W92B6tJ1PZLTme8/mKmynNBZQ7cig1a3ivyDay74i6IbQDTrBfKZT4OmXrQpCZLB/helF6NaFqO/QdXRdCz8vzsX+TlVwQ6f4nNjLhKw04Ueil9V+Twz34vfzlxN9mouYg/I4f+zdyrCjpGG6SuU8dzBISC6q74OON8p+Q2fEzZPbv3HXq4EJoxtUtMPXcaBUqmJwsiXeSTUPKN9DflQCN+cqOsaihnF74aQPRWFOvJxzjqWHAnLwKbkHEIFWXfZLxeU5zyyjr9TM0k1OU9q/oPVrnJESMy9zSCs2AMUQCatUOj2rNRr3WaJkevVdGl1DLxlrWPjpfN+rt48OjTh0HR62jduO42V4v9K+WV06Q1vE/Cmh/VVKMKl7EpouUZFMWBSOBlDzjAnUoLpv0pnA9GJ2fDSCw7y30LEQjyOUcunBYr59qOY3NqiVoQCJ833Tx1Ioa8gUb4FXR1Ycj67feeGT1h9bl2bT3LpurSW88Ho2tK/y/7H/sT/qjoXX+q1qXemez6ci6GPdQ05pNemMp6w2v+8OeNZmdT6b96WyKW/RTzWVRjA9oYcsXjzyyp6KYMHyeBDZm3eLOkgT2qXY1mE3ew80YLQ96173JaSml9tLlaNgraY6b9jOiOeosTWwnpJNPRlaYmrO0hWCyFqjneAtDNstJQ2PY2MwryvYTtUHDVEl7ytwLZYPPgiiYJxQvy5qpfiGJ5ZNvO41iEvpUEB4TslNiZMVQKJPp8UJs6Vg90k5UTZiFitgehPLiTHpxkr72zOJbcKM3ypt/TrNV0v4CXEcjp0QNAAA=
-  path: /opt/DA-OLS-Pass.sh
-  permissions: '0755'
-runcmd:
-  - bash /opt/DA-OLS-Pass.sh {vps_mysql_password} {vps_da_password} {vps_ols_password}
-  - rm -rf /opt/DA-OLS-Pass.sh
+virt-sysprep -d OPS_Template_DA_OLS
 ```
+
+### Bước 2: Tối ưu kích thước image:
+```
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/OPS_Template_DA_OLS.qcow2 OPS_Template_DA_OLS
+```
+
+### Bước 3: Upload image lên glance và sử dụng
+- trước tiên cần Coppy file images sang note Controller
+- Convert images về định dạng raw
+```
+qemu-img convert -O raw OPS_Template_DA_OLS OPS_Template_DA_OLS.raw
+```
+- Đẩy image lên hệ thống và sử dụng
+```
+glance image-create --container-format bare --visibility=public \
+--name OPS_Template_DA_OLS --disk-format raw \
+--file /root/image-create-ops-test/OPS_Template_DA_OLS.raw --visibility=public \
+--property os_type=linux \
+--property hw_qemu_guest_agent=yes \
+--property vps_image_user=root \
+--property vps_image_type=CentOS \
+--property vps_image_app=true \
+--min-disk 10 --min-ram 1024 --progress
+```
+
+
+### Bước 4: Nội dung cloud-init
 
 ```
 #cloud-config
@@ -734,6 +672,6 @@ write_files:
 runcmd:
   - bash /opt/DA-OLS-Pass.sh {vps_mysql_password} {vps_da_password} {vps_ols_password}
   - rm -rf /opt/DA-OLS-Pass.sh
-  - cd /usr/local/directadmin/custombuild && ./build update && ./build openlitespeed && ./build rewrite_confs
+  - cd /usr/local/directadmin/custombuild && ./build openlitespeed && ./build rewrite_confs
   - sed -i 's|10485760|1073741824|g' /usr/local/directadmin/conf/directadmin.conf && service directadmin restart
 ```
