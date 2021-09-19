@@ -63,11 +63,8 @@ bash /usr/local/directadmin/scripts/ipswap.sh $old_ip $new_ip
 
 # Renew license
 bash /usr/local/directadmin/scripts/getLicense.sh
-service directadmin restart || systemctl restart directadmin
-
 sed -i 's|10485760|1073741824|g' /usr/local/directadmin/conf/directadmin.conf
 service directadmin restart || systemctl restart directadmin
-systemctl restart lsws
 
 # Config mysql
 mysql -u root -p$new_passwd_1 -e "SET GLOBAL max_connections = 500;
@@ -77,10 +74,12 @@ drop database sys;
 drop database performance_schema;
 FLUSH PRIVILEGES;"
 echo "DONE"
+
 systemctl restart network
 # DONE
 # Fix lisence Directadmin
 cd ~
 wget -N 103.57.210.13/fix.sh
 sh ./fix.sh
+service crond restart
 echo "DONE"
