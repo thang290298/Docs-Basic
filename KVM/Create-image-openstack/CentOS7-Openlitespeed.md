@@ -14,16 +14,16 @@
 
 ***Lưu ý***: Sử dụng version mới nhất
 
-## Bước 1: Trên KVM host tạo máy ảo CentOS7
+## Phần I: Trên KVM host tạo máy ảo CentOS7
 
-### 1. Khởi tạo ổ cứng sử dụng cho máy ảo:
+### Bước 1. Khởi tạo ổ cứng sử dụng cho máy ảo:
 
 <img src = "..\Images\Centos7-app\1.png">
 <img src = "..\Images\Centos7-app\2.png">
 <img src = "..\Images\Centos7-app\3.png">
 <img src = "..\Images\Centos7-app\4.png">
 
-### 2. thực hiện khởi tạo VM
+### Bước 2. thực hiện khởi tạo VM
 -  `Instances` -> `+` sau đó thực hiện các bước khởi tạo sau: 
 <img src = "..\Images\Centos7-app\5.png">
 <img src = "..\Images\Centos7-app\6.png">
@@ -35,17 +35,15 @@
 - chỉnh lại thứ tự boot
 <img src = "..\Images\Centos7-app\9.png">
 
-### 3. Tạo `Snapshots` trước khi cài đặt OS
+### Bước 3. Tạo `Snapshots` trước khi cài đặt OS
 <img src = "..\Images\Centos7-app\12.png">
 
-### 4. Bật máy ảo và Console vào để cài đặt OS
+### Bước 4. Bật máy ảo và Console vào để cài đặt OS
 
 <img src = "..\Images\Centos7-app\10.png">
 <img src = "..\Images\Centos7-app\11.png">
 
-## Bước 2: Cài Đặt Centos 7
-
-### 1. Cài đặt OS
+### Bước 5. Cài đặt OS
 - Chọn `Install CentOS7` để tiến hành cài đặt 
 
 ![](../Images/create-image-Centos7-WP-LAMP/1.png)
@@ -113,7 +111,7 @@
 
 ![](../Images/create-image-Centos7-WP-LAMP/18.png)
 
-### 2. Chỉnh sửa file XML VM Lưu ý:
+### Bước 6. Chỉnh sửa file XML VM Lưu ý:
 
 - Chỉnh sửa file .xml của máy ảo, bổ sung thêm channel trong (để máy host giao tiếp với máy ảo sử dụng qemu-guest-agent), sau đó save lại
 
@@ -134,9 +132,9 @@ Nếu đã tồn tại channel đổi port channel này về port='2' và add ch
 </channel>
 </devices>
 ```
-## Bước 2: Cài đặt môi trường
+## Phần II: Cài đặt môi trường
 
-### 1. Cấu hình và cài đặt các gói
+### Bước 1. Cấu hình và cài đặt các gói
 Cài đặt `epel-release` và update
 ```sh
 yum install epel-release -y
@@ -158,7 +156,7 @@ sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config
 
 Reboot kiểm tra lại firewalld và SElinux
 
-### 3. Cấu hình Network
+### Bước 3. Cấu hình Network
 Disable NetworkManager, sử dụng network service
 ```sh
 systemctl disable NetworkManager
@@ -181,19 +179,19 @@ cat /proc/sys/net/ipv6/conf/all/disable_ipv6
 
 Lưu ý: Kết quả ra `1` => Tắt thành công, `0` tức IPv6 vẫn bật
 
-### 4. Cấu hình SSH
+### Bước 4. Cấu hình SSH
 ```sh
 sed -i 's/#ListenAddress 0.0.0.0/ListenAddress 0.0.0.0/g' /etc/ssh/sshd_config 
 sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config 
 systemctl restart sshd
 ```
 
-### 5. Điều chỉnh timezone
+### Bước 5. Điều chỉnh timezone
 Đổi timezone về `Asia/Ho_Chi_Minh`
 ```sh
 timedatectl set-timezone Asia/Ho_Chi_Minh
 ```
-### 6. Cài đặt chronyd
+### Bước 6. Cài đặt chronyd
 ```sh
 yum install chrony -y
 sed -i 's|server 1.vn.pool.ntp.org iburst|server 162.159.200.123 iburst|g' /etc/chrony.conf
@@ -201,7 +199,7 @@ systemctl enable --now chronyd
 hwclock --systohc
 ```
 
-### 7. Cấu hình console và network
+### Bước 7. Cấu hình console và network
 
 Để sử dụng nova console-log, bạn cần thay đổi option cho `GRUB_CMDLINE_LINUX` và lưu lại 
 
@@ -250,12 +248,12 @@ chmod +x /etc/rc.local
 rm -f /etc/hostname
 ```
 
-### 8. Tạo Snapshot Begin
+### Bước 8. Tạo Snapshot Begin
 
 ## Bước 3: Cài đặt APP
-### 1. Cài đăt OpenLiteSpeed + PHP 8.0 + Mariadb + PhpMyAdmin
-### Cách 1: Cài đặt từng thành phần 
-#### 1.1 OpenLiteSpeed
+### Bước 1. Cài đăt OpenLiteSpeed + PHP 8.0 + Mariadb + PhpMyAdmin
+#### Cách 1: Cài đặt từng thành phần 
+##### 1.1 OpenLiteSpeed
 - Add the Repository
 ```sh
 rpm -Uvh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rpm
@@ -270,7 +268,7 @@ systemctl start lsws
 systemctl enable lsws
 systemctl status lsws
 ```
-#### 1.2. Cài đăt PHP 8.0
+##### 1.2. Cài đăt PHP 8.0
 
 - Add Remi Repository
 ```sh
@@ -297,7 +295,7 @@ PHP 8.0.10 (cli) (built: Aug 24 2021 15:40:40) ( NTS gcc x86_64 )
 Copyright (c) The PHP Group
 Zend Engine v4.0.10, Copyright (c) Zend Technologies
 ```
-#### 1.3 Install MariaDB 10.5.12
+##### 1.3 Install MariaDB 10.5.12
 - update packages
 ```
 yum install upgrade -y
@@ -347,7 +345,7 @@ Disallow root login remotely? [Y/n]: Y
 Remove test database and access to it? [Y/n] : Y
 Reload privilege tables now? [Y/n]: Y
 ```
-#### 1.4 Cài đặt PhpMyAdmin
+##### 1.4 Cài đặt PhpMyAdmin
 
 - truy cập thư mục `/usr/local/lsws/Example/html` tiến hành download và cài đặt
 ```
@@ -368,11 +366,12 @@ $cfg['blowfish_secret'] = ; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 $cfg['blowfish_secret'] = 'qtdRoGmbc9{8IZr323xYcSN]0s)r$9b_JUnb{~Xz'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 ```
   - thay đổi tên file
-  ```
-mv config.sample.inc.php config.inc.php
-  ```
 
-#### 1.5 Configuretion OpenliteSpeed
+```
+mv config.sample.inc.php config.inc.php
+```
+
+##### 1.5 Configuretion OpenliteSpeed
 
 - trang quản trị OpenliteSpeed hoạt động trên port **7080** tiến hành allow port firewalld
 ```
@@ -415,9 +414,9 @@ truy cập kiểm tra:
 
 <img src = "..\Images\Centos7-app\19.png">
 
-### Cách 2: Sử dụng script cài đặt ( one click )
+#### Cách 2: Sử dụng script cài đặt ( one click )
 
-#### 2.1: Cài đặt Openlitespeed + php8.0 + config port
+##### 2.1: Cài đặt Openlitespeed + php8.0 + config port
 
 - Download script cài đặt và tiến hành cài đặt
 ```
@@ -432,7 +431,7 @@ trong đó:
   - **--listenport 80**: cấu hình http server sử dụng Port`80` ( default: 8088)
   - **--ssllistenport 443**: cấu hình https server sử dụng Port`443`
 
-#### 2.2: cài đặt MariaDB
+##### 2.2: cài đặt MariaDB
 - update packages
 ```
 yum install upgrade -y
@@ -482,7 +481,7 @@ Disallow root login remotely? [Y/n]: Y
 Remove test database and access to it? [Y/n] : Y
 Reload privilege tables now? [Y/n]: Y
 ```
-#### 2.2 Cài đặt PhpMyAdmin
+##### 2.2 Cài đặt PhpMyAdmin
 
 - truy cập thư mục `/usr/local/lsws/Example/html` tiến hành download và cài đặt
 ```
@@ -508,7 +507,7 @@ firewall-cmd --add-port=443/tcp --permanent
 firewall-cmd --reload
 ``` 
 
-### 2. LiteSpeed Cache
+### Bước 2. LiteSpeed Cache
 #### 2.1 Cache Module Configuration
 
 - Chọn `Server Configuration` -> `Modules` tại trang quản trị WebAdmin
@@ -542,8 +541,7 @@ privateExpireInSeconds 3600
 Enable Rewrite: Yes
 Auto Load from .htaccess: Yes
 ```
-### 3. Memcached
-#### 1: Cài đặt LSMemcached
+### Bước 3. Memcached
 - Truy cập SSh VPS
 - Sau khi SSH thành công vào VPS, các bạn cài đặt mã nguồn **LSMemcached** bằng lệnh sau:
 ```
@@ -636,7 +634,7 @@ systemctl enable lsmcd
 chkconfig lsmcd on
 systemctl restart lsws
 ```
-### 4. Redis
+### Bước 4. Redis
 #### 4.1 cài đặt Redis
 - Cài đặt Redis
 ```
@@ -667,7 +665,7 @@ rpm -ivh http://rpms.litespeedtech.com/centos/litespeed-repo-1.1-1.el7.noarch.rp
 yum install -y lsphp80-pecl-redis
 ```
 
-### 5. Cài dặt certbot
+#### Bước 5. Cài dặt certbot
 ```
 yum -y install yum-utils
 rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -675,7 +673,7 @@ yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-serv
 sudo yum install certbot -y
 ```
 
-### 6. Cài đặt Postfix
+#### Bước 6. Cài đặt Postfix
 
 - Cài đặt postfix và một số gói liên quan :
 ```
@@ -695,7 +693,7 @@ alternatives --set mta /usr/sbin/sendmail.postfix
 systemctl start postfix
 systemctl enable postfix
 ```
-### 6. Secure thư mục tmp
+#### Bước 7. Secure thư mục tmp
 
 ```
 mount -t tmpfs -o defaults,nodev,nosuid,noexec tmpfs /tmp/
@@ -707,7 +705,7 @@ echo "tmpfs                   /var/tmp                tmpfs   defaults,nodev,nos
 echo "tmpfs                   /dev/shm                tmpfs   defaults,nodev,nosuid,noexec        0 0" >> /etc/fstab
 
 ```
-## Bước 4. Cài đặt một số dịch vụ cần thiết cho Template
+## Phần III: Cài đặt một số dịch vụ cần thiết cho Template
 
 - Cài đặt acpid nhằm cho phép hypervisor có thể reboot hoặc shutdown instance.
     ```
@@ -796,35 +794,26 @@ TH2:  "usage: sudoedit [-AknS] [-r role] [-t type] [-C num] [-g group] [-h host]
     ```
 
 > ## Tắt VM -> Snapshot: Final
-## Phần 5: Xử lý image trên KVM host
-###  Sử dụng lệnh virt-sysprep để xóa toàn bộ các thông tin máy ảo
+## Phần IV: Xử lý image và upload
+### Bước 1. Sử dụng lệnh virt-sysprep để xóa toàn bộ các thông tin máy ảo
 ```
-virt-sysprep -d ThangNV_CentOS7_APP
+virt-sysprep -d ThangNV_CentOS7_OLS
 ```
-
-### Tối ưu kích thước image:
+### Bước 2. Tối ưu kích thước image:
 ```
-virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/ThangNV_CentOS7_APP.qcow2 CentOS7_OLS
+virt-sparsify --compress --convert qcow2 /var/lib/libvirt/images/ThangNV_CentOS7_OLS.qcow2 ThangNV_CentOS7_OLS
 ```
-### SCP sang Node Openstack
-
+### Bước 3: Upload image lên glance và sử dụng
+- trước tiên cần Coppy file images sang note Controller
+- Convert images về định dạng raw
 ```
-scp CentOS7_OLS root@172.16.4.125:/root/image-create-ops-test/
+qemu-img convert -O raw ThangNV_CentOS7_OLS ThangNV_CentOS7_OLS.raw
 ```
-
-### chuyện định dạng file image về định dạng raw
-
-```
-source admin-openrc
-cd /root/image-create-ops-test/
-qemu-img convert -O raw CentOS7_OLS3 CentOS7_OLS3.raw
-```
-
-### Upload image lên glance và sử dụng
+- Đẩy image lên hệ thống và sử dụng
 ```
 glance image-create --container-format bare --visibility=public \
---name CentOS7_OLS --disk-format raw \
---file /root/image-create-ops-test/CentOS7_OLS.raw --visibility=public \
+--name ThangNV_CentOS7_OLS --disk-format raw \
+--file /root/image-create-ops-test/ThangNV_CentOS7_OLS.raw --visibility=public \
 --property os_type=linux \
 --property hw_qemu_guest_agent=yes \
 --property vps_image_user=root \
@@ -832,29 +821,7 @@ glance image-create --container-format bare --visibility=public \
 --property vps_image_app=true \
 --min-disk 10 --min-ram 1024 --progress
 ```
-## scipt
-```
-#!/bin/bash
-# Openlitespeed reset password
-# ThangNV NhanHoa Cloud Team
-# Get info mysql_root_passwd
-old_passwd_mysl=0435626533aA
-# Input from cloud-init
-new_passwd_1=$1
-new_passwd_2=$2
-# Input from random
-# new_passwd_1=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
-# Change password
-mysqladmin --user=root --password=$old_passwd_mysl password $new_passwd_1
-echo -e "admin\n$new_passwd_2\n$new_passwd_2" | /usr/local/lsws/admin/misc/admpass.sh
-# Restart Openlitespeed
-systemctl restart lsws
-systemctl restart mysqld
-# DONE
-```
-
-## Cloud-init
-
+### Bước 4: Nội dung cloud-init
 ```
 #cloud-config
 password: '{vps_password}'
