@@ -68,14 +68,14 @@ File domain XML chứa những thông tin về thành phần của máy ảo (s�
 
 Ngoài domain XML, KVM cũng có các file XML khác để lưu các thông tin liên quan tới network, storage…
 
- ![](../Images/xml.png)
+ ![]( ../../Images/xml.png)
 
  ## II. Các thành phần trong file domain XML
  Thẻ không thể thiếu trong file domain xml là domain. Nó có 2 thành phần chính: type cho biết hypervisor đang sử dụng, id là mã nhận dạng của máy ảo.
 
  ### 1. Metadata
 
-![](../Images/metadata.png)
+![]( ../../Images/metadata.png)
 
 - `name`: Tên máy ảo, chỉ bao gồm kí tự chữ và số và không được trùng với những máy ảo đang chạy.
 - `uuid`: Mã nhận dạng quốc tế duy nhất cho máy ảo. Format theo RFC 4122. Nếu thiếu trường uuid khi khởi tạo, mã này sẽ được tự động generate.
@@ -90,7 +90,7 @@ Có nhiều các để boot máy ảo và mỗi cách lại có những lợi í
 ### 3. BIOS Bootloader
 Boot thông qua BIOS được hỗ trợ bởi những hypervisors full virtualization. Người dùng sẽ phải thiết lập thứ tự ưu tiên các thiết bị boot.
 
-![](../Images/Bootloader.png)
+![]( ../../Images/Bootloader.png)
 
 
 
@@ -102,7 +102,7 @@ Boot thông qua BIOS được hỗ trợ bởi những hypervisors full virtuali
 
 ### 4. Direct kernel boot
 
-![](../Images/Direct-kernel-boot.png)
+![]( ../../Images/Direct-kernel-boot.png)
 
 
 - `loader :` readonly có giá trị yes hoặc no chỉ ra file image writable hay 
@@ -118,7 +118,7 @@ cmdline: xác định giao diện điều khiển thay thế
 
 ### 5. CPU Allocation
 
-![](../Images/CPU-Allocation.png)
+![]( ../../Images/CPU-Allocation.png)
 
 ### 6. vcpu
 
@@ -126,7 +126,7 @@ Trạng thái của từng cpu cụ thể
 
 ### 7. Memory Allocation
 
- ![](../Images/Memory-Allocation.png)
+ ![]( ../../Images/Memory-Allocation.png)
 
 
 ### 8. memory
@@ -141,7 +141,7 @@ Dung lượng RAM tối đa ở thời điểm khởi động.
 
 ### 9. Events configuration
 
-![](../Images/Events-configuration.png)
+![]( ../../Images/Events-configuration.png)
 
 `on_poweroff:` Hành động được thực hiện khi người dùng yêu cầu tắt máy
 
@@ -167,7 +167,7 @@ Những hành động được phép thực thi:
 
 ### 10. Hypervisor features
 
-![](../Images/Hypervisor-features.png)
+![]( ../../Images/Hypervisor-features.png)
 
 - `pae:` Chế độ mở rộng địa chỉ vật lí cho phép sử dụng 32 bit để lưu trữ tới hơn 4GB bộ nhớ.
 
@@ -183,20 +183,20 @@ Clock
 
 `offset :` giá trị `utc`, `localtime`, `timezone`và `variable`
 
-![](../Images/clock.png)
+![]( ../../Images/clock.png)
 
 ### 12. Devices
 
 emulator
 * Đường dẫn tới thiết bị mô phỏng nhị phân. Trong KVM, đó là /usr/bin/kvm
 
-![](../Images/emulator.png)
+![]( ../../Images/emulator.png)
 
 Hard drives, floppy disks, CDROMs
 
 #### 12.1. Disk
 
-![](../Images/Disk.png)
+![]( ../../Images/Disk.png)
 
 disk: Mô tả ổ đĩa, bao gồm các giá trị:
 
@@ -229,7 +229,7 @@ disk: Mô tả ổ đĩa, bao gồm các giá trị:
 
 #### 2. Controller
 
-![](../Images/Controller.png)
+![]( ../../Images/Controller.png)
 
 Tùy thuộc vào cấu trúc của máy ảo mà nó có thể có các thiết bị ảo đi kèm, mỗi cái lại đi theo một bộ điều khiển. Thường thì libvirt sẽ tự động chỉ ra mà không cần khai báo qua file xml.
 
@@ -239,7 +239,7 @@ Mỗi bộ điều khiển có một tham số bắt buộc là type và index, 
 
 Có một vài kiểu set up network ví dụ như Virtual network (type = network), Bridge to LAN (type = bridge), Userspace SLIRP stack (type=user). Ở đây tôi sẽ nói về Bridge to LAN.
 
-![](../Images/Network-interfaces.png)
+![]( ../../Images/Network-interfaces.png)
 
 - `source:` tham số bắt buộc là “bridge”: tên bridge
 
@@ -249,25 +249,25 @@ Có một vài kiểu set up network ví dụ như Virtual network (type = netwo
  
      Cài đặt tĩnh
 
-![](../Images/xml14.png)
+![]( ../../Images/xml14.png)
 
 ### 14. Input devices
 
 Chỉ có 1 tham số bắt buộc đó là type, các giá trị có thể chọn là ‘mouse’, ‘tablet’, ‘keyboard’ hoặc ‘passthrough’. Tham số bus để xác định chính xác thiết bị, các giá trị có thể chọn là “xen” (paravirtualized), “ps2”, “usb” và “virtio”.
 
 
-![](../Images/xml15.png)
+![]( ../../Images/xml15.png)
 
 ### 15. Graphical framebuffers
 
-![](../Images/xml16.png)
+![]( ../../Images/xml16.png)
 
 - `graphic:` Thuộc tính bắc buộc là type, các giá trị có thể chọn : “sdl”, “vnc”, “spice”, “rdp” và “desktop”. Đối với mỗi loại sẽ có thêm những tham số được thêm vào.
 
 
 ### 16. Video devices
 
-![](../Images/xml17.png)
+![]( ../../Images/xml17.png)
 
 - `model:` Tham số bắt buộc là “type”, các giá trị có thể lựa chọn là “vga”, “cirrus”, “vmvga”, “xen”, “vbox”, “qxl”, “virtio” và “gop”, tùy thuộc vào hypervisor.
 
@@ -278,11 +278,11 @@ ram và vram chỉ ra kích thước của primary và secondary bar
 ### 17. Guest interface
 `serial port:`
 
-![](../Images/xml18.png)
+![]( ../../Images/xml18.png)
 
 `console:`
 
-![](../Images/xml19.png)
+![]( ../../Images/xml19.png)
 
 Nếu không có target type được chọn , mặc định trong KVM sẽ sử dụng serial.
 
@@ -291,7 +291,7 @@ Nếu không có target type được chọn , mặc định trong KVM sẽ sử
 - `sound:` tham số bắt buộc là model, các giá trị có thể chọn : ‘es1370’, ‘sb16’, ‘ac97’, ‘ich6’ và ‘usb’
 
 ### 19. Memory balloon device
-![](../Images/xml20.png)
+![]( ../../Images/xml20.png)
 
 
 Được thêm tự động, mặc định với KVM, model sẽ là virtio
@@ -307,7 +307,7 @@ File` virtual network` mặc định của KVM là `default.xml`, trong file nà
 
 Ví dụ về file network xml:
 
-![](../Images/xml21.png)
+![]( ../../Images/xml21.png)
 
 
 Các thành phần chính trong file network xml
@@ -316,13 +316,13 @@ Thẻ không thể thiếu trong file network xml là`network`
 
 ### 1. General Metadata
 
-![](../Images/xml22.png)
+![]( ../../Images/xml22.png)
 
 - `name:` Tên của virtual network
 - `uuid:` uuid của virtual network
 
 ### 2. Connectivity
-![](../Images/xml23.png)
+![]( ../../Images/xml23.png)
 
 - `bridge:` Bao gồm các tham số
 
@@ -346,7 +346,7 @@ Các phương thức:
 
 - `nat:` Các máy ảo sẽ kết nối ra ngoài internet theo phương thức NAT. Thẻ con address sẽ xác định range của địa chỉ cấp cho các máy ảo, bao gồm start và end. Ngoài address, người dùng cũng có thể set port range.
 
-![](../Images/xml24.png)
+![]( ../../Images/xml24.png)
 
 - `route:` Dữ liệu sẽ được forward tới card vật lí nhưng không thông qua giao thức NAT. Các rules của firewall sẽ được thiết lập để hạn chế việc truyền dữ liệu.
 
@@ -357,7 +357,7 @@ Các phương thức:
 
 ### 3.Quality of service
 
-![](../Images/xml25.png)
+![]( ../../Images/xml25.png)
 
 - `bandwidth:` Thiết lập băng thông
 
@@ -367,7 +367,7 @@ Các phương thức:
 
 ### 4. Static Routes
 
-![](../Images/xml26.png)
+![]( ../../Images/xml26.png)
 
 
 - `route:` Khai báo một route tĩnh
@@ -384,7 +384,7 @@ Các phương thức:
 
 ### 5. Addressing
 
-![](../Images/xml27.png)
+![]( ../../Images/xml27.png)
 
 - `mac:` Địa chỉ mac của bridge, tham số bắt buộc là address
 

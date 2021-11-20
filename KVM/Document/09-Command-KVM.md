@@ -106,6 +106,18 @@ Domain Thangnv-webvirt suspended
 Domain Thangnv-webvirt resumed
 ```
 
+- Tự động bật máy áo khi khởi động KVM:
+```
+- Enable:
+
+virsh autostart <tên_vm>
+
+- Disable:
+
+virsh autostart --disabel <tên_vm>
+
+```
+
 - Liệt kê tất cả các image được gắn vào VM : `virsh domblklist [tên VM]`
 ```
 [root@kvm ~]# virsh domblklist ThangNV-Pfsense
@@ -148,3 +160,11 @@ vnet0 up
 
 ### 3. Gắn và tách 1 ổ đĩa khỏi VM
 - Tách 1 disk khỏi VM :
+```
+virsh detach-disk [VM name] [đường dẫn disk] [sda, sdb or sdc]
+```
+- Gắn 1 disk vào VM :
+```
+virsh attach-disk [VM name] [đường dẫn new disk] [sda, sdb or sdc]
+```
+

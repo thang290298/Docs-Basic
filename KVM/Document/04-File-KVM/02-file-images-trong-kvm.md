@@ -63,7 +63,7 @@ Sau khi chuyển đổi, tiến hành shutdown máy ảo. Đồng thời, sửa 
 virsh edit VMname
 ```
 
-<img src="../Images/createkvm/raw-qcow2.png">
+<img src=" ../../Images/createkvm/raw-qcow2.png">
 
 # IV. So sánh giữa RAW và QCOWW2
 
@@ -80,11 +80,11 @@ qemu-img create -f raw file.raw 2G
 ```
 qemu-img create -f qcow2 file.qcow2 2G
 ```
-<img src="../Images/10.png">
+<img src=" ../../Images/10.png">
 
 sau khi tạo ta có thể thấy dung lương 2 file đêu có dung lượng 2GB, nhưng thực thế đối với file có định dạng `raw` dụng lường thực nhận đủ 2GB còn đối với file `QCOW2` chỉ nhận được `193k` dung lượng.
 
-<img src="../Images/11.png">
+<img src=" ../../Images/11.png">
 
 ## 2. Hiệu năng
 
@@ -95,14 +95,14 @@ sau khi tạo ta có thể thấy dung lương 2 file đêu có dung lượng 2G
 dd if=file.raw of=doc1 bs=8k count=100000
 dd if=file.qcow2 of=doc2 bs=8k count=100000
 ```
-<img src="../Images/12.png">
+<img src=" ../../Images/12.png">
 
 - Kiểm tra tốc độ ghi dữ liệu : `raw`  `qcow2`
 ```
 dd if=/dev/zero of=file.raw bs=8k count=100000
 dd if=/dev/zero of=file.qcow2 bs=8k count=100000
 ```
-<img src="../Images/13.png">
+<img src=" ../../Images/13.png">
 
 
 
