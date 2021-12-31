@@ -16,11 +16,11 @@ systemctl stop sendmail
 systemctl disable sendmail
 echo "---- Done Update OS ----"
 sleep 3
-echo "---- Download Agent Check_MK 1.5.0p22-1 && setup ---- "
-wget http://203.162.79.139/monitor/check_mk/agents/check-mk-agent-1.5.0p22-1.noarch.rpm
-chmod +x check-mk-agent-1.5.0p22-1.noarch.rpm
-rpm -ivh check-mk-agent-1.5.0p22-1.noarch.rpm
-echo "---- Done Download Agent Check_MK 1.5.0p22-1 && setup ---- "
+echo "---- Download Agent Check_MK 1.6.0p27-1 && setup ---- "
+wget http://203.162.79.139/monitor/check_mk/agents/check-mk-agent-1.6.0p27-1.noarch.rpm
+chmod +x check-mk-agent-1.6.0p27-1.noarch.rpm
+rpm -ivh check-mk-agent-1.6.0p27-1.noarch.rpm
+echo "---- Done Download Agent Check_MK 1.6.0p27-1 && setup ---- "
 sleep 3
 echo "---- Cai dat xinetd ----"
 yum install xinetd -y
@@ -28,8 +28,8 @@ systemctl start xinetd
 systemctl enable xinetd
 sed -i "s|#only_from      = 127.0.0.1 10.0.20.1 10.0.20.2|only_from      = 203.162.79.139|g" /etc/xinetd.d/check_mk
 systemctl restart xinetd
-rm -rf check-mk-agent-1.5.0p22-1.noarch.rpm
-echo "---- Agent Check_MK 1.5.0p22-1 finish ----"
+rm -rf check-mk-agent-1.6.0p27-1.noarch.rpm
+echo "---- Agent Check_MK 1.6.0p27-1 finish ----"
 sleep 3
 echo "---- add mail queue ----"
 yum install epel-release -y
