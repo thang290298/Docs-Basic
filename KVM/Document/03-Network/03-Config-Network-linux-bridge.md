@@ -47,7 +47,7 @@ TYPE=Ethernet
 NAME=em1
 DEVICE=em1
 ONBOOT=yes
-HWADDR=84:2b:2b:4e:b9:87
+HWADDR=20:47:47:86:3b:ac
 BRIDGE=br0
 ```
 
@@ -61,9 +61,9 @@ Lưu ý: phần `HWADDR` kiểm tra đúng thông tin địa chỉ MAC, trước
 DEVICE=br0
 TYPE=Bridge
 BOOTPROTO=static
-IPADDR=172.16.2.13 #IP card vat ly
-GATEWAY=172.16.10.1
-NETMASK=255.255.240.0
+IPADDR=103.124.95.135
+GATEWAY=103.124.95.1
+NETMASK=255.255.255.0
 ONBOOT=yes
 DNS1=8.8.8.8
 ```
