@@ -1,5 +1,6 @@
 #!/bin/bash
-/usr/sbin/vzlist -a | grep running | awk '{print $1}' > /mnt/quyenbx/id.txt
+touch /mnt/zimbra/id.txt
+/usr/sbin/vzlist -a | grep running | awk '{print $1}' > /mnt/zimbra/id.txt
 for line in `cat /mnt/quyenbx/id.txt`
 do
 ip=`/usr/sbin/vzlist -a | grep ${line} | awk '{print $4}'`
