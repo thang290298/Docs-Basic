@@ -1,5 +1,4 @@
 #!/bin/bash
-
 /usr/sbin/vzlist -a | grep running | awk '{print $1}' > id.txt
 for line in `cat id.txt`
 do
